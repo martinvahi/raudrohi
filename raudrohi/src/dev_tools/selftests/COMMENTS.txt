@@ -1,0 +1,58 @@
+===========================================================================
+============  Raudrohi JavaScript Library (RJSL) Selftests ================
+===========================================================================
+
+WARNING (October 2012): The selftests system is currently out of order. 
+
+TODO: update the Rakefile so that it generates a proper HTML-file that
+runs the selftests.
+
+The text below the line after the next line is probably rubbish.
+
+----------------------------------------------------------------------------
+
+To run selftests, one has to have the whole development environment
+in place. That includes the availability of Sirel PHP library (SPHPL), 
+Kibuvits Ruby Library (KRL) , Renessaator tool, etc.
+
+After installing the SPHPL, KRL, etc., setting all of the 
+the environment variables (SIREL_HOME, RUBY_HOME, GEM_HOME,
+KIBUVITS_HOME, RAUDROHI_HOME, etc.) one has to run the 
+Renessaator on the ../etc/raudrohi_development_configuration.php on the 
+server machine to update environment related information within it.
+
+The selftests are run by opening the ./run_selftests.php (in a web browser, 
+served by a web server). As tests really run on the web browser
+that is used for viewing the ./run_selftests.php , the web browser
+has to be "recent enough".
+
+The current version of the selftests suite runs, but in practice
+contains 2 considerable bugs:
+
+1) For some unknown reason that probably has something to do
+   with web server side configuration the code within the 
+   run_selftests.php is not able to trigger of raudrohi-all-in-one 
+   file recompilation. A dirty semi-workaround is to run 
+   ----verbatim--start----
+   ../raudrohi_all_in_one_assembler.bash assemble_for_raudrohi_selftests
+   ----verbatim--end------
+   from console prior to reloading the ./run_selftests.php
+
+2) Probably due to the very same issues that caused point 1, 
+   the ./run_selftests.php is not able to properly execute
+   commands chmod and chown, which means that the temporary files
+   within the ../tmp_ that are created by the ./run_selftests.php
+   can be deleted almost only by root user.
+
+The good news is that unless CSS or embedded fonts are changed, there 
+is no need to empty the browser cache before running the ./run_selftests.php, 
+because it uses a new file name for the raudrohi-all-in-one 
+JavaScript file at every run.
+
+
+TODO: A lot of the selftests reside in the release code and is
+a useless ballast at the final release JavaScript file. One should
+refactor the selftests out of the release files to separate
+files in this folder here.
+
+===========================================================================

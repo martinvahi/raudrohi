@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* ################################################################
+** # "YAML for TYPO3" (c) by You if you put something in here :) ##
+** ################################################################
+**
+**  Date     : 23.8.07
+**  File     : myOwnStyles.css
+**  Function : This file is not part of the YAML-CSS-Framework.
+**             It was included to give the user the possibility to quickly apply tests, changes or
+**             whatever with no need to change the YAML-files and mess up anything.
+**             Hmmm. Does this make sense? Anyway, use it or just leave it empty. It will do no harm.
+**             This is the last stylesheet beeing imported. So, everything can be overwritten here.
+**             Be careful what you put in here and don't hold us responsible for anything that goes wrong...
+*/
+@media all
+{
+/* Your styles here */
+
+/**
+ * Styles for the powermail Extension
+ */
+
+fieldset.tx-powermail-pi1_fieldset {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+fieldset.tx-powermail-pi1_fieldset legend {
+	padding:20px; font-size:1.2em; font-weight:bold;
+}
+fieldset.tx-powermail-pi1_fieldset label {
+	/* Style labels */
+	display: block;
+	width: 150px;
+	margin-left:20px;
+	float: left;
+	clear: both;
+}
+
+fieldset.tx-powermail-pi1_fieldset input,
+fieldset.tx-powermail-pi1_fieldset select {
+	/* Style input fields */
+	width: 200px;
+	margin-left: 10px;
+}
+
+fieldset.tx-powermail-pi1_fieldset input[type=submit] {
+	margin-left:185px;
+}
+
+div.tx_powermail_pi1_fieldwrap_html {
+	/* Increase margin between every field */
+	margin: 10px 0;
+}
+
+.powermail_mandatory_js {color:red; margin-left:180px;}
+
+div.yamllayout-felogin { margin:10px; }
+div.yamllayout-felogin legend { margin:10px; font-weight:bold; font-size:1.2em; }
+
+}

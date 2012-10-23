@@ -1,0 +1,236 @@
+===========================================================================
+================  The Raudrohi JavaScript Library (RJSL) ==================
+===========================================================================
+
+"Raudrohi" stands for Achillea millefolium, i.e. yarrow, in Estonian.
+
+The Raudrohi JavaScript Library (hereafter: RJSL) is a
+collection of 3. party libraries and code written by me,
+martin.vahi@softf1.com.
+
+---------------------------------------------------------------------------
+                           W A R N I N G
+---------------------------------------------------------------------------
+
+This version exists only to fulfill dependencies of other projects.
+The documentation of it is in a very shoddy state. The shoddiest 
+parts of the documentation are not even published.
+
+This version of the RJSL is not even targeted to developers other than
+the original author, martin.vahi@softf1.com , but if You downloaded
+it from Martin Vahi's github account, then it's probably almost 
+bleeding edge.
+
+The selftests system is currently totally out of order, needs 
+to be refactored.
+
+---------------------------------------------------------------------------
+                 The main Strengths of the RJSL
+---------------------------------------------------------------------------
+
+x) The RJSL framework allows the creation of composite 
+   widgets by using HTML and designating the positions of 
+   subwidgets by DIV-tags. The custom widgets
+   can be reused for composing new widgets and the 
+   custom widgets fit into the RJSL framework as if 
+   they were builtin widgets. 
+
+x) Widgets can be non-graphical and have a role of a
+   general building component. 
+   
+   Each of the widgets has an on-off state to regulate the usage
+   of network traffic. For example, there's no point of
+   asking data from the server before a log-in session
+   has been established and widgets that depend on 
+   private data can be switched on and off according to
+   the existence of a login-session. 
+
+   Each of the widgets has a built-in state machine that
+   interacts with the built-in state machines of its 
+   subwidgets. The state machine has one default, mandatory,
+   state called "zero". Every time the "zero" state
+   is entered, all of the widget's subwidgets are also
+   set to the state "zero". States can be grouped into
+   user-defined clusters and the state "zero" is by 
+   default part of every cluster. State transitions 
+   and cluster-transitions can trigger user-defined
+   actions. 
+
+   The main benefit of the widgets built-in state
+   machine system is that it facilitates the writing
+   of GUI business logic. That's actually, what the 
+   state machine system has been designed for, but 
+   it's possible to ignore its existence, i.e. 
+   it's not mandatory to use it.  
+
+   As of October 2012 widgets' built-in state
+   system allows user-defined states to belong to
+   more than one cluster, but that's fundamentally
+   flawed approach, because that way it's not 
+   possible to determine the execution order of 
+   state-cluster transition event-hanlers. 
+   If client code is written with a limitation that
+   every user-defined state belongs at most to only one
+   state cluster, then the refactoring of the state
+   system will probably not break the client code.
+
+x) The RJSL contains a global message passing system,
+   that allows any RJSL widget instance to send messages to 
+   any other RJSL widget instance. 
+   
+   AJAX communication with the web server is normalized out
+   by wrapping the gate to the web server into one of the 
+   non-graphical widgets.
+
+   As of October 2012 the message passing system API
+   has to be rewritten, because one has cleaner
+   specification for it, but the system that exists,
+   is not fundamentally flawed. Its API and protocol
+   are the ones that need to be heavily refactored.
+
+x) The RJSL message passing system contains means for
+   handling AJAX responses that come in too late,
+   have become "irrelevant", or are duplicates. 
+
+          Implementation overview: Every widget has 
+                a microsession counter. If a widget A 
+                sends out a message to widget B and 
+                the microsession counter of widget A is 
+                incremented before the answer from the 
+                widget B arrives to the widget A, 
+                then the answer from the widget B is 
+                dismissed, because all answer-carrying 
+                messages that have a different 
+                origin microsession counter value 
+                than the current microsession counter
+                value are dismissed. The widget B may, but
+                does not have to, represent the web server.
+
+          Example scenario: widget A orders a list of
+                names from a server and displays the text
+                "Loading..." to the user, while waiting for the
+                answer. The user changes its mind and sets
+                the widget A to a different state that
+                has to display something else that the widget
+                A has to order from the server. Widget A
+                orders the new type of data, but receives
+                the previously ordered list of names before
+                the set of the new type of data. As the 
+                state of the widget A has changed, 
+                the microsession counter value of widget 
+                A has changed, the list of names is dismissed 
+                and the widget A keeps on waiting for the 
+                newer set of data.
+
+   Each of the RJSL widgets has its own microsession 
+   counter, but its not mandatory to use it, neither is
+   it mandatory to initialize it in client code. 
+   
+   Historical note: the microsession architecture has 
+   emerged purely form practice and is a result of tedious
+   bugfixing/refactoring.
+
+x) The widgets visibility is interpreted in relation to 
+   the widget's parent widget. If a parent widget is visible, 
+   then only the subwidgets that have its visibility bit set, 
+   are visible. The visibility is meant to change during runtime 
+   and all of the widgets are responsible for maintaining their
+   own data. For example, if a textarea widget is set to be hidden,
+   then it saves its text and renders it next time, when it becomes
+   visible again.
+
+x) All graphical widgets have a "readonly mode" and "editable mode".
+   The mode is imposed recursively. For example, if the editability
+   bit of a report widget is set to "false", then all of 
+   its data entry fields can switch to readonly mode. That
+   functionality allows the same, document/application specific, 
+   widgets to be used for both, displaying and editing documents.
+
+          An illustration:
+                A text field widget changes from "text field" 
+                to "plain text", if it is switched from editable 
+                mode to readonly mode. The button widget implements the
+                readonly/editable modes by being enabled/disabled.
+
+x) Browser normalization is based on a bottom layer which 
+   wraps third party libraries.
+
+   That means that the RJSL can probably keep up with the 
+   browser evolution by swapping the third party
+   libraries/library versions in the bottom layer, without
+   any need for any changes in the rest of the RJSL.
+
+   Historical note: One of the first versions of the RJSL
+   did not wrap the third party library, YUI 2.something, 
+   to a bottom layer and when it came to the YUI library
+   update, heavy refactoring had to be done. The reason
+   for the update was that the YUI 2.something became 
+   obsolete, did not support latest browser versions.
+  
+---------------------------------------------------------------------------
+                 The main Weaknesses of the RJSL
+---------------------------------------------------------------------------
+
+x) The Microsoft Internet Explorer is not supported and probably 
+   will never be supported.
+
+x) The API of the RJSL is never even meant to be stable. It will be
+   refactored to any extent that one feels comfortable with.
+
+---------------------------------------------------------------------------
+        The License and Other Intellectual Property Related Issues
+---------------------------------------------------------------------------
+
+All of the RJSL, including the 3. party parts, 
+is under a license that allows redistribution,
+modification and commercial, closed-source, use. 
+
+The parts that have been written by me, martin.vahi@softf1.com, 
+are placed to namespace raudrohi and are under the BSD license, 
+except code examples in the 
+./src/examples
+, which are in public domain.
+
+Namespace liilia contains code that is not written by me, Martin Vahi, but
+has been modified by me. The word "liilia" stands for "lilium" in Estonian.
+
+---------------------------------------------------------------------------
+                         Getting Started
+---------------------------------------------------------------------------
+To develop JavaScript applications that use the RJSL
+one only needs the files from 
+
+./src/release
+
+, which also contains all of the RJSL dependencies.
+
+The "Hello World" resides at 
+./src/examples/lesson_01_hello_world
+and it works "out of the box".
+
+The RJSL uses HTML5.
+
+---------------------------------------------------------------------------
+                             TODO
+---------------------------------------------------------------------------
+
+A lot. 
+
+There exists some utter nonsense in there that originates 
+from an era, when I did not yet know that events in JavaScript do not
+trigger new threads. One should study the Worker Threads concept
+and see, how the nonsense relates to that.
+
+The first thing to refactor is the widget internal state machine
+related state cluster implementation that allows a user-defined
+state to belong to more than one cluster. A correct version 
+is that user-defined states can belong to at most one state cluster,
+because then there will be no need to determine the execution order
+of cluster change event handler functions.
+
+The second at the list is the messaging system related
+protocol. It's not necessarily flawed, but it's so terrible
+that it's hard to work with. One should also implement the
+concept of "bus-packets" or "packet-bus'es".
+
+===========================================================================

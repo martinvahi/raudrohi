@@ -1,0 +1,39 @@
+===========================================================================
+==============  Introduction to the Architecture of the  ==================
+==============     Raudrohi JavaScript Library (RJSL)    ==================
+===========================================================================
+
+To use the RJSL, one does not need to be able to compile or develop it.
+
+The only server side requirement for the web applications that use
+the RJSL is that the server is capable of serving out 
+JavaScript, plain old HTML and CSS files. 
+
+An introductory tutorial that describes, how to
+develop applications _that use_ the RJSL resides in the 
+src/examples/lesson_01_introduction.
+
+The core of the RJSL is layered. Browser peculiarities are normalized
+by using third party libraries. There's an abstraction layer between
+the rest of the RJSL and the third party libraries. The abstraction
+layer allows the third party libraries to be swapped and updated to
+newer versions.
+
+
+Other layers:    [All the rest of the RJSL.]
+
+ First layer:    [The RJSL core.]
+
+Ground layer:    [Some RJSL essentials and a constellation of third party libraries
+                                           and custom code for browser normalizations]
+
+
+One of the reasons for updating the third party libraries is that
+web browsers evolve. The constellations at the ground level
+are called "ports" and they can be swapped by optional configuration
+parameters. The ports are located in the 
+src/devel/bonnet/raudrohi_adapter.js . The entry point for 
+studying the ports code is: raudrohi.initiate_adapter
+
+
+===========================================================================

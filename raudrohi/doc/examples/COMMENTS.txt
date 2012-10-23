@@ -1,0 +1,15 @@
+==========================================================================
+===========  The Raudrohi JavaScript Library (RJSL) Examples =============
+==========================================================================
+
+It's possible to study, run, play with the examples 
+by using the web browser's "Open File" function.
+
+Internet Explorer is not supported.
+
+To keep the set of examples selfcontained, the examples use 
+a version of the RJSL that resides in the ./bonnet.
+
+--------------------------------------------------------------------------
+
+==========================================================================

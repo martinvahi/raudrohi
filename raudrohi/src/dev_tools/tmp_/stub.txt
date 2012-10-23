@@ -1,0 +1,3 @@
+This file exists to save this folder to 
+repositories that do not otherwise
+save folders. For example: Mercurial and Git.

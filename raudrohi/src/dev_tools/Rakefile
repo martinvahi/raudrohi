@@ -1,0 +1,249 @@
+#!/opt/ruby/bin/ruby -Ku
+#==========================================================================
+=begin
+
+ Copyright 2012, martin.vahi@softf1.com that has an
+ Estonian personal identification code of 38108050020.
+ All rights reserved.
+
+ Redistribution and use in source and binary forms, with or
+ without modification, are permitted provided that the following
+ conditions are met:
+
+ * Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer
+   in the documentation and/or other materials provided with the
+   distribution.
+ * Neither the name of the Martin Vahi nor the names of its
+   contributors may be used to endorse or promote products derived
+   from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+ CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+=end
+#==========================================================================
+require "rake"
+#--------------------------------------------------------------------------
+
+x=ENV["MMMV_DEVEL_TOOLS_HOME"]
+if (x==nil)||(x=="")
+   puts "Mandatory environment variable, MMMV_DEVEL_TOOLS_HOME, "+
+   "has not been set. "
+   exit
+end # if
+MMMV_DEVEL_TOOLS_HOME=x
+BREAKDANCEMAKE_HOME=MMMV_DEVEL_TOOLS_HOME+"/src/mmmv_devel_tools/breakdancemake"
+require BREAKDANCEMAKE_HOME+"/src/bonnet/breakdancemake_cl.rb"
+
+x=ENV["RAUDROHI_HOME"]
+if (x==nil)||(x=="")
+   puts "Mandatory environment variable, RAUDROHI_HOME, "+
+   "has not been set. "
+   exit
+end # if
+RAUDROHI_HOME=x
+if !defined? KIBUVITS_HOME
+   raise(Exception.new("\nRuby constant KIBUVITS_HOME not defined "+
+   "despite the fact that it should have been defined within the "+
+   "breakdancemake initialization code."))
+end # if
+
+
+=begin
+==========================================================================
+=======  Dependencies Within the Raudrohi JavaScript Library  ============
+==========================================================================
+
+
+//--PHP5-syntax-compliant-end-1--------------------------------------
+
+The file raudrohi_all_in_one_v19.js can be assembled by using
+raudrohi_all_in_one_assembler.bash, which uses PHP5, PHP5 extension
+called mb_string and the file ./dev_tools/bonnet/raudrohi_all_in_one_assembler.php.
+The ./dev_tools/bonnet/raudrohi_all_in_one_assembler.php uses this file,
+the raudrohi_inner_dependencies.txt, to assemble the
+raudrohi_all_in_one_v19.js.
+
+If Sun Java is available and configured on the command line,
+then it is possible to get a compressed version of the
+raudrohi_all_in_one_v19.js by executing the
+raudrohi_all_in_one_assembler.bash with a console argumeont
+of 'y' or 'g'.
+
+The console argument 'y' applies a Yahoo JavaScript compressor and
+The console argument 'g' applies a Google JavaScript compressor.
+The console argument 'd' erases the raudrohi_all_in_one_v19.js.
+
+==========================================================================
+=end
+
+#--------------------------------------------------------------------------
+# The class names of bdmprojectdescritpors must have
+# the prefix of "Breakdancemake_bdmprojectdescriptor_".
+class Breakdancemake_bdmprojectdescriptor_Raudrohi_JavaScript_Library < Breakdancemake_bdmprojectdescriptor
+
+   private
+
+   #--------------------------------------------------------------------------
+
+   def ar_raudrohi_innerd_dependencies
+      ar_out=Array.new
+      # The dependencies within the Raudrohi JavaScript Library
+      # form a graph, which is not necessarily a tree.
+      # Each of the vertices of the graph resides in a separate file.
+      #
+      # In order to simplify the implementation that assembles
+      # the raudrohi_all_in_one_v<version>.js, the dependency matrix has been written so
+      # that all of the dependencies are marked to the upper one side of the diagonal.
+      #
+      # http://martin.softf1.com/g/n/a2/arrays_and_dependency_graphs/
+      #
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_core_hashtable_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_core.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/bonnet/raudrohi_adapter.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/bonnet/raudrohi_adapter_selftests.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_base.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_ui.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_lang.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/bonnet/raudrohi_cache.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_dbcomm.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_ajax.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_apparch_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_text_analysis_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_date_and_time.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_critical_section_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_units.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_vfx.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_canvas_2d.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/bonnet/raudrohi_widgets_common.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_pileofmethods.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_phonebooth_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_cache_t2.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_multiindexcache_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_router2hostserver.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/deprecated/usable_after_heavy_refactoring/raudrohi_widgets_uploadenforcer.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_html_t2.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_html_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_button_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_textarea_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_password_editor_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_menu_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_partialmenu_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_calendar_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_optionaldate_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_matrix_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_apparch1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_wg_processing_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_slider_1D_t1.js');
+      ar_out<<(@s_project_fp_prefix_devel+'/bonnet/raudrohi_libinit.js');
+
+      return ar_out
+   end # ar_raudrohi_innerd_dependencies
+
+   def ht_concat_t1_config
+
+      ht_out=Hash.new
+      ht_out["ar_paths_of_concatenable_files"]=ar_raudrohi_innerd_dependencies()
+      ht_out["s_concatenation_output_file_path"]=@s_fp_jspile
+      return ht_out
+   end # ht_concat_t1_config
+
+
+   #--------------------------------------------------------------------------
+
+   public
+
+   # It has to be a method in stead of  an array, because
+   # due to the CSS and JavaScript file version update the
+   # CSS and JavaScript file get renamed.
+   def ar_CSS_files_array
+      ar_out=Dir::glob(@s_project_fp_prefix_release+"/css/*_v*.css")
+      return ar_out
+   end # ar_CSS_files_array
+
+   attr_reader :s_project_fp_prefix_devel
+   attr_reader :s_project_fp_prefix_release
+   attr_reader :s_fp_jspile
+   attr_reader :i_project_JavaScript_and_CSS_version
+
+   def initialize
+      super
+      @s_bdmcomponent_name="Raudrohi JavaScript Library"
+      @s_project_fp_prefix_devel=RAUDROHI_HOME+"/src/devel"
+      @s_project_fp_prefix_release=RAUDROHI_HOME+"/src/release"
+
+      @i_project_JavaScript_and_CSS_version=21
+      @s_fp_jspile=@s_project_fp_prefix_release+"/raudrohi_all_in_one_v"+
+      i_project_JavaScript_and_CSS_version.to_s+".js"
+
+      @ht_configurations["concat_t1"]=ht_concat_t1_config()
+   end # initialize
+
+end # Breakdancemake_bdmprojectdescriptor_Raudrohi_JavaScript_Library
+
+if !defined? BDMPROJECTDESCRIPTOR
+   BDMPROJECTDESCRIPTOR=Breakdancemake_bdmprojectdescriptor_Raudrohi_JavaScript_Library.new
+   Breakdancemake.declare_bdmcomponent(BDMPROJECTDESCRIPTOR)
+end # if
+
+#--------------------------------------------------------------------------
+def build_JavaScript
+   argv=Array.new # argv as if it were the ARGV
+   argv<<"concat_t1" # bdmroutine name
+   #argv<<"--plain"
+   argv<<"--yui_compressor_t1"
+   Breakdancemake.run(argv)
+end # build_JavaScript
+
+def update_version
+   msgcs=Breakdancemake.instance.msgcs
+
+   ar_1=BDMPROJECTDESCRIPTOR.ar_CSS_files_array()
+   ar_1<<BDMPROJECTDESCRIPTOR.s_fp_jspile
+   ar_or_s_renamable_file_paths=ar_1
+
+   Kibuvits_apparch_specific.update_file_version_t1(
+   ar_or_s_renamable_file_paths,[],
+   BDMPROJECTDESCRIPTOR.i_project_JavaScript_and_CSS_version,
+   msgcs)
+   if msgcs.b_failure()
+      puts msgcs.to_s
+      exit
+   end # if
+end # update_version
+
+#--------------------------------------------------------------------------
+
+task :build do
+   build_JavaScript()
+   update_version()
+end # build
+
+task :default do
+   ar_task_names=Array.new
+   Rake.application.tasks.each {|x_task| ar_task_names<<x_task.to_s}
+   ar_task_names.sort!
+   puts "\n\nAvailable Rake functions:\n\n"
+   s_1="                "
+   ar_task_names.each do |s_task_name|
+      puts s_1+s_task_name.to_s
+   end # loop
+   puts "\n\n"
+end # default
+
+#==========================================================================
+

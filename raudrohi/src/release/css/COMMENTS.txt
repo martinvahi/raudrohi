@@ -1,0 +1,15 @@
+===========================================================================
+============  The Raudrohi JavaScript Library (RJSL) CSS  =================
+===========================================================================
+
+The reason, why the RJSL has only a single CSS file is that
+if there were multiple CSS files, they might get downloaded
+in a pseudo-random order and if file B that depends on
+file A is downloaded and parsed prior to file A, then there
+might be "CSS code crash".
+
+Due to the pseudo-random nature of the download one might
+not even notice the problem while debugging, because the
+situation might not occur at the test setup.
+
+===========================================================================

@@ -1,0 +1,38 @@
+===========================================================================
+========  Raudrohi JavaScript Library (RJSL) Selftests test Files =========
+===========================================================================
+
+New JavaScript test file to this folder can be done by the
+following bash script:
+
+#---verbatim--start-----
+X="echo '' > /dev/null;" ;
+$X; export LC_CTYPE="en_US.utf8";
+$X; S_MY_NAMESPACE_NAME="awesome_new_namespace" ;
+$X; S_NEW_FILE_NAME="./test_raudrohi_awesome_new_file_v19.js" ;
+$X; nawk "{ gsub(/subject_to_replacement_ns/, \"$S_MY_NAMESPACE_NAME\"); print }" ./test_raudrohi_templateforcreatingnewfiles_v19.js > $S_NEW_FILE_NAME ;
+#---verbatim--end-------
+
+As a matter of fact, one can just edit the above script 
+and copy-paste the following scribberish script-line to console
+while the working directory is in the same folder that 
+contains the COMMENTS.txt that You are currently reading:
+
+---verbatim--start-----
+export LC_CTYPE="en_US.utf8"; export X="raudrohi_selftests_cmttmp1.txt"; nawk '/^\$X; / { gsub(/^\$X;/,""); print }' ./COMMENTS.txt > ../../tmp_/$X; bash ../../tmp_/$X ;
+---verbatim--end-------
+
+There is no need to register/declare the test files
+anywhere, because all of the test_*_v*.js files from this
+folder are automatically compiled into the 
+all-in-one JavaScript file that is used by the ../run_selftests.php
+However, one should not forget to add the 
+./test_raudrohi_awesomenewname_v19.js to a repository, like 
+
+---verbatim--start-----
+svn add ./test_raudrohi_awesomenewname_v19.js # or
+hg  add ./test_raudrohi_awesomenewname_v19.js #, etc.
+---verbatim--end-------
+
+===========================================================================
+

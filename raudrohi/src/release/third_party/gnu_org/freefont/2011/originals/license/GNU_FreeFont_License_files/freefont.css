@@ -1,0 +1,131 @@
+@font-face
+{
+	font-family: freeserif;
+	src: url("tt/FreeSerif.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: freeserif;
+	src: url("tt/FreeSerifBold.ttf") format("truetype");
+	font-weight:  bold;
+}
+@font-face
+{
+	font-family: freeserif;
+	src: url("tt/FreeSerifItalic.ttf") format("truetype");
+	font-style:   italic;
+}
+@font-face
+{
+	font-family: freeserif;
+	src: url("tt/FreeSerifBoldItalic.ttf") format("truetype");
+	font-weight:  bold;
+	font-style:   italic;
+}
+@font-face
+{
+	font-family: freesans;
+	src: url("tt/FreeSans.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: freesans;
+	src: url("tt/FreeSansBold.ttf") format("truetype");
+	font-weight:  bold;
+}
+@font-face
+{
+	font-family: freesans;
+	src: url("tt/FreeSansBoldOblique.ttf") format("truetype");
+	font-weight:  bold;
+	font-style:   italic;
+}
+@font-face
+{
+	font-family: freesans;
+	src: url("tt/FreeSansBoldOblique.ttf") format("truetype");
+	font-weight:  bold;
+	font-style:   oblique;
+}
+@font-face
+{
+	font-family: freesans;
+	src: url("tt/FreeSansOblique.ttf") format("truetype");
+	font-style:   italic;
+}
+@font-face
+{
+	font-family: freemono;
+	src: url("tt/FreeMono.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: freemono;
+	src: url("tt/FreeMonoBold.ttf") format("truetype");
+	font-weight:  bold;
+}
+@font-face
+{
+	font-family: freemono;
+	src: url("tt/FreeMonoOblique.ttf") format("truetype");
+	font-style:   italic;
+}
+@font-face
+{
+	font-family: freemono;
+	src: url("tt/FreeMonoBoldOblique.ttf") format("truetype");
+	font-weight:  bold;
+	font-style:   italic;
+}
+body, td, h1, h2, h3, h4 { font-family: freesans, verdana, arial, sans-serif; }
+
+body {	background-color: white;
+	color: black;
+	padding: 0;
+}
+
+p, li, dt, dd {	text-align: justify; }
+
+h1 { font-size: 200%; }
+h2 { font-size: 140%; }
+h3 { font-size: 120%; }
+h4 { font-size: 100%; }
+
+a:link, a:visited, a:active, a:hover {
+	background-color: transparent;
+	font-weight: bold;
+	text-decoration:none;
+}
+
+a:link    { color: #008; }
+a:visited { color: #808; }
+a:active  { color: #fe0000; }
+a:hover   { color: #1919aa; text-decoration:underline; }
+
+dt { font-weight: bold; color: #008; }
+
+div.toc {
+	position: relative;	/* for IE 5 */
+	position: absolute;	/* for IE 6 (doesn't do fixed) */
+	position: fixed;	/* for good browsers */
+	float: left;		/* for position: absolute */
+	top: 0px; left: 0px;
+	/*vertical-align: top; only to inline and table-cell elements*/
+	width: 20ex;
+	height: 100%;	/* IE 6 doesn't do percent height */
+	height: 100em;
+	margin: 0;
+	padding-top: 3em;
+	border-right: #AAF solid;
+	background-color: #FEF;
+}
+
+.toc ul { padding-left: 1em; }
+.toc h2 { font-size: large; margin: 0.5ex; }
+.toc { white-space: nowrap; }
+.toc ul { margin-left: 0em; list-style: none; }
+.toc li { padding-left: 0em; list-style: none; }
+
+div.content { padding: 0;
+	margin-left: 20ex;
+}
