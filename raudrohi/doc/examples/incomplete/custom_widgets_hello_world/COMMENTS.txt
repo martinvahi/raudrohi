@@ -1,0 +1,33 @@
+===========================================================================
+=======  How to Create Custom Widgets That use the Raudrohi Framework  ====
+===========================================================================
+
+The general structure of a custom widget is like that:
+
+
+----semi-verbatim--start----
+
+some_nice_name=function(s_html_id, ob_parent_widget_or_null){
+<some boilerplate code>
+
+prc_.customizable.compulsory.render_editable=function(){}
+prc_.customizable.compulsory.render_readonly=function(){}
+
+prc_.customizable.optional.content_from_GUI_2_vars=function(){}
+prc_.customizable.optional.create_subwidgets=function(){}
+prc_.customizable.optional.startup_hook=function(){}
+prc_.customizable.optional.shutdown_hook=function(){}
+
+} // some_nice_name
+----semi-verbatim--end------
+
+In the terms of traditional Obiect Oriented software development, 
+the contents of the namespace prc_ is meant to be analoquous to
+"protected" functions and fields.
+
+TODO: refactor "prc_" -> "protected_" and get rid of the
+"private_code" nonsense. Also a lot of the stuff in the 
+"prc_" should be in namespace "only_for_raudrohi_core_developers".
+
+
+===========================================================================

@@ -1,43 +1,10 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2011, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
 if(window.raudrohi_wg_processing_t1_exists!==true){
 	window.raudrohi.wg_processing_t1={};
 	window.raudrohi_wg_processing_t1_exists=true;
 } // if
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 raudrohi.wg_processing_t1.lc_s_sb_t="t";
 raudrohi.wg_processing_t1.lc_s_sb_f="f";
 raudrohi.wg_processing_t1.lc_s_b_prefix="b_";
@@ -50,7 +17,7 @@ raudrohi.wg_processing_t1.lc_s_setsuffix="_set";
 // Returns a string.
 raudrohi.wg_processing_t1.s_key_field_set=function(ob_widget){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ob_widget,'ob_widget',
 				'581436d1-e07c-4a03-9d10-1180a0219bd7');
 		} // if
@@ -66,7 +33,7 @@ raudrohi.wg_processing_t1.s_key_field_set=function(ob_widget){
 raudrohi.wg_processing_t1.s_key_subfield_set=function(ob_widget,
 	s_subfield_name){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ob_widget,'ob_widget',
 				'2859ba11-89f5-475d-ae5f-1180a0219bd7');
 			raudrohi.base.assert_isString(s_subfield_name,'s_subfield_name',
@@ -85,7 +52,7 @@ raudrohi.wg_processing_t1.s_key_subfield_set=function(ob_widget,
 // Returns a string.
 raudrohi.wg_processing_t1.s_key_field=function(ob_widget){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ob_widget,'ob_widget',
 				'a52f1a91-f371-425e-bb3f-1180a0219bd7');
 		} // if
@@ -99,7 +66,7 @@ raudrohi.wg_processing_t1.s_key_field=function(ob_widget){
 
 raudrohi.wg_processing_t1.s_key_field_is_fd=function(ob_widget){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ob_widget,'ob_widget',
 				'38a4d374-95b4-4457-845f-1180a0219bd7');
 		} // if
@@ -116,7 +83,7 @@ raudrohi.wg_processing_t1.dbfcreate_s_t1=function(
 	ht_dbf_values,s_field_name,s_string_value,b_trim){
 	try{
 		b_trim = typeof(b_trim) !== 'undefined' ? b_trim : true;
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ht_dbf_values,'ht_dbf_values',
 				'5fb123d3-ebba-4f41-8e2f-1180a0219bd7');
 			raudrohi.base.assert_isString(s_field_name,'s_field_name',
@@ -152,7 +119,7 @@ raudrohi.wg_processing_t1.dbfcreate_s_fd_t1=function(
 	ht_dbf_values,s_field_name,s_whole_number_candidate,b_trim){
 	try{
 		b_trim = typeof(b_trim) !== 'undefined' ? b_trim : true;
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ht_dbf_values,'ht_dbf_values',
 				'c25152f9-5a71-493d-8d5f-1180a0219bd7');
 			raudrohi.base.assert_isString(s_field_name,'s_field_name',
@@ -207,7 +174,7 @@ raudrohi.wg_processing_t1.dbfcreate_textarea_t1=function(
 	ht_dbf_values,ob_widget_of_type_textarea_t1,b_trim){
 	try{
 		b_trim = typeof(b_trim) !== 'undefined' ? b_trim : true;
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ht_dbf_values,'ht_dbf_values',
 				'84e72f74-602a-43f4-b64e-1180a0219bd7');
 			raudrohi.base.assert_isObject(ob_widget_of_type_textarea_t1,
@@ -229,7 +196,7 @@ raudrohi.wg_processing_t1.dbfcreate_menu_t1=function(
 	ht_dbf_values,ob_widget_of_type_menu_t1,b_trim){
 	try{
 		b_trim = typeof(b_trim) !== 'undefined' ? b_trim : true;
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ht_dbf_values,'ht_dbf_values',
 				'46aab063-6283-4df3-ba2e-1180a0219bd7');
 			raudrohi.base.assert_isObject(ob_widget_of_type_menu_t1,
@@ -271,7 +238,7 @@ raudrohi.wg_processing_t1.dbfcreate_partialmenu_t1=function(
 	ht_dbf_values,ob_widget_of_type_partialmenu_t1,b_trim){
 	try{
 		b_trim = typeof(b_trim) !== 'undefined' ? b_trim : true;
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ht_dbf_values,'ht_dbf_values',
 				'5e5cb405-92ad-4c23-851d-1180a0219bd7');
 			raudrohi.base.assert_isObject(ob_widget_of_type_partialmenu_t1,
@@ -332,7 +299,7 @@ raudrohi.wg_processing_t1.dbfcreate_partialmenu_t1_fd=function(
 	ht_dbf_values,ob_widget_of_type_partialmenu_t1,b_trim){
 	try{
 		b_trim = typeof(b_trim) !== 'undefined' ? b_trim : true;
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ht_dbf_values,'ht_dbf_values',
 				'370d8c12-6a5f-4e54-853d-1180a0219bd7');
 			raudrohi.base.assert_isObject(ob_widget_of_type_partialmenu_t1,
@@ -386,7 +353,7 @@ raudrohi.wg_processing_t1.dbfcreate_partialmenu_t1_fd=function(
 raudrohi.wg_processing_t1.b_subfield_set=function(ob_widget,s_subfield_name,
 	ht_dbf_values){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ob_widget,'ob_widget',
 				'4920bcf4-8c1b-4097-924d-1180a0219bd7');
 			raudrohi.base.assert_isString(s_subfield_name,'s_subfield_name',
@@ -403,7 +370,7 @@ raudrohi.wg_processing_t1.b_subfield_set=function(ob_widget,s_subfield_name,
 		"_"+s_subfield_name;
 		var s_key_field_set=raudrohi.wg_processing_t1.s_key_field_set(x_hack);
 		if(ht_dbf_values.containsKey(s_key_field_set)===false){
-			if(raudrohi.settings.debug_JavaScript===true){
+			if(raudrohi_settings_debug_JavaScript===true){
 				raudrohi.tmg('487d6ef3-2763-49a7-b91c-1180a0219bd7',
 					"Field \""+s_key_field_set+"\" is missing from the "+
 					"content collection.");
@@ -428,7 +395,7 @@ raudrohi.wg_processing_t1.b_subfield_set=function(ob_widget,s_subfield_name,
 raudrohi.wg_processing_t1.get_subfield=function(ob_widget,s_subfield_name,
 	ht_dbf_values){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ob_widget,'ob_widget',
 				'51e9f6e5-c496-4118-b85c-1180a0219bd7');
 			raudrohi.base.assert_isString(s_subfield_name,'s_subfield_name',
@@ -461,7 +428,7 @@ raudrohi.wg_processing_t1.get_subfield=function(ob_widget,s_subfield_name,
 raudrohi.wg_processing_t1.veriff_sb_t_t1=function(
 	ht_content,s_key,s_err_msg){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ht_content,'ht_content',
 				'5f16cd25-52b6-488c-962c-1180a0219bd7');
 			raudrohi.base.assert_isString(s_key,'s_key',
@@ -490,7 +457,7 @@ raudrohi.wg_processing_t1.veriff_sb_t_t1=function(
 raudrohi.wg_processing_t1.veriff_txt_fd_t1=function(
 	ht_content,s_key,s_err_msg){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(ht_content,'ht_content',
 				'55d3d114-421c-45b2-a94b-1180a0219bd7');
 			raudrohi.base.assert_isString(s_key,'s_key',

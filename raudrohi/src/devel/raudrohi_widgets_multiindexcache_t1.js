@@ -1,42 +1,10 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2010, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
+//=========================================================================
 //
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
 //if(window.raudrohi_cache_exists!==true){
 //	window.raudrohi.widgets.g1.cache={};
 //	window.raudrohi_cache_exists=true;
 //} // if
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
 // The idea is that a same object, let's say, a record, can
 // have multiple indices. Also, a data source may be other than the
@@ -45,7 +13,7 @@
 raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 	s_datasource_widget_phone_number, s_datasource_widget_receiver_command){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isString(
 				s_html_id,'s_html_id',
 				'a2bc5a8b-11ac-459f-82b0-4360a0219bd7');
@@ -147,7 +115,7 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 		// of this cahce is that there can be more than one index.
 		this.declare_index=function(s_index_name){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(
 						s_index_name,'s_index_name',
 						'21e60621-91fa-4c8a-ae30-4360a0219bd7');
@@ -203,7 +171,7 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 		// The x_data is allowed to be null.
 		function send_response_to_query_initiator(ht_wrapper_with_query,x_data,b_data_found){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(
 						ht_wrapper_with_query,'ht_wrapper_with_query',
 						'53389c75-ef0d-4de6-9b1f-4360a0219bd7');
@@ -265,13 +233,13 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 		this.thrjr_.get=function(ht_wrapper){
 			try{
 				var ht_query=ht_wrapper.get('data');
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(
 						ht_query,'ht_query',
 						'25894671-bec1-4247-8e3f-4360a0219bd7');
 				} // if
 				var s_index_name=ht_query.get('s_index_name');
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					if (ht_indices_.containsKey(s_index_name)===false){
 						raudrohi.tmg('15c03e61-9168-41df-821f-4360a0219bd7',
 							'Index with a name of "'+s_index_name+
@@ -297,7 +265,7 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				if (ht_pending_requests_.containsKey(s_query_signature)===true){
 					ar=ht_pending_requests_.get(s_query_signature);
 				} else {
-					ar=new Array();
+					ar=[];
 					ht_pending_requests_.put(s_query_signature,ar);
 				} // else
 				ar.push(ht_wrapper);

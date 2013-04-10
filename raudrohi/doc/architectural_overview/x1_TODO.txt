@@ -1,0 +1,20 @@
+===========================================================================
+=========================  RJSL TODO list    ==============================
+===========================================================================
+
+---------------------------------------------------------------------------
+                    Things that must be Added
+---------------------------------------------------------------------------
+Support for HTML5 WebSockets with the fallback to HTTP AJAX.
+
+---------------------------------------------------------------------------
+                Vague Ides for Architectural Improvements
+---------------------------------------------------------------------------
+
+http://books.google.ee/books?id=qqB7nrrna_sC&printsec=frontcover&source=gbs_ge_summary_r&hl=en#v=onepage&q&f=false
+http://www.eaipatterns.com/toc.html
+http://www.eaipatterns.com/DurableSubscription.html
+
+
+
+===========================================================================

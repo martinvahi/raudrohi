@@ -1,44 +1,12 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
-// ht_params is a Hashtable.
+// ht_params is a Hashtable that must contain key 'type', which 
+// must have a value of either "text" or "password".
 raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 	i_number_of_columns, i_number_of_rows, ht_params){
 	var self_public_=this;
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isString(s_html_id, 's_html_id',
 				'319033c2-dbaf-451f-b2b6-9060a0219bd7');
 			raudrohi.base.assert_isNumber(i_number_of_rows, 'i_number_of_rows',
@@ -58,9 +26,9 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 			raudrohi.base.assert_isString(ht_params.get('type'),
 				'type','28262264-8fc1-4e87-b8b6-9060a0219bd7');
 		} // if
-		var lc_s_emptystring=window.raudrohi.core.constans_as_reusable_instances.glc_s_emptystring;
-		var lc_s_space=window.raudrohi.core.constans_as_reusable_instances.glc_s_space;
-		var lc_s_br=window.raudrohi.core.constans_as_reusable_instances.glc_s_br;
+		var lc_s_emptystring=raudrohi_glc_s_emptystring;
+		var lc_s_space=raudrohi_glc_s_space;
+		var lc_s_br=raudrohi_glc_s_br;
 
 		var pileofmethods_t1_=new raudrohi.widgets.g1.pileofmethods_t1(
 			self_public_,'raudrohi.widgets.g1.textarea_t1_',s_html_id);
@@ -98,7 +66,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 		function create_containers_prefix(){
 			try{
 				if(!prc_.containers_html_cached_){
-					var ht=raudrohi.ui.get_alignment_style_values(prc_.alignment1_);
+					var ht=raudrohi.widgetless_ui.func.get_alignment_style_values(prc_.alignment1_);
 					containers_html_cache_prefix_='<div style="vertical-align:'+
 					ht.get('vertical-align')+';text-align:'+
 					ht.get('text-align')+';">';
@@ -215,7 +183,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 					b_apply_wordwrap_=false;
 					return;
 				} // if
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(
 						i_wordwrap_max_line_width_or_null,
 						'i_wordwrap_max_line_width_or_null',
@@ -236,7 +204,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 		prc_.customizable.compulsory.render_editable=function(){
 			try{
 				create_containers_editable();
-				raudrohi.ui.set_formfield_value(html_id_tmp_, prc_.content_);
+				raudrohi.widgetless_ui.func.set_formfield_value(html_id_tmp_, prc_.content_);
 				prc_.self_is_hidden_=false;
 				if(prc_.keylisteners_unit_inited_){
 					prc_.keylisteners_unit_.detach_listeners_from_DOM_elements();
@@ -276,7 +244,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 		var floating_point_separator_='.';
 		this.set_floating_point_separator=function(a_string){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(a_string, 'a_string',
 						'fe911c1b-5db6-4b59-82a6-9060a0219bd7');
 					if(a_string==''){
@@ -320,7 +288,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 				if(self_public_.is_hidden()||prc_.is_readonly_){
 					content=prc_.content_;
 				} else {
-					content=raudrohi.ui.get_formfield_value(html_id_tmp_);
+					content=raudrohi.widgetless_ui.func.get_formfield_value(html_id_tmp_);
 				} // else
 				if(prc_.bitfield_.is_set('do_not_trim_content')){
 					return ''+content;
@@ -328,7 +296,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 				var s_ct=raudrohi.adapter.trim(content);
 				prc_.content_=s_ct;
 				if((self_public_.is_hidden()===false)&&(prc_.is_readonly_===false)){
-					raudrohi.ui.set_formfield_value(html_id_tmp_, prc_.content_);
+					raudrohi.widgetless_ui.func.set_formfield_value(html_id_tmp_, prc_.content_);
 				} // if
 				return ''+s_ct;
 			} catch (err){
@@ -340,7 +308,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 		this.value_is_empty_after_trimming_spaces_and_linebreaks=function(){
 			try{
 				var s0=self_public_.get_content();
-				var s1=raudrohi.base.replace_allAllLinebreaksSpacesTabs(s0);
+				var s1=raudrohi.base.gsubAllLinebreaksSpacesTabs(s0);
 				if(s1===''){
 					return true;
 				} // if
@@ -408,7 +376,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 				if(self_public_.is_hidden() || prc_.is_readonly_){
 					return;
 				} // if
-				raudrohi.ui.set_focus_2_formfield(html_id_tmp_);
+				raudrohi.widgetless_ui.func.set_focus_2_formfield(html_id_tmp_);
 			} catch (err){
 				raudrohi.tmg('17e5edd5-7853-4291-a496-9060a0219bd7',err);
 			} // catch
@@ -421,7 +389,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 		// this method might not be as dirty as it seems.
 		this.set_focus_with_a_delay=function(i_delay_in_milliseconds){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_delay_in_milliseconds,
 						'i_delay_in_milliseconds',
 						'811f4225-5b60-49a1-a496-9060a0219bd7');
@@ -449,7 +417,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 
 		this.set_keylistener=function(key_number_as_string, event_handler_func){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(key_number_as_string,
 						'key_number_as_string',
 						'206fcf3d-6549-46cf-a186-9060a0219bd7');
@@ -474,7 +442,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 				if((prc_.is_readonly_)||(self_public_.is_hidden())){
 					return;
 				} // if
-				var content=raudrohi.ui.get_formfield_value(html_id_tmp_);
+				var content=raudrohi.widgetless_ui.func.get_formfield_value(html_id_tmp_);
 				if(prc_.bitfield_.is_set('do_not_trim_content')){
 					prc_.content_=content;
 					return;
@@ -482,7 +450,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 				var s_ct=raudrohi.adapter.trim(content);
 				prc_.content_=s_ct;
 				if((self_public_.is_hidden()===false)&&(prc_.is_readonly_===false)){
-					raudrohi.ui.set_formfield_value(html_id_tmp_, prc_.content_);
+					raudrohi.widgetless_ui.func.set_formfield_value(html_id_tmp_, prc_.content_);
 				} // if
 			} catch (err){
 				raudrohi.tmg('d55817dc-08a9-44b4-8786-9060a0219bd7',err);
@@ -496,7 +464,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 				} // if
 				if(!prc_.is_readonly_){
 					prc_.customizable.optional.content_from_GUI_2_vars();
-					prc_.content_=raudrohi.ui.get_formfield_value(html_id_tmp_);
+					prc_.content_=raudrohi.widgetless_ui.func.get_formfield_value(html_id_tmp_);
 				} // if
 				if(prc_.keylisteners_unit_inited_){
 					prc_.keylisteners_unit_.detach_listeners_from_DOM_elements();
@@ -512,7 +480,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 
 		this.get_content_2_collection_t1=function(ht){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht,'ht',
 						'9aaf5022-f6a9-48ec-b186-9060a0219bd7');
 				} // if
@@ -526,7 +494,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 
 		this.set_content_from_collection_t1=function(ht){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht,'ht',
 						'0de5f14a-c292-48fd-8286-9060a0219bd7');
 				} // if
@@ -568,7 +536,7 @@ raudrohi.widgets.g1.textarea_t1=function(s_html_id,
 							a_phonecall_instance.origin_phone_number,c,0);
 						break;
 					default:
-						if(raudrohi.settings.debug_JavaScript===true){
+						if(raudrohi_settings_debug_JavaScript===true){
 							raudrohi.tmg(
 								'52cdd975-0a4a-4da6-bd76-9060a0219bd7',
 								'There\'s no message handler for '+a_pair.a);

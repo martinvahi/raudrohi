@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" />
+		<title>RJSL Selftests</title>
+
+        
+
+<style type="text/css">
+			/*According to the Yahoo YUI framework creators,
+	the margin and padding on body element
+	can introduce errors in determining
+	element position and are not recommended;
+	one turns them off as a foundation for YUI
+	CSS treatments. */
+		body {
+			margin:0;
+			padding:0;
+		}
+	</style>
+
+<link rel="stylesheet" type="text/css" href="./../../release/third_party/yahoo/yui_3_9_0/build/cssreset/cssreset-min.css"/>
+
+<link rel="stylesheet" type="text/css" href="./../../release/third_party/yahoo/yui_3_9_0/build/cssbase/cssbase-min.css"/>
+
+<link rel="stylesheet" type="text/css" href="./../../release/third_party/yahoo/yui_3_9_0/build/cssgrids/grids-min.css"/>
+
+<link rel="stylesheet" type="text/css" href="./../../release/third_party/yahoo/yui_3_9_0/build/cssfonts/cssfonts-min.css"/>
+
+
+<link rel="stylesheet" href="./../../release/css/raudrohi_v23.css" type="text/css" />
+
+<script type="text/javascript" src="./../../release/third_party/yahoo/yui_3_9_0/build/yui/yui-min.js"></script>
+
+<script type="text/javascript" src="./../../release/raudrohi_all_in_one_v23.js"></script>
+
+<script type="text/javascript" src="./bonnet/var/raudrohi_selftests_collection.js"></script>
+
+
+
+
+
+		<style type="text/css">
+			div.c1 {text-align:center; vertical-align:middle}
+		</style>
+	</head>
+
+	<body  class="yui3-skin-sam">
+		<br />
+		<br />
+
+		<div id="eldorado_div" class="c1"></div>
+
+		<div id="greeting_div" class="c1"></div><br />
+		<br />
+
+		<div id="output_screen"></div>
+		<div id="for_testing_the_raudrohi_base_selftests_count_child_nodes_recursively" style="visibility:hidden;">
+			div_0_value
+			<div>
+				div_0_0_value
+				<div id="for_testing_the_raudrohi_base_selftests_count_child_nodes_recursively2">
+					div_0_0_0_value</div>
+				<div>div_0_0_1_value</div>
+				<div></div>
+				<div id="for_testing_the_raudrohi_base_selftests_count_child_nodes_recursively3"></div>
+			</div>
+			<div>div_0_1_value</div>
+		</div>
+	</body>
+</html>

@@ -1,37 +1,4 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2010, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
 raudrohi.date_and_time_instancecount=0;
 
@@ -73,7 +40,7 @@ raudrohi.date_and_time=function(){
 		// http://www.timeanddate.com/date/leapyear.html
 		this.is_a_leap_year=function(i_year){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_year,'i_year',
 						'8217393a-5ac1-4448-8783-0090a0219bd7');
 				} // if
@@ -103,7 +70,7 @@ raudrohi.date_and_time=function(){
 				//---tests-start------------------
 				var i=0;
 				var i_year;
-				var ar_NOT_leap_years=new Array();
+				var ar_NOT_leap_years=[];
 				ar_NOT_leap_years.push(1800);
 				ar_NOT_leap_years.push(1900);
 				ar_NOT_leap_years.push(2100);
@@ -118,7 +85,7 @@ raudrohi.date_and_time=function(){
 							'i_year=='+i_year+'');
 					} // if
 				} // for
-				var ar_leap_years=new Array();
+				var ar_leap_years=[];
 				ar_leap_years.push(2000);
 				ar_leap_years.push(2008);
 				len=ar_leap_years.length;
@@ -147,7 +114,7 @@ raudrohi.date_and_time=function(){
 		//------------------------------------------------------
 		this.number_of_days_in_year=function(i_year){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_year,'i_year',
 						'129da972-ec99-46b3-9b32-0090a0219bd7');
 				} // if
@@ -237,7 +204,7 @@ raudrohi.date_and_time=function(){
 
 		function number_of_days_in_months_by_calculation(i_year){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_year,'i_year',
 						'f921bcea-52e9-48c5-a422-0090a0219bd7');
 					if (i_year<1){
@@ -271,7 +238,7 @@ raudrohi.date_and_time=function(){
 		var i_ht_number_of_days_in_months_ht_cloningfree_cache_max_size_=20;
 		function number_of_days_in_months_ht_cloningfree(i_year){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_year,'i_year',
 						'335e2e72-58a7-4c5f-a632-0090a0219bd7');
 					if (i_year<1){
@@ -297,7 +264,7 @@ raudrohi.date_and_time=function(){
 
 		this.number_of_days_in_months=function(i_year){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_year,'i_year',
 						'69f4d854-4091-4021-be22-0090a0219bd7');
 					if (i_year<1){
@@ -317,7 +284,7 @@ raudrohi.date_and_time=function(){
 		var i_ht_number_of_days_in_a_month_cache1_max_size_=240;
 		this.number_of_days_in_a_month=function(i_month,i_year){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_month,'i_month',
 						'349d8a83-9c79-4425-8e41-0090a0219bd7');
 					raudrohi.base.assert_isNumber(i_year,'i_year',
@@ -356,7 +323,7 @@ raudrohi.date_and_time=function(){
 			i_day,i_month,i_year,b_throw_if_contradiction_found){
 			try{
 				b_throw_if_contradiction_found = typeof(b_throw_if_contradiction_found) !== 'undefined' ? b_throw_if_contradiction_found : false;
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_day,'i_day',
 						'1919a675-a4c8-4ce0-b321-0090a0219bd7');
 					raudrohi.base.assert_isNumber(i_month,'i_month',
@@ -407,7 +374,7 @@ raudrohi.date_and_time=function(){
 			i_hour,i_minute,i_second,b_throw_if_contradiction_found){
 			try{
 				b_throw_if_contradiction_found = typeof(b_throw_if_contradiction_found) !== 'undefined' ? b_throw_if_contradiction_found : false;
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(i_hour,'i_hour',
 						'765d39b2-1437-428f-8d40-0090a0219bd7');
 					raudrohi.base.assert_isNumber(i_minute,'i_minute',
@@ -474,7 +441,7 @@ raudrohi.date_and_time=function(){
 			b_throw_if_contradiction_found){
 			try{
 				b_throw_if_contradiction_found = typeof(b_throw_if_contradiction_found) !== 'undefined' ? b_throw_if_contradiction_found : false;
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
 						'10034c52-20ac-45cf-9310-0090a0219bd7');
 					raudrohi.base.assert_isBoolean(
@@ -529,7 +496,7 @@ raudrohi.date_and_time=function(){
 		// the instances of the clone are not cloned.
 		this.unix_time_2_human_perceivable=function(ht_timestamp){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
 						'b2950085-7112-4b25-965f-0090a0219bd7');
 					self_public_.timestamp_is_contradictory(ht_timestamp,true);
@@ -569,7 +536,7 @@ raudrohi.date_and_time=function(){
 		// the instances of the clone are not cloned.
 		this.human_perceivable_2_unix_time=function(ht_timestamp){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
 						'd5420eba-d2ba-4cd5-9a2f-0090a0219bd7');
 					self_public_.timestamp_is_contradictory(ht_timestamp,true);

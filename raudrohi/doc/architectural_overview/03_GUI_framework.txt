@@ -1,0 +1,208 @@
+==========================================================================
+==========  Raudrohi JavaScript Library (RJSL) GUI Framework  ============
+==========================================================================
+
+The RJSL contains it's own GUI building framework, which depends on the
+DOM for rendering.
+
+The framework has many features that are described
+in this document, but the most fundamental feature of it is that
+the RJSL library widgets can be placed inside each other and that allows
+one to assemble custom, application specific. The custom widgets can
+be assembled by using ordinary HTML for describing the widgets'
+graphical layout, including the locations of its subwidgets.
+
+The subwidget locations are marked by using DIV tags that
+have a subwidget id specific HTML id property.
+
+--------------------------------------------------------------------------
+                      Table of Contents
+--------------------------------------------------------------------------
+1. Raudrohi JavaScript Widgets
+2. Raudrohi JavaScript Widgets: Run/Stop
+3. Raudrohi JavaScript Widgets: Visibility
+4. Raudrohi JavaScript Widgets: Writability
+5. Raudrohi JavaScript Widgets: State Machine
+6. A few Words About the raudrohi.adapter Namespace
+7. Raudrohi JavaScript Widgets: Event Handling
+
+--------------------------------------------------------------------------
+                     1. Raudrohi JavaScript Widgets
+--------------------------------------------------------------------------
+
+In the context of the RJSL, a widget is a
+Graphical User Interface (GUI) component that can
+contain other widgets and be part of any other widget,
+except its siblings.  Some of the widgets can also be "logical",
+i.e. they behave according to the widgets rule set,
+but they do not have a graphical representation and
+their Widget API GUI related methods are stubs.
+
+Each of the widgets has 3 state bits:
+visible/hidden, run/stopped, writable/readonly.
+
+The run/stopped state differentiation is practical from
+network usage point of view. for instance, some widgets
+might want to load data over AJAX in the background or
+initiate sessions.
+
+the writable/readonly state differentiation is practical
+from GUI point of view. For example, some form fields
+might be editable at one point, but then, it might be
+necessary to show the whole content of the whole form
+in a non-editable manner.
+
+The write/readonly bit changes are propagated to subwidgets,
+recursively, automatically. The run/stopped state is
+not propagated recursively.
+
+The visible/hidden bit indicates only the visibility in
+the immediate parent for the case, where the immediate parent
+is visible. If the parent widget gets hidden,
+all of its subwidgets also get hidden, regardless of their
+visibility settings.
+
+In the context of the widgets' code,
+the visibility is stored in pf_.self_is_hidden_,
+the writability is stored to the pf_.is_readonly_
+and the run bit is separately handled by an instance
+of type raudrohi.lang.startup_shutdown_handler
+
+One of the reasons, why the widgets are in a separate
+JavaScript files in stead of a single file is that
+this way the NetBeans IDE allows an easier to navigation
+between methods.
+
+--------------------------------------------------------------------------
+                 2. Raudrohi JavaScript Widgets: Run/Stop
+--------------------------------------------------------------------------
+
+Each of the widget is considered to be an "engine" from
+raudrohi.lang.startup_shutdown_handler point of view. The "engine"
+concept has been explained within the documentation of
+the raudrohi.lang.startup_shutdown_handler.
+
+For short, it means that each of the widgets can have a start-up sequence
+and a shut-down sequence and that both of the sequences are allowed to be
+executed without interruption even, if the sequences take a considerable
+amount of time. For example, it might take some time for the widget
+to acquire initialization data from server or to calculate or
+load something or to inform the server of its shutdown or just
+save some data over the network.
+
+After startup all of the widgets are in hidden state. The widgets are
+expected to hide themselves during their shutdown sequence.
+
+In order to allow finer control over the running/stopped state,
+the state is not propagated recursively. That is to say, if one
+starts or stops a parent widget, its children are not started or
+stopped, unless one has ordered the children to change their
+running/stopped state in the parent's start up hook or
+shut down hook. This non-recursive state running/stopped
+state propagation is actually useful in cases, where one uses
+the widgets for network communication.
+
+--------------------------------------------------------------------------
+              3. Raudrohi JavaScript Widgets: Visibility
+--------------------------------------------------------------------------
+
+In the hidden state the widgets do not reference, "touch", the DOM-tree
+at all, but the unhiding takes place by writing HTML into a DIV tag
+(hereafter: a container DIV tag) that has a widget instance specific
+HTML id attribute. The HTML id attribute of the container DIV tag is
+given to the widget at instantiation.
+
+During unhiding, the widgets that contain other widgets
+are expected to write their siblings' container DIV tags
+into their own container DIV tag and then call the siblings'
+unhide methods.
+
+In the case of the hiding operation the widgets are expected to
+execute their siblings' hiding methods before overwriting their
+own container DIV tag content. In the hidden state the widgets are
+forbidden to rely on any of the content within their respective
+container DIV tags.
+
+As each of the DOM-tree modifications causes a relatively expensive
+re-rendering within the web browser, it is beneficial to minify the
+number of times the DOM-tree gets modified. To do that, the sibling
+widgets should be hidden by applying an option that they do not update
+the content of their container DIV tags, i.e. they do not modify
+the DOM-tree. As the siblings'' container DIV tags reside within the parent
+widget's container DIV tag, which will be set to contain an empty
+string by the parent widget during its hiding process,
+the content of the siblings container DIV tags can be erased
+all at once by erasing the parent widget's DIV tag content.
+
+Each of the widgets is expected to maintain its state.
+This means that when they are unhidden, they must display the same
+data that they displayed before hiding.
+
+
+--------------------------------------------------------------------------
+               4. Raudrohi JavaScript Widgets: Writability
+--------------------------------------------------------------------------
+
+All of the widgets have a read-only state and an editable state.
+
+The writability applies only to the GUI representation of the widget.
+In the case of the programmatic (JavaScript) access
+the read-only state does not differ from the writable state.
+The read-only state is analogous to the HTML button "disabled" state.
+
+The widget's writability is independent of its visibility.
+
+--------------------------------------------------------------------------
+             5. Raudrohi JavaScript Widgets: State Machine
+--------------------------------------------------------------------------
+
+In addition to the running/stopped, visibility and writability states,
+each of the widgets, with a few exceptions, has widget specific states,
+which are handled by using the class raudrohi.base.state_switcher_t1.
+
+
+The class raudrohi.base.state_switcher_t1 should actually be refactored
+to allow all non-zero states to be included by at most one cluster.
+
+--------------------------------------------------------------------------
+           6. A few Words About the raudrohi.adapter Namespace
+--------------------------------------------------------------------------
+
+All of the 3. party libraries, with a few very reliable exceptions,
+are interfaced by using the namespace raudrohi.adapter.
+
+The idea is that the browser specific JavaScript implementation
+inconsistencies are left to 3. parties to sort out.
+
+By using the 3. party code only through the raudrohi.adapter interface,
+the 3. party implementations can be switched without needing to modify
+the Raudrohi library. One of the occasions that imposes a need to
+update/change a 3. party dependency is when a new and backwards
+incompatible version of some major web browser is released.
+
+As the graph of dependencies, which resides in this very same
+COMMENTS.txt, shows, the raudrohi_adapter_v19.js is depended on
+by many of the Raudrohi code regions.
+
+--------------------------------------------------------------------------
+            7. Raudrohi JavaScript Widgets: Event Handling
+--------------------------------------------------------------------------
+
+The event handling relies on the raudrohi.adapter namespace.
+
+As the hiding and unhiding of a widget is implemented by erasing
+and creating DOM elements, the event handlers have to be reattached
+to the newly created DOM element every time a widget gets unhidden.
+
+Leaving some special cases, which might be refactored out one day,
+to aside, within widgets the events like "on click", "get focus",
+"blur", etc, are handled as if they were triggered by special
+keys on a keyboard.
+
+The implementation of the event handling resides in the
+raudrohi.widgets.g1.keylisteners_unit
+
+--------------------------------------------------------------------------
+
+
+==========================================================================

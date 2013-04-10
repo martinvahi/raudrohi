@@ -1,0 +1,27 @@
+===========================================================================
+==============  Fork of the pre3d JavaScript 3D engine  ===================
+===========================================================================
+
+The pre3d has been written by 
+
+    Dean McNamee (http://www.deanmcnamee.com/ )
+
+and the pre3D JavaScript 3D engine is under the BSD license.
+
+The Fork originates from: 
+
+    https://github.com/deanm/pre3d.git
+
+Official page of the pre3d project is: 
+
+    http://deanm.github.com/pre3d/
+
+As the current version of the fork does not include any manual edits, 
+the JavaScript files of the pre3d are copied stight to the 
+raudrohi_all_in_one_v<version>.js and get minimized along the rest 
+of the Raudrohi JavaScript Library files.
+
+The license part of the library has been manually copy-pasted to the 
+./../../../release/LICENSE.txt
+
+===========================================================================

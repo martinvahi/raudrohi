@@ -1,37 +1,4 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
 
 // The raudrohi.widgets.g1.idcache downloads unused, "freshly generated",
@@ -42,7 +9,7 @@ raudrohi.widgets.g1.idcache = function() {
 		var number_of_ids_2_ask_from_th_server_at_once_=50;
 		var server_request_threshold_=20;
 		var requests_queueing_threshold_=5; // It's for multithreading robustness.
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			if(!raudrohi.widgets.g1.idcache.ok_2_call_constructor){
 				raudrohi.tmg('8c1b6cae-5b28-416f-a2d4-8080a0219bd7',
 					'One should use the static method '+
@@ -81,7 +48,7 @@ raudrohi.widgets.g1.idcache = function() {
 		function request_from_server_if_necessary(){
 			try{
 				var n=number_of_ids_2_ask_from_th_server_at_once_;
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					if (n<0) {
 						raudrohi.tmg('3e047f32-954b-44bb-a2c4-8080a0219bd7',
 							'n=='+n+' < 0');
@@ -126,7 +93,7 @@ raudrohi.widgets.g1.idcache = function() {
 		var thrjr_ids_from_server_x_=0;
 		this.thrjr_.ids_from_server=function(ht_wrapper){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht_wrapper,
 						'ht_wrapper','ae7e8b4c-c7f0-4b39-92c4-8080a0219bd7');
 				} // if
@@ -156,7 +123,7 @@ raudrohi.widgets.g1.idcache = function() {
 
 		this.thrjr_.id_request=function(ht_wrapper){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht_wrapper,
 						'ht_wrapper','fac91b30-e30d-479f-a1c4-8080a0219bd7');
 				} // if

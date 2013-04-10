@@ -5,7 +5,7 @@
 //-------------------------------------------------------------------------
 
 function s_rainbow_char(s_text,s_html_color){
-	if(raudrohi.settings.debug_JavaScript===true){
+	if(raudrohi_settings_debug_JavaScript===true){
 		raudrohi.base.assert_isString(s_text,'s_text',
 			'ce54a53c-1092-4858-8bd3-e2224090abd7');
 

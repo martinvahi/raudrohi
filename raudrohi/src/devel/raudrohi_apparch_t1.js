@@ -1,37 +1,8 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
+//=========================================================================
 //
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
+// Application architecture specific components.
 //
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
 if(window.raudrohi_apparch1_exists!==true){
 	window.raudrohi.apparch1={};
@@ -74,7 +45,7 @@ raudrohi.apparch1.ticket.pool=function(){
 //------------------------------------------------------------------------
 raudrohi.apparch1.serialize=function(data){
 	try{
-		if(!raudrohi.adapter.isString(data)){
+		if(!raudrohi_adapter_isString(data)){
 			raudrohi.tmg('b7b25c2b-9184-465e-a45e-e290a0219bd7','');
 		} // if
 		var ticket='1';
@@ -228,8 +199,8 @@ raudrohi.apparch1.global_javascript_init_t1=function(){
 			"\nGUID== dfd040cf-8239-45cb-845e-e984de10bf3d";
 		} // if
 		raudrohi.lang.phonebooth_dev_null=new raudrohi.lang.phonebooth_dev_null();
-		raudrohi.settings.debug_JavaScript=raudrohi.core.str2bool(raudrohi.base.get_var('debug_JavaScript'));
-		if(raudrohi.settings.debug_JavaScript===true){
+		raudrohi_settings_debug_JavaScript=raudrohi.core.str2bool(raudrohi.base.get_var('debug_JavaScript'));
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.adapter.YUI_create_console();
 		} // if
 		raudrohi.settings.debug_SERVERSIDE=raudrohi.core.str2bool(raudrohi.base.get_var('debug_SERVERSIDE'));
@@ -258,7 +229,7 @@ raudrohi.apparch1.global_javascript_init_light_t1=function(){
 			'The window.onload must be started before this function can be called.'+
 			"\nGUID==47defb54-f2d4-4494-b8f3-b9d0e14d5bd0";
 		} // if
-		raudrohi.settings.debug_JavaScript=false;
+		raudrohi_settings_debug_JavaScript=false;
 		raudrohi.settings.debug_SERVERSIDE=false;
 	} catch (err){
 		raudrohi.tmg('3f90babe-3632-4877-814e-e290a0219bd7',err);

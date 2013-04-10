@@ -1,43 +1,10 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
 //if(window.raudrohi_cache_exists!==true){
 //	window.raudrohi.widgets.g1.cache={};
 //	window.raudrohi_cache_exists=true;
 //} // if
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
 // This class is deprecated, because in here the
 // queries that are chached, are fixed by their format.
@@ -51,7 +18,7 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 	var self_public_=this;
 	var instance_public_=self_public_;
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isString(
 				s_parent_phone_number, 's_parent_phone_number',
 				'a1956b27-d906-4578-9416-b050a0219bd7');
@@ -116,7 +83,7 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 		// raudrohi.dbcomm.dbq1.create_empty_ht().
 		self_public_.thrjr_.get_from_cache=function(wrapper_hashtable){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(wrapper_hashtable,
 						'wrapper_hashtable',
 						'845e9266-321a-4745-bc16-b050a0219bd7');
@@ -143,7 +110,7 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 		function pass_the_result_on_to_widgets_that_were_waiting_for_it(
 			signature,ht_rows){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString( signature,'signature',
 						'38e056d2-cb82-494f-9506-b050a0219bd7');
 					raudrohi.base.assert_isObject(ht_rows,'ht_rows',
@@ -180,7 +147,7 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 				var ht_data=ht_wrapper.get('data');
 				var s_rows=ht_data.get('data');
 				if(ht_data.get('operation_success')=='f'){
-					if(raudrohi.settings.debug_JavaScript===true){
+					if(raudrohi_settings_debug_JavaScript===true){
 						raudrohi.tmg('18e7f827-10b2-40be-9406-b050a0219bd7',
 							'In cache: server query operation '+
 							'failed. '+ht_data.get('message'));

@@ -1,38 +1,4 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
-
+//=========================================================================
 
 // The raudrohi.widgets.g1.router2hostserver is a singleton and its
 // phone number is "router2hostserver". The
@@ -77,7 +43,7 @@ raudrohi.widgets.g1.router2hostserver=function(s_html_id){
 
 		this.thrjr_.router2hostserver_receive_from_server=function(ht_wrapper){
 			try{
-				if(raudrohi.settings.debug_JavaScript){
+				if(raudrohi_settings_debug_JavaScript){
 					raudrohi.base.assert_isObject(ht_wrapper,"ht_wrapper",
 						'19a1e5b6-14d1-4ca4-92be-2160a0219bd7');
 					raudrohi.base.assert_isObject(ht_wrapper.get('data'),
@@ -103,7 +69,7 @@ raudrohi.widgets.g1.router2hostserver=function(s_html_id){
 
 		prc_.send2server=function(ht_wrapper){ // was formely this.send2server
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht_wrapper.get('data'),
 						"ht_wrapper.get('data')",
 						'f4b3e956-6a48-4d27-95be-2160a0219bd7');
@@ -163,7 +129,7 @@ raudrohi.widgets.g1.router2hostserver=function(s_html_id){
 				if(ht_wrapper==null){
 					var msg= "ht_wrapper===null \na_phonecall_instance.data=="+
 					a_phonecall_instance.data;
-					if(raudrohi.settings.debug_JavaScript===true){
+					if(raudrohi_settings_debug_JavaScript===true){
 						raudrohi.tmg(
 							'56134463-0a1a-4000-b1be-2160a0219bd7',msg);
 					} else {

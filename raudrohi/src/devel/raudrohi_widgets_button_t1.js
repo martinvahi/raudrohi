@@ -1,37 +1,4 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
 
 raudrohi.widgets.g1.button_t1=function(s_html_id, button_label){
@@ -41,7 +8,7 @@ raudrohi.widgets.g1.button_t1=function(s_html_id, button_label){
 		var pileofmethods_t1_=new raudrohi.widgets.g1.pileofmethods_t1(
 			self_public_,'raudrohi.widgets.g1.button_t1_',s_html_id);
 		var prc_=self_public_.private_code_;
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isString(s_html_id, 's_html_id',
 				'1b13b364-5d4d-4385-825a-01f070919bd7');
 			raudrohi.base.assert_isString(button_label, 'button_label',
@@ -69,7 +36,7 @@ raudrohi.widgets.g1.button_t1=function(s_html_id, button_label){
 
 		prc_.customizable.compulsory.render_editable=function(){
 			try{
-				raudrohi.ui.create_button_v1(prc_.html_id_, prc_.label_,
+				raudrohi.widgetless_ui.func.create_button_v1(prc_.html_id_, prc_.label_,
 					self_public_.evh_button_pushed, '');
 				if(prc_.is_readonly_===false){
 					raudrohi.adapter.remove_HTML_attribute(prc_.html_id_,
@@ -112,7 +79,7 @@ raudrohi.widgets.g1.button_t1=function(s_html_id, button_label){
 
 		this.set_colors=function(s_button_label_color,s_button_background_color){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.lang.assert_is_an_HTML_color(s_button_label_color,
 						's_button_label_color',
 						'380462a2-c279-41ee-9d49-01f070919bd7');
@@ -160,7 +127,7 @@ raudrohi.widgets.g1.button_t1=function(s_html_id, button_label){
 						self_public_.set_label(a_phonecall_instance.data2);
 						break;
 					default:
-						if(raudrohi.settings.debug_JavaScript===true){
+						if(raudrohi_settings_debug_JavaScript===true){
 							raudrohi.tmg(
 								'6232a677-ba1f-4e90-9e39-01f070919bd7',
 								'There\'s no message handler for '+a_pair.a);
@@ -203,7 +170,7 @@ raudrohi.widgets.g1.button_t1_resetter=function(){
 	try{
 		this.reset_element=function(a_button_widget_instance){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(a_button_widget_instance,
 						'a_button_widget_instance',
 						'c1c5bcd2-db1b-4cac-8a58-01f070919bd7');

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>WebGL Hello World</title>
+		<script type="text/javascript" >
+			// The code here originates mostly from:
+			// https://developer.mozilla.org/en-US/docs/WebGL/Getting_started_with_WebGL
+
+			window.onload=function(){
+				var ob_DOM_canvas=document.getElementById(
+				"2001_A_Space_Odyssey");
+				var ob_webgl=ob_DOM_canvas.getContext("webgl")
+				ob_webgl.clearColor(0,0,0.8,1);
+				ob_webgl.clear(ob_webgl.COLOR_BUFFER_BIT);
+			} // window.onload
+
+		</script>
+	</head>
+	<body>
+		<canvas id="2001_A_Space_Odyssey" width="640" height="480"></canvas>
+	</body>
+</html>

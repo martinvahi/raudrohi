@@ -1,0 +1,12 @@
+
+
+Content Delivery Network version:
+
+<script src="http://yui.yahooapis.com/3.9.0/build/yui/yui-min.js"></script>
+
+
+Local version:
+
+<script type="text/javascript" src="./bonnet/raudrohi/src/release/third_party/yahoo/yui_3_9_0/build/yui/yui-min.js"></script>
+
+

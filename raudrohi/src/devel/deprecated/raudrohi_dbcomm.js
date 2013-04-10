@@ -1,37 +1,5 @@
-///------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
+
 if(window.raudrohi.dbcomm_exists!==true){
 	window.raudrohi.dbcomm={}; // The "db" stands for database
 	window.raudrohi.dbcomm_exists=true;
@@ -44,7 +12,7 @@ raudrohi.dbcomm.dbq1=function(){
 	try{
 
 		this.verify_bin_query_ht=function(ht_query_candidate){
-			if(raudrohi.settings.debug_JavaScript===true){
+			if(raudrohi_settings_debug_JavaScript===true){
 				raudrohi.base.assert_isObject(ht_query_candidate,
 					'ht_query_candidate',
 					'15c83927-6ad3-4ffb-a197-6150a0219bd7');
@@ -57,7 +25,7 @@ raudrohi.dbcomm.dbq1=function(){
 				raudrohi.base.assert_isString(
 					ht_q.get('table_name'),'ht_q.get(\'table_name\')',
 					'2878b2e3-4d83-4c17-9697-6150a0219bd7');
-				if(!raudrohi.adapter.isString(ht_q.get('ht_selector'))){
+				if(!raudrohi_adapter_isString(ht_q.get('ht_selector'))){
 					raudrohi.base.assert_isObject(
 						ht_q.get('ht_selector'),'ht_q.get(\'ht_selector\')',
 						'36be5b39-c7f9-4479-b497-6150a0219bd7');

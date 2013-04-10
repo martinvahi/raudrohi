@@ -60,17 +60,17 @@ raudrohi.ajax.comm.formscript.send2server=function(formscript_processor_name,
 	phone_number_of_the_response_receiver, formscript_data, server_URL){
 	var err_tmp='raudrohi.ajax.comm.formscript.send';
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
-			if(!raudrohi.adapter.isString(formscript_processor_name)){
+		if(raudrohi_settings_debug_JavaScript===true){
+			if(!raudrohi_adapter_isString(formscript_processor_name)){
 				raudrohi.tmg('9337c4f2-6ef4-41c8-ba50-8390a0219bd7',err_tmp);
 			}
-			if(!raudrohi.adapter.isString(phone_number_of_the_response_receiver)){
+			if(!raudrohi_adapter_isString(phone_number_of_the_response_receiver)){
 				raudrohi.tmg('1825bff4-fef9-47ee-9a40-8390a0219bd7',err_tmp);
 			}
-			if(!raudrohi.adapter.isString(formscript_data)){
+			if(!raudrohi_adapter_isString(formscript_data)){
 				raudrohi.tmg('1cd5a612-3813-40f7-b710-8390a0219bd7',err_tmp);
 			}
-			if(!raudrohi.adapter.isString(server_URL)){
+			if(!raudrohi_adapter_isString(server_URL)){
 				raudrohi.tmg('3e864d75-f0bb-4424-8720-8390a0219bd7',err_tmp);
 			}
 		} // if
@@ -110,7 +110,7 @@ raudrohi.ajax.pagecontrol=function(){
 			} // else
 			return;
 		} catch (err){
-			if(raudrohi.settings.debug_JavaScript===true){
+			if(raudrohi_settings_debug_JavaScript===true){
 				raudrohi.tmg('5163abf2-8b20-428e-8f5f-8390a0219bd7',err);
 			}
 			document.write('<br/><br/>The web application\'s server side '+
@@ -126,7 +126,7 @@ raudrohi.ajax.pagecontrol=function(){
 			document.write(s1);
 			return;
 		} catch (err){
-			if(raudrohi.settings.debug_JavaScript===true){
+			if(raudrohi_settings_debug_JavaScript===true){
 				raudrohi.tmg('e44d73e0-2e79-4b76-944f-8390a0219bd7',err);
 			}
 			document.write('<br/><br/>The web application\'s '+
@@ -143,7 +143,7 @@ raudrohi.ajax.pagecontrol=function(){
 			document.write(s1);
 			return;
 		} catch (err){
-			if(raudrohi.settings.debug_JavaScript===true){
+			if(raudrohi_settings_debug_JavaScript===true){
 				raudrohi.tmg('4c5d8ea1-cd60-4fcf-9b4f-8390a0219bd7',err);
 			}
 			document.write('The application crashed. This is defenately a bug.'+
@@ -156,7 +156,7 @@ raudrohi.ajax.pagecontrol=function(){
 		try{
 			visible_elems_.push(a_page);
 		} catch (err){
-			if(raudrohi.settings.debug_JavaScript===true){
+			if(raudrohi_settings_debug_JavaScript===true){
 				raudrohi.tmg('0109f393-0b95-46a6-a13f-8390a0219bd7',err);
 			} else {
 				self_public_.display_client_side_crash_message();
@@ -175,7 +175,7 @@ raudrohi.ajax.pagecontrol=function(){
 				elem.hide();
 			} // for
 		} catch (err){
-			if(raudrohi.settings.debug_JavaScript===true){
+			if(raudrohi_settings_debug_JavaScript===true){
 				raudrohi.tmg('53c4d7ef-984d-4781-812f-8390a0219bd7',err);
 			} else {
 				self_public_.display_client_side_crash_message();
@@ -188,7 +188,7 @@ raudrohi.ajax.pagecontrol=function(){
 			self_public_.hide_all_visible_pages();
 			self_public_.phone.call(a_page_phone_number,'unhide|||',0);
 		} catch (err){
-			if(raudrohi.settings.debug_JavaScript===true){
+			if(raudrohi_settings_debug_JavaScript===true){
 				raudrohi.tmg('20e9fce3-63da-40f1-a82f-8390a0219bd7',err);
 			} else {
 				self_public_.display_client_side_crash_message();
@@ -215,7 +215,7 @@ raudrohi.ajax.comm.formscript.receiver=function(){
 	function try_to_digest_response_text(a_string_from_server){
 		var a_phone_number;
 		var data;
-		var debug=(raudrohi.settings.debug_JavaScript===true)||(raudrohi.settings.debug_SERVERSIDE===true);
+		var debug=(raudrohi_settings_debug_JavaScript===true)||(raudrohi.settings.debug_SERVERSIDE===true);
 		try{
 			raudrohi.base.assert_isString(a_string_from_server,
 				'a_string_from_server', '3da18b64-02ee-4db9-a41f-8390a0219bd7');
@@ -252,9 +252,9 @@ raudrohi.ajax.comm.formscript.receiver=function(){
 				'|||');
 			var dbglog_text_pair=raudrohi.base.bisect(dbglog_presence_pair.b,
 				'|||');
-			if((raudrohi.settings.debug_SERVERSIDE===true)&&(raudrohi.settings.debug_JavaScript===true)){
+			if((raudrohi.settings.debug_SERVERSIDE===true)&&(raudrohi_settings_debug_JavaScript===true)){
 				if(dbglog_presence_pair.a=='with_debuglog') {
-					var s_dbgl=raudrohi.base.replace_all(
+					var s_dbgl=raudrohi.base.gsub(
 						'|','SiNgLepILLAR4',dbglog_text_pair.a);
 					var s_dbgl1=s_dbgl.replace(rgx_spacechars_,"");
 					if(s_dbgl1!==""){

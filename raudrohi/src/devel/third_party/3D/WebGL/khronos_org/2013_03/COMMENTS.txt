@@ -1,0 +1,14 @@
+
+The 
+    J3DI.js
+    J3DIMath.js
+    webgl-utils.js
+
+have been downloaded in 2013_03_05 from 
+    https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/demos/common/webgl-utils.js
+    https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/demos/webkit/resources/J3DI.js
+    https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/demos/webkit/resources/J3DIMath.js
+
+which were links at 
+    http://www.khronos.org/webgl/wiki/Tutorial
+

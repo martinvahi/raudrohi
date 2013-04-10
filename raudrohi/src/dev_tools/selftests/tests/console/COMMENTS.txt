@@ -1,0 +1,16 @@
+===========================================================================
+========  Raudrohi JavaScript Library (RJSL) Selftests test Files =========
+===========================================================================
+
+Test files need to be registered, declared, in the Rakefile.
+
+The approximate line of the Rakefile can be obtained by
+running the build task without registration. The error message
+contains the line number of the method that needs to be
+updated.
+
+Please do not forget to include the new JavaScript file to
+Your local repository.
+
+===========================================================================
+

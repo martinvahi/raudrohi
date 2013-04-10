@@ -1,37 +1,4 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
 // Compartments are addressed like pixels at a computer screen.
 // Address of the leftmost and topmost compartment is (0,0).
@@ -42,7 +9,7 @@ raudrohi.widgets.g1.matrix_t1=function(s_html_id, initial_width,initial_height){
 		var pileofmethods_t1_=new raudrohi.widgets.g1.pileofmethods_t1(
 			self_public_,'raudrohi.widgets.g1.matrix_t1_',s_html_id);
 		var prc_=self_public_.private_code_;
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isString(s_html_id,'s_html_id',
 				'e50524f3-9a73-485e-83e1-3070a0219bd7');
 			raudrohi.base.assert_isNumber(initial_width,'initial_width',
@@ -75,7 +42,7 @@ raudrohi.widgets.g1.matrix_t1=function(s_html_id, initial_width,initial_height){
 		// compartment with coordinates (x,y) actually even exist.
 		this.get_compartment_id=function(x,y){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(x, 'x',
 						'52271bdd-9cd0-459c-9ce1-3070a0219bd7');
 					raudrohi.base.assert_isNumber(y, 'y',
@@ -91,7 +58,7 @@ raudrohi.widgets.g1.matrix_t1=function(s_html_id, initial_width,initial_height){
 
 		function create_containers_row(row_width,y){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(y,'y',
 						'3193ffb6-704d-4a89-b5d1-3070a0219bd7');
 					raudrohi.base.assert_isNumber(row_width,'row_width',
@@ -166,7 +133,7 @@ raudrohi.widgets.g1.matrix_t1=function(s_html_id, initial_width,initial_height){
 		this.set_compartment_widget=function(a_widget,x,y){
 			try{
 				var s;
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(x,'x',
 						'2901cbb4-e0d1-4f40-b8d1-3070a0219bd7');
 					raudrohi.base.assert_isNumber(y,'y',
@@ -214,7 +181,7 @@ raudrohi.widgets.g1.matrix_t1=function(s_html_id, initial_width,initial_height){
 				if(prc_.content_set_===false){
 					return;
 				} // if
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					ht_in_use_check_.clear();
 				} // if
 				prc_.unregister_all_subwidgets();
@@ -230,7 +197,7 @@ raudrohi.widgets.g1.matrix_t1=function(s_html_id, initial_width,initial_height){
 		// Resetting dimensions also unregisters all widgets.
 		this.reset_dimensions=function(width,height){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(width,'width',
 						'8c06c536-a382-4eef-b2c1-3070a0219bd7');
 					raudrohi.base.assert_isNumber(height,'height',

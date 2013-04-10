@@ -1,37 +1,4 @@
 //=========================================================================
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//=========================================================================
 
 //-------------------------------------------------------------------------
 // The raudrohi.widgets.g1.pileofmethods_t1 is not a widget itself, but
@@ -83,8 +50,8 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		instance_public_.thrjr_ = {};
 		var b_selfread_wrap_2_alignment_cache_is_out_of_date_=true;
 
-		var lc_s_emptystring=window.raudrohi.core.constans_as_reusable_instances.glc_s_emptystring;
-		var lc_s_linebreak=window.raudrohi.core.constans_as_reusable_instances.glc_s_linebreak;
+		var lc_s_emptystring=raudrohi_glc_s_emptystring;
+		var lc_s_linebreak=raudrohi_glc_s_linebreak;
 
 		try {
 			prc_.customizable={};
@@ -134,7 +101,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 
 			instance_public_.set_field_name_in_parent=function(s_field_name_in_parent){
 				try{
-					if(raudrohi.settings.debug_JavaScript===true){			
+					if(raudrohi_settings_debug_JavaScript===true){			
 						raudrohi.base.assert_isString(s_field_name_in_parent, 
 							's_field_name_in_parent',
 							'6b15a35a-e68f-4c8c-810f-13202011abd7');
@@ -241,6 +208,11 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		// at once.
 		instance_public_.hide = function(true_if_update_DOM) {
 			try {
+				if(raudrohi_settings_debug_JavaScript===true){
+					raudrohi.base.assert_isBoolean(true_if_update_DOM,
+						'true_if_update_DOM',
+						'b2670e2f-7815-4ad8-b287-6230a0218bd7');
+				} // if
 				if (prc_.self_is_graphical_widget_ !== true) {
 					return;
 				} // if
@@ -383,7 +355,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		instance_public_.set_config = function(config_field_name,
 			config_field_value) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(config_field_name,
 						'config_field_name',
 						'3be07233-2567-4fbd-a4ee-13202011abd7');
@@ -391,7 +363,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 						'config_field_value',
 						'40b9954d-0ff9-462e-a1ee-13202011abd7');
 				} // if
-				if (raudrohi.adapter.isBoolean(config_field_value)) {
+				if (raudrohi_adapter_isBoolean(config_field_value)) {
 					if (config_field_value) {
 						prc_.bitfield_.set(config_field_name);
 					} else {
@@ -411,7 +383,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		instance_public_.only_for_raudrohi_core_developers.set_parent_instance=function(
 			an_instance_or_null){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					if(an_instance_or_null!==null){
 						raudrohi.base.assert_isObject(an_instance_or_null,
 							'an_instance_or_null',
@@ -492,7 +464,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 
 		instance_public_.reset_container_id = function(new_container_id) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(new_container_id,
 						'new_container_id', '0acc1c41-eaff-4a7f-94de-13202011abd7');
 				} // if
@@ -541,7 +513,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		instance_public_.set_keylistener = function(key_number_as_string,
 			event_handler_func) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(key_number_as_string,
 						'key_number_as_string',
 						'ff1a2f18-952f-480c-92de-13202011abd7');
@@ -563,7 +535,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 
 		instance_public_.remove_keylistener = function(key_number) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isNumber(key_number, 'key_number',
 						'634c614b-0495-4aeb-a3de-13202011abd7');
 				} // if
@@ -624,11 +596,11 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		// southeast,southwest, center}
 		instance_public_.set_alignment = function(alignment_as_a_cardinal_point) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(alignment_as_a_cardinal_point,
 						'alignment_as_a_cardinal_point',
 						'5e8cdcd7-a84b-48c1-b4ce-13202011abd7');
-					raudrohi.ui.assert_alignment_value(
+					raudrohi.widgetless_ui.func.assert_alignment_value(
 						alignment_as_a_cardinal_point);
 				} // if
 				if (alignment_as_a_cardinal_point == prc_.alignment1_) {
@@ -685,7 +657,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		//-----------------------------------------------------------
 		instance_public_.thrjr_.threadjumper_ricochet_detector = function(
 			ht_wrapper) {
-			if (raudrohi.settings.debug_JavaScript === true) {
+			if (raudrohi_settings_debug_JavaScript === true) {
 				raudrohi.tmg('ed05fd2a-4285-4321-95be-13202011abd7',
 					'One should never reach this place.');
 			} // if
@@ -699,7 +671,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 			// threadjumper version, the standard phonecall catchers
 			// can be modified and the name can be refactored out.
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isObject(ht_wrapper, 'ht_wrapper',
 						'1c47c9f4-0b05-43fe-84be-13202011abd7');
 				} // if
@@ -737,7 +709,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		prc_.register_subwidget = function(a_widget,
 			default_visibility_after_the_parent_widget_has_been_unhidden) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isObject(a_widget, 'a_widget',
 						'24b6f6b2-f92d-4968-b5be-13202011abd7');
 					raudrohi.base.assert_isString(
@@ -766,7 +738,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 						widget_state.is_in_state_hidden = false;
 						break;
 					default:
-						if (raudrohi.settings.debug_JavaScript === true) {
+						if (raudrohi_settings_debug_JavaScript === true) {
 							raudrohi.tmg(
 								'7f36f355-6be9-4b50-a4ae-13202011abd7',
 								'There\'s no branching for default_visibility_' +
@@ -793,7 +765,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 					return;
 				} // if
 				unregister_all_subwidgets_in_progress_=true;
-				if (raudrohi.settings.debug_JavaScript === true) {} // if
+				if (raudrohi_settings_debug_JavaScript === true) {} // if
 				if(prc_.self_is_hidden_!==true){
 					var len=prc_.ar_widgets_.length;
 					var i=0;
@@ -819,7 +791,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		prc_.mark_elemwidget_to_be_hidden = function(a_widget, true_if_update_DOM) {
 			try {
 				var phn = a_widget.phone.get_phone_number();
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isNotnull(a_widget, 'a_widget',
 						'4ba1b818-75eb-4e3d-83ae-13202011abd7');
 					raudrohi.base.assert_isObject(a_widget, 'a_widget',
@@ -849,7 +821,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		prc_.mark_elemwidget_to_be_unhidden = function(a_widget) {
 			try {
 				var phn = a_widget.phone.get_phone_number();
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isNotnull(a_widget, 'a_widget',
 						'576f32f9-5f2f-4334-94ae-13202011abd7');
 					raudrohi.base.assert_isObject(a_widget, 'a_widget',
@@ -861,7 +833,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 					} // if
 				} // if
 				init_ht_widgets_conserved_states_if_necceccary();
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					if (!prc_.ht_widgets_conserved_states_.containsKey(phn)) {
 						raudrohi.tmg('58133229-c504-445e-a59e-13202011abd7',
 							'prc_.ht_widgets_conserved_states_ does not contain ' +
@@ -907,7 +879,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 				if (prc_.widgets_created_===true) {
 					prc_.widget_msgboard_.set_content(message_text);
 				} else {
-					if(raudrohi.settings.debug_JavaScript===true){
+					if(raudrohi_settings_debug_JavaScript===true){
 						raudrohi.tmg('b7330ce8-b223-461e-879e-13202011abd7',
 							'display_message got called before the '+
 							'message displaying widget is instantiated.');
@@ -946,7 +918,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		// Modifies the ht_wrapper.
 		instance_public_.only_for_raudrohi_core_developers.microsession_set_id=function(ht_wrapper){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(ht_wrapper,
 						'ht_wrapper', '5ca3f429-bc2f-4ccb-a48e-13202011abd7');
 				} // if
@@ -981,7 +953,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		instance_public_.only_for_raudrohi_core_developers.microsession_assemble_data_wrapper_hashtable = function(
 			destination_command, return_command) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(return_command, 'return_command',
 						'a8057535-a8a4-4ec7-958e-13202011abd7');
 					raudrohi.base.assert_isString(destination_command,
@@ -1026,7 +998,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		prc_.send2server_t1 = function(s_formscript_processor_name, ht_data,
 			s_return_command) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(s_formscript_processor_name,
 						's_formscript_processor_name',
 						'a542f055-74c8-4322-838e-13202011abd7');
@@ -1057,7 +1029,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		prc_.threadjump_send = function(s_destination_phonenumber,
 			s_destination_command, ht_data, s_return_command) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(s_destination_phonenumber,
 						's_destination_phonenumber',
 						'25059728-edae-489a-957e-13202011abd7');
@@ -1090,7 +1062,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 			ht_wrapper_tht_came_in_with_only_data_field_modified) {
 			try {
 				var ht_wrapper = ht_wrapper_tht_came_in_with_only_data_field_modified;
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isObject(ht_wrapper, 'ht_wrapper',
 						'91513438-bf9d-4c9d-956e-13202011abd7');
 				} // if
@@ -1111,7 +1083,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		prc_.threadjump_redirect_outwards = function(s_destination_phonenumber,
 			s_destination_command, ht_wrapper, s_return_command) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(s_destination_phonenumber,
 						's_destination_phonenumber',
 						'5caa7f8c-e65d-437d-816e-13202011abd7');
@@ -1155,7 +1127,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		// return_command of the prc_.threadjump_redirect_outwards
 		prc_.threadjump_redirect_inwards = function(ht_wrapper) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isObject(ht_wrapper, 'ht_wrapper',
 						'ed49423e-0068-4224-955e-13202011abd7');
 				} // if
@@ -1182,7 +1154,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		// The raudrohi.core.pair.b is assigned the data hashtable.
 		instance_public_.only_for_raudrohi_core_developers.microsession_receive_bin_t1 = function(ht_wrapper) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isObject(ht_wrapper, 'ht_wrapper',
 						'26eb8e9f-8e42-4494-b45e-13202011abd7');
 				} // if
@@ -1237,7 +1209,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		// The raudrohi.core.pair.b is assigned the wrapper hashtable.
 		instance_public_.only_for_raudrohi_core_developers.microsession_receive_txt_t2 = function(wrapper_hashtable_progfte) {
 			try {
-				if (raudrohi.settings.debug_JavaScript === true) {
+				if (raudrohi_settings_debug_JavaScript === true) {
 					raudrohi.base.assert_isString(wrapper_hashtable_progfte,
 						'wrapper_hashtable_progfte',
 						'42a52d32-791b-4aba-b45e-13202011abd7');
@@ -1279,7 +1251,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 				} // if
 				if (instance_public_.thrjr_[destination_command] === undefined) {
 					if (instance_public_.thrjr_.default_command === undefined) {
-						if (raudrohi.settings.debug_JavaScript === true) {
+						if (raudrohi_settings_debug_JavaScript === true) {
 							raudrohi.tmg('148f7355-0857-4a91-814e-13202011abd7',
 								'instance_public_.thrjr_' + destination_command +
 								" does not exist in \n" +
@@ -1331,7 +1303,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 		// Returns a string.
 		prc_.selfread.wrap_2_alignment_div=function(s_html_2_wrap) {
 			try {
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_html_2_wrap,'s_html_2_wrap',
 						'7332a437-f3a1-462a-954e-13202011abd7');
 				} // if
@@ -1343,7 +1315,7 @@ raudrohi.widgets.g1.pileofmethods_t1 = function(instance_public,
 				// pretty hard to hit the right time window to cause the
 				// miss-alignment.
 				if(b_selfread_wrap_2_alignment_cache_is_out_of_date_===true){
-					var ht_alignmet_styles=raudrohi.ui.get_alignment_style_values(
+					var ht_alignmet_styles=raudrohi.widgetless_ui.func.get_alignment_style_values(
 						prc_.alignment1_);
 					var s=lc_s_linebreak+'<div style="vertical-align:'+
 					ht_alignmet_styles.get('vertical-align')+

@@ -1,37 +1,5 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
+//=========================================================================
 //
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
 // This file acts as an interface between JavaScript libraries that
 // take care of browser specific picularities and the raudrohi JavaScript
 // library.
@@ -48,64 +16,66 @@
 // Dependencies:
 //      YUI toolkit from Yahoo. Currently only version 3 is fully
 //      supported.
-//------------------------------------------------------------------------
-if(window.raudrohi_adapter_exists!==true){
-	window.raudrohi.adapter={};
-	window.raudrohi_adapter_exists=true;
+//-------------------------------------------------------------------------
+
+if (window.raudrohi_adapter_exists !== true) {
+	window.raudrohi.adapter = {};
+	window.raudrohi_adapter_exists = true;
 } // if
-if(window.raudrohi_adapter_ports_exists!==true){
-	window.raudrohi.adapter.ports={};
-	window.raudrohi_adapter_ports_exists=true;
+if (window.raudrohi_adapter_ports_exists !== true) {
+	window.raudrohi.adapter.ports = {};
+	window.raudrohi_adapter_ports_exists = true;
 } // if
 
-raudrohi.internal_constructor=function(){
-	throw 'It\'s assumed that the function named '+
-	'raudrohi.internal_constructor is overriden. '+
-	'GUID=="b571362a-932b-4f25-8503-90120020abd7"';
+raudrohi.internal_constructor = function() {
+	throw 'It\'s assumed that the function named ' +
+		'raudrohi.internal_constructor is overriden. ' +
+		'GUID=="5448d185-af8f-42b8-9319-e07221313dd7"';
 } // raudrohi.internal_constructor
 
-raudrohi.application_main_function=function(){
-	throw 'It\'s assumed that the function named '+
-	'raudrohi.application_main_function is overriden. '+
-	'GUID=="33853349-92a3-4c44-84f2-90120020abd7" ';
+raudrohi.application_main_function = function() {
+	throw 'It\'s assumed that the function named ' +
+		'raudrohi.application_main_function is overriden. ' +
+		'GUID=="2a768501-c972-46c2-b558-e07221313dd7" ';
 } // raudrohi.application_main_function
 
-raudrohi.adapter.vars={};
+raudrohi.adapter.vars = {};
 
-raudrohi.adapter.vars.func_if_lib_uninited=function(x){
-	throw 'In order to use the raudrohi '+
-	'JavaScript library, one has to initialize it by calling '+
-	'raudrohi.initiate_adapter. ';
+raudrohi.adapter.vars.func_if_lib_uninited = function(x) {
+	throw 'In order to use the raudrohi ' +
+		'JavaScript library, one has to initialize it by calling ' +
+		'raudrohi.initiate_adapter. ';
 } // raudrohi.adapter.vars.func_if_lib_uninited
 
 // The isString will be overriden, but one needs to bypass it
 // within the str2bool, which gets called before the overriding.
 // That's why it returns just true.
-raudrohi.adapter.isString=function(x){
+raudrohi_adapter_isString = function(x) {
 	return true;
 };
 
 
-raudrohi.adapter.log=function(x){/*its a temporary stub*/};
+raudrohi.adapter.log = function(x) {/*its a temporary stub*/
+};
 
 // The following 2 methods are subject to overriding. They're functions
 // here only to demonstrate their interface.
-raudrohi.adapter.server_response_eventhandler=function(response_as_a_text){
+raudrohi.adapter.server_response_eventhandler = function(response_as_a_text) {
 	raudrohi.adapter.vars.func_if_lib_uninited('')
 } // raudrohi.adapter.server_response_eventhandler
-raudrohi.adapter.send2server=function(url_string,data_as_text){
+raudrohi.adapter.send2server = function(url_string, data_as_text) {
 	raudrohi.adapter.vars.func_if_lib_uninited('')
 } // raudrohi.adapter.send2server
 
 
 // the innerHTML parameter exists only, because
 // the Internet Explorer 8 (as of 11.2009) has bugs.
-raudrohi.adapter.set_innerHTML=function(html_id, a_string){
+raudrohi.adapter.set_innerHTML = function(html_id, a_string) {
 	raudrohi.adapter.vars.func_if_lib_uninited('')
 } //raudrohi.adapter.set_innerHTML
 
 //------------------------------------------------------------------------
-raudrohi.tmg=function(GUID,err){
+raudrohi.tmg = function(GUID, err) {
 	// The YAHOO event handler mechanisms supress the exceptions,
 	// effectively stopping the exception bubble before it reaches
 	// the event handler function. That's one of the reasons, why one
@@ -117,8 +87,8 @@ raudrohi.tmg=function(GUID,err){
 	// Within the raudrohi_adapter_v1.js one should not use this
 	// method before a function has been assigned to the
 	// raudrohi.adapter.log.
-	var msg='GUID=="'+GUID+"\"\n"+err;
-	if(raudrohi.settings.runtime.write_exception_stack_2_log){
+	var msg = 'GUID=="' + GUID + "\"\n" + err;
+	if (raudrohi.settings.runtime.write_exception_stack_2_log) {
 		raudrohi.adapter.log(msg);
 	} // if
 	throw msg;
@@ -128,14 +98,14 @@ raudrohi.tmg=function(GUID,err){
 // The YUI_stoppropagation_preventdefault duplicates the YUI_stoppropagation
 // and the YUI_preventdefault and exists only for convenience and
 // may be also for slight performance gain.
-raudrohi.adapter.YUI_stoppropagation_preventdefault=raudrohi.adapter.vars.func_if_lib_uninited;
+raudrohi.adapter.YUI_stoppropagation_preventdefault = raudrohi.adapter.vars.func_if_lib_uninited;
 
-raudrohi.adapter.ports.selected_port_name='';
+raudrohi.adapter.ports.selected_port_name = '';
 
 //------------------------------------------------------------------------
-raudrohi.adapter.vars.verify_event_name=function(event_name){
-	try{
-		switch(event_name){
+raudrohi.adapter.vars.verify_event_name = function(event_name) {
+	try {
+		switch (event_name) {
 			case 'focus':
 				break;
 			case 'blur':
@@ -145,56 +115,64 @@ raudrohi.adapter.vars.verify_event_name=function(event_name){
 			case 'change':
 				break;
 			default:
-				if(raudrohi.settings.debug_JavaScript===true){
-					raudrohi.tmg('GUID=="476c2f46-fe47-43a9-85f2-90120020abd7"',
-						'There\'s no branching for event_name(=='+event_name+').');
+				if (raudrohi_settings_debug_JavaScript === true) {
+					raudrohi.tmg('GUID=="943299c5-cd08-4760-8148-e07221313dd7"',
+						'There\'s no branching for event_name(==' + event_name + ').');
 				} // if
 		} // switch
 	}
-	catch (err){
-		throw 'GUID=="05297916-28cf-4831-81f2-90120020abd7"'+"\n\r"+err;
+	catch (err) {
+		throw 'GUID=="5fc16842-15b8-4338-9818-e07221313dd7"' + "\n\r" + err;
 	} // catch
 } // raudrohi.adapter.vars.verify_event_name
 
 //------------------------------------------------------------------------
-raudrohi.adapter.vars.do_something_if_the_connection_to_the_server_failed=function(){
-	if(raudrohi.settings.debug_JavaScript===true){
-		raudrohi.tmg('1be88111-6adf-443a-a203-90120020abd7',
+raudrohi.adapter.vars.do_something_if_the_connection_to_the_server_failed = function() {
+	if (raudrohi_settings_debug_JavaScript === true) {
+		raudrohi.tmg('e132ae93-cf32-4219-ba29-e07221313dd7',
 			'Connection to the server failed.');
 	} // if
 }; // raudrohi.adapter.vars.do_something_if_the_connection_to_the_server_failed
+//------------------------------------------------------------------------
+
+var raudrohi_adapter_isString = null;
+var raudrohi_adapter_isArray = null;
+var raudrohi_adapter_isNumber = null;
+var raudrohi_adapter_isBoolean = null;
+var raudrohi_adapter_isObject = null;
+var raudrohi_adapter_isUndefined = null;
+var raudrohi_adapter_isValue = null;
+var raudrohi_adapter_isFunction = null;
 
 //------------------------------------------------------------------------
 var YUI_based_LogReader;
-var YUI_based_LogReader_Y={};
-var Y=null;
+var Y_raudrohi = null;
 
 //------------------------------------------------------------------------
-raudrohi.adapter.ports.yui_3_0=function(){
-	var self_public_=this;
-	this.get_name=function(){
+raudrohi.adapter.ports.yui_3_0 = function() {
+	var self_public_ = this;
+	this.get_name = function() {
 		return 'YUI_3_0';
 	} // get_name
-	Y=YUI();
-	if(raudrohi.settings.debug_JavaScript===true){
-		Y.use('console', 'overlay','dd','node','attribute',
-			'dom','event', 'get','io-base',
-			'io-form','io-upload-iframe','json','json-stringify',
-			'json-parse','event-key', 'key',function(Y){
+	Y_raudrohi = YUI();
+	if (raudrohi_settings_debug_JavaScript === true) {
+		Y_raudrohi.use('console', 'overlay', 'dd', 'node', 'attribute',
+			'dom', 'event', 'get', 'io-base',
+			'io-form', 'io-upload-iframe', 'json', 'json-stringify',
+			'json-parse', 'event-key', 'key', function(Y) {
 
+			raudrohi_adapter_isString = Y.Lang.isString;
+			raudrohi_adapter_isArray = Y.Lang.isArray;
+			raudrohi_adapter_isNumber = Y.Lang.isNumber;
+			raudrohi_adapter_isBoolean = Y.Lang.isBoolean;
+			raudrohi_adapter_isObject = Y.Lang.isObject;
+			raudrohi_adapter_isUndefined = Y.Lang.isUndefined;
+			raudrohi_adapter_isValue = Y.Lang.isValue;
+			raudrohi_adapter_isFunction = Y.Lang.isFunction;
 
-				raudrohi.adapter.isString=Y.Lang.isString;
-				raudrohi.adapter.isArray=Y.Lang.isArray;
-				raudrohi.adapter.isNumber=Y.Lang.isNumber;
-				raudrohi.adapter.isBoolean=Y.Lang.isBoolean;
-				raudrohi.adapter.isObject=Y.Lang.isObject;
-				raudrohi.adapter.isUndefined=Y.Lang.isUndefined;
-				raudrohi.adapter.isValue=Y.Lang.isValue;
-				raudrohi.adapter.isFunction=Y.Lang.isFunction;
-
-				raudrohi.internal_constructor();
-				raudrohi.application_main_function();
-			});
+			raudrohi.internal_constructor();
+			raudrohi.application_main_function();
+		});
 	} else {
 		// The console related css seems to mess things up.
 		// May be it has something to do with the fact that the console
@@ -202,219 +180,221 @@ raudrohi.adapter.ports.yui_3_0=function(){
 		//
 		// The reason, why the console component is here, is that
 		// some weird errors happened to occur.
-		Y.use( 'overlay','dd','node','attribute',
-			'dom','event', 'get','io-base',
-			'io-form','io-upload-iframe','json','json-stringify',
-			'json-parse','event-key','key',function(Y){
+		Y_raudrohi.use('overlay', 'dd', 'node', 'attribute',
+			'dom', 'event', 'get', 'io-base',
+			'io-form', 'io-upload-iframe', 'json', 'json-stringify',
+			'json-parse', 'event-key', 'key', function(Y) {
 
-				raudrohi.adapter.isString=Y.Lang.isString;
-				raudrohi.adapter.isArray=Y.Lang.isArray;
-				raudrohi.adapter.isNumber=Y.Lang.isNumber;
-				raudrohi.adapter.isBoolean=Y.Lang.isBoolean;
-				raudrohi.adapter.isObject=Y.Lang.isObject;
-				raudrohi.adapter.isUndefined=Y.Lang.isUndefined;
-				raudrohi.adapter.isValue=Y.Lang.isValue;
-				raudrohi.adapter.isFunction=Y.Lang.isFunction;
+			raudrohi_adapter_isString = Y.Lang.isString;
+			raudrohi_adapter_isArray = Y.Lang.isArray;
+			raudrohi_adapter_isNumber = Y.Lang.isNumber;
+			raudrohi_adapter_isBoolean = Y.Lang.isBoolean;
+			raudrohi_adapter_isObject = Y.Lang.isObject;
+			raudrohi_adapter_isUndefined = Y.Lang.isUndefined;
+			raudrohi_adapter_isValue = Y.Lang.isValue;
+			raudrohi_adapter_isFunction = Y.Lang.isFunction;
 
-				raudrohi.internal_constructor();
-				raudrohi.application_main_function();
-			});
+			raudrohi.internal_constructor();
+			raudrohi.application_main_function();
+		});
 	} // else
 
-	raudrohi.adapter.vars.YUI_3_0={};
+	raudrohi.adapter.vars.YUI_3_0 = {};
 
-	raudrohi.adapter.log=function(a_string){
-		if(raudrohi.settings.debug_JavaScript===true){
-			Y.log(a_string);
+	raudrohi.adapter.log = function(a_string) {
+		if (raudrohi_settings_debug_JavaScript === true) {
+			Y_raudrohi.log(a_string);
 		} // if
 	} // raudrohi.adapter.log
 
-	raudrohi.adapter.trim=function(a_string){
-		try{
-			return Y.Lang.trim(a_string);
-		} catch (err){
-			raudrohi.tmg('0763e61c-7851-486f-8303-90120020abd7',err);
+	raudrohi.adapter.trim = function(a_string) {
+		try {
+			return Y_raudrohi.Lang.trim(a_string);
+		} catch (err) {
+			raudrohi.tmg('64e1e4e0-6df5-4249-86b9-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.trim
 
-	raudrohi.adapter.YUI_preventdefault=function(e){
-		try{
+	raudrohi.adapter.YUI_preventdefault = function(e) {
+		try {
 			e.preventDefault();
-		} catch (err){
-			raudrohi.tmg('63d32581-f075-4b23-84f2-90120020abd7',err);
+		} catch (err) {
+			raudrohi.tmg('b94593fc-4fdc-4ef1-a038-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.YUI_preventdefault
 
-	raudrohi.adapter.YUI_stoppropagation=function(e){
-		try{
+	raudrohi.adapter.YUI_stoppropagation = function(e) {
+		try {
 			e.stopPropagation();
-		} catch (err){
-			raudrohi.tmg('e5496535-71d6-4ada-93f2-90120020abd7',err);
+		} catch (err) {
+			raudrohi.tmg('25f85183-f53b-4435-ad38-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.YUI_stoppropagation
 
-	raudrohi.adapter.YUI_stoppropagation_preventdefault=function(e){
-		try{
+	raudrohi.adapter.YUI_stoppropagation_preventdefault = function(e) {
+		try {
 			e.halt();
-		} catch (err){
-			raudrohi.tmg('b95ebc2c-1a34-4834-83f2-90120020abd7',err);
+		} catch (err) {
+			raudrohi.tmg('8246d7fc-b932-4f31-ae18-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.YUI_stoppropagation_preventdefault
 
-	raudrohi.adapter.YUI_create_console=function(){
-		try{
-			if(raudrohi.settings.debug_JavaScript===true){
-				YUI_based_LogReader = new Y.Console({
-					logSource: Y.Global,
+	raudrohi.adapter.YUI_create_console = function() {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				YUI_based_LogReader = new Y_raudrohi.Console({
+					logSource: Y_raudrohi.Global,
 					strings: {
-						title : 'Site Debugging Console',
-						pause : 'Wait',
-						clear : 'Flush',
-						collapse : 'Shrink',
-						expand : 'Grow'
+						title: 'Site Debugging Console',
+						pause: 'Wait',
+						clear: 'Flush',
+						collapse: 'Shrink',
+						expand: 'Grow'
 					},
-					plugins: [ Y.Plugin.Drag, Y.Plugin.ConsoleFilters ],
-					//plugins: [ Y.Plugin.ConsoleFilters ],
+					plugins: [Y_raudrohi.Plugin.Drag, Y_raudrohi.Plugin.ConsoleFilters],
+					//plugins: [ Y_raudrohi.Plugin.ConsoleFilters ],
 					visible: true
 				}).render();
 			} // if
-		} catch (err){
-			raudrohi.tmg('ae949921-1419-48a1-91f2-90120020abd7',err);
+		} catch (err) {
+			raudrohi.tmg('a20ad5e1-078f-4674-b158-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.YUI_create_console
 
-	raudrohi.adapter.addEventListner=function(html_id,event_name,
-		event_handler_func){
-		try{
-			if(raudrohi.settings.debug_JavaScript===true){
-				if(!raudrohi.adapter.isString(html_id)){
-					raudrohi.tmg('61b05120-131a-4acf-b1f2-90120020abd7',
-						'(!raudrohi.adapter.isString(html_id))==true')
+	raudrohi.adapter.addEventListner = function(html_id, event_name,
+		event_handler_func) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('53989920-811f-4c01-9338-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				if(!raudrohi.adapter.isString(event_name)){
-					raudrohi.tmg('c051ea47-ce1b-4efd-95e2-90120020abd7',
-						'(!raudrohi.adapter.isString(event_name))==true')
+				if (!raudrohi_adapter_isString(event_name)) {
+					raudrohi.tmg('45b709b4-63ef-4219-8458-e07221313dd7',
+						'(!raudrohi_adapter_isString(event_name))==true')
 				} // if
-				if(!raudrohi.adapter.isFunction(event_handler_func)){
-					raudrohi.tmg('d4859738-0e09-4a23-94e2-90120020abd7',
-						'(!raudrohi.adapter.isFunction(event_handler_func))==true');
+				if (!raudrohi_adapter_isFunction(event_handler_func)) {
+					raudrohi.tmg('7145ed3b-92c9-4db9-8747-e07221313dd7',
+						'(!raudrohi_adapter_isFunction(event_handler_func))==true');
 				} // if
 				raudrohi.adapter.vars.verify_event_name(event_name);
 			} // if
-			var key_listener_handle = Y.on(event_name, function(e) {
+			var key_listener_handle = Y_raudrohi.on(event_name, function(e) {
 				//e.halt();// stopPropagation() and preventDefault()
 				//key_listener_handle.detach();// unsubscribe so this only happens once
 				event_handler_func(e);
-			}, '#'+html_id);
+			}, '#' + html_id);
 			// The value is returned in order to be compatible wtih
 			// the raudrohi.adapter.set_keylistener. The compatibility is
 			// required in the raudrohi.widgets.g1.sys.keylisteners_unit.
 			return key_listener_handle;
-		} catch (err){
-			raudrohi.tmg('bd1af15d-22a6-4681-a4e2-90120020abd7',
-				err+' html_id=='+html_id+'  event_name=='+event_name);
+		} catch (err) {
+			raudrohi.tmg('3ee79673-d53c-4b3e-8e47-e07221313dd7',
+				err + ' html_id==' + html_id + '  event_name==' + event_name);
 		} // catch
 	} // raudrohi.adapter.addEventListner
 
-	raudrohi.adapter.set_keylistener=function(html_id, key_number_as_string,
-		event_handler_func){
-		try{
-			if(raudrohi.settings.debug_JavaScript===true){
-				if(!raudrohi.adapter.isString(html_id)){
-					raudrohi.tmg('0f0e984d-b472-4585-a4e2-90120020abd7',
-						'(!raudrohi.adapter.isString(html_id))==true')
+	raudrohi.adapter.set_keylistener = function(html_id, key_number_as_string,
+		event_handler_func) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('1d03eaf3-88c2-40a8-a937-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				if(!raudrohi.adapter.isString(key_number_as_string)){
-					raudrohi.tmg('85e14d1d-aafc-4b9f-82e2-90120020abd7',
-						'(!raudrohi.adapter.isString(key_number_as_string))==true')
+				if (!raudrohi_adapter_isString(key_number_as_string)) {
+					raudrohi.tmg('52837e32-c83f-45c0-b627-e07221313dd7',
+						'(!raudrohi_adapter_isString(key_number_as_string))==true')
 				} // if
-				if(!raudrohi.adapter.isFunction(event_handler_func)){
-					raudrohi.tmg('2a9f20c4-9adc-4ddf-a5e2-90120020abd7',
-						'(!raudrohi.adapter.isFunction(event_handler_func))==true');
+				if (!raudrohi_adapter_isFunction(event_handler_func)) {
+					raudrohi.tmg('ac62c365-5cad-4376-b157-e07221313dd7',
+						'(!raudrohi_adapter_isFunction(event_handler_func))==true');
 				} // if
 				// If the parseInt converts something like 'BumBastic' to
 				// an int, then there will be trouble. It's not possible to
 				// preprocess it here either.
-				var key_code_candidate=parseInt(key_number_as_string,10);
-				if(!raudrohi.core.isWithinKeyeventKeyCodes(key_code_candidate)){
-					raudrohi.tmg('c45d7733-0301-4094-82d2-90120020abd7',
-						'key_number(=='+key_number_as_string+
-						') does not represent a '+
+				var key_code_candidate = parseInt(key_number_as_string, 10);
+				if (!raudrohi.core.isWithinKeyeventKeyCodes(key_code_candidate)) {
+					raudrohi.tmg('45969ad1-c497-489c-8637-e07221313dd7',
+						'key_number(==' + key_number_as_string +
+						') does not represent a ' +
 						'JavaScript key event key code.');
 				} // if
 			} // if
-			var key_listener_handle = Y.on('key', function(e, arg1, arg2, etc) {
-				//e.halt();// stopPropagation() and preventDefault()
-				//key_listener_handle.detach();// unsubscribe so this only happens once
-				event_handler_func(e);
-			}, '#'+html_id, 'down:'+key_number_as_string, Y, "arg1", "arg2", "etc");
+			var key_listener_handle = Y_raudrohi.on('key',
+				function(e, arg1, arg2, etc) {
+					//e.halt();// stopPropagation() and preventDefault()
+					//key_listener_handle.detach();// unsubscribe so this only happens once
+					event_handler_func(e);
+				}, '#' + html_id, 'down:' + key_number_as_string,
+				Y_raudrohi, "arg1", "arg2", "etc");
 			return key_listener_handle;
-		} catch (err){
-			raudrohi.tmg('4a49d2a2-8637-4352-91d2-90120020abd7',err);
+		} catch (err) {
+			raudrohi.tmg('7107e22b-4d4c-4bce-b327-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.set_keylistener
 
-	raudrohi.adapter.remove_keylistener=function(key_listener_handle){
-		try{
+	raudrohi.adapter.remove_keylistener = function(key_listener_handle) {
+		try {
 			key_listener_handle.detach();
-		} catch (err){
-			raudrohi.tmg('76c42654-fae0-4e23-93d2-90120020abd7',err);
+		} catch (err) {
+			raudrohi.tmg('2f5a56f4-5f90-4b7b-a817-e07221313dd7', err);
 		} // catch
 	} // remove_keylistener
 
-	raudrohi.adapter.JSON2ob=function(a_json_string){
-		try{
+	raudrohi.adapter.JSON2ob = function(a_json_string) {
+		try {
 			var an_object;
 			//YUI().use('json-parse', function (Ytmp) {
 			// JSON.parse throws a SyntaxError when passed invalid JSON
 			try {
-				an_object = Y.JSON.parse(a_json_string);
+				an_object = Y_raudrohi.JSON.parse(a_json_string);
 			}
 			catch (e) {
-				raudrohi.tmg("Invalid JSON string. "+e);
+				raudrohi.tmg("Invalid JSON string. " + e);
 			}
 			//});
 			return an_object;
-		} catch (err){
-			raudrohi.tmg('7e48ae17-d5a4-4d01-94d2-90120020abd7',err);
+		} catch (err) {
+			raudrohi.tmg('b0395243-2f0b-48e1-9956-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.JSON2ob
 
-	raudrohi.adapter.ob2JSON=function(an_object){
-		try{
-			var s_json='';
+	raudrohi.adapter.ob2JSON = function(an_object) {
+		try {
+			var s_json = '';
 			//YUI().use('json-stringify', function (Ytmp) {
-			s_json = Y.JSON.stringify(an_object)+'\n';
+			s_json = Y_raudrohi.JSON.stringify(an_object) + '\n';
 			//});
 			return s_json;
-		} catch (err){
-			raudrohi.tmg('a4199d5a-2e5f-40a2-a3d2-90120020abd7',err);
+		} catch (err) {
+			raudrohi.tmg('554dbc50-7c2c-453c-9ef6-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.JSON2ob
 
 
-	raudrohi.adapter.send2server=function(url_string,data_as_text){
-		try{
-			var fff =document.getElementById(
+	raudrohi.adapter.send2server = function(url_string, data_as_text) {
+		try {
+			var fff = document.getElementById(
 				'sirel_data_from_JavaScript_formscript_field');
-			fff.value=data_as_text;
+			fff.value = data_as_text;
 			var uri = url_string;
 
 			// Define a function to handle the response data.
 			function request_complete(id, o, args) {
-				try{
+				try {
 					// id ==Transaction ID.
 					var data = o.responseText; // Response data.
-					if(data!=null){// IE problems
-						if(raudrohi.adapter.isString(data)){
-							if(data!=''){
+					if (data != null) {// IE problems
+						if (raudrohi_adapter_isString(data)) {
+							if (data != '') {
 								raudrohi.adapter.server_response_eventhandler(data);
 							} // if
 						} // if
 					} // if
-				//  var args = args[1]; // 'ipsum'.
-				} catch (err){
-					raudrohi.tmg('d6f9ee14-8f0d-41e4-a4d2-90120020abd7',err);
+					//  var args = args[1]; // 'ipsum'.
+				} catch (err) {
+					raudrohi.tmg('fd2f5184-b426-4563-8486-e07221313dd7', err);
 				} // catch
 			} // request_complete
 
@@ -422,574 +402,563 @@ raudrohi.adapter.ports.yui_3_0=function(){
 			// as an argument to the event handler "complete", since
 			// "complete" is global.   At this point in the transaction
 			// lifecycle, success or failure is not yet known.
-			Y.on('io:complete', request_complete, this,
+			Y_raudrohi.on('io:complete', request_complete, this,
 				['lorem', 'ipsum']);
 			// Make an HTTP request to <the url>.
-			var cfg= {
+			var cfg = {
 				method: 'POST',
 				//data: 'debug|||/dev/null|||',
-				timeout: raudrohi.settings.ajax_request_timeout*1000,
+				timeout: raudrohi.settings.ajax_request_timeout * 1000,
 				on: {
 					// start: Dispatch.start,
 					complete: request_complete
-				//end: Dispatch.end
+						//end: Dispatch.end
 				},
 				form: {
 					id: 'sirel_data_from_JavaScript_formscript_form',
 					upload: true
 				}
 			};
-			var request = Y.io(uri,cfg);
-		} catch (err){
-			raudrohi.tmg('c8779113-a4b5-4663-b1d2-90120020abd7',err);
+			var request = Y_raudrohi.io(uri, cfg);
+		} catch (err) {
+			raudrohi.tmg('352f7995-2437-41a2-9f46-e07221313dd7', err);
 		} // catch
 	} // raudrohi.adapter.send2server
 
 	// Due to YUI's architecture there's a separate method for
 	// editing the style attribute.
-	raudrohi.adapter.setAttribute=function(html_id, attribute_name,
-		attribute_value){
-		try{
-			if(raudrohi.settings.debug_JavaScript===true){
-				if(!raudrohi.adapter.isString(html_id)){
-					raudrohi.tmg('29bf6063-4b26-44fc-b7d2-90120020abd7',
-						'(!raudrohi.adapter.isString(html_id))==true')
+	raudrohi.adapter.setAttribute = function(html_id, attribute_name,
+		attribute_value) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('1b96b5e4-4dda-4b05-ad26-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				if(!raudrohi.adapter.isString(attribute_name)){
-					raudrohi.tmg('0234beb8-a581-4f54-b3d2-90120020abd7',
-						'(!raudrohi.adapter.isString(attribute_name))==true')
+				if (!raudrohi_adapter_isString(attribute_name)) {
+					raudrohi.tmg('02614023-5739-43f4-9956-e07221313dd7',
+						'(!raudrohi_adapter_isString(attribute_name))==true')
 				} // if
-				if(!raudrohi.adapter.isString(attribute_value)){
-					raudrohi.tmg('3ee90dc2-b40e-4e38-85d2-90120020abd7',
-						'(!raudrohi.adapter.isString(attribute_value))==true')
+				if (!raudrohi_adapter_isString(attribute_value)) {
+					raudrohi.tmg('d6616897-784f-448c-95e6-e07221313dd7',
+						'(!raudrohi_adapter_isString(attribute_value))==true')
 				} // if
 			} // if
-			var node=Y.Node.get('#'+html_id);
-			if(node===null){
-				raudrohi.tmg('afa4d224-2016-46c7-95c2-90120020abd7',
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('538b60a2-6b3c-4d46-af46-e07221313dd7',
 					' node===null ');
 			} // if
-			node.set(attribute_name,attribute_value);
-		} catch (err){
-			raudrohi.tmg('1eaa8841-d58e-4de7-8dc2-90120020abd7', err+
-				'  html_id=='+html_id+' attribute_name=='+attribute_name+
-				'  attribute_value=='+attribute_value);
+			node.set(attribute_name, attribute_value);
+		} catch (err) {
+			raudrohi.tmg('5e18faa5-902b-4e48-b356-e07221313dd7', err +
+				'  html_id==' + html_id + ' attribute_name==' + attribute_name +
+				'  attribute_value==' + attribute_value);
 		} // catch
 	} // raudrohi.adapter.setAttribute
 
-	raudrohi.adapter.getAttribute=function(html_id, attribute_name){
-		try{
-			if(raudrohi.settings.debug_JavaScript===true){
-				if(!raudrohi.adapter.isString(html_id)){
-					raudrohi.tmg('a0758e44-ebed-40a3-b3c2-90120020abd7',
-						'(!raudrohi.adapter.isString(html_id))==true')
+	raudrohi.adapter.getAttribute = function(html_id, attribute_name) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('8c2af845-9fc5-44ae-8755-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				if(!raudrohi.adapter.isString(attribute_name)){
-					raudrohi.tmg('3c275120-c26d-415f-b1c2-90120020abd7',
-						'(!raudrohi.adapter.isString(attribute_name))==true')
+				if (!raudrohi_adapter_isString(attribute_name)) {
+					raudrohi.tmg('5ebf0655-d223-4a87-b222-e07221313dd7',
+						'(!raudrohi_adapter_isString(attribute_name))==true')
 				} // if
 			} // if
-			var node=Y.Node.get('#'+html_id);
-			if(node===null){
-				raudrohi.tmg('575b9cf3-b28a-4390-8ec2-90120020abd7',
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('3a341dd4-c80c-4220-a732-e07221313dd7',
 					' node===null ');
 			} // if
-			var attr_value=node.get(attribute_name);
+			var attr_value = node.get(attribute_name);
 			return attr_value;
-		} catch (err){
-			raudrohi.tmg('659bb7f1-9893-4798-a4c2-90120020abd7', err+
-				'  html_id=='+html_id+' attribute_name=='+attribute_name);
+		} catch (err) {
+			raudrohi.tmg('49bc6875-65cb-4664-bb11-e07221313dd7', err +
+				'  html_id==' + html_id + ' attribute_name==' + attribute_name);
 		} // catch
 	} // raudrohi.adapter.getAttribute
 
-	raudrohi.adapter.remove_HTML_attribute=function(html_id, attribute_name){
-		try{
-			if(raudrohi.settings.debug_JavaScript===true){
-				if(!raudrohi.adapter.isString(html_id)){
-					raudrohi.tmg('4313ee36-1309-49d6-aac2-90120020abd7',
-						'(!raudrohi.adapter.isString(html_id))==true')
+	raudrohi.adapter.remove_HTML_attribute = function(html_id, attribute_name) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('b3914496-da49-4a24-9d11-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				if(!raudrohi.adapter.isString(attribute_name)){
-					raudrohi.tmg('30070244-86cf-415b-b1c2-90120020abd7',
-						'(!raudrohi.adapter.isString(attribute_name))==true')
+				if (!raudrohi_adapter_isString(attribute_name)) {
+					raudrohi.tmg('1324e999-bafa-45e2-b861-e07221313dd7',
+						'(!raudrohi_adapter_isString(attribute_name))==true')
 				} // if
 			} // if
-			var node=Y.Node.get('#'+html_id);
-			if(node===null){
-				raudrohi.tmg('35b13ef3-6d0e-421b-9dc2-90120020abd7',
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('12c98d72-2ef2-4a04-a631-e07221313dd7',
 					' node===null ');
 			} // if
 			node.removeAttribute(attribute_name);
-		} catch (err){
-			raudrohi.tmg('5028302d-7d90-4405-b4b2-90120020abd7', err+
-				'  html_id=='+html_id+' attribute_name=='+attribute_name);
+		} catch (err) {
+			raudrohi.tmg('288358b3-3776-4bf5-a411-e07221313dd7', err +
+				'  html_id==' + html_id + ' attribute_name==' + attribute_name);
 		} // catch
 	} // raudrohi.adapter.remove_HTML_attribute
 
 
-	raudrohi.adapter.editStyle=function(html_id, style_param_name,
-		style_param_value){
-		try{
-			if(raudrohi.settings.debug_JavaScript===true){
-				if(!raudrohi.adapter.isString(html_id)){
-					raudrohi.tmg('54d4cb9e-ac03-404f-84b2-90120020abd7',
-						'(!raudrohi.adapter.isString(html_id))==true')
+	raudrohi.adapter.editStyle = function(html_id, style_param_name,
+		style_param_value) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('665c4686-d15e-44c9-8241-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				if(!raudrohi.adapter.isString(style_param_name)){
-					raudrohi.tmg('162e16f8-fec8-4b36-81b2-90120020abd7',
-						'(!raudrohi.adapter.isString(style_param_name))==true')
+				if (!raudrohi_adapter_isString(style_param_name)) {
+					raudrohi.tmg('f208fc79-4a5c-45ad-bc11-e07221313dd7',
+						'(!raudrohi_adapter_isString(style_param_name))==true')
 				} // if
-				if(!raudrohi.adapter.isString(style_param_value)){
-					raudrohi.tmg('23c50bd5-060c-4e32-93b2-90120020abd7',
-						'(!raudrohi.adapter.isString(style_param_value))==true')
+				if (!raudrohi_adapter_isString(style_param_value)) {
+					raudrohi.tmg('300fa273-919f-44ed-ac20-e07221313dd7',
+						'(!raudrohi_adapter_isString(style_param_value))==true')
 				} // if
 			} // if
-			var node=Y.Node.get('#'+html_id);
-			if(node===null){
-				raudrohi.tmg('2895b3c1-f1e5-4816-93b2-90120020abd7',
-					' node===null, html_id=='+html_id+"\n");
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('23dad005-16b8-4b2f-8310-e07221313dd7',
+					' node===null, html_id==' + html_id + "\n");
 			} // if
-			node.setStyle(style_param_name,style_param_value);
-		} catch (err){
-			raudrohi.tmg('8eb13445-92a3-4ded-94b2-90120020abd7', err+
-				"\n html_id=="+html_id+"\n style_param_name=="+style_param_name+
-				"  style_param_value=="+style_param_value);
+			node.setStyle(style_param_name, style_param_value);
+		} catch (err) {
+			raudrohi.tmg('4f17c844-b0e5-49b6-a530-e07221313dd7', err +
+				"\n html_id==" + html_id + "\n style_param_name==" + style_param_name +
+				"  style_param_value==" + style_param_value);
 		} // catch
 	} // raudrohi.adapter.editStyle
 
-	raudrohi.adapter.set_innerHTML=function(html_id, a_string){
-		try{
-			var node=Y.Node.get('#'+html_id);
-			if(node===null){
-				raudrohi.tmg('b93bc056-8682-4761-91b2-90120020abd7',
+	raudrohi.adapter.set_innerHTML = function(html_id, a_string) {
+		try {
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('249b1af3-7120-4f75-ae50-e07221313dd7',
 					' node===null ');
 			} // if
-			node.set('innerHTML',a_string);
-		} catch (err){
-			raudrohi.tmg('7e4d43fd-ea1b-4fe3-84b2-90120020abd7', err+
-				'  html_id=='+html_id+' a_string=='+a_string);
+			node.set('innerHTML', a_string);
+		} catch (err) {
+			raudrohi.tmg('98ea36bb-9664-4410-a5d0-e07221313dd7', err +
+				'  html_id==' + html_id + ' a_string==' + a_string);
 		} // catch
 	} // raudrohi.adapter.set_innerHTML
 
 } // raudrohi.adapter.ports.yui_3_0
 
 //------------------------------------------------------------------------
-raudrohi.adapter.ports.yui_3_3_0=function(){
-	try{
-		var self_public_=this;
-		this.get_name=function(){
-			return 'YUI_3_3_0';
-		} // get_name
-		Y=YUI();
-		if(raudrohi.settings.debug_JavaScript===true){
-			Y.use('console', 'overlay','dd','node','attribute',
-				'dom','event', 'get','io-base',
-				'io-form','io-upload-iframe','json','json-stringify',
-				'json-parse','event-key', 'key',function(Y){
 
+raudrohi.adapter.ports.yui_3_9_0 = function() {
+	var self_public_ = this;
+	this.get_name = function() {
+		return 'YUI_3_9_0';
+	} // get_name
+	Y_raudrohi = YUI();
+	if (raudrohi_settings_debug_JavaScript === true) {
+		Y_raudrohi.use('console', "console-filters", "dd-plugin",
+			'overlay', 'dd', 'node', 'attribute',
+			'dom', 'event', 'get', 'io-base', 'node-load',
+			'io-form', 'io-upload-iframe', 'json', 'json-stringify',
+			'json-parse', 'event-key', 'key', function(Y) {
 
-					raudrohi.adapter.isString=Y.Lang.isString;
-					raudrohi.adapter.isArray=Y.Lang.isArray;
-					raudrohi.adapter.isNumber=Y.Lang.isNumber;
-					raudrohi.adapter.isBoolean=Y.Lang.isBoolean;
-					raudrohi.adapter.isObject=Y.Lang.isObject;
-					raudrohi.adapter.isUndefined=Y.Lang.isUndefined;
-					raudrohi.adapter.isValue=Y.Lang.isValue;
-					raudrohi.adapter.isFunction=Y.Lang.isFunction;
+			raudrohi_adapter_isString = Y.Lang.isString;
+			raudrohi_adapter_isArray = Y.Lang.isArray;
+			raudrohi_adapter_isNumber = Y.Lang.isNumber;
+			raudrohi_adapter_isBoolean = Y.Lang.isBoolean;
+			raudrohi_adapter_isObject = Y.Lang.isObject;
+			raudrohi_adapter_isUndefined = Y.Lang.isUndefined;
+			raudrohi_adapter_isValue = Y.Lang.isValue;
+			raudrohi_adapter_isFunction = Y.Lang.isFunction;
 
-					raudrohi.internal_constructor();
-					raudrohi.application_main_function();
-				});
-		} else {
-			// The console related css seems to mess things up.
-			// May be it has something to do with the fact that the console
-			// component is still a beta.
-			//
-			// The reason, why the console component is here, is that
-			// some weird errors happened to occur.
-			Y.use( 'overlay','dd','node','attribute',
-				'dom','event', 'get','io-base',
-				'io-form','io-upload-iframe','json','json-stringify',
-				'json-parse','event-key','key',function(Y){
+			raudrohi.internal_constructor();
+			raudrohi.application_main_function();
+		});
+	} else {
+		// The console related css seems to mess things up.
+		// May be it has something to do with the fact that the console
+		// component is still a beta.
+		//
+		// The reason, why the console component is here, is that
+		// some weird errors happened to occur.
+		Y_raudrohi.use("dd-plugin",
+			'overlay', 'dd', 'node', 'attribute',
+			'dom', 'event', 'get', 'io-base', 'node-load',
+			'io-form', 'io-upload-iframe', 'json', 'json-stringify',
+			'json-parse', 'event-key', 'key', function(Y) {
 
-					raudrohi.adapter.isString=Y.Lang.isString;
-					raudrohi.adapter.isArray=Y.Lang.isArray;
-					raudrohi.adapter.isNumber=Y.Lang.isNumber;
-					raudrohi.adapter.isBoolean=Y.Lang.isBoolean;
-					raudrohi.adapter.isObject=Y.Lang.isObject;
-					raudrohi.adapter.isUndefined=Y.Lang.isUndefined;
-					raudrohi.adapter.isValue=Y.Lang.isValue;
-					raudrohi.adapter.isFunction=Y.Lang.isFunction;
+			raudrohi_adapter_isString = Y.Lang.isString;
+			raudrohi_adapter_isArray = Y.Lang.isArray;
+			raudrohi_adapter_isNumber = Y.Lang.isNumber;
+			raudrohi_adapter_isBoolean = Y.Lang.isBoolean;
+			raudrohi_adapter_isObject = Y.Lang.isObject;
+			raudrohi_adapter_isUndefined = Y.Lang.isUndefined;
+			raudrohi_adapter_isValue = Y.Lang.isValue;
+			raudrohi_adapter_isFunction = Y.Lang.isFunction;
 
-					raudrohi.internal_constructor();
-					raudrohi.application_main_function();
-				});
-		} // else
+			raudrohi.internal_constructor();
+			raudrohi.application_main_function();
+		});
+	} // else
 
-		raudrohi.adapter.vars.YUI_3_3_0={};
+	raudrohi.adapter.vars.YUI_3_9_0 = {};
 
-		raudrohi.adapter.isString=Y.Lang.isString;
-		raudrohi.adapter.isArray=Y.Lang.isArray;
-		raudrohi.adapter.isNumber=Y.Lang.isNumber;
-		raudrohi.adapter.isBoolean=Y.Lang.isBoolean;
-		raudrohi.adapter.isObject=Y.Lang.isObject;
-		raudrohi.adapter.isUndefined=Y.Lang.isUndefined;
-		raudrohi.adapter.isValue=Y.Lang.isValue;
-		raudrohi.adapter.isFunction=Y.Lang.isFunction;
+	raudrohi.adapter.log = function(a_string) {
+		if (raudrohi_settings_debug_JavaScript === true) {
+			Y_raudrohi.log(a_string);
+		} // if
+	} // raudrohi.adapter.log
 
-		raudrohi.adapter.log=function(a_string){
-			if(raudrohi.settings.debug_JavaScript===true){
-				Y.log(a_string);
+	raudrohi.adapter.trim = function(a_string) {
+		try {
+			return Y_raudrohi.Lang.trim(a_string);
+		} catch (err) {
+			raudrohi.tmg('5e7b5082-7518-4cb0-a410-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.trim
+
+	raudrohi.adapter.YUI_preventdefault = function(e) {
+		try {
+			e.preventDefault();
+		} catch (err) {
+			raudrohi.tmg('38fd12a4-cc96-48ba-9b50-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.YUI_preventdefault
+
+	raudrohi.adapter.YUI_stoppropagation = function(e) {
+		try {
+			e.stopPropagation();
+		} catch (err) {
+			raudrohi.tmg('2e68eac3-984b-4d51-b710-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.YUI_stoppropagation
+
+	raudrohi.adapter.YUI_stoppropagation_preventdefault = function(e) {
+		try {
+			e.halt();
+		} catch (err) {
+			raudrohi.tmg('75300327-7c10-4779-a13f-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.YUI_stoppropagation_preventdefault
+
+	raudrohi.adapter.YUI_create_console = function() {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				YUI_based_LogReader = new Y_raudrohi.Console({
+					strings: {
+						title: 'Raudrohi Debugging Console',
+						pause: 'Wait',
+						clear: 'Flush',
+						collapse: 'Shrink',
+						expand: 'Grow'
+					},
+					visible: true// hidden at instantiation
+				}).plug(Y_raudrohi.Plugin.ConsoleFilters)
+					.plug(Y_raudrohi.Plugin.Drag, {handles: ['.yui3-console-hd']})
+					.render();
 			} // if
-		} // raudrohi.adapter.log
+		} catch (err) {
+			raudrohi.tmg('3383993d-00b2-426f-baff-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.YUI_create_console
 
-		raudrohi.adapter.trim=function(a_string){
-			try{
-				return Y.Lang.trim(a_string);
-			} catch (err){
-				raudrohi.tmg('da27c63b-32e5-4918-b3b2-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.trim
-
-		raudrohi.adapter.YUI_preventdefault=function(e){
-			try{
-				e.preventDefault();
-			} catch (err){
-				raudrohi.tmg('0a94a014-d5ec-46f6-b3b2-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.YUI_preventdefault
-
-		raudrohi.adapter.YUI_stoppropagation=function(e){
-			try{
-				e.stopPropagation();
-			} catch (err){
-				raudrohi.tmg('2123d001-f0ce-43f0-84a2-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.YUI_stoppropagation
-
-		raudrohi.adapter.YUI_stoppropagation_preventdefault=function(e){
-			try{
-				e.halt();
-			} catch (err){
-				raudrohi.tmg('2a856694-9c80-44db-82a2-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.YUI_stoppropagation_preventdefault
-
-		raudrohi.adapter.YUI_create_console=function(){
-			try{
-				if(raudrohi.settings.debug_JavaScript===true){
-					YUI_based_LogReader = new Y.Console({
-						logSource: Y.Global,
-						strings: {
-							title : 'Site Debugging Console',
-							pause : 'Wait',
-							clear : 'Flush',
-							collapse : 'Shrink',
-							expand : 'Grow'
-						},
-						plugins: [ Y.Plugin.Drag, Y.Plugin.ConsoleFilters ],
-						//plugins: [ Y.Plugin.ConsoleFilters ],
-						visible: true
-					}).render();
+	raudrohi.adapter.addEventListner = function(html_id, event_name,
+		event_handler_func) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('1e403781-cb13-4f21-bf4f-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-			} catch (err){
-				raudrohi.tmg('1b2d53c2-539a-4ee0-a1a2-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.YUI_create_console
-
-		raudrohi.adapter.addEventListner=function(html_id,event_name,
-			event_handler_func){
-			try{
-				if(raudrohi.settings.debug_JavaScript===true){
-					if(!raudrohi.adapter.isString(html_id)){
-						raudrohi.tmg('83099d2c-7dd4-4145-b4a2-90120020abd7',
-							'(!raudrohi.adapter.isString(html_id))==true')
-					} // if
-					if(!raudrohi.adapter.isString(event_name)){
-						raudrohi.tmg('168c4147-5d19-461c-94a2-90120020abd7',
-							'(!raudrohi.adapter.isString(event_name))==true')
-					} // if
-					if(!raudrohi.adapter.isFunction(event_handler_func)){
-						raudrohi.tmg('58ab2c1d-39eb-418e-a5a2-90120020abd7',
-							'(!raudrohi.adapter.isFunction(event_handler_func))==true');
-					} // if
-					raudrohi.adapter.vars.verify_event_name(event_name);
+				if (!raudrohi_adapter_isString(event_name)) {
+					raudrohi.tmg('b83bfd4a-324e-4e74-9e5f-e07221313dd7',
+						'(!raudrohi_adapter_isString(event_name))==true')
 				} // if
-				var key_listener_handle = Y.on(event_name, function(e) {
+				if (!raudrohi_adapter_isFunction(event_handler_func)) {
+					raudrohi.tmg('255809d3-55d2-4f89-ba3f-e07221313dd7',
+						'(!raudrohi_adapter_isFunction(event_handler_func))==true');
+				} // if
+				raudrohi.adapter.vars.verify_event_name(event_name);
+			} // if
+			var key_listener_handle = Y_raudrohi.on(event_name, function(e) {
+				//e.halt();// stopPropagation() and preventDefault()
+				//key_listener_handle.detach();// unsubscribe so this only happens once
+				event_handler_func(e);
+			}, '#' + html_id);
+			// The value is returned in order to be compatible wtih
+			// the raudrohi.adapter.set_keylistener. The compatibility is
+			// required in the raudrohi.widgets.g1.sys.keylisteners_unit.
+			return key_listener_handle;
+		} catch (err) {
+			raudrohi.tmg('f490a506-5f95-46ff-903f-e07221313dd7',
+				err + ' html_id==' + html_id + '  event_name==' + event_name);
+		} // catch
+	} // raudrohi.adapter.addEventListner
+
+	raudrohi.adapter.set_keylistener = function(html_id, key_number_as_string,
+		event_handler_func) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('1c2a23e2-0595-4369-b41f-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
+				} // if
+				if (!raudrohi_adapter_isString(key_number_as_string)) {
+					raudrohi.tmg('3c39f823-1b12-4125-831f-e07221313dd7',
+						'(!raudrohi_adapter_isString(key_number_as_string))==true')
+				} // if
+				if (!raudrohi_adapter_isFunction(event_handler_func)) {
+					raudrohi.tmg('39ee6034-2377-4f41-ad3e-e07221313dd7',
+						'(!raudrohi_adapter_isFunction(event_handler_func))==true');
+				} // if
+				// If the parseInt converts something like 'BumBastic' to
+				// an int, then there will be trouble. It's not possible to
+				// preprocess it here either.
+				var key_code_candidate = parseInt(key_number_as_string, 10);
+				if (!raudrohi.core.isWithinKeyeventKeyCodes(key_code_candidate)) {
+					raudrohi.tmg('f16b4c07-082a-4528-9f1e-e07221313dd7',
+						'key_number(==' + key_number_as_string +
+						') does not represent a ' +
+						'JavaScript key event key code.');
+				} // if
+			} // if
+			var key_listener_handle = Y_raudrohi.on('key',
+				function(e, arg1, arg2, etc) {
 					//e.halt();// stopPropagation() and preventDefault()
 					//key_listener_handle.detach();// unsubscribe so this only happens once
 					event_handler_func(e);
-				}, '#'+html_id);
-				// The value is returned in order to be compatible wtih
-				// the raudrohi.adapter.set_keylistener. The compatibility is
-				// required in the raudrohi.widgets.g1.sys.keylisteners_unit.
-				return key_listener_handle;
-			} catch (err){
-				raudrohi.tmg('dc344d84-de7c-4aa2-95a2-90120020abd7',
-					err+' html_id=='+html_id+'  event_name=='+event_name);
-			} // catch
-		} // raudrohi.adapter.addEventListner
+				}, '#' + html_id, 'down:' + key_number_as_string,
+				Y_raudrohi, "arg1", "arg2", "etc");
+			return key_listener_handle;
+		} catch (err) {
+			raudrohi.tmg('4c4a78b3-31c8-434b-933e-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.set_keylistener
 
-		raudrohi.adapter.set_keylistener=function(html_id, key_number_as_string,
-			event_handler_func){
-			try{
-				if(raudrohi.settings.debug_JavaScript===true){
-					if(!raudrohi.adapter.isString(html_id)){
-						raudrohi.tmg('b16a1e29-b2a7-43aa-84a2-90120020abd7',
-							'(!raudrohi.adapter.isString(html_id))==true')
-					} // if
-					if(!raudrohi.adapter.isString(key_number_as_string)){
-						raudrohi.tmg('f547eb3c-a418-4c81-a5a2-90120020abd7',
-							'(!raudrohi.adapter.isString(key_number_as_string))==true')
-					} // if
-					if(!raudrohi.adapter.isFunction(event_handler_func)){
-						raudrohi.tmg('f3bc1d33-9a01-4310-81a2-90120020abd7',
-							'(!raudrohi.adapter.isFunction(event_handler_func))==true');
-					} // if
-					// If the parseInt converts something like 'BumBastic' to
-					// an int, then there will be trouble. It's not possible to
-					// preprocess it here either.
-					var key_code_candidate=parseInt(key_number_as_string,10);
-					if(!raudrohi.core.isWithinKeyeventKeyCodes(key_code_candidate)){
-						raudrohi.tmg('98d2e6b0-590f-46de-9792-90120020abd7',
-							'key_number(=='+key_number_as_string+
-							') does not represent a '+
-							'JavaScript key event key code.');
-					} // if
-				} // if
-				var key_listener_handle = Y.on('key', function(e, arg1, arg2, etc) {
-					//e.halt();// stopPropagation() and preventDefault()
-					//key_listener_handle.detach();// unsubscribe so this only happens once
-					event_handler_func(e);
-				}, '#'+html_id, 'down:'+key_number_as_string, Y, "arg1", "arg2", "etc");
-				return key_listener_handle;
-			} catch (err){
-				raudrohi.tmg('2a3a4c22-aaa9-42d9-9192-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.set_keylistener
+	raudrohi.adapter.remove_keylistener = function(key_listener_handle) {
+		try {
+			key_listener_handle.detach();
+		} catch (err) {
+			raudrohi.tmg('46573f55-5a44-4732-b45e-e07221313dd7', err);
+		} // catch
+	} // remove_keylistener
 
-		raudrohi.adapter.remove_keylistener=function(key_listener_handle){
-			try{
-				key_listener_handle.detach();
-			} catch (err){
-				raudrohi.tmg('1be9615f-6997-471f-b392-90120020abd7',err);
-			} // catch
-		} // remove_keylistener
+	raudrohi.adapter.JSON2ob = function(a_json_string) {
+		try {
+			var an_object;
+			//YUI().use('json-parse', function (Ytmp) {
+			// JSON.parse throws a SyntaxError when passed invalid JSON
+			try {
+				an_object = Y_raudrohi.JSON.parse(a_json_string);
+			}
+			catch (e) {
+				raudrohi.tmg("Invalid JSON string. " + e);
+			}
+			//});
+			return an_object;
+		} catch (err) {
+			raudrohi.tmg('a1d05533-4f44-4778-af3e-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.JSON2ob
 
-		raudrohi.adapter.JSON2ob=function(a_json_string){
-			try{
-				var an_object;
-				//YUI().use('json-parse', function (Ytmp) {
-				// JSON.parse throws a SyntaxError when passed invalid JSON
+	raudrohi.adapter.ob2JSON = function(an_object) {
+		try {
+			var s_json = '';
+			//YUI().use('json-stringify', function (Ytmp) {
+			s_json = Y_raudrohi.JSON.stringify(an_object) + '\n';
+			//});
+			return s_json;
+		} catch (err) {
+			raudrohi.tmg('3518d234-1910-4ebe-bf4e-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.JSON2ob
+
+
+	raudrohi.adapter.send2server = function(url_string, data_as_text) {
+		try {
+			var fff = document.getElementById(
+				'sirel_data_from_JavaScript_formscript_field');
+			fff.value = data_as_text;
+			var uri = url_string;
+
+			// Define a function to handle the response data.
+			function request_complete(id, o, args) {
 				try {
-					an_object = Y.JSON.parse(a_json_string);
-				}
-				catch (e) {
-					raudrohi.tmg("Invalid JSON string. "+e);
-				}
-				//});
-				return an_object;
-			} catch (err){
-				raudrohi.tmg('9d0db4e1-1d55-46b8-b592-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.JSON2ob
-
-		raudrohi.adapter.ob2JSON=function(an_object){
-			try{
-				var s_json='';
-				//YUI().use('json-stringify', function (Ytmp) {
-				s_json = Y.JSON.stringify(an_object)+'\n';
-				//});
-				return s_json;
-			} catch (err){
-				raudrohi.tmg('d419b921-a013-4d39-8592-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.JSON2ob
-
-
-		raudrohi.adapter.send2server=function(url_string,data_as_text){
-			try{
-				var fff =document.getElementById(
-					'sirel_data_from_JavaScript_formscript_field');
-				fff.value=data_as_text;
-				var uri = url_string;
-
-				// Define a function to handle the response data.
-				function request_complete(id, o, args) {
-					try{
-						// id ==Transaction ID.
-						var data = o.responseText; // Response data.
-						if(data!=null){// IE problems
-							if(raudrohi.adapter.isString(data)){
-								if(data!=''){
-									raudrohi.adapter.server_response_eventhandler(data);
-								} // if
+					// id ==Transaction ID.
+					var data = o.responseText; // Response data.
+					if (data != null) {// IE problems
+						if (raudrohi_adapter_isString(data)) {
+							if (data != '') {
+								raudrohi.adapter.server_response_eventhandler(data);
 							} // if
 						} // if
+					} // if
 					//  var args = args[1]; // 'ipsum'.
-					} catch (err){
-						raudrohi.tmg('5a4063bd-89f2-4187-b592-90120020abd7',err);
-					} // catch
-				} // request_complete
+				} catch (err) {
+					raudrohi.tmg('563952e3-8acc-436a-872e-e07221313dd7', err);
+				} // catch
+			} // request_complete
 
-				// Subscribe to event "io:complete", and pass an array
-				// as an argument to the event handler "complete", since
-				// "complete" is global.   At this point in the transaction
-				// lifecycle, success or failure is not yet known.
-				Y.on('io:complete', request_complete, this,
-					['lorem', 'ipsum']);
-				// Make an HTTP request to <the url>.
-				var cfg= {
-					method: 'POST',
-					//data: 'debug|||/dev/null|||',
-					timeout: raudrohi.settings.ajax_request_timeout*1000,
-					on: {
-						// start: Dispatch.start,
-						complete: request_complete
-					//end: Dispatch.end
-					},
-					form: {
-						id: 'sirel_data_from_JavaScript_formscript_form',
-						upload: true
-					}
-				};
-				var request = Y.io(uri,cfg);
-			} catch (err){
-				raudrohi.tmg('537f1e73-9d6d-4654-a592-90120020abd7',err);
-			} // catch
-		} // raudrohi.adapter.send2server
+			// Subscribe to event "io:complete", and pass an array
+			// as an argument to the event handler "complete", since
+			// "complete" is global.   At this point in the transaction
+			// lifecycle, success or failure is not yet known.
+			Y_raudrohi.on('io:complete', request_complete, this,
+				['lorem', 'ipsum']);
+			// Make an HTTP request to <the url>.
+			var cfg = {
+				method: 'POST',
+				//data: 'debug|||/dev/null|||',
+				timeout: raudrohi.settings.ajax_request_timeout * 1000,
+				on: {
+					// start: Dispatch.start,
+					complete: request_complete
+						//end: Dispatch.end
+				},
+				form: {
+					id: 'sirel_data_from_JavaScript_formscript_form',
+					upload: true
+				}
+			};
+			var request = Y_raudrohi.io(uri, cfg);
+		} catch (err) {
+			raudrohi.tmg('4a6ae471-9a36-4c16-a32d-e07221313dd7', err);
+		} // catch
+	} // raudrohi.adapter.send2server
 
-		// Due to YUI's architecture there's a separate method for
-		// editing the style attribute.
-		raudrohi.adapter.setAttribute=function(html_id, attribute_name,
-			attribute_value){
-			try{
-				if(raudrohi.settings.debug_JavaScript===true){
-					if(!raudrohi.adapter.isString(html_id)){
-						raudrohi.tmg('4b341f5d-d825-4c9a-9392-90120020abd7',
-							'(!raudrohi.adapter.isString(html_id))==true')
-					} // if
-					if(!raudrohi.adapter.isString(attribute_name)){
-						raudrohi.tmg('df25f54b-5949-4c21-9282-90120020abd7',
-							'(!raudrohi.adapter.isString(attribute_name))==true')
-					} // if
-					if(!raudrohi.adapter.isString(attribute_value)){
-						raudrohi.tmg('5d6d19da-1937-476f-9382-90120020abd7',
-							'(!raudrohi.adapter.isString(attribute_value))==true')
-					} // if
+	// Due to YUI's architecture there's a separate method for
+	// editing the style attribute.
+	raudrohi.adapter.setAttribute = function(html_id, attribute_name,
+		attribute_value) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('14788541-49fd-4428-93fd-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				var node=Y.one('#'+html_id);
-				if(node===null){
-					raudrohi.tmg('2039a9e1-1777-4bff-9e82-90120020abd7',
-						' node===null ');
+				if (!raudrohi_adapter_isString(attribute_name)) {
+					raudrohi.tmg('1987d431-b89b-4d86-971d-e07221313dd7',
+						'(!raudrohi_adapter_isString(attribute_name))==true')
 				} // if
-				node.set(attribute_name,attribute_value);
-			} catch (err){
-				raudrohi.tmg('dfb16b4c-8e2a-4e42-a482-90120020abd7', err+
-					'  html_id=='+html_id+' attribute_name=='+attribute_name+
-					'  attribute_value=='+attribute_value);
-			} // catch
-		} // raudrohi.adapter.setAttribute
+				if (!raudrohi_adapter_isString(attribute_value)) {
+					raudrohi.tmg('ca50fee1-9ea8-45db-b33d-e07221313dd7',
+						'(!raudrohi_adapter_isString(attribute_value))==true')
+				} // if
+			} // if
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('5e18a643-aa05-48e1-a82d-e07221313dd7',
+					' node===null ');
+			} // if
+			node.set(attribute_name, attribute_value);
+		} catch (err) {
+			raudrohi.tmg('43f0c4a4-72d5-4a5e-871d-e07221313dd7', err +
+				'  html_id==' + html_id + ' attribute_name==' + attribute_name +
+				'  attribute_value==' + attribute_value);
+		} // catch
+	} // raudrohi.adapter.setAttribute
 
-		raudrohi.adapter.getAttribute=function(html_id, attribute_name){
-			try{
-				if(raudrohi.settings.debug_JavaScript===true){
-					if(!raudrohi.adapter.isString(html_id)){
-						raudrohi.tmg('39dbe792-da82-423b-ab82-90120020abd7',
-							'(!raudrohi.adapter.isString(html_id))==true')
-					} // if
-					if(!raudrohi.adapter.isString(attribute_name)){
-						raudrohi.tmg('f870a22b-5ba0-4fa9-b182-90120020abd7',
-							'(!raudrohi.adapter.isString(attribute_name))==true')
-					} // if
+	raudrohi.adapter.getAttribute = function(html_id, attribute_name) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('24c05f44-ed9c-40c4-b22d-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				var node=Y.one('#'+html_id);
-				if(node===null){
-					raudrohi.tmg('4d302983-f2db-40a4-9282-90120020abd7',
-						' node===null ');
+				if (!raudrohi_adapter_isString(attribute_name)) {
+					raudrohi.tmg('a81c7e07-2107-4aa0-984c-e07221313dd7',
+						'(!raudrohi_adapter_isString(attribute_name))==true')
 				} // if
-				var attr_value=node.get(attribute_name);
-				return attr_value;
-			} catch (err){
-				raudrohi.tmg('436bd742-6295-4463-9582-90120020abd7', err+
-					'  html_id=='+html_id+' attribute_name=='+attribute_name);
-			} // catch
-		} // raudrohi.adapter.getAttribute
+			} // if
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('2a0f6445-ea58-4c51-a63c-e07221313dd7',
+					' node===null ');
+			} // if
+			var attr_value = node.get(attribute_name);
+			return attr_value;
+		} catch (err) {
+			raudrohi.tmg('562471c3-3c15-41ba-8d5c-e07221313dd7', err +
+				'  html_id==' + html_id + ' attribute_name==' + attribute_name);
+		} // catch
+	} // raudrohi.adapter.getAttribute
 
-		raudrohi.adapter.remove_HTML_attribute=function(html_id, attribute_name){
-			try{
-				if(raudrohi.settings.debug_JavaScript===true){
-					if(!raudrohi.adapter.isString(html_id)){
-						raudrohi.tmg('23cf6c9d-fef2-4426-8382-90120020abd7',
-							'(!raudrohi.adapter.isString(html_id))==true')
-					} // if
-					if(!raudrohi.adapter.isString(attribute_name)){
-						raudrohi.tmg('cba6785f-7fd1-47d6-a572-90120020abd7',
-							'(!raudrohi.adapter.isString(attribute_name))==true')
-					} // if
+	raudrohi.adapter.remove_HTML_attribute = function(html_id, attribute_name) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('538aca0d-7ff6-4cdc-af2c-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				var node=Y.one('#'+html_id);
-				if(node===null){
-					raudrohi.tmg('165b6583-2695-48b7-8c72-90120020abd7',
-						' node===null ');
+				if (!raudrohi_adapter_isString(attribute_name)) {
+					raudrohi.tmg('29e0beb5-21ac-4438-924c-e07221313dd7',
+						'(!raudrohi_adapter_isString(attribute_name))==true')
 				} // if
-				node.removeAttribute(attribute_name);
-			} catch (err){
-				raudrohi.tmg('f6db831d-d9be-45b5-8472-90120020abd7', err+
-					'  html_id=='+html_id+' attribute_name=='+attribute_name);
-			} // catch
-		} // raudrohi.adapter.remove_HTML_attribute
+			} // if
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('f40b0f74-fc1b-45f9-97ec-e07221313dd7',
+					' node===null ');
+			} // if
+			node.removeAttribute(attribute_name);
+		} catch (err) {
+			raudrohi.tmg('e17ff876-0523-46ba-ad3c-e07221313dd7', err +
+				'  html_id==' + html_id + ' attribute_name==' + attribute_name);
+		} // catch
+	} // raudrohi.adapter.remove_HTML_attribute
 
 
-		raudrohi.adapter.editStyle=function(html_id, style_param_name,
-			style_param_value){
-			try{
-				if(raudrohi.settings.debug_JavaScript===true){
-					if(!raudrohi.adapter.isString(html_id)){
-						raudrohi.tmg('27950f72-eb87-4fd3-a172-90120020abd7',
-							'(!raudrohi.adapter.isString(html_id))==true')
-					} // if
-					if(!raudrohi.adapter.isString(style_param_name)){
-						raudrohi.tmg('20f67621-4064-4b0b-a172-90120020abd7',
-							'(!raudrohi.adapter.isString(style_param_name))==true')
-					} // if
-					if(!raudrohi.adapter.isString(style_param_value)){
-						raudrohi.tmg('76cab501-6d6c-4dcb-8572-90120020abd7',
-							'(!raudrohi.adapter.isString(style_param_value))==true')
-					} // if
+	raudrohi.adapter.editStyle = function(html_id, style_param_name,
+		style_param_value) {
+		try {
+			if (raudrohi_settings_debug_JavaScript === true) {
+				if (!raudrohi_adapter_isString(html_id)) {
+					raudrohi.tmg('546ccdf1-f441-47ef-9b5b-e07221313dd7',
+						'(!raudrohi_adapter_isString(html_id))==true')
 				} // if
-				var node=Y.one('#'+html_id);
-				if(node===null){
-					raudrohi.tmg('333ac01b-c16e-44cf-9472-90120020abd7',
-						' node===null, html_id=='+html_id+"\n");
+				if (!raudrohi_adapter_isString(style_param_name)) {
+					raudrohi.tmg('4cb14d33-9bc0-45d8-bd4b-e07221313dd7',
+						'(!raudrohi_adapter_isString(style_param_name))==true')
 				} // if
-				node.setStyle(style_param_name,style_param_value);
-			} catch (err){
-				raudrohi.tmg('6987b253-bedb-4df1-9472-90120020abd7', err+
-					"\n html_id=="+html_id+"\n style_param_name=="+style_param_name+
-					"  style_param_value=="+style_param_value);
-			} // catch
-		} // raudrohi.adapter.editStyle
-
-		raudrohi.adapter.set_innerHTML=function(html_id, a_string){
-			try{
-				var node=Y.one('#'+html_id);
-				if(node===null){
-					raudrohi.tmg('4c7dfe53-75cd-46be-b262-90120020abd7',
-						' node===null ');
+				if (!raudrohi_adapter_isString(style_param_value)) {
+					raudrohi.tmg('1bd6f003-9047-4e42-8e2b-e07221313dd7',
+						'(!raudrohi_adapter_isString(style_param_value))==true')
 				} // if
-				node.set('innerHTML',a_string);
-			} catch (err){
-				raudrohi.tmg('28b1992a-e0e3-4cb4-9462-90120020abd7', err+
-					'  html_id=='+html_id+' a_string=='+a_string);
-			} // catch
-		} // raudrohi.adapter.set_innerHTML
+			} // if
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('1c520f32-467f-4f1d-974b-e07221313dd7',
+					' node===null, html_id==' + html_id + "\n");
+			} // if
+			node.setStyle(style_param_name, style_param_value);
+		} catch (err) {
+			raudrohi.tmg('4b019273-10e6-44fa-812b-e07221313dd7', err +
+				"\n html_id==" + html_id + "\n style_param_name==" + style_param_name +
+				"  style_param_value==" + style_param_value);
+		} // catch
+	} // raudrohi.adapter.editStyle
 
-	} catch (err){
-		raudrohi.tmg('e386155b-306b-40a2-8362-90120020abd7', err);
-	} // catch
-} // raudrohi.adapter.ports.yui_3_3_0
+	raudrohi.adapter.set_innerHTML = function(html_id, a_string) {
+		try {
+			var node = Y_raudrohi.Node.get('#' + html_id);
+			if (node === null) {
+				raudrohi.tmg('46cc28a2-8d49-4ae4-945b-e07221313dd7',
+					' node===null ');
+			} // if
+			node.set('innerHTML', a_string);
+		} catch (err) {
+			raudrohi.tmg('11433c92-d35e-442b-aa5a-e07221313dd7', err +
+				'  html_id==' + html_id + ' a_string==' + a_string);
+		} // catch
+	} // raudrohi.adapter.set_innerHTML
 
+} // raudrohi.adapter.ports.yui_3_9_0
 
 //------------------------------------------------------------------------
 
@@ -1003,74 +972,85 @@ raudrohi.adapter.ports.yui_3_3_0=function(){
 // If b_make_no_assumptions_about_setup_availability==true, the library
 // gets initiated with default setup values. Otherwise it is assumed
 // that the server provides setup info.
-raudrohi.initiate_adapter=function(b_make_no_assumptions_about_setup_availability){
-	try{
+raudrohi.initiate_adapter = function(b_make_no_assumptions_about_setup_availability) {
+	try {
 		var port_name;
-		try{
-			if(b_make_no_assumptions_about_setup_availability===true){
-				//port_name='YUI_3_3_0';
-				port_name='YUI_3_0';
-			//  The following 3 are determined in raudrohi_core_v1.js
-			//  raudrohi.settings.debug_JavaScript=true;
-			//  raudrohi.settings.debug_SERVERSIDE=false;
-			//  raudrohi.settings.ajax_request_timeout=3600; // seconds
-			} else{
-				var s_err_prefix=" The "+
-				"b_make_no_assumptions_about_setup_availability!==true, but ";
-				var elem_id="webpage_initiation_data_from_server_raudrohi_port";
-				var elem=document.getElementById(elem_id);
-				if(elem===null){
-					throw s_err_prefix+" the html document does not "+
-					"contain an element with an id of "+
-					"\"webpage_initiation_data_from_server_raudrohi_port\"."+
-					'GUID=="336eb3c7-cc1a-4211-94f2-90120020abd7"';
+		try {
+			if (b_make_no_assumptions_about_setup_availability === true) {
+// RENESSAATOR_BLOCK_START
+// RENESSAATOR_BLOCK_ID=raudrohi_initiate_adapter_block_1
+// RENESSAATOR_SOURCE_LANGUAGE=Ruby
+// RENESSAATOR_SOURCE_START
+// RAUDROHI_HOME=ENV['RAUDROHI_HOME']
+// require(RAUDROHI_HOME+"/src/dev_tools/code_generation/raudrohi_cg0.rb")
+// puts "port_name='"+RAUDROHI_PORT_NAME+"';"
+// RENESSAATOR_SOURCE_END
+//
+// RENESSAATOR_AUTOGENERATED_TEXT_START
+port_name='YUI_3_9_0';
+
+// RENESSAATOR_AUTOGENERATED_TEXT_END
+// RENESSAATOR_BLOCK_END
+				//  The following 3 are determined in raudrohi_core_v1.js
+				//  raudrohi_settings_debug_JavaScript=true;
+				//  raudrohi.settings.debug_SERVERSIDE=false;
+				//  raudrohi.settings.ajax_request_timeout=3600; // seconds
+			} else {
+				var s_err_prefix = " The " +
+					"b_make_no_assumptions_about_setup_availability!==true, but ";
+				var elem_id = "webpage_initiation_data_from_server_raudrohi_port";
+				var elem = document.getElementById(elem_id);
+				if (elem === null) {
+					throw s_err_prefix + " the html document does not " +
+						"contain an element with an id of " +
+						"\"webpage_initiation_data_from_server_raudrohi_port\"." +
+						'GUID=="ce217028-0c8f-41b2-8948-e07221313dd7"';
 				} // if
-				port_name=elem.innerHTML;
-				elem_id="webpage_initiation_data_from_server_debug_SERVERSIDE";
-				elem=document.getElementById(elem_id);
-				if(elem===null){
-					throw "keyword: debug_SERVERSIDE, "+
-					'GUID=="3ca05657-0025-4fe5-b2f2-90120020abd7"';
+				port_name = elem.innerHTML;
+				elem_id = "webpage_initiation_data_from_server_debug_SERVERSIDE";
+				elem = document.getElementById(elem_id);
+				if (elem === null) {
+					throw "keyword: debug_SERVERSIDE, " +
+						'GUID=="3e356132-921e-4a91-ae48-e07221313dd7"';
 				} // if
-				raudrohi.settings.debug_SERVERSIDE=raudrohi.core.str2bool(
+				raudrohi.settings.debug_SERVERSIDE = raudrohi.core.str2bool(
 					elem.innerHTML);
-				elem_id="webpage_initiation_data_from_server_debug_JavaScript";
-				elem=document.getElementById(elem_id);
-				if(elem===null){
-					throw "keyword: debug_JavaScript, "+
-					'GUID=="7c434f48-7b36-4485-81f2-90120020abd7"';
+				elem_id = "webpage_initiation_data_from_server_debug_JavaScript";
+				elem = document.getElementById(elem_id);
+				if (elem === null) {
+					throw "keyword: debug_JavaScript, " +
+						'GUID=="f9b43d73-d117-46f7-a548-e07221313dd7"';
 				} // if
-				raudrohi.settings.debug_JavaScript=raudrohi.core.str2bool(
+				raudrohi_settings_debug_JavaScript = raudrohi.core.str2bool(
 					elem.innerHTML);
-				elem_id="webpage_initiation_data_from_server_javascript_side_ajax_timeout";
-				elem=document.getElementById(elem_id);
-				if(elem!==null){
-					var seconds=parseInt(elem.innerHTML);
-					raudrohi.settings.ajax_request_timeout=seconds;
+				elem_id = "webpage_initiation_data_from_server_javascript_side_ajax_timeout";
+				elem = document.getElementById(elem_id);
+				if (elem !== null) {
+					var seconds = parseInt(elem.innerHTML);
+					raudrohi.settings.ajax_request_timeout = seconds;
 				} // if
 			} // else
-		} catch (err){
-			throw 'GUID=="3dc9414c-1b63-48ae-85e2-90120020abd7", '+err;
+		} catch (err) {
+			throw 'GUID=="4ed9d733-349e-4080-9357-e07221313dd7", ' + err;
 		} // catch
-		raudrohi.adapter.ports.selected_port_name=port_name;
-		switch(port_name){
-			case 'YUI_3_3_0':
-				raudrohi.adapter.ports.yui_3_3_0();
+		raudrohi.adapter.ports.selected_port_name = port_name;
+		switch (port_name) {
+			case 'YUI_3_9_0':
+				raudrohi.adapter.ports.yui_3_9_0();
 				break;
 			case 'YUI_3_0':
 				raudrohi.adapter.ports.yui_3_0();
 				break;
 			default:
-				if(raudrohi.settings.debug_JavaScript===true){
-					throw 'GUID=="2c3def10-0881-4cce-86e2-90120020abd7"  '+
-					'There\'s no branching for port_name(=='+port_name+
-					').';
+				if (raudrohi_settings_debug_JavaScript === true) {
+					throw 'GUID=="14909572-b229-42d4-9727-e07221313dd7"  ' +
+						'There\'s no branching for port_name(==' +
+						port_name + ').';
 				} // if
 		} // switch
-	} catch (err){
-		throw 'GUID=="20465c44-a74e-40db-a1e2-90120020abd7", '+err;
+	} catch (err) {
+		throw 'GUID=="5d535804-8e4f-495b-8c27-e07221313dd7", ' + err;
 	} // catch
 } // raudrohi.initiate_adapter
 
-//------------------------------------------------------------------------
 //------------------------------------------------------------------------

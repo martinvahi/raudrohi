@@ -1,0 +1,233 @@
+==========================================================================
+========  Raudrohi JavaScript Library (RJSL) Development Setup  ==========
+==========================================================================
+
+An introductory tutorial that describes, how to
+develop applications _that use_ the RJSL resides in the
+src/examples/lesson_01_introduction .
+
+This file is targeted only to people, who want to modify the RJSL.
+
+--------------------------------------------------------------------------
+                      Table of Contents
+--------------------------------------------------------------------------
+1. Setup for Developing the RJSL
+2. The Loading and Assembling of the RJSL
+3. Versioning
+4. Debugging
+5. An Introduction to a few JavaScript Fundamentals
+             That Limit code Succinctness
+
+--------------------------------------------------------------------------
+                  1. Setup for Developing the RJSL
+--------------------------------------------------------------------------
+
+Build scripts depend on Java 7 (or newer),
+Ruby 2.0.0 (or newer) and the Rake that comes with the Ruby.
+Build scripts are Linux specific and tested only on Ubuntu.
+
+The rest of the tools that the RJSL build scripts
+depend on are bundled with the RJSL development deliverables.
+
+The main and only entry to the RJSL build software is the
+
+    $RAUDROHI_HOME/src/dev_tools/Rakefile
+
+but it is recommended to run the Rake by using the
+
+    $RAUDROHI_HOME/src/dev_tools/run_rake.bash
+
+because the run_rake.bash sets some mandatory environment variables.
+
+The Rakefile uses
+mmmv_devel_tools (https://github.com/martinvahi/mmmv_devel_tools )
+of which a crippled, bundled, copy resides at
+
+    $RAUDROHI_HOME/src/dev_tools/lib/mmmv_devel_tools
+
+The Kibuvits Ruby Library (hereafter: KRL; http://kibuvits.rubyforge.org )
+has been bundled with the copy of the mmmv_devel_tools.
+
+The
+
+    $RAUDROHI_HOME/src/dev_tools/code_generation/raudrohi_cg0.rb
+
+is a link to the
+
+    $RAUDROHI_HOME/src/dev_tools/Rakefile
+
+which entails that the Rakefile and anything loaded by it is loaded as
+a plain Ruby file by all Renessaator based code generation blocks.
+The Renessaator is a tool that is part of the mmmv_devel_tools project.
+
+TODO: Describe, how to start the selftests.
+
+--------------------------------------------------------------------------
+             2. The Loading and Assembling of the RJSL
+--------------------------------------------------------------------------
+
+During the loading of an HTML page, JavaScript files of that page
+arrive at undetermined order. For example, if nice_app.html
+contains 2 JavaScript files, a.js and b.js, and the b.js depends on
+the content of the a.js, then it might happen that the b.js is
+fully downloaded from the server and executed before the a.js
+is fully downloaded from the server.
+
+The same situation is encountered in the case of the RJSL and its
+solved by "compiling" all of the RJSL files to a single file
+named
+src/release/raudrohi_all_in_one_v<versionnumber>.js .
+Illustratively said: if the aforementioned a.js and b.js
+are assembled to ab.js, then there is no possibility that
+the global code of the b.js is
+executed before the global code of the a.js.
+
+The ab.js assembling order of the "a.js" and "b.js" is described
+in the
+
+    $RAUDROHI_HOME/src/dev_tools/Rakefile
+
+One of the cases, where the interfile dependencies become
+relevant, is if singletons are implemented by the following
+scheme:
+
+---verbatim--start----
+
+awsome_singleton=function(){
+    // methods, fields, etc. are in here
+    // and they depend on code that does not
+    // reside in the same file with this code.
+    }
+awsome_singleton=new awsome_singleton();
+
+---verbatim--end------
+
+In theory, and in the case of the Yahoo JavaScript Library
+(http://developer.yahoo.com/yui/ )
+also in practice, it is possible to study the
+interfile dependencies and make JavaScript libraries
+modular, but the RJSL is not yet that advanced.
+
+A non-minimized version of the
+
+    $RAUDROHI_HOME/src/release/raudrohi_all_in_one_v<versionnumber>.js
+
+can be assembled, built, by executing the
+
+    $RAUDROHI_HOME/src/devel/dev_tools/run_rake.bash b
+
+A minimized version can be built by
+
+    $RAUDROHI_HOME/src/devel/dev_tools/run_rake.bash build
+
+--------------------------------------------------------------------------
+                        3. Versioning
+--------------------------------------------------------------------------
+
+One of the things that one has to take to account,
+regardless of the file based modularity issues, is that web browsers
+cache JavaScript files and download only the ones
+that they do not have in their cache.
+
+To force a web browser to download a new version of the JavaScript
+library and CSS files at version update,
+the names of the JavaScript and CSS files of the new version have to differ
+from the names of all of the older versions. One of the solutions,
+which was recommended and inspired by the Yahoo YUI team and is
+used in the RJSL, is to encode the JavaScript
+library version into file names.
+
+In the case of the RJSL, the versions are positive whole numbers
+and they are encoded into the file names like _v[\d]+.[\w\d]+$
+
+As the version change involves file rename operations
+and search/replace operations within some files,
+it has been automated and can be set by editing the value of
+
+    @i_project_JavaScript_and_CSS_version
+
+in the
+
+    $RAUDROHI_HOME/src/dev_tools/Rakefile
+
+The changes take effect during a rebuild of the RJSL.
+
+--------------------------------------------------------------------------
+                        4. Debugging
+--------------------------------------------------------------------------
+
+The Raudrohi JavaScript Library has been consistently written in
+a notion that exceptions are thrown ONLY WHEN THE CODE IS BROKEN.
+
+For instance, if a negative number is assigned to be a person's age,
+then that case is handled with different means. If each of the
+exception is furnished with a Globally Unique ID, and it's done
+very consistently, then one can have a much fine-grained backtrace
+than the function/method based stack trace can even theoretically give.
+
+As of 2013_04 the only feasible debugging method for the RJSL
+that I, Martin.Vahi@softf1.com, am aware of, is to use the GUID_trace
+tools (DumpGUID, UpGUID, JumpGUID) in conjunction with the
+KomodoEdit(http://www.openkomodo.com/ ).
+The GUID_trace is part of the mmmv_devel_tools.
+
+--------------------------------------------------------------------------
+           5. An Introduction to a few JavaScript Fundamentals
+                      That Limit code Succinctness
+--------------------------------------------------------------------------
+
+Unlike in Ruby, there's no "defined?" method in JavaScript. It's not
+possible to pass undefined values to functions. This means that it's
+not possible to write the "defined?" method.
+
+A citation from
+http://quomon.com/question_how-check-javascript-variable-defined_891.aspx
+
+---citation--start------
+    Here is an example (testing the variable "x"):
+
+    if (window.x === undefined) alert("x is undefined/undeclared");
+    else if (x === false) alert("x is false");
+    else if (x === true) alert("x is true");
+    else alert("x is " + x);
+
+    Notes:
+
+    In the first line I am using "window.x" instead
+    of just "x". This works because all variables are
+    also defines as properties of the window object.
+    "x === undefined" will only work if the variable
+    has actually been declared with "var x" (but not
+    assigned a value). Therefore it is safer to use
+    "window.x" which will not result in an error
+    if the variable hasn't been declared.
+
+    Use the === compare operator to check whether
+    the variable is really boolean false.
+    The == operator is not reliable as a value
+    of 0 will also evaluate to false.
+---citation--end--------
+
+Another workaround on the wild-wild-web (as of 2010) was the following:
+
+    if(typeof(our_may_be_non_existing_variable)==="undefined"){
+        // The variable hasn't been defined
+        } // if
+
+Experimentation with the raudrohi.core.selftest.a_woraround_to_is_defined
+revealed that the following solution works for both, global and
+local, variables:
+
+    if(((typeof(window.varcandidate)==="undefined")&&(typeof(varcandidate)==="undefined"))){
+		// The varcandidate is not defined
+        } // if
+
+Another thing to note is that editing DOM regions that reside
+in a compartment of an HTML table, is BROKEN in many browsers in 2009.
+That imposes considerable widgets design changes. Practically, at
+some, weird, point one is not able to insert a RJSL widget into
+an HTML compartment of an other RJSL widget.
+
+--------------------------------------------------------------------------
+
+==========================================================================

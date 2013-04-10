@@ -1,0 +1,9 @@
+
+The build system of the Raudrohi JavaScript Library (RJSL)
+depends on a particular version of the mmmv_devel_tools.
+
+The use of the local copy of the mmmv_devel_tools 
+eliminates the work that otherwise had 
+to be done to meet the mmmv_devel_tools 
+version related requirement.
+

@@ -1,0 +1,17 @@
+
+The 
+    ./index.php 
+
+should reside next to the index.html, at 
+    ./../../
+
+and the 
+    ./sirel 
+
+should reside at
+    ./../
+
+but the reason, why they are here is that
+the PHP shell_exec and exec and alike do not
+work reliably enouhg, if they work at all.
+

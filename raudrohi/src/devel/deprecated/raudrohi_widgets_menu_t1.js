@@ -1,41 +1,7 @@
-//------------------------------------------------------------------------
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//------------------------------------------------------------------------
+//=========================================================================
 
-
-raudrohi.widgets.g1.menu_t1_content_ar_rgxs=new Array();
-raudrohi.widgets.g1.menu_t1_content_ar_replacement_values=new Array();
+raudrohi.widgets.g1.menu_t1_content_ar_rgxs=[];
+raudrohi.widgets.g1.menu_t1_content_ar_replacement_values=[];
 raudrohi.widgets.g1.menu_t1_content_ar_rgxs.push(new RegExp("õ;","g"));
 raudrohi.widgets.g1.menu_t1_content_ar_replacement_values.push("&otilde;");
 raudrohi.widgets.g1.menu_t1_content_ar_rgxs.push(new RegExp("Õ","g"));
@@ -80,12 +46,12 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 	menuitem_text_max_width){
 	try{
 		var self_public_=this;
-		if(raudrohi.settings.debug_JavaScript===true){
-			if(!raudrohi.adapter.isArray(array_of_menuitem_instances)){
+		if(raudrohi_settings_debug_JavaScript===true){
+			if(!raudrohi_adapter_isArray(array_of_menuitem_instances)){
 				raudrohi.tmg('c776a949-e4fa-4f01-b249-3340a0219bd7',
 					'The array_of_menuitem_instances is not an array.');
 			} // if
-			if(!raudrohi.adapter.isNumber(menuitem_text_max_width)){
+			if(!raudrohi_adapter_isNumber(menuitem_text_max_width)){
 				raudrohi.tmg('fe91bd10-9605-4a7d-a349-3340a0219bd7',
 					'The menuitem_text_max_width is not of a numeric type.');
 			} // if
@@ -144,7 +110,7 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 			try{
 				var ar_rgx=raudrohi.widgets.g1.menu_t1_content_ar_rgxs;
 				var ar_replacement_values=raudrohi.widgets.g1.menu_t1_content_ar_replacement_values;
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_text,'s_text',
 						'26677b2a-5b66-47ed-8449-3340a0219bd7');
 					if(ar_rgx.length!==ar_replacement_values.length){
@@ -192,7 +158,7 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 		function text_as_if_it_were_read_from_GUI_menu(
 			s_menu_item_dot_menuitem_label){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_menu_item_dot_menuitem_label,
 						's_menu_item_dot_menuitem_label',
 						'2c6cc930-8b30-4890-a449-3340a0219bd7');
@@ -212,7 +178,7 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 		this.GUI_sideefectfree_text_2_hashtable_key=function(
 			s_menu_item_dot_menuitem_label){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(
 						s_menu_item_dot_menuitem_label,
 						's_menu_item_dot_menuitem_label',
@@ -230,7 +196,7 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 		this.text_with_GUI_sideffects_2_hashtable_key=function(
 			s_text_as_read_from_the_GUI_menu){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(
 						s_text_as_read_from_the_GUI_menu,
 						's_text_as_read_from_the_GUI_menu',
@@ -287,7 +253,7 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 					// can be collisions, because the
 					// because the hashtable hash function does not
 					// handle all UTF-8 characters properly,
-					if(raudrohi.settings.debug_JavaScript===true){
+					if(raudrohi_settings_debug_JavaScript===true){
 						if(ht_reversefunc_.containsKey(s_hashtable_key)===true){
 							//raudrohi.adapter.log("WARNING: "+
 							raudrohi.tmg("4cb29231-5fa4-4c29-a149-3340a0219bd7",
@@ -309,7 +275,7 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 		this.GUI_sideeffectfree_text_2_instance=function(
 			s_menu_item_dot_menuitem_label){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(
 						s_menu_item_dot_menuitem_label,
 						's_menu_item_dot_menuitem_label',
@@ -327,7 +293,7 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 		this.text_with_GUI_sideeffects_2_instance=function(
 			s_text_as_read_from_the_GUI_menu){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(
 						s_text_as_read_from_the_GUI_menu,
 						's_text_as_read_from_the_GUI_menu',
@@ -345,7 +311,7 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 
 		this.menuitem_text_exists=function(s_menu_item_dot_menuitem_label){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_menu_item_dot_menuitem_label,
 						's_menu_item_dot_menuitem_label',
 						'c2a97855-de31-4837-b529-3340a0219bd7');
@@ -378,11 +344,11 @@ raudrohi.widgets.g1.menu_t1_content=function(array_of_menuitem_instances,
 // menu_t2 and refactor the partialmenu_t1 to use the newer version.
 raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 	var self_public_=this;
-	var lc_s_emptystring=window.raudrohi.core.constans_as_reusable_instances.glc_s_emptystring;
-	var lc_s_space=window.raudrohi.core.constans_as_reusable_instances.glc_s_space;
-	var lc_s_br=window.raudrohi.core.constans_as_reusable_instances.glc_s_br;
+	var lc_s_emptystring=raudrohi_glc_s_emptystring;
+	var lc_s_space=raudrohi_glc_s_space;
+	var lc_s_br=raudrohi_glc_s_br;
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isString(s_html_id,'s_html_id',
 				'f93b173a-1e5b-4030-a329-3340a0219bd7');
 			raudrohi.base.assert_isString(html_if_menucontent_not_set,
@@ -447,7 +413,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 					b_apply_wordwrap_=false;
 					return;
 				} // if
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(
 						i_wordwrap_max_line_width_or_null,
 						'i_wordwrap_max_line_width_or_null',
@@ -468,7 +434,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 
 		function create_containers_selector_html(){
 			try{
-				var ht=raudrohi.ui.get_alignment_style_values(prc_.alignment1_);
+				var ht=raudrohi.widgetless_ui.func.get_alignment_style_values(prc_.alignment1_);
 				var answer=lc_s_emptystring+
 				'<table border="0px"><tbody>'+
 				'<tr><td>'+
@@ -511,7 +477,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 						'One ought to be able to select only, when the selector '+
 						'is not hidden.');
 				} // if
-				var formfield_value=raudrohi.ui.get_formfield_value(prc_.html_id_);
+				var formfield_value=raudrohi.widgetless_ui.func.get_formfield_value(prc_.html_id_);
 				var menu_item=prc_.content_.text_with_GUI_sideeffects_2_instance(
 					formfield_value);
 				if(menu_item==null){
@@ -538,11 +504,11 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 				var ar_menuitem_texts_for_writing_2_GUI=prc_.content_.get_array_of_menuitem_texts_that_are_meant_only_for_writing_into_GUI();
 				var selector_html;
 				if(selected_menuitem_!==null){
-					selector_html=raudrohi.ui.toHTML_array2selector(
+					selector_html=raudrohi.widgetless_ui.func.toHTML_array2selector(
 						prc_.html_id_,ar_menuitem_texts_for_writing_2_GUI,
 						selected_menuitem_.mc_truncated_text_,1);
 				} else{
-					selector_html=raudrohi.ui.toHTML_array2selector(
+					selector_html=raudrohi.widgetless_ui.func.toHTML_array2selector(
 						prc_.html_id_,ar_menuitem_texts_for_writing_2_GUI,lc_s_emptystring,1);
 				} // else
 				raudrohi.base.set_innerHTML(selector_location_id_,
@@ -558,7 +524,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 			try{
 				if((display_menuitem_whole_label_===true)||(b_always_display_menuitem_whole_label_===true)){
 					var fulltext=s_full_menuitem_text;
-					var truncated_text=raudrohi.ui.get_formfield_value(prc_.html_id_);
+					var truncated_text=raudrohi.widgetless_ui.func.get_formfield_value(prc_.html_id_);
 					if((truncated_text.length<fulltext.length)||(b_always_display_menuitem_whole_label_===true)){
 						var s=fulltext;
 						if (b_apply_wordwrap_===true){
@@ -629,7 +595,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 
 		this.menuitem_text_exists=function(s_menu_item_dot_menuitem_label){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_menu_item_dot_menuitem_label,
 						's_menu_item_dot_menuitem_label',
 						'5260b333-4961-4ca7-a1f8-3340a0219bd7');
@@ -650,7 +616,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 		// text that depicts the get_menuitem_text_by_indexsituation.
 		this.get_menuitem_text_by_index=function(an_int){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isNumber(an_int,
 						'an_int', '5a9e3637-f13d-4027-83f8-3340a0219bd7');
 					if (an_int<0) {
@@ -670,7 +636,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 				if((ar.length-1) < an_int){
 					s_out='get_menuitem_text_by_index error: '+
 					+ar.length+'==(ar.length-1) < an_int=='+an_int;
-					if(raudrohi.settings.debug_JavaScript===true){
+					if(raudrohi_settings_debug_JavaScript===true){
 						raudrohi.tmg('c4e24c13-a3ad-4021-94f8-3340a0219bd7',
 							s_out);
 					} else {
@@ -689,7 +655,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 		// throwning any exceptions.
 		this.set_selected_by_menuitem_text=function(s_menu_item_dot_menuitem_label){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_menu_item_dot_menuitem_label,
 						's_menu_item_dot_menuitem_label',
 						'c3409da8-8b6c-43b2-a2e8-3340a0219bd7');
@@ -725,7 +691,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 		this.set_content=function(array_of_menuitem_instances,
 			menuitem_text_max_width){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					// If the widget is hidden, the
 					// wrong type of the content will come appearent when
 					// the call stack does not contain the faulty call any more.
@@ -813,7 +779,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 		// It does not remove the index, it only removes its elements.
 		this.clear_custom_index=function(s_index_name){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_index_name,'s_index_name',
 						'18d33446-186c-43f0-a4d8-3340a0219bd7');
 				} // if
@@ -837,7 +803,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 					raudrohi.tmg('828c4133-f846-493b-a1d8-3340a0219bd7',
 						'prc_.content_set_===false');
 				} // if
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_index_name,'s_index_name',
 						'daaafc3d-1102-424d-92d8-3340a0219bd7');
 					raudrohi.base.assert_isString(s_key,'s_key',
@@ -872,7 +838,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 		// if the given index or its key do not exist.
 		this.set_selected_by_custom_index_key=function(s_index_name,s_key){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_index_name,'s_index_name',
 						'ab09721e-366d-4bac-85c8-3340a0219bd7');
 					raudrohi.base.assert_isString(s_key,'s_key',
@@ -880,7 +846,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 				} // if
 				var b_index_exists=ht_custom_indices_.containsKey(s_index_name);
 				if(b_index_exists==false){
-					if(raudrohi.settings.debug_JavaScript===true){
+					if(raudrohi_settings_debug_JavaScript===true){
 						raudrohi.tmg('5b705744-2338-4037-82c8-3340a0219bd7',
 							'A custom index with a name of "'+s_index_name+
 							'" does not exist.');
@@ -892,7 +858,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 				var b_key_exists=ht_index.containsKey(s_key);
 				if(b_key_exists==false){
 					return; // PLUTO
-					if(raudrohi.settings.debug_JavaScript===true){
+					if(raudrohi_settings_debug_JavaScript===true){
 						raudrohi.tmg('d6b21e1b-7c19-40bd-91b8-3340a0219bd7',
 							'A custom index with a name of "'+s_index_name+
 							'" does not contain key "'+s_key+'".');
@@ -924,7 +890,7 @@ raudrohi.widgets.g1.menu_t1=function( s_html_id, html_if_menucontent_not_set){
 						self_public_.set_content(a_phonecall_instance.data2);
 						break;
 					default:
-						if(raudrohi.settings.debug_JavaScript===true){
+						if(raudrohi_settings_debug_JavaScript===true){
 							raudrohi.tmg('db643f4a-9b10-405f-95b8-3340a0219bd7',
 								'There\'s no message handler for '+
 								a_pair_branching.a);

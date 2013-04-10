@@ -6,7 +6,7 @@
 
 window.password_acceptance_function_Elephant=function(s_line1,s_line2){
 	try{
-		var ar_out=new Array();
+		var ar_out=[];
 		var b_password_rejected=false;
 		var s_rejection_message='';
 		var i_min_lenght=3;
@@ -24,7 +24,7 @@ window.password_acceptance_function_Elephant=function(s_line1,s_line2){
 
 window.password_acceptance_function_Giraffe=function(s_line1,s_line2){
 	try{
-		var ar_out=new Array();
+		var ar_out=[];
 		var b_password_rejected=false;
 		var s_rejection_message='';
 		if(s_line1.toLowerCase()==='abba'){

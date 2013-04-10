@@ -1,37 +1,4 @@
-//-------------------------------------------------------------------------
-// Copyright (c) 2011, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//-------------------------------------------------------------------------
+//=========================================================================
 
 //-------------------------------------------------------------------------
 raudrohi.units_default_conversion_functions_instantiator=function(){
@@ -214,7 +181,7 @@ raudrohi.units_default_conversion_functions_instantiator=function(){
 		// ob_declaration.b_destination_unit_is_Si_unit=//true or false
 		this.ar_get_all_default_function_declarations=function(){
 			try{
-				var ar_function_declarations=new Array();
+				var ar_function_declarations=[];
 				declr_funcs_density(ar_function_declarations);
 				return ar_function_declarations;
 			} catch (err){
@@ -307,7 +274,7 @@ raudrohi.units=function(){
 		// Returns a Si unit name as a string or null.
 		this.s_unit_2_Si=function(s_unit_name){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_unit_name, 's_unit_name',
 						'5be4b7d1-77e8-42bb-8322-9180a0219bd7');
 				} // if
@@ -325,7 +292,7 @@ raudrohi.units=function(){
 		// Returns a floating point number or throws.
 		this.fd_convert=function(s_destination_unit,i_or_s_or_fd,s_origin_unit){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_destination_unit,
 						's_destination_unit',
 						'4891c744-21a9-42ed-8d22-9180a0219bd7');
@@ -390,7 +357,7 @@ raudrohi.units=function(){
 		// Returns a floating point number or throws.
 		this.fd_2_Si=function(i_or_s_or_fd,s_unit_name){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_unit_name, 's_unit_name',
 						'1e87f533-3ed4-44ab-8021-9180a0219bd7');
 				} // if

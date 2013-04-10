@@ -1,39 +1,6 @@
 //=========================================================================
-// Copyright (c) 2009, martin.vahi@softf1.com that has an
-// Estonian personal identification code of 38108050020.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or
-// without modification, are permitted provided that the following
-// conditions are met:
-//
-// * Redistributions of source code must retain the above copyright
-//   notice, this list of conditions and the following disclaimer.
-// * Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer
-//   in the documentation and/or other materials provided with the
-//   distribution.
-// * Neither the name of the Martin Vahi nor the names of its
-//   contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//=========================================================================
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
 if(window.raudrohi_widgets_exists!==true){
 	window.raudrohi.widgets={};
@@ -54,12 +21,12 @@ if(window.raudrohi_widgets_g1_sys_exists!==true){
 	window.raudrohi.widgets.g1.sys={}; // a namespace for non-client code
 	window.raudrohi_widgets_g1_sys_exists=true;
 } // if
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 window.raudrohi.widgets.g1.theme.s_color_alert='#A30808';
 window.raudrohi.widgets.g1.theme.s_color_no='#F75D16';
 window.raudrohi.widgets.g1.theme.s_color_yes='#24990C';
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 // The true_if_update_DOM does not have any effect, if the
 // true_if_unhide==true. The hashtable_of_widget_states is
 // expected to contain instances of raudrohi.base.widget_state_bitfield.
@@ -69,7 +36,7 @@ window.raudrohi.widgets.g1.theme.s_color_yes='#24990C';
 // "unhide" or "hide" calls without interlacing them.
 raudrohi.widgets.g1.sys.hide_or_unhide_t2=function(array_of_widgets, true_if_unhide,
 	true_if_update_DOM, hashtable_of_widget_states){
-	if(raudrohi.settings.debug_JavaScript===true){
+	if(raudrohi_settings_debug_JavaScript===true){
 		raudrohi.base.assert_isArray(array_of_widgets,'array_of_widgets',
 			'4767d81c-3efb-4ba8-9487-6230a0219bd7');
 		raudrohi.base.assert_isBoolean(true_if_unhide,'true_if_unhide',
@@ -126,7 +93,7 @@ raudrohi.widgets.g1.sys.hide_or_unhide_t2=function(array_of_widgets, true_if_unh
 	} // catch
 }// raudrohi.widgets.g1.sys.hide_or_unhide_t2
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 // Events like "on click", "focus", "blur", etc, are handled as
 // if there were triggered by special keys on a keyboard. In the
 // terminology they are called "virtual keys".
@@ -167,7 +134,7 @@ raudrohi.widgets.g1.sys.keylisteners_unit=function(owners_instance){
 					default:
 						is_a_virtual_key=false;
 						event_name='key';
-						if(raudrohi.settings.debug_JavaScript===true){
+						if(raudrohi_settings_debug_JavaScript===true){
 							var key_code_candidate=parseInt(key_number_as_a_string);
 							raudrohi.base.assert_isKeyeventKeyCode(
 								key_code_candidate, 'key_code_candidate',
@@ -205,7 +172,7 @@ raudrohi.widgets.g1.sys.keylisteners_unit=function(owners_instance){
 			// One only has to support key combinations, not keypress
 			// series. Series are for some other level.
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(listenable_element_html_id,
 						'listenable_element_html_id',
 						'43f4e44b-5edf-49b2-a187-6230a0219bd7');
@@ -234,7 +201,7 @@ raudrohi.widgets.g1.sys.keylisteners_unit=function(owners_instance){
 
 		this.remove_keylistener=function(key_number_as_a_string){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(key_number_as_a_string,
 						'key_number_as_a_string',
 						'532550ae-2443-48b4-9377-6230a0219bd7');
@@ -276,7 +243,7 @@ raudrohi.widgets.g1.sys.keylisteners_unit=function(owners_instance){
 		var listeners_attached_2_DOM_elements_=false;
 		this.attach_listeners2_DOM_elements=function(listenable_element_html_id){
 			try{
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(listenable_element_html_id,
 						'listenable_element_html_id',
 						'c7766ea1-f190-4d41-a877-6230a0219bd7');
@@ -367,7 +334,7 @@ raudrohi.widgets.g1.sys.keylisteners_unit=function(owners_instance){
 	} // catch
 } // raudrohi.widgets.g1.sys.keylisteners_unit
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 // Currently the params_hashtable is not in use and is expected to be
 // a random Hashtable, but it's there for future improvements. Namely,
 // when the set of supported states is expanded by the
@@ -377,7 +344,7 @@ raudrohi.widgets.g1.triggerTransition=function(
 	next_state_of_widget_B,next_state_of_widget_A,
 	widget_B_phone_number, widget_A_phone_number, params_hashtable){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isString(next_state_of_widget_B,
 				'next_state_of_widget_B',
 				'3db80244-1024-4d7b-b367-6230a0219bd7');
@@ -425,7 +392,7 @@ raudrohi.widgets.g1.triggerTransition=function(
 					'startup_with_indication_request|||',ht);
 				break;
 			default:
-				if(raudrohi.settings.debug_JavaScript===true){
+				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.tmg('e12c9d31-ae5e-4a6f-8467-6230a0219bd7',
 						'There\'s no branching for next_state_of_widget_A(=='+
 						next_state_of_widget_A+').');
@@ -440,7 +407,7 @@ raudrohi.widgets.g1.triggerTransition=function(
 	} // catch
 } // raudrohi.widgets.g1.triggerTransition
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 raudrohi.widgets.g1.sys.phonecall_receiver_tmg=function(GUID,err,
 	a_phonecall_instance){
 	var a_phonecall_instance_data='';
@@ -462,7 +429,7 @@ raudrohi.widgets.g1.sys.phonecall_receiver_tmg=function(GUID,err,
 raudrohi.widgets.g1.sys.copy_ht_of_bitfields=function(destination_hashtable,
 	origin_hashtable){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(destination_hashtable,
 				'destination_hashtable','d75a8c24-18f3-44a2-9567-6230a0219bd7');
 			raudrohi.base.assert_isObject(origin_hashtable,
@@ -487,10 +454,10 @@ raudrohi.widgets.g1.sys.copy_ht_of_bitfields=function(destination_hashtable,
 	} // catch
 } // raudrohi.widgets.g1.sys.copy_ht_of_bitfields
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
 raudrohi.widgets.g1.sys.change_state_2=function(array_of_widgets, state_name){
-	if(raudrohi.settings.debug_JavaScript===true){
+	if(raudrohi_settings_debug_JavaScript===true){
 		raudrohi.base.assert_isArray(array_of_widgets, 'array_of_widgets',
 			'233d1121-f15f-4eca-ad57-6230a0219bd7');
 		raudrohi.base.assert_isString(state_name, 'state_name',
@@ -516,11 +483,11 @@ raudrohi.widgets.g1.sys.change_state_2=function(array_of_widgets, state_name){
 	} // catch
 }// change_state_2
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 raudrohi.widgets.g1.sys.shutdown_t1=function(array_of_widgets){
 	var a_widget;
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isArray(array_of_widgets, 'array_of_widgets',
 				'03ecf024-e2a1-41a3-9157-6230a0219bd7');
 		} // if
@@ -543,10 +510,10 @@ raudrohi.widgets.g1.sys.shutdown_t1=function(array_of_widgets){
 	} // catch
 }// raudrohi.widgets.g1.sys.shutdown_t1
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 raudrohi.widgets.g1.sys.startup_t1=function(array_of_widgets,
 	hashtable_of_widget_states){
-	if(raudrohi.settings.debug_JavaScript===true){
+	if(raudrohi_settings_debug_JavaScript===true){
 		raudrohi.base.assert_isArray(array_of_widgets,'array_of_widgets',
 			'009cbe3d-e3bb-4d73-a557-6230a0219bd7');
 		raudrohi.base.assert_isObject(hashtable_of_widget_states,
@@ -586,13 +553,13 @@ raudrohi.widgets.g1.sys.startup_t1=function(array_of_widgets,
 }// raudrohi.widgets.g1.sys.startup_t1
 
 
-//------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 // hashtable_of_microsessions.key == <microsession name>
 // hashtable_of_microsessions.value == <microsession id>
 raudrohi.widgets.g1.sys.close_microsessions_t1=function(
 	hashtable_of_microsessions){
 	try{
-		if(raudrohi.settings.debug_JavaScript===true){
+		if(raudrohi_settings_debug_JavaScript===true){
 			raudrohi.base.assert_isObject(hashtable_of_microsessions,
 				'hashtable_of_microsessions',
 				'1fa56275-7b4e-42a4-9147-6230a0219bd7');
