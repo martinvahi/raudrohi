@@ -47,22 +47,22 @@ raudrohi.selftests.assemble_an_array_of_selftests_results = function () {
         var ar = raudrohi.selftests.ar_tests_1
         var i_len = ar.length;
         var i = 0;
-        var elem = null;
+        var func_test = null;
         var ht_x = null;
         try {
             for (i = 0; i < i_len; i++) {
-                elem = ar[i]; // elements are functions
-                ht_x = elem();
+                func_test = ar[i]; // elements are functions
+                ht_x = func_test();
                 ar_of_ht.push(ht_x);
             } // for
         } catch (err) {
-            throw('"dda8a85d-5736-45f8-b38e-e1d1e0304dd7" ' +
-                  'elem.toString()==' + elem.toString() + '  ' +
+            throw('"4f2fe3d2-7b6b-40b7-a58e-724390705dd7" ' +
+                  'func_test.toString()==' + func_test.toString() + '  ' +
                   'One possible thing that may trigger this is where ' +
-                  'raudrohi.selftests.ar_tests_1.push(elem()); is used ' +
+                  'raudrohi.selftests.ar_tests_1.push(func_test()); is used ' +
                   'in stead of the correct ' +
-                  'raudrohi.selftests.ar_tests_1.push(elem); ' +
-                  'Otherwise the elem.toString() might return ' +
+                  'raudrohi.selftests.ar_tests_1.push(func_test); ' +
+                  'Otherwise the func_test.toString() might return ' +
                   'a function declaration or something more ' +
                   '"function like". ' + err);
         } // catch
@@ -71,7 +71,7 @@ raudrohi.selftests.assemble_an_array_of_selftests_results = function () {
         //---tests---end-------------------------------------
         return ar_of_ht;
     } catch (err) {
-        throw '"25c72cbc-ceef-4cbb-858e-e1d1e0304dd7" ' + err;
+        throw '"3aa10142-2b88-489c-838e-724390705dd7" ' + err;
     } // catch
 } // assemble_an_array_of_selftests_results
 
@@ -87,7 +87,7 @@ raudrohi.selftests.table_legend = function () {
                      '</tr>';
         return s_html;
     } catch (err) {
-        throw '"4716b555-4e47-4587-918e-e1d1e0304dd7" ' + err;
+        throw '"f2906b4d-4091-4845-b38e-724390705dd7" ' + err;
     } // catch
 } // table_legend
 //------------------------------------------------------------------------
@@ -123,7 +123,8 @@ raudrohi.selftests.ht2html = function (ht) {
                          '<td class="raudrohi_visible_table_cells"/>';
             } // else
             s_html = s_html + '<td class="raudrohi_visible_table_cells">' +
-                     ar_failed_tests[i] + '</td></tr>';
+                     ar_failed_tests[i].replace(/[\n]/g, "<br/>\n") +
+                     '</td></tr>';
         } // for
         return s_html;
     } catch (err) {
@@ -162,7 +163,7 @@ raudrohi.selftests.run_all_selftests = function () {
         } // if
         output_screen.innerHTML = s_html;
     } catch (err) {
-        throw '"52830b34-e234-4b4b-9c8e-e1d1e0304dd7" ' + err;
+        throw '"5f0bae25-963e-445a-a48e-724390705dd7" ' + err;
     } // catch
 }; // run_all_selftests
 

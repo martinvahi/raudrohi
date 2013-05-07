@@ -18,6 +18,16 @@ if (window.raudrohi_core_private_code_exists !== true) {
 window.raudrohi.core.sring_1_for_instance_reuse = "_tron_";
 
 
+//  window.raudrohi.core.lc_s_trondot = "_trondot_";
+//  window.raudrohi.core.lc_s_trondot_c = ".";
+//  window.raudrohi.core.lc_s_troncomma = "_troncomma_";
+//  window.raudrohi.core.lc_s_troncomma_c = ",";
+//  window.raudrohi.core.lc_s_troncolon = "_troncolon_";
+//  window.raudrohi.core.lc_s_troncolon_c = ":";
+//  window.raudrohi.core.lc_s_tronsemicolon = "_tronsemicolon_";
+//  window.raudrohi.core.lc_s_tronsemicolon_c = ";";
+
+
 // The purpose of this class is to replace the
 // Tim Down version of the Hashtable class with
 // a different implementation.
@@ -57,7 +67,7 @@ var Hashtable = function () {
         var x_out = ht_[s_k];
         if (x_out === undefined) {
             throw "There's no key named \"" + s_key + "\"." +
-                  'GUID="15044125-df9a-4cd1-a825-0323a0304dd7"'
+                  'GUID="191de143-80ea-43b8-959c-d04190705dd7"'
         } // if
         return x_out;
     } // get

@@ -714,24 +714,24 @@ raudrohi.base.selftests.JS_boolean_ops = function () {
         //---tests-start------------------
         if (false === true) {
             ar_failed_tests.push('false===true' +
-                                 " \nGUID='2331b304-4052-4343-8231-200040904dd7'");
+                                 " \nGUID='45b88394-17b1-4370-b789-13d080705dd7'");
         } // if
         b = false
         if (b === true) {
             ar_failed_tests.push('false===b===true' +
-                                 " \nGUID='2e754491-a74a-4dee-8041-200040904dd7'");
+                                 " \nGUID='12fceef6-ceb9-4a91-9189-13d080705dd7'");
         } // if
         b = true
         if (b === false) {
             ar_failed_tests.push('true===b===false' +
-                                 " \nGUID='84033501-3f36-401e-b121-200040904dd7'");
+                                 " \nGUID='8fb54349-8b13-4708-8389-13d080705dd7'");
         } // if
         var xy = {};
         xy.xx = {};
         xy.xx.bb = true;
         if (xy.xx.bb === false) {
             ar_failed_tests.push('true===xy.xx.bb===false' +
-                                 " \nGUID='464a32d5-abea-4c9d-8051-200040904dd7'");
+                                 " \nGUID='54b941b1-0224-4509-9629-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x = ar_failed_tests.length; // FireFox 3.0.x bug workaround.
@@ -743,7 +743,7 @@ raudrohi.base.selftests.JS_boolean_ops = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('6387597e-93b0-424a-9071-200040904dd7', err);
+        raudrohi.tmg('19d52c1e-5df3-4ffe-b329-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.JS_boolean_ops
 
@@ -765,39 +765,39 @@ raudrohi.base.selftests.bisect = function () {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='3de11795-0324-4aa5-a021-200040904dd7'");
+                                 " \nGUID='5de94350-0b03-4c11-8229-13d080705dd7'");
         } // if
         if (a_pair.b !== "C") {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='91cbb4d1-ada3-410b-9710-200040904dd7'");
+                                 " \nGUID='3e0856fd-a02e-4341-8329-13d080705dd7'");
         } // if
         a_pair = raudrohi.base.bisect(s_hay, 'A');
         if (a_pair.a !== "") {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='2c184dc4-f622-458b-be10-200040904dd7'");
+                                 " \nGUID='a29d42b8-7384-4748-a619-13d080705dd7'");
         } // if
         if (a_pair.b !== "BC") {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='48aa67b4-827e-46bf-b410-200040904dd7'");
+                                 " \nGUID='dc54992b-8f4a-4333-b219-13d080705dd7'");
         } // if
         a_pair = raudrohi.base.bisect(s_hay, 'C');
         if (a_pair.a !== "AB") {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='342a4f21-b189-4425-9150-200040904dd7'");
+                                 " \nGUID='d0a3ce5d-a52c-4d41-b319-13d080705dd7'");
         } // if
         if (a_pair.b !== "") {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='41db49c1-03b3-41e0-9730-200040904dd7'");
+                                 " \nGUID='4ad7d739-c186-4dd0-b119-13d080705dd7'");
         } // if
 
         s_hay = "|||";
@@ -806,13 +806,13 @@ raudrohi.base.selftests.bisect = function () {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='c9a05a45-d1cd-4c7f-9c30-200040904dd7'");
+                                 " \nGUID='57fcd044-9d51-4e66-a219-13d080705dd7'");
         } // if
         if (a_pair.b !== "") {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='3c148375-8deb-4b31-be20-200040904dd7'");
+                                 " \nGUID='3e92ac54-e650-4e60-9519-13d080705dd7'");
         } // if
 
         s_hay = "a|||b|||c";
@@ -821,13 +821,13 @@ raudrohi.base.selftests.bisect = function () {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='32b84753-2189-4869-952f-200040904dd7'");
+                                 " \nGUID='5c33513c-6380-4459-9409-13d080705dd7'");
         } // if
         if (a_pair.b !== "b|||c") {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='345ee056-afd1-4cf0-ba4f-200040904dd7'");
+                                 " \nGUID='1fac033f-54de-4806-a509-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -838,7 +838,7 @@ raudrohi.base.selftests.bisect = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('fe26d501-3b75-4194-834f-200040904dd7', err);
+        raudrohi.tmg('c03cb22e-b133-4ffb-8309-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.bisect
 
@@ -858,35 +858,35 @@ raudrohi.base.selftests.replace_all = function () {
         s_out = raudrohi.base.gsub('ZY', 'X', s_hay);
         if (s_out !== 'ZYZYZY') {
             ar_failed_tests.push('X->ZY, s_out==' + s_out +
-                                 " \nGUID='b49b7c05-88f5-42df-975f-200040904dd7'");
+                                 " \nGUID='ea966358-c552-40fd-b109-13d080705dd7'");
         } // if
         s_out = raudrohi.base.gsub('M', 'XX', s_hay);
         if (s_out !== 'MX') {
             ar_failed_tests.push('XX->M, s_out==' + s_out +
-                                 " \nGUID='01c24b9c-ea41-48ff-b01f-200040904dd7'");
+                                 " \nGUID='9e86ac43-6e72-415c-8309-13d080705dd7'");
         } // if
         s_hay = "line1\nline2";
         s_out = raudrohi.base.gsub('F', "\n", s_hay);
         if (s_out !== 'line1Fline2') {
             ar_failed_tests.push("\\n" + '->F, s_out==' + s_out +
-                                 " \nGUID='b3ef199a-e614-4a2e-a73f-200040904dd7'");
+                                 " \nGUID='8a376d13-f8ae-4232-a309-13d080705dd7'");
         } // if
         s_hay = '|||';
         s_out = raudrohi.base.gsub('LL', "|||", s_hay);
         if (s_out !== 'LL') {
             ar_failed_tests.push('|||->LL, s_out==' + s_out +
-                                 " \nGUID='4c938f92-4057-4b15-9b4e-200040904dd7'");
+                                 " \nGUID='20ff0038-7515-4eeb-a309-13d080705dd7'");
         } // if
         s_out = raudrohi.base.gsub('X', 'Z', s_hay);
         if (s_out !== '|||') {
             ar_failed_tests.push('Z->X, s_out==' + s_out +
-                                 " \nGUID='5cc45155-126e-4a96-b13e-200040904dd7'");
+                                 " \nGUID='fe798440-c507-4d68-82f8-13d080705dd7'");
         } // if
         s_hay = "A+B[D]*"
         s_out = raudrohi.base.gsub('X', '+', s_hay);
         if (s_out !== 'AXB[D]*') {
             ar_failed_tests.push('+->X, s_out==' + s_out +
-                                 " \nGUID='81992251-af35-409b-802e-200040904dd7'");
+                                 " \nGUID='3a97293b-5daa-492b-83f8-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -897,7 +897,7 @@ raudrohi.base.selftests.replace_all = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('55a1e674-a916-446a-ba1e-200040904dd7', err);
+        raudrohi.tmg('d6a40c21-2a5d-42ae-84f8-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.replace_all
 
@@ -921,42 +921,42 @@ raudrohi.base.selftests.count_substrings = function () {
         n = raudrohi.base.count_substrings(s, s_needle);
         if (n !== 3) {
             ar_failed_tests.push('n==' + n + ' | 42ωЖ' +
-                                 " \nGUID='258e1e9a-ed68-455b-9ace-200040904dd7'");
+                                 " \nGUID='3bd44d93-0848-4f2e-b3f8-13d080705dd7'");
         } // if
         s = 'HiAbAbAbAbThere!';
         s_needle = 'AbAb';
         n = raudrohi.base.count_substrings(s, s_needle);
         if (n !== 2) {
             ar_failed_tests.push('n==' + n + ' | AbAb' +
-                                 " \nGUID='4b6b22a4-7bd6-407c-932e-200040904dd7'");
+                                 " \nGUID='35df8f59-439d-4ce9-a3f8-13d080705dd7'");
         } // if
         s = 'HiAbAbAbAbThere!';
         s_needle = 'AFAb';
         n = raudrohi.base.count_substrings(s, s_needle);
         if (n !== 0) {
             ar_failed_tests.push('n==' + n + ' | AFAb' +
-                                 " \nGUID='804f2643-2551-4c33-8c4e-200040904dd7'");
+                                 " \nGUID='4b8276c5-277b-4b7f-85f8-13d080705dd7'");
         } // if
         s = 'XHi There!'
         s_needle = 'X';
         n = raudrohi.base.count_substrings(s, s_needle);
         if (n !== 1) {
             ar_failed_tests.push('n==' + n + ' | X' +
-                                 " \nGUID='f2b28ffc-a46a-4dfc-a01e-200040904dd7'");
+                                 " \nGUID='9f10db39-bc2d-48e5-a3e8-13d080705dd7'");
         } // if
         s = 'Hi There!Y'
         s_needle = 'Y';
         n = raudrohi.base.count_substrings(s, s_needle);
         if (n !== 1) {
             ar_failed_tests.push('n==' + n + ' | Y' +
-                                 " \nGUID='1d71b23f-25c2-4aec-94dd-200040904dd7'");
+                                 " \nGUID='c5b55f3b-4cfc-40dc-a4e8-13d080705dd7'");
         } // if
         s = 'Hi..There!'
         s_needle = '.'; // Tests that it's not interpreted as a regex.
         n = raudrohi.base.count_substrings(s, s_needle);
         if (n !== 2) {
             ar_failed_tests.push('n==' + n + ' | a point' +
-                                 " \nGUID='2a708a34-655c-4eac-8c3d-200040904dd7'");
+                                 " \nGUID='70d9db3c-498a-4cc4-a3e8-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -968,7 +968,7 @@ raudrohi.base.selftests.count_substrings = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('1f7dd412-1826-4dd7-b31d-200040904dd7', err);
+        raudrohi.tmg('457fedda-8994-40e7-87e8-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.count_substrings
 
@@ -992,7 +992,7 @@ raudrohi.base.selftests.regex_has_a_match = function () {
         if (b !== true) {
             ar_failed_tests.push('s_haystack="' + s_haystack + '" ' +
                                  's_rgx=="' + s_rgx + '"' +
-                                 " \nGUID='159251a3-e0e0-43f2-8c3d-200040904dd7'");
+                                 " \nGUID='94cff4d2-1827-47ff-a1e8-13d080705dd7'");
         } // if
 
         s_haystack = "44..,4,,5..6";
@@ -1001,7 +1001,7 @@ raudrohi.base.selftests.regex_has_a_match = function () {
         if (b !== false) {
             ar_failed_tests.push('s_haystack="' + s_haystack + '" ' +
                                  's_rgx=="' + s_rgx + '"' +
-                                 " \nGUID='a7ce8223-39d1-48cf-ae2d-200040904dd7'");
+                                 " \nGUID='26206053-ba37-4f72-b5d8-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -1013,7 +1013,7 @@ raudrohi.base.selftests.regex_has_a_match = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('34e03363-81a5-4505-903d-200040904dd7', err);
+        raudrohi.tmg('3bc216da-6029-402c-95d8-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.regex_has_a_match
 
@@ -1038,87 +1038,87 @@ raudrohi.base.selftests.string2float_part1 = function () {
             b = false;
             if (a_triple.b !== 4.5) {
                 ar_failed_tests.push('b) 4,5' +
-                                     " \nGUID='474a0922-4631-4ff7-892d-200040904dd7'");
+                                     " \nGUID='3d09fafc-e8c5-49e7-b5d8-13d080705dd7'");
             } // if
             if (a_triple.b < 4.5) {
                 ar_failed_tests.push('c) 4,5' +
-                                     " \nGUID='05568cd1-822a-4b2b-905d-200040904dd7'");
+                                     " \nGUID='2342e321-8e46-4d66-bfd8-13d080705dd7'");
             } // if
         } // if
         if (b === true) {
             ar_failed_tests.push('d) a_triple.a had an illegal value.' +
-                                 " \nGUID='35273b17-941f-4649-b51c-200040904dd7'");
+                                 " \nGUID='b6417d22-6196-410e-84d8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('4.6a');
         if (a_triple.a === false) {
             ar_failed_tests.push('4.6a' +
-                                 " \nGUID='1ad6ae04-5ef1-4f1e-b63c-200040904dd7'");
+                                 " \nGUID='2fa73651-b8f6-49d7-8fd8-13d080705dd7'");
         } // if
         if (a_triple.c === true) {
             ar_failed_tests.push('4.6a  a_triple.c===true' +
-                                 " \nGUID='5360bd92-7766-46b0-b02c-200040904dd7'");
+                                 " \nGUID='4d9cbe64-6af0-4c81-a4c8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('a4.6');
         if (a_triple.a === false) {
             ar_failed_tests.push('a4.6' +
-                                 " \nGUID='59bf1fd5-3220-4779-b32c-200040904dd7'");
+                                 " \nGUID='ee1ee626-dcbf-4ef7-a3c8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('4.7.');
         if (a_triple.a === false) {
             ar_failed_tests.push('4.7.' +
-                                 " \nGUID='a5d5e0c7-971a-482a-9b2c-200040904dd7'");
+                                 " \nGUID='2b9d6a13-5d98-4a43-a4c8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('4.8.1');
         if (a_triple.a === false) {
             ar_failed_tests.push('4.8.1' +
-                                 " \nGUID='925a0d4a-10b7-48ae-831c-200040904dd7'");
+                                 " \nGUID='a1a678ca-4b0d-4088-81c8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('4..9');
         if (a_triple.a === false) {
             ar_failed_tests.push('4..9' +
-                                 " \nGUID='645f37e8-5f49-47f9-9b1c-200040904dd7'");
+                                 " \nGUID='dbe70053-3a9e-40cb-a5c8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('5');
         if (a_triple.a === true) {
             ar_failed_tests.push('5' +
-                                 " \nGUID='48ef8a25-ce3e-4652-a71b-200040904dd7'");
+                                 " \nGUID='19b7f895-aaa9-4052-95c8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('-5');
         if (a_triple.a === true) {
             ar_failed_tests.push('-5' +
-                                 " \nGUID='3b5d12e2-c7ff-4475-b01b-200040904dd7'");
+                                 " \nGUID='991dbd3c-7fd5-465f-b3b8-13d080705dd7'");
         } // if
         if (a_triple.c === true) {
             ar_failed_tests.push('-5 a_triple.c===true' +
-                                 " \nGUID='d5116872-60f5-443d-8c5b-200040904dd7'");
+                                 " \nGUID='3c5bf76f-5275-4e3d-b3b8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('-5.1');
         if (a_triple.a === true) {
             ar_failed_tests.push('-5.1' +
-                                 " \nGUID='d23315e3-b7ce-449d-9ecb-200040904dd7'");
+                                 " \nGUID='9fad7545-3bd7-49e2-81b8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('');
         if (a_triple.a === false) {
             ar_failed_tests.push('an empty string, test 1' +
-                                 " \nGUID='85e7253a-75f5-4940-b44b-200040904dd7'");
+                                 " \nGUID='0896d331-08bc-4e74-92b8-13d080705dd7'");
         } // if
         if (a_triple.c === false) {
             ar_failed_tests.push('an empty string, test 2' +
-                                 " \nGUID='1a782f45-a411-4281-b32b-200040904dd7'");
+                                 " \nGUID='90584124-27f0-4d2a-83b8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('	 ');
         if (a_triple.a === false) {
             ar_failed_tests.push('an empty string after trimming, test 1' +
-                                 " \nGUID='14b8b47f-d0cb-46a2-bc2b-200040904dd7'");
+                                 " \nGUID='d1da1b34-b2e2-4879-84b8-13d080705dd7'");
         } // if
         if (a_triple.c === false) {
             ar_failed_tests.push('an empty string after trimming, test 2' +
-                                 " \nGUID='2b06908c-1078-4acf-831a-200040904dd7'");
+                                 " \nGUID='1cc6b781-6661-4f3e-9ba8-13d080705dd7'");
         } // if
         a_triple = raudrohi.base.private_code.string2float('69greetingsTo1984');
         if (a_triple.a === false) {
             ar_failed_tests.push('69greetingsTo1984 was considered a float.' +
-                                 " \nGUID='19744df1-ac44-4fef-a22a-200040904dd7'");
+                                 " \nGUID='49815c11-26a5-4964-a4a8-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -1130,7 +1130,7 @@ raudrohi.base.selftests.string2float_part1 = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('e5c0b593-28dc-4446-a75a-200040904dd7', err);
+        raudrohi.tmg('ec09a825-3033-4873-91a8-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.string2float_part1
 
@@ -1153,12 +1153,12 @@ raudrohi.base.selftests.string2float_part2 = function () {
         b = ht_1.get('b_failure');
         if (b !== false) {
             ar_failed_tests.push('b, s_test==' + s_test +
-                                 " \nGUID='1d430e21-c282-4837-b42a-200040904dd7'");
+                                 " \nGUID='a8523f4a-fd9d-4710-a1a8-13d080705dd7'");
         } // if
         fl = ht_1.get('value');
         if (fl < 44.5) {
             ar_failed_tests.push('fl, s_test==' + s_test +
-                                 " \nGUID='756a0141-a2ce-45a1-8f8a-200040904dd7'");
+                                 " \nGUID='0396fe28-95a5-4933-a4a8-13d080705dd7'");
         } // if
 
         s_test = "44,5,4";
@@ -1166,7 +1166,7 @@ raudrohi.base.selftests.string2float_part2 = function () {
         b = ht_1.get('b_failure');
         if (b !== true) {
             ar_failed_tests.push('b, s_test==' + s_test +
-                                 " \nGUID='3bf98a83-bc00-4309-972a-200040904dd7'");
+                                 " \nGUID='2b5c265a-6e7b-40b8-b398-13d080705dd7'");
         } // if
 
         s_test = "44+5";
@@ -1174,7 +1174,7 @@ raudrohi.base.selftests.string2float_part2 = function () {
         b = ht_1.get('b_failure');
         if (b !== true) {
             ar_failed_tests.push('b, s_test==' + s_test +
-                                 " \nGUID='1fd807a5-a389-4a0c-b02a-200040904dd7'");
+                                 " \nGUID='1a1e5e85-9395-4bc3-bd98-13d080705dd7'");
         } // if
 
         s_test = "44-";
@@ -1182,7 +1182,7 @@ raudrohi.base.selftests.string2float_part2 = function () {
         b = ht_1.get('b_failure');
         if (b !== true) {
             ar_failed_tests.push('b, s_test==' + s_test +
-                                 " \nGUID='43ca1cc1-7d81-41c1-b71a-200040904dd7'");
+                                 " \nGUID='554d0e94-ddbc-4694-a298-13d080705dd7'");
         } // if
         raudrohi.base.pool_of_hashtables.return_used_hashtable(ht_1);
         //---tests-end--------------------
@@ -1195,7 +1195,7 @@ raudrohi.base.selftests.string2float_part2 = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('71e14a0e-9dc9-4333-ae89-200040904dd7', err);
+        raudrohi.tmg('1f88ec4b-8441-400c-9398-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.string2float_part2
 
@@ -1215,7 +1215,7 @@ raudrohi.base.selftests.node_exists = function () {
         if (b === true) {
             ar_failed_tests.push('Probably nonexisting DOM node <br/>' +
                                  'got considered to exist.' +
-                                 " \nGUID='5a20eb82-b601-4a38-be59-200040904dd7'");
+                                 " \nGUID='17bf3525-6eec-4a86-b198-13d080705dd7'");
         } // if
         // The node with an id of "output_screen" is
         // part of the run_selftests.html.
@@ -1223,7 +1223,7 @@ raudrohi.base.selftests.node_exists = function () {
         if (b === false) {
             ar_failed_tests.push('Node "output_screen" was <br/>' +
                                  'considered to be missing.' +
-                                 " \nGUID='43b80be4-e5c2-45bb-bc19-200040904dd7'");
+                                 " \nGUID='84836409-7203-4238-8988-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -1234,7 +1234,7 @@ raudrohi.base.selftests.node_exists = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('cbad7d7a-9436-426b-8f29-200040904dd7', err);
+        raudrohi.tmg('5d821830-7135-473f-b388-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.node_exists
 
@@ -1254,17 +1254,17 @@ raudrohi.base.selftests.count_child_nodes_recursively = function () {
         var n = raudrohi.base.count_child_nodes_recursively(id);
         if (n !== 6) {
             ar_failed_tests.push('6!=n==' + n +
-                                 " \nGUID='10c7f265-4349-4455-a159-200040904dd7'");
+                                 " \nGUID='1e5f28b3-0a2c-443b-9588-13d080705dd7'");
         } // if
         n = raudrohi.base.count_child_nodes_recursively(id + '2');
         if (n !== 0) {
             ar_failed_tests.push('0!=n==' + n +
-                                 " \nGUID='209bf673-435a-450c-b659-200040904dd7'");
+                                 " \nGUID='89a27413-76a7-45db-8788-13d080705dd7'");
         } // if
         n = raudrohi.base.count_child_nodes_recursively(id + '3');
         if (n !== 0) {
             ar_failed_tests.push('0!=n==' + n +
-                                 " \nGUID='5f6aa471-29d8-4230-9448-200040904dd7'");
+                                 " \nGUID='610b7145-de58-4425-a188-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -1276,7 +1276,7 @@ raudrohi.base.selftests.count_child_nodes_recursively = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('45e88ea5-6af5-4f31-b928-200040904dd7', err);
+        raudrohi.tmg('55031094-eab1-463d-b388-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.count_child_nodes_recursively
 
@@ -1296,7 +1296,7 @@ raudrohi.base.selftests.node_tag_is = function () {
         var a_node = document.getElementById(id);
         if (raudrohi.base.node_tag_is('div', a_node) !== true) {
             ar_failed_tests.push('failure 1 at div' +
-                                 " \nGUID='afe27469-5831-4135-9058-200040904dd7'");
+                                 " \nGUID='5782a884-3d48-46f6-b588-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -1307,7 +1307,7 @@ raudrohi.base.selftests.node_tag_is = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('91a3dc97-6963-44f8-9868-200040904dd7', err);
+        raudrohi.tmg('590c1413-acb6-4b38-9278-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.node_tag_is
 
@@ -1327,43 +1327,43 @@ raudrohi.base.selftests.string_contains_spacestabs = function () {
         b = raudrohi.base.string_contains_spacestabs(s);
         if (b !== false) {
             ar_failed_tests.push('s==' + s +
-                                 " \nGUID='1545d9b8-6451-42a6-96c8-200040904dd7'");
+                                 " \nGUID='f1e96f4d-949e-41aa-a278-13d080705dd7'");
         } // if
         s = 'One SpaceInHere';
         b = raudrohi.base.string_contains_spacestabs(s);
         if (b !== true) {
             ar_failed_tests.push('s==' + s +
-                                 " \nGUID='4e2faf24-a28c-426f-b718-200040904dd7'");
+                                 " \nGUID='68e4884b-ea8d-4c5c-b478-13d080705dd7'");
         } // if
         s = 'One	TabInHere';
         b = raudrohi.base.string_contains_spacestabs(s);
         if (b !== true) {
             ar_failed_tests.push('s==' + s +
-                                 " \nGUID='c2be5479-f0bd-46f2-b428-200040904dd7'");
+                                 " \nGUID='56263f50-3dfc-49f0-a478-13d080705dd7'");
         } // if
         s = 'Both Spaces	and Tabs	in here';
         b = raudrohi.base.string_contains_spacestabs(s);
         if (b !== true) {
             ar_failed_tests.push('s==' + s +
-                                 " \nGUID='36e77004-dd0d-44fa-b057-200040904dd7'");
+                                 " \nGUID='75672348-0898-4632-8278-13d080705dd7'");
         } // if
         s = 'OneSpaceAtTheEnd ';
         b = raudrohi.base.string_contains_spacestabs(s);
         if (b !== true) {
             ar_failed_tests.push('s==' + s +
-                                 " \nGUID='29e59d33-4b8f-4c79-ab27-200040904dd7'");
+                                 " \nGUID='6ae3d331-301e-4089-b268-13d080705dd7'");
         } // if
         s = ' OneSpaceAtTheStart';
         b = raudrohi.base.string_contains_spacestabs(s);
         if (b !== true) {
             ar_failed_tests.push('s==' + s +
-                                 " \nGUID='957fe91e-3f14-4718-9d27-200040904dd7'");
+                                 " \nGUID='3a23c392-e128-4de9-af68-13d080705dd7'");
         } // if
         s = 'OneTabAtTheEnd	';
         b = raudrohi.base.string_contains_spacestabs(s);
         if (b !== true) {
             ar_failed_tests.push('s==' + s +
-                                 " \nGUID='d21ad7ed-dfff-45b4-8d17-200040904dd7'");
+                                 " \nGUID='c7d48c77-aea4-475e-b368-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -1375,7 +1375,7 @@ raudrohi.base.selftests.string_contains_spacestabs = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('7177faf5-36e2-4b4e-9c27-200040904dd7', err);
+        raudrohi.tmg('34152f33-22cd-462e-8368-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.string_contains_spacestabs
 
@@ -1385,7 +1385,7 @@ raudrohi.selftests.ar_tests_1.push(raudrohi.base.selftests.string_contains_space
 
 try {
 } catch (err) {
-    raudrohi.tmg('136c7456-5731-453f-bb37-200040904dd7',
+    raudrohi.tmg('27d75401-473f-4661-a468-13d080705dd7',
         'Usually if things throw here, then it is because it is ' +
         'in global namespace and the onload mehtod has ' +
         'not been loaded yet.' + err);
@@ -1407,7 +1407,7 @@ raudrohi.base.selftests.a_set_of_tests_1 = function () {
             ar_failed_tests.push('s_hay=="' + s_hay +
                                  '" a_pair.a=="' + a_pair.a + '" a_pair.b=="' +
                                  a_pair.b + '".' +
-                                 " \nGUID='25f15531-76af-493d-a316-200040904dd7'");
+                                 " \nGUID='7f520f35-c29f-498f-b268-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
@@ -1419,7 +1419,7 @@ raudrohi.base.selftests.a_set_of_tests_1 = function () {
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('05678b38-d270-4eb4-ac26-200040904dd7', err);
+        raudrohi.tmg('3b801c8e-cfad-4a16-8558-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.a_set_of_tests_1
 raudrohi.selftests.ar_tests_1.push(
@@ -1439,47 +1439,47 @@ raudrohi.base.selftests.test_concatarrayofstrings_t1 = function () {
         s_x = raudrohi.base.s_concat_array_of_strings(ar_x);
         if (s_x != "aa") {
             ar_failed_tests.push('s_x=="' + s_x.toString() +
-                                 " \nGUID='271a4065-2c2a-4a95-bf26-200040904dd7'");
+                                 " \nGUID='6f54695d-d8db-4960-9558-13d080705dd7'");
         } // if
         //--------------------------------
         ar_x.push("bb");
         s_x = raudrohi.base.s_concat_array_of_strings(ar_x);
         if (s_x != "aabb") {
             ar_failed_tests.push('s_x=="' + s_x.toString() +
-                                 " \nGUID='856a827b-c071-4a36-a056-200040904dd7'");
+                                 " \nGUID='10eb073c-17a3-44ba-b258-13d080705dd7'");
         } // if
         //--------------------------------
         ar_x.push("cc");
         s_x = raudrohi.base.s_concat_array_of_strings(ar_x);
         if (s_x != "aabbcc") {
             ar_failed_tests.push('s_x=="' + s_x.toString() +
-                                 " \nGUID='3221540a-238d-44b2-be46-200040904dd7'");
+                                 " \nGUID='24fd2e65-fe2a-4f3f-8958-13d080705dd7'");
         } // if
         //--------------------------------
         ar_x.push("dd");
         s_x = raudrohi.base.s_concat_array_of_strings(ar_x);
         if (s_x != "aabbccdd") {
             ar_failed_tests.push('s_x=="' + s_x.toString() +
-                                 " \nGUID='4c79c322-5471-4212-ad46-200040904dd7'");
+                                 " \nGUID='007bb42e-c7e7-44b0-b258-13d080705dd7'");
         } // if
         //--------------------------------
         ar_x.push("ee");
         s_x = raudrohi.base.s_concat_array_of_strings(ar_x);
         if (s_x != "aabbccddee") {
             ar_failed_tests.push('s_x=="' + s_x.toString() +
-                                 " \nGUID='c2de7ed5-a9b8-4564-a255-200040904dd7'");
+                                 " \nGUID='307f4054-e1a9-44aa-a258-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
         if (0 < x_FireFox_bug_workaround) {
             ht.put('test_passed', 'f');
             ht.put('code_region_name',
-                'raudrohi.base.selftests.a_set_of_tests_1');
+                'raudrohi.base.selftests.test_concatarrayofstrings_t1');
             ht.put('ar_failed_tests', ar_failed_tests);
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('4bea6b34-38ca-4ef0-9455-200040904dd7', err);
+        raudrohi.tmg('d13bce2a-67b7-47fe-9248-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.test_concatarrayofstrings_t1
 raudrohi.selftests.ar_tests_1.push(
@@ -1494,7 +1494,7 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         var ar_failed_tests = [];
         var ar_x = [];
         var b_throw = null;
-        var s_GUID = '35b4b3c4-b60e-42e6-8135-200040904dd7';
+        var s_GUID = '237c49e5-171a-4ad8-a248-13d080705dd7';
         var s_optional_errmsg_suffix = 'xxxx';
         var err_x = null;
         //---tests-start------------------
@@ -1508,8 +1508,8 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw !== true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='3740d115-faf1-4eb9-9955-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='c45428d3-5ff0-45c4-8448-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1522,8 +1522,8 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='4d37f895-cd72-46d7-bf45-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='67568d31-268f-48e5-8448-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1536,8 +1536,8 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='f45d3cb6-781c-43f8-ae65-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='0c468543-308e-47be-a548-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1550,8 +1550,8 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='48c22c44-d033-4d25-8945-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='a7f97737-9cd2-47d5-9438-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1564,8 +1564,8 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw !== true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='c13e87a4-5db0-4425-86d4-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='3055c332-2ee2-43e7-9c38-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1578,8 +1578,8 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='55ed5073-841c-429c-af24-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='2d229893-a61b-4bfa-8338-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1592,8 +1592,8 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='526fcdc3-ea64-4468-ad34-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='19618b61-2bbb-4423-be38-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1606,8 +1606,8 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='e61334a6-1d8f-4675-b034-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='5fba1b15-594e-453e-8438-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1620,20 +1620,20 @@ raudrohi.base.selftests.test_assert_monotonic_increase_i = function () {
         } // catch
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
-                                 "\nerr_x==" + err_x +
-                                 "\n  GUID='812799f5-27a0-4106-abc4-200040904dd7'");
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='1b257d42-a554-46f6-a338-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
         if (0 < x_FireFox_bug_workaround) {
             ht.put('test_passed', 'f');
             ht.put('code_region_name',
-                'raudrohi.base.selftests.a_set_of_tests_1');
+                'raudrohi.base.selftests.test_assert_monotonic_increase_i');
             ht.put('ar_failed_tests', ar_failed_tests);
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('46ac1441-47c2-480c-b514-200040904dd7', err);
+        raudrohi.tmg('ee6ac65e-e539-4d7a-8128-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.test_assert_monotonic_increase_i
 raudrohi.selftests.ar_tests_1.push(
@@ -1648,7 +1648,7 @@ raudrohi.base.selftests.test_assert_monotonic_decrease_i = function () {
         var ar_failed_tests = [];
         var ar_x = [];
         var b_throw = null;
-        var s_GUID = '46282694-171c-490b-be23-200040904dd7';
+        var s_GUID = 'ea1821ba-dac5-4931-b328-13d080705dd7';
         var s_optional_errmsg_suffix = 'xxxx';
         var err_x = null;
         //---tests-start------------------
@@ -1663,7 +1663,7 @@ raudrohi.base.selftests.test_assert_monotonic_decrease_i = function () {
         if (b_throw !== true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
                                  "\nerr_x==" + err_x +
-                                 "\n  GUID='192fb7ee-29e3-4179-ac63-200040904dd7'");
+                                 "\n  GUID='a74f6b16-cf15-46a0-b528-13d080705dd7'");
         } // if
         b_throw = false;
         ar_x = [9, 1, null, 0];
@@ -1676,7 +1676,7 @@ raudrohi.base.selftests.test_assert_monotonic_decrease_i = function () {
         if (b_throw !== true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
                                  "\nerr_x==" + err_x +
-                                 "\n  GUID='19bf1334-7f32-414d-b243-200040904dd7'");
+                                 "\n  GUID='f432fa50-0ca2-43db-8528-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1690,7 +1690,7 @@ raudrohi.base.selftests.test_assert_monotonic_decrease_i = function () {
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
                                  "\nerr_x==" + err_x +
-                                 "\n  GUID='37a73562-ce5f-4d61-be53-200040904dd7'");
+                                 "\n  GUID='a25e9f1c-618a-4cd1-9228-13d080705dd7'");
         } // if
         //--------------------------------
         b_throw = false;
@@ -1704,24 +1704,207 @@ raudrohi.base.selftests.test_assert_monotonic_decrease_i = function () {
         if (b_throw === true) {
             ar_failed_tests.push('ar_x=="' + ar_x.toString() +
                                  "\nerr_x==" + err_x +
-                                 "\n  GUID='443c9135-00a0-489b-9f33-200040904dd7'");
+                                 "\n  GUID='71c6cd25-bca1-4f27-8218-13d080705dd7'");
         } // if
         //---tests-end--------------------
         var x_FireFox_bug_workaround = ar_failed_tests.length;
         if (0 < x_FireFox_bug_workaround) {
             ht.put('test_passed', 'f');
             ht.put('code_region_name',
-                'raudrohi.base.selftests.a_set_of_tests_1');
+                'raudrohi.base.selftests.test_assert_monotonic_decrease_i');
             ht.put('ar_failed_tests', ar_failed_tests);
         } // if
         return ht;
     } catch (err) {
-        raudrohi.tmg('e1c5c55c-8c3b-4371-be82-200040904dd7', err);
+        raudrohi.tmg('51b78e36-860e-45f3-9518-13d080705dd7', err);
     } // catch
 } // raudrohi.base.selftests.test_assert_monotonic_decrease_i
 raudrohi.selftests.ar_tests_1.push(
     raudrohi.base.selftests.test_assert_monotonic_decrease_i);
 
+//-------------------------------------------------------------------------
+
+raudrohi.base.selftests.test_assert_is_HTML_ID = function () {
+    try {
+        var ht = new Hashtable();
+        ht.put('test_passed', 't');
+        var ar_failed_tests = [];
+        var b_throw = null;
+        var s_GUID = "'9c7f431c-460a-4bd9-8418-13d080705dd7'";
+        var s_optional_errmsg_suffix = 'xxxx';
+        var err_x = null;
+        //---tests-start------------------
+        b_throw = false;
+        x_in = 42;
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='5499f7a4-5f71-4466-a418-13d080705dd7'");
+        } // if
+        //--------------------------------
+        //--------------------------------
+        b_throw = false;
+        x_in = "";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='de6f8159-b0d0-4499-a418-13d080705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        x_in = "a b";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='32b1f4b3-91bb-4d64-b208-13d080705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        x_in = " ab";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='1dc5a042-4f32-4aab-b408-13d080705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        x_in = "4ab";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='758ea845-050e-4d2e-9408-13d080705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        x_in = ".ab";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='40943d52-5c54-452b-8208-13d080705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        x_in = ":ab";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='68396348-ba9e-44c2-b208-13d080705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        x_in = ";ab";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='1312ebe5-36d9-4838-87f7-13d080705dd7'");
+        } // if
+        //--------------------------------
+        //--------test-style--change--from--throwing-to-nonthrowing----
+        //--------------------------------
+        b_throw = false;
+        x_in = "b";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw === true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='ff093a4e-5c24-473d-b1f7-13d080705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        x_in = "ab";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw === true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='1ee00c34-1e1b-4eee-b4f7-13d080705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        x_in = "b42";
+        try {
+            raudrohi.base.assert_is_HTML_ID(x_in, 'x_in', s_GUID);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw === true) {
+            ar_failed_tests.push('x_in=="' + x_in +
+                                 "\"\nerr_x==" + err_x +
+                                 "\n  GUID='3899b51e-62dc-4d2c-b3f7-13d080705dd7'");
+        } // if
+        //---tests-end--------------------
+        var x_FireFox_bug_workaround = ar_failed_tests.length;
+        if (0 < x_FireFox_bug_workaround) {
+            ht.put('test_passed', 'f');
+            ht.put('code_region_name',
+                'raudrohi.base.selftests.test_assert_is_HTML_ID');
+            ht.put('ar_failed_tests', ar_failed_tests);
+        } // if
+        return ht;
+    } catch (err) {
+        raudrohi.tmg('1a246e34-67a7-4608-a9f7-13d080705dd7', err);
+    } // catch
+} // raudrohi.base.selftests.test_assert_is_HTML_ID
+raudrohi.selftests.ar_tests_1.push(
+    raudrohi.base.selftests.test_assert_is_HTML_ID);
 
 //=========================================================================
 //=========================================================================
@@ -3484,6 +3667,254 @@ raudrohi.selftests.ar_tests_1.push(raudrohi.vfx.selftests.ar_interpolate_html_co
 
 //=========================================================================
 
+//=========================================================================
+// Copyright (c) 2011, martin.vahi@softf1.com that has an
+// Estonian personal identification code of 38108050020.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or
+// without modification, are permitted provided that the following
+// conditions are met:
+//
+// * Redistributions of source code must retain the above copyright
+//   notice, this list of conditions and the following disclaimer.
+// * Redistributions in binary form must reproduce the above copyright
+//   notice, this list of conditions and the following disclaimer
+//   in the documentation and/or other materials provided with the
+//   distribution.
+// * Neither the name of the Martin Vahi nor the names of its
+//   contributors may be used to endorse or promote products derived
+//   from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+// CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+// NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+//=========================================================================
+
+if (window.raudrohi_widgets_exists !== true) {
+    window.raudrohi.widgets = {};
+    window.raudrohi_widgets_exists = true;
+} // if
+if (window.raudrohi_widgets_g1_exists !== true) {
+    window.raudrohi.widgets.g1 = {};
+    window.raudrohi_widgets_g1_exists = true;
+} // if
+if (window.raudrohi_widgets_g1_theme_exists !== true) {
+    // The window.raudrohi.widgets.g1.theme
+    // is for various style parameters and alike.
+    window.raudrohi.widgets.g1.theme = {};
+    window.raudrohi_widgets_g1_theme_exists = true;
+} // if
+
+if (window.raudrohi_widgets_g1_sys_exists !== true) {
+    window.raudrohi.widgets.g1.sys = {}; // a namespace for non-client code
+    window.raudrohi_widgets_g1_sys_exists = true;
+} // if
+
+
+//-------------------------------------------------------------------------
+
+if (window.raudrohi_widgets_g1_selftests_exists !== true) {
+    window.raudrohi.widgets.g1.selftests = {};
+    window.raudrohi_widgets_g1_selftests_exists = true;
+} // if
+
+//-------------------------------------------------------------------------
+
+raudrohi.widgets.g1.selftests.test_initializations_of_deprecated_widgets_t1 =
+function () {
+    try {
+        var ht = new Hashtable();
+        ht.put('test_passed', 't');
+        var ar_failed_tests = [];
+        //---------------
+        var b_throw = null;
+        var err_x = null;
+        var ob_widget_0 = null
+        var ob_widget_1 = null
+        var s_html_id_prefix = "raudrohi_widgets_g1_selftests_test_initializations_t1_deprec_"
+        var s_html_id = null;
+        var i_html_id_counter = 0;
+        var s_parent_phone_number = null;
+        //---tests-start------------------
+        b_throw = false;
+        try {
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_0 =
+            new raudrohi.widgets.g1.containergrid_1x1_t1(s_html_id);
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_1 = new raudrohi.widgets.g1.partialmenu_t1(s_html_id,
+                ob_widget_0, 300, 100,
+                10, '<p>hi</p>');
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== false) {
+            ar_failed_tests.push("i_html_id_counter==" + i_html_id_counter +
+                                 "\nerr_x==" + err_x +
+                                 "\n  GUID='94e24924-1b11-4692-b5b8-a0f251705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        try {
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_0 =
+            new raudrohi.widgets.g1.containergrid_1x1_t1(s_html_id);
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_1 = new raudrohi.widgets.g1.menu_t1(s_html_id,
+                '<p>hi</p>');
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== false) {
+            ar_failed_tests.push("i_html_id_counter==" + i_html_id_counter +
+                                 "\nerr_x==" + err_x +
+                                 "\n  GUID='6ddb003e-2aa0-496a-b5b8-a0f251705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        try {
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_0 =
+            new raudrohi.widgets.g1.containergrid_1x1_t1(s_html_id);
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            s_parent_phone_number = ob_widget_0.phone.get_phone_number();
+            ob_widget_1 = new raudrohi.widgets.g1.cache_t2(
+                s_parent_phone_number);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== false) {
+            ar_failed_tests.push("i_html_id_counter==" + i_html_id_counter +
+                                 "\nerr_x==" + err_x +
+                                 "\n  GUID='5e267b35-6a7e-4994-94b8-a0f251705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        try {
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_0 =
+            new raudrohi.widgets.g1.containergrid_1x1_t1(s_html_id);
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_1 =
+            new raudrohi.widgets.g1.calendar_t1(s_html_id, ob_widget_0);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== false) {
+            ar_failed_tests.push("i_html_id_counter==" + i_html_id_counter +
+                                 "\nerr_x==" + err_x +
+                                 "\n  GUID='1a08c1a2-9f4a-4f56-b2b8-a0f251705dd7'");
+        } // if
+        //--------------------------------
+        b_throw = false;
+        try {
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            //ob_widget_0 =
+            //new raudrohi.widgets.g1.containergrid_1x1_t1(s_html_id);
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_1 = new raudrohi.widgets.g1.html_t1(s_html_id);
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw !== false) {
+            ar_failed_tests.push("i_html_id_counter==" + i_html_id_counter +
+                                 "\nerr_x==" + err_x +
+                                 "\n  GUID='74e8f238-719f-4344-81b8-a0f251705dd7'");
+        } // if
+        //---tests-end--------------------
+        var x = ar_failed_tests.length; // FireFox 3.0.x bug workaround.
+        if (0 < x) {
+            ht.put('test_passed', 'f');
+            ht.put('code_region_name',
+                'raudrohi.widgets.g1.selftests.test_initializations_t1');
+            ht.put('ar_failed_tests', ar_failed_tests);
+        } // if
+        return ht;
+    } catch (err) {
+        raudrohi.tmg('0229fc40-ff68-430b-82b8-a0f251705dd7', err);
+    } // catch
+} // raudrohi.widgets.g1.selftests.test_initializations_of_deprecated_widgets_t1
+raudrohi.selftests.ar_tests_1.push(
+    raudrohi.widgets.g1.selftests.test_initializations_of_deprecated_widgets_t1);
+
+//-------------------------------------------------------------------------
+
+raudrohi.widgets.g1.selftests.test_initializations_t1 = function () {
+    try {
+        var ht = new Hashtable();
+        ht.put('test_passed', 't');
+        var ar_failed_tests = [];
+        //---------------
+        var b_throw = null;
+        var err_x = null;
+        var ob_widget_0 = null
+        var ob_widget_1 = null
+        var s_html_id_prefix = "raudrohi_widgets_g1_selftests_test_initializations_t1_"
+        var s_html_id = null;
+        var i_html_id_counter = 0;
+        //---tests-start------------------
+        b_throw = false;
+        try {
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            ob_widget_0 =
+            new raudrohi.widgets.g1.containergrid_1x1_t1(s_html_id);
+            i_html_id_counter++;
+            s_html_id = s_html_id_prefix + i_html_id_counter;
+            //    ob_widget_1=
+        } catch (err) {
+            b_throw = true;
+            err_x = err
+        } // catch
+        if (b_throw === true) {
+            ar_failed_tests.push("i_html_id_counter==" + i_html_id_counter +
+                                 "\nerr_x==" + err_x +
+                                 "\n  GUID='1d414085-bd2d-4735-89b8-a0f251705dd7'");
+        } // if
+        //---tests-end--------------------
+        var x = ar_failed_tests.length; // FireFox 3.0.x bug workaround.
+        if (0 < x) {
+            ht.put('test_passed', 'f');
+            ht.put('code_region_name',
+                'raudrohi.widgets.g1.selftests.test_initializations_t1');
+            ht.put('ar_failed_tests', ar_failed_tests);
+        } // if
+        return ht;
+    } catch (err) {
+        raudrohi.tmg('14519d23-ac10-42a4-94a8-a0f251705dd7', err);
+    } // catch
+} // raudrohi.widgets.g1.selftests.test_initializations_t1
+raudrohi.selftests.ar_tests_1.push(
+    raudrohi.widgets.g1.selftests.test_initializations_t1);
+
+//=========================================================================
 ///------------------------------------------------------------------------
 // Copyright (c) 2009, martin.vahi@softf1.com that has an
 // Estonian personal identification code of 38108050020.
@@ -3533,22 +3964,22 @@ raudrohi.selftests.assemble_an_array_of_selftests_results = function () {
         var ar = raudrohi.selftests.ar_tests_1
         var i_len = ar.length;
         var i = 0;
-        var elem = null;
+        var func_test = null;
         var ht_x = null;
         try {
             for (i = 0; i < i_len; i++) {
-                elem = ar[i]; // elements are functions
-                ht_x = elem();
+                func_test = ar[i]; // elements are functions
+                ht_x = func_test();
                 ar_of_ht.push(ht_x);
             } // for
         } catch (err) {
-            throw('"dda8a85d-5736-45f8-b38e-e1d1e0304dd7" ' +
-                  'elem.toString()==' + elem.toString() + '  ' +
+            throw('"4f2fe3d2-7b6b-40b7-a58e-724390705dd7" ' +
+                  'func_test.toString()==' + func_test.toString() + '  ' +
                   'One possible thing that may trigger this is where ' +
-                  'raudrohi.selftests.ar_tests_1.push(elem()); is used ' +
+                  'raudrohi.selftests.ar_tests_1.push(func_test()); is used ' +
                   'in stead of the correct ' +
-                  'raudrohi.selftests.ar_tests_1.push(elem); ' +
-                  'Otherwise the elem.toString() might return ' +
+                  'raudrohi.selftests.ar_tests_1.push(func_test); ' +
+                  'Otherwise the func_test.toString() might return ' +
                   'a function declaration or something more ' +
                   '"function like". ' + err);
         } // catch
@@ -3557,7 +3988,7 @@ raudrohi.selftests.assemble_an_array_of_selftests_results = function () {
         //---tests---end-------------------------------------
         return ar_of_ht;
     } catch (err) {
-        throw '"25c72cbc-ceef-4cbb-858e-e1d1e0304dd7" ' + err;
+        throw '"3aa10142-2b88-489c-838e-724390705dd7" ' + err;
     } // catch
 } // assemble_an_array_of_selftests_results
 
@@ -3573,7 +4004,7 @@ raudrohi.selftests.table_legend = function () {
                      '</tr>';
         return s_html;
     } catch (err) {
-        throw '"4716b555-4e47-4587-918e-e1d1e0304dd7" ' + err;
+        throw '"f2906b4d-4091-4845-b38e-724390705dd7" ' + err;
     } // catch
 } // table_legend
 //------------------------------------------------------------------------
@@ -3609,7 +4040,8 @@ raudrohi.selftests.ht2html = function (ht) {
                          '<td class="raudrohi_visible_table_cells"/>';
             } // else
             s_html = s_html + '<td class="raudrohi_visible_table_cells">' +
-                     ar_failed_tests[i] + '</td></tr>';
+                     ar_failed_tests[i].replace(/[\n]/g, "<br/>\n") +
+                     '</td></tr>';
         } // for
         return s_html;
     } catch (err) {
@@ -3648,7 +4080,7 @@ raudrohi.selftests.run_all_selftests = function () {
         } // if
         output_screen.innerHTML = s_html;
     } catch (err) {
-        throw '"52830b34-e234-4b4b-9c8e-e1d1e0304dd7" ' + err;
+        throw '"5f0bae25-963e-445a-a48e-724390705dd7" ' + err;
     } // catch
 }; // run_all_selftests
 

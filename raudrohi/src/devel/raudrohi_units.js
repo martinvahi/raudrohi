@@ -165,7 +165,7 @@ raudrohi.units_default_conversion_functions_instantiator=function(){
 				ar_function_declarations.push(ob_declaration);
 
 			} catch (err){
-				raudrohi.tmg('c4519610-4d07-4f7b-bf12-9180a0219bd7',err);
+				raudrohi.tmg('3116ac34-ca1d-41aa-95b3-b3a241405dd7',err);
 			} // catch
 		} // declr_funcs_density
 
@@ -185,14 +185,14 @@ raudrohi.units_default_conversion_functions_instantiator=function(){
 				declr_funcs_density(ar_function_declarations);
 				return ar_function_declarations;
 			} catch (err){
-				raudrohi.tmg('1afc4265-23ad-44ff-a332-9180a0219bd7',err);
+				raudrohi.tmg('937fa78a-2ec7-4117-9bf1-b3a241405dd7',err);
 			} // catch
 
 		} // ar_get_all_default_function_declarations
 
 	//---------------------------------------------------------------------
 	} catch (err){
-		raudrohi.tmg('334856d4-5d52-47a5-a612-9180a0219bd7',err);
+		raudrohi.tmg('d18ac56a-b4a9-424c-88d2-b3a241405dd7',err);
 	} // catch
 } // raudrohi.units_default_conversion_functions_instantiator
 
@@ -248,7 +248,7 @@ raudrohi.units=function(){
 					} // if
 				} // else
 			} catch (err){
-				raudrohi.tmg('5bdc5254-9a59-4872-9a12-9180a0219bd7',err);
+				raudrohi.tmg('a62f5359-11fc-4438-9c95-b3a241405dd7',err);
 			} // catch
 
 		} // declare_conversion_function
@@ -265,7 +265,7 @@ raudrohi.units=function(){
 					self_public_.declare_conversion_function(ob_declaration);
 				} // for
 			} catch (err){
-				raudrohi.tmg('22c7873c-cdcb-45b6-a082-9180a0219bd7',err);
+				raudrohi.tmg('a725f965-92e4-494f-96fe-b3a241405dd7',err);
 			} // catch
 		} // declare_default_conversion_functions
 		declare_default_conversion_functions();
@@ -276,7 +276,7 @@ raudrohi.units=function(){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_unit_name, 's_unit_name',
-						'5be4b7d1-77e8-42bb-8322-9180a0219bd7');
+						'c685e6e1-dd30-4301-b571-b3a241405dd7');
 				} // if
 				var s_si_unit_name=null;
 				if(ht_unit_2_Si_.containsKey(s_unit_name)){
@@ -284,7 +284,7 @@ raudrohi.units=function(){
 				} // if
 				return s_si_unit_name;
 			} catch (err){
-				raudrohi.tmg('8400a857-e424-4bbe-a442-9180a0219bd7',err);
+				raudrohi.tmg('d31aa959-66ef-45bd-97e4-b3a241405dd7',err);
 			} // catch
 		} // s_unit_2_Si
 
@@ -295,9 +295,9 @@ raudrohi.units=function(){
 				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_destination_unit,
 						's_destination_unit',
-						'4891c744-21a9-42ed-8d22-9180a0219bd7');
+						'1c5c8ae9-5ecf-4d53-ac3f-b3a241405dd7');
 					raudrohi.base.assert_isString(s_origin_unit, 's_origin_unit',
-						'021f07d2-23ee-41f0-a132-9180a0219bd7');
+						'b34c50ce-1a24-43a9-b211-b3a241405dd7');
 				} // if
 				var fd_in=raudrohi.base.to_fd(i_or_s_or_fd);
 				var fd_out=fd_in;
@@ -315,7 +315,7 @@ raudrohi.units=function(){
 					// Try 2 hops through Si unit like that:
 					// s_origin_unit --> <a Si unit> --> s_destination_unit
 					if((!ht_unit_2_Si_.containsKey(s_origin_unit))===true){
-						raudrohi.tmg('a21e02fe-97e4-459d-86b2-9180a0219bd7',
+						raudrohi.tmg('7a1575c9-4176-4530-a3b7-b3a241405dd7',
 							'Direct conversion from '+
 							s_origin_unit+' to '+s_destination_unit+
 							' has not been declared and '+
@@ -325,7 +325,7 @@ raudrohi.units=function(){
 					var s_Si_unit=ht_unit_2_Si_.get(s_origin_unit);
 					s_hop_func_key=s_origin_unit+s_separ_+s_Si_unit;
 					if((!ht_conversion_funcs_.containsKey(s_hop_func_key))===true){
-						raudrohi.tmg('dcd9f523-87cd-4bc7-b512-9180a0219bd7',
+						raudrohi.tmg('c4091dcc-088e-452e-98d4-b3a241405dd7',
 							'Direct conversion from '+
 							s_origin_unit+' to '+s_destination_unit+
 							' has not been declared and a conversion '+
@@ -336,7 +336,7 @@ raudrohi.units=function(){
 					var fd_Si=func(fd_in);
 					s_hop_func_key=s_Si_unit+s_separ_+s_destination_unit;
 					if((!ht_conversion_funcs_.containsKey(s_hop_func_key))===true){
-						raudrohi.tmg('27013bd5-7238-458d-9332-9180a0219bd7',
+						raudrohi.tmg('f41ec727-c9bc-44dc-a7f1-b3a241405dd7',
 							'Direct conversion from '+
 							s_origin_unit+' to '+s_destination_unit+
 							' has not been declared and a conversion from '+
@@ -348,7 +348,7 @@ raudrohi.units=function(){
 				} // else
 				return fd_out;
 			} catch (err){
-				raudrohi.tmg('16618cd3-18b6-49fc-9d32-9180a0219bd7',err);
+				raudrohi.tmg('b5d187f6-c2c0-4848-9af9-b3a241405dd7',err);
 			} // catch
 		} // fd_convert
 
@@ -359,10 +359,10 @@ raudrohi.units=function(){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(s_unit_name, 's_unit_name',
-						'1e87f533-3ed4-44ab-8021-9180a0219bd7');
+						'9e2a26e0-5e15-4f40-9735-b3a241405dd7');
 				} // if
 				if((!ht_unit_2_Si_.containsKey(s_unit_name))===true){
-					raudrohi.tmg('06255599-68e6-4ef6-a631-9180a0219bd7',
+					raudrohi.tmg('041d4ce7-4c31-4c15-8e87-b3a241405dd7',
 						'There is no Si unit declared for unit '+s_unit_name);
 				} // if
 				var s_Si_unit=ht_unit_2_Si_.get(s_unit_name);
@@ -370,13 +370,13 @@ raudrohi.units=function(){
 					i_or_s_or_fd,s_unit_name);
 				return fd_out;
 			} catch (err){
-				raudrohi.tmg('32cc1f32-0fdc-4c1d-b631-9180a0219bd7',err);
+				raudrohi.tmg('25e5a048-fc62-41c1-bad2-b3a241405dd7',err);
 			} // catch
 		} // fd_2_Si
 
 	//---------------------------------------------------------------------
 	} catch (err){
-		raudrohi.tmg('55d159d4-57cd-4f83-8311-9180a0219bd7',err);
+		raudrohi.tmg('0317835b-2e55-425c-9956-b3a241405dd7',err);
 	} // catch
 } // raudrohi.units
 raudrohi.units=new raudrohi.units();

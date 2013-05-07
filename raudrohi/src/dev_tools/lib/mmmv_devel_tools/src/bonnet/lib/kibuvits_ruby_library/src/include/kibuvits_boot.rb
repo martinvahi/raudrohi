@@ -60,6 +60,8 @@ KIBUVITS_RUBY_LIBRARY_IS_AVAILABLE=true if !defined? KIBUVITS_RUBY_LIBRARY_IS_AV
 #
 APPLICATION_STARTERRUBYFILE_PWD=Pathname.new($0).realpath.parent.to_s if not defined? APPLICATION_STARTERRUBYFILE_PWD
 
+require "monitor"
+require "singleton"
 require KIBUVITS_HOME+"/src/include/kibuvits_GUID_generator.rb"
 # The point behind the KIBUVITS_s_PROCESS_ID is that
 # different subprocesses might want to communicate
@@ -96,7 +98,7 @@ end # if
 # The Ruby gem infrastructure requires a version that consists
 # of only numbers and dots. For library forking related
 # version checks there is another constant: KIBUVITS_s_VERSION.
-KIBUVITS_s_NUMERICAL_VERSION="1.3.0" if !defined? KIBUVITS_s_NUMERICAL_VERSION
+KIBUVITS_s_NUMERICAL_VERSION="1.4.0" if !defined? KIBUVITS_s_NUMERICAL_VERSION
 
 # The reason, why the version does not consist of only
 # numbers and points is that every application is
@@ -128,12 +130,14 @@ KIBUVITS_b_DEBUG=true if !defined? KIBUVITS_b_DEBUG
 $kibuvits_lc_emptystring="".freeze
 $kibuvits_lc_space=" ".freeze
 $kibuvits_lc_linebreak="\n".freeze
+$kibuvits_lc_doublelinebreak="\n\n".freeze
 $kibuvits_lc_rbrace_linebreak=");\n".freeze
 $kibuvits_lc_dollarsign="$".freeze
 $kibuvits_lc_powersign="^".freeze
 $kibuvits_lc_dot=".".freeze
 $kibuvits_lc_comma=",".freeze
 $kibuvits_lc_semicolon=";".freeze
+$kibuvits_lc_spacesemicolon=" ;".freeze
 
 $kibuvits_lc_lbrace="(".freeze
 $kibuvits_lc_rbrace=")".freeze
@@ -151,10 +155,13 @@ $kibuvits_lc_slash="/".freeze
 $kibuvits_lc_slashslash="//".freeze
 $kibuvits_lc_slashstar="/*".freeze
 $kibuvits_lc_backslash="\\".freeze
+$kibuvits_lc_4backslashes="\\\\\\\\".freeze
 $kibuvits_lc_underscore="_".freeze
 $kibuvits_lc_doublequote="\"".freeze
 $kibuvits_lc_singlequote="'".freeze
 $kibuvits_lc_equalssign="=".freeze
+
+$kibuvits_lc_escapedspace="\\ ".freeze
 
 $kibuvits_lc_kibuvits_ostype_unixlike="kibuvits_ostype_unixlike".freeze
 $kibuvits_lc_kibuvits_ostype_java="kibuvits_ostype_java".freeze # JRuby
@@ -191,6 +198,11 @@ $kibuvits_lc_outbound="outbound".freeze
 $kibuvits_lc_inbound="inbound".freeze
 $kibuvits_lc_ob_vx_first_entry="ob_vx_first_entry".freeze
 $kibuvits_lc_i_vxix="i_vxix".freeze
+$kibuvits_lc_i_width="i_width".freeze
+$kibuvits_lc_i_height="i_height".freeze
+
+$kibuvits_lc_b_is_imagefile="b_is_imagefile".freeze
+$kibuvits_lc_s_fp="s_fp".freeze
 
 $kibuvits_lc_ht_p="ht_p".freeze
 $kibuvits_lc_ht_szr="ht_szr".freeze
@@ -209,6 +221,9 @@ $kibuvits_lc_JavaScript_deserialize_="JavaScript_deserialize_".freeze
 
 $kibuvits_lc_uk="uk".freeze # The "uk" stands for United Kingdom.
 $kibuvits_lc_et="et".freeze # The "et" stands for Estonian.
+
+$kibuvits_lc_English="English".freeze
+$kibuvits_lc_Estonian="Estonian".freeze
 
 $kibuvits_lc_s_stdout="s_stdout".freeze
 $kibuvits_lc_s_stderr="s_stderr".freeze
@@ -234,6 +249,15 @@ $kibuvits_lc_s_status="s_status".freeze
 $kibuvits_lc_s_mode_throw="s_mode_throw".freeze
 $kibuvits_lc_s_mode_exit="s_mode_exit".freeze
 $kibuvits_lc_s_mode_return_msg="s_mode_return_msg".freeze
+
+$kibuvits_lc_s_missing="missing".freeze
+#--------------------------------------------------------------------------
+$kibuvits_lc_GUID_regex_core_t1="[^-\s]{8}[-][^-\s]{4}[-][^-\s]{4}[-][^-\s]{4}[-][^-\s]{12}".freeze
+s_0="[']"
+$kibuvits_lc_GUID_regex_single_quotes_t1=(s_0+$kibuvits_lc_GUID_regex_core_t1+s_0).freeze
+s_0="[\"]"
+$kibuvits_lc_GUID_regex_double_quotes_t1=(s_0+$kibuvits_lc_GUID_regex_core_t1+s_0).freeze
+s_0=nil
 #--------------------------------------------------------------------------
 $kibuvits_lc_emptyarray=Array.new.freeze
 
@@ -1189,6 +1213,112 @@ def kibuvits_assert_is_among_values(a_binding,ob_or_ar_or_ht,
 end # kibuvits_assert_is_among_values
 
 #--------------------------------------------------------------------------
+
+def kibuvits_assert_is_smaller_than_or_equal_to(a_binding,
+   i_or_fd_or_ar_or_i_or_fd, i_or_fd_or_ar_of_i_or_fd_upper_bounds,
+   s_optional_error_message_suffix=nil)
+   ar_allowed_classes=[Fixnum,Bignum,Float,Rational]
+   if KIBUVITS_b_DEBUG
+      bn=binding()
+      ar_x=(ar_allowed_classes+[Array])
+      kibuvits_typecheck bn, Binding, a_binding
+      kibuvits_typecheck bn, ar_x, i_or_fd_or_ar_or_i_or_fd
+      kibuvits_typecheck bn, ar_x, i_or_fd_or_ar_of_i_or_fd_upper_bounds
+      kibuvits_typecheck bn, [NilClass,String], s_optional_error_message_suffix
+   end # if
+
+   ar_values=nil
+   if i_or_fd_or_ar_or_i_or_fd.class==Array
+      ar_values=i_or_fd_or_ar_or_i_or_fd
+   else
+      ar_values=[i_or_fd_or_ar_or_i_or_fd]
+   end # if
+
+   ar_upper_bounds=nil
+   if i_or_fd_or_ar_of_i_or_fd_upper_bounds.class==Array
+      ar_upper_bounds=i_or_fd_or_ar_of_i_or_fd_upper_bounds
+   else
+      ar_upper_bounds=[i_or_fd_or_ar_of_i_or_fd_upper_bounds]
+   end # if
+
+   #------------------------------------------------------------
+   # If the types in the array are wrong, then it's
+   # probable that the values of those elements, that have
+   # a correct type, are alsow wrong. It's better to
+   # thorw before doing any calculations with the faulty
+   # values and throw at some other, more distant, place.
+   # That explains the existence of this, extra, typechecking loop.
+   s_suffix="\nGUID='5e8ee4b1-9691-48c2-8c15-a20331014dd7'"
+   if s_optional_error_message_suffix!=nil
+      s_suffix=(s_suffix+$kibuvits_lc_linebreak)+s_optional_error_message_suffix
+   end # if
+   s_optional_error_message_suffix
+   ar_values.each do |x_value|
+      kibuvits_typecheck(a_binding,ar_allowed_classes,x_value,s_suffix)
+   end # loop
+   #---------------------
+   s_suffix="\nGUID='13b129e3-28ee-4835-bc54-a20331014dd7'"
+   if s_optional_error_message_suffix!=nil
+      s_suffix=(s_suffix+$kibuvits_lc_linebreak)+s_optional_error_message_suffix
+   end # if
+   s_optional_error_message_suffix
+   ar_upper_bounds.each do |x_value|
+      kibuvits_typecheck(a_binding,ar_allowed_classes,x_value,s_suffix)
+   end # loop
+   #------------------------------------------------------------
+   b_throw=false
+   x_elem=nil
+   x_upper_bound_0=nil
+   ar_values.each do |x_value|
+      ar_upper_bounds.each do |x_upper_bound|
+         if x_upper_bound<x_value
+            x_upper_bound_0=x_upper_bound
+            x_elem=x_value
+            b_throw=true
+            break
+         end # if
+      end # loop
+      break if b_throw
+   end # loop
+   if b_throw
+      s_varname_1=kibuvits_s_varvalue2varname(a_binding,x_upper_bound_0)
+      s_varname_1="<an objec>" if s_varname_1.length==0
+      s_varname_2=kibuvits_s_varvalue2varname(a_binding,x_elem)
+      s_varname_2="<an objec>" if s_varname_2.length==0
+      msg="\n\n"+s_varname_1+" == "+x_upper_bound_0.to_s+
+      " < " + s_varname_2 + " == "+x_elem.to_s+
+      "\nGUID='f558c709-008d-485c-b424-a20331014dd7'"
+      if s_optional_error_message_suffix.class==String
+         msg=msg+"\n"+s_optional_error_message_suffix
+      end # if
+      msg=msg+"\n\n"
+      kibuvits_throw(msg,a_binding)
+   end # if
+end # kibuvits_assert_is_smaller_than_or_equal_to
+
+#--------------------------------------------------------------------------
+
+def kibuvits_b_not_a_whole_number_t1(x_in)
+   cl=x_in.class
+   return false if cl==Fixnum
+   return false if cl==Bignum
+   if cl==String
+      return true if x_in.length==0
+      s_0=x_in.sub(/^[-]?[\d]+$/,$kibuvits_lc_emptystring)
+      return false if s_0.length==0
+      return true
+   end # if
+   if (cl==Float)||(cl==Rational)
+      fd_0=x_in.abs
+      fd_1=fd_0-(fd_0.floor)
+      b_out=(fd_1!=0)
+      return b_out
+   end # if
+   return true
+end # kibuvits_b_not_a_whole_number_t1
+
+#--------------------------------------------------------------------------
+
 $kibuvits_lc_kibuvits_eval_t1_s1=($kibuvits_lc_emptystring+
 "ar_in=ObjectSpace._id2ref(").freeze
 $kibuvits_lc_kibuvits_eval_t1_s2=($kibuvits_lc_emptystring+
@@ -1370,6 +1500,20 @@ def kibuvits_s_hash(s_in,i_bitlen=512)
    s_out=ob_hashfunc.hexdigest(s_in)
    return s_out
 end # kibuvits_s_hash
+
+#--------------------------------------------------------------------------
+
+#def kibuvits_s_file_permissions_t1(s_fp)
+#   if KIBUVITS_b_DEBUG
+#      s_suffix="\nGUID='1611e2d3-e03c-40d7-b044-a20331014dd7'"
+#      bn=binding()
+#      kibuvits_typecheck(bn,String,s_fp,s_suffix)
+#      s_suffix="\nGUID='0192c31b-ff66-4354-b3a4-a20331014dd7'"
+#      kibuvits_assert_string_min_length(bn,s_fp,1,s_suffix)
+#   end # if
+#
+#   s_out=File.stat(s_fp).mode.to_s(8)[(-4)..(-1)]
+#end # kibuvits_s_file_permissions_t1
 
 #=========---KRL-selftests-infrastructure-start---=========================
 

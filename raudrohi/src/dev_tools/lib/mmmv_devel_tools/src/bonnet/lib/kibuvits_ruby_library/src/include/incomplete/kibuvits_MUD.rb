@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #=========================================================================
 =begin
 
@@ -36,54 +36,54 @@
 
 =end
 #=========================================================================
+
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
-require "monitor"
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_msgc.rb"
-else
-   require  "kibuvits_msgc.rb"
-end # if
+require  KIBUVITS_HOME+"/src/include/kibuvits_msgc.rb"
 #==========================================================================
 
 # Once upon a time there were text based multi-player games called
-# Multi-User Dungeon-s, generally called 
-# as MUD (http://en.wikipedia.org/wiki/MUD ). 
+# Multi-User Dungeon-s, generally called
+# as MUD (http://en.wikipedia.org/wiki/MUD ).
 #
-# The idea was that 
-# there is a graph (http://mathworld.wolfram.com/Graph.html ), called 
-# a world, and users and coputer operated agents were moving along that 
-# graph. User interaction was text based, commands were given from 
-# console and feedback was also mostly textual. 
-# Each of the nodes had some set of 
+# The idea was that
+# there is a graph (http://mathworld.wolfram.com/Graph.html ), called
+# a world, and users and coputer operated agents were moving along that
+# graph. User interaction was text based, commands were given from
+# console and feedback was also mostly textual.
+# Each of the nodes had some set of
 # descriptions and "activities" that the user could do there. The users
-# had also capabilities that were attached to them, like chatting to 
+# had also capabilities that were attached to them, like chatting to
 # other users, asking for node descriptions, applying one's skills at
 # the objects present at the node, picking the objects up and carrying
-# carrying them with oneself, etc. 
-# 
-# The motive behind the class Kibuvits_MUD_node is 
-# to facilitate the creation of small, simple, text-based, 
+# carrying them with oneself, etc.
+#
+# The motive behind the class Kibuvits_MUD_node is
+# to facilitate the creation of small, simple, text-based,
 # choice operated, console applications. The idea is that user interaction
 # of console applications is practically the same as the one of the
 # historic game, MUD. So, there's no point of rewriting the same logic
-# from scrap every time one needs to write some console application, 
-# specially if it's a small utility that is used as an application 
+# from scrap every time one needs to write some console application,
+# specially if it's a small utility that is used as an application
 # specific tool for developing and maintaining some other, more extensive,
-# application. A common usage scenario is that there's a version 
-# updater that renames files as part of the version update and then 
+# application. A common usage scenario is that there's a version
+# updater that renames files as part of the version update and then
 # applies appropriate text replacements within the project specific files.
 # Anohter case is the execution of tests.
 #
 # In addition to the interactive mode, where users navigate within the
 # graph and then execute actions at specific nodes, one should be able
-# to execute the console applications without user interaction, in a 
-# scriptable manner. That can be done by letting a robot to navigate 
+# to execute the console applications without user interaction, in a
+# scriptable manner. That can be done by letting a robot to navigate
 # and interact with the MUD world. This entails that all of the states
-# and feedback must be in a computer readable, i.e. "semantically labeled", 
+# and feedback must be in a computer readable, i.e. "semantically labeled",
 # form.
 #
 class Kibuvits_MUD_node

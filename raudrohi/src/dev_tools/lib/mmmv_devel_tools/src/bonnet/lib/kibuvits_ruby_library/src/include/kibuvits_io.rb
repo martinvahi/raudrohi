@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
  Copyright 2009, martin.vahi@softf1.com that has an
@@ -35,20 +35,17 @@
 
 =end
 #==========================================================================
-if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
-end # if
 
-if defined? KIBUVITS_HOME
-   require KIBUVITS_HOME+"/src/include/kibuvits_boot.rb"
-else
-   require "kibuvits_boot.rb"
+if !defined? KIBUVITS_HOME
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
 KIBUVITS_RUBY_LIBRARY_IS_AVAILABLE=false if !defined? KIBUVITS_RUBY_LIBRARY_IS_AVAILABLE
-
-require "singleton"
 
 #==========================================================================
 def get_from_stdin
@@ -80,7 +77,8 @@ def str2file(s_a_string, s_fp)
       file.write(s_a_string)
       file.close
    rescue Exception =>err
-      raise "No comments. s_a_string=="+s_a_string+"\n"+err.to_s+"\n\n"
+      raise "No comments. GUID='37b04464-278d-4482-9b5a-13e021705dd7' \n"+
+      "s_a_string=="+s_a_string+"\n"+err.to_s+"\n\n"
    end # rescure
 end # str2file
 

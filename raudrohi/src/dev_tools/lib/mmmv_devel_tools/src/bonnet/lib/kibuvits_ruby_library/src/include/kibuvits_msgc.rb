@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
  Copyright 2010, martin.vahi@softf1.com that has an
@@ -35,30 +35,24 @@
 
 =end
 #==========================================================================
+
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
 # The "included" const. has to be befor the "require" clauses
 # to be available, when the code within the require clauses probes for it.
 KIBUVITS_MSGC_INCLUDED=true if !defined? KIBUVITS_MSGC_INCLUDED
 
-require "monitor"
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_boot.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_GUID_generator.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_ProgFTE.rb"
-   if !(defined? KIBUVITS_SZR_INCLUDED)
-      require KIBUVITS_HOME+"/src/include/incomplete/kibuvits_szr.rb"
-   end # if
-else
-   require  "kibuvits_boot.rb"
-   if !(defined? KIBUVITS_SZR_INCLUDED)
-      require  "kibuvits_szr.rb"
-   end # if
-   require  "kibuvits_GUID_generator.rb"
-   require  "kibuvits_ProgFTE.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_GUID_generator.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_ProgFTE.rb"
+if !(defined? KIBUVITS_SZR_INCLUDED)
+   require KIBUVITS_HOME+"/src/include/incomplete/kibuvits_szr.rb"
 end # if
 
 #==========================================================================
@@ -87,10 +81,12 @@ class Kibuvits_msgc
    attr_reader :s_instance_id
    attr_reader :b_failure
    attr_reader :fdr_instantiation_timestamp
+   attr_reader :s_location_marker_GUID
 
 
    def initialize(s_default_msg=$kibuvits_lc_emptystring,s_message_id="message code not set",
-      b_failure=true,s_default_language="English")
+      b_failure=true,s_default_language=$kibuvits_lc_English,
+      s_location_marker_GUID=$kibuvits_lc_emptystring)
       @fdr_instantiation_timestamp=Time.now.to_r
       if KIBUVITS_b_DEBUG
          bn=binding()
@@ -103,13 +99,25 @@ class Kibuvits_msgc
       Kibuvits_GUID_generator.generate_GUID
       @s_default_language=$kibuvits_lc_emptystring+s_default_language
       @ht_msgs=Hash.new
-      @ht_msgs[@s_default_language]=$kibuvits_lc_emptystring+s_default_msg
-      @s_message_id=s_message_id
+      @ht_msgs[@s_default_language]=($kibuvits_lc_emptystring+
+      s_default_msg).freeze
+      @s_message_id=s_message_id.freeze
       @b_failure=b_failure
       @s_data=$kibuvits_lc_emptystring
       @mx=Mutex.new
       @ob_instantiation_time=Time.now
       @ob_data=nil
+
+      @s_location_marker_GUID=s_location_marker_GUID.freeze
+      if @s_location_marker_GUID!=$kibuvits_lc_emptystring
+         rgx=Regexp.new($kibuvits_lc_GUID_regex_core_t1)
+         md_candidate=$s_location_marker_GUID.match(rgx)
+         if md_candidate==nil
+            kibuvits_throw("\nThe s_location_marker_GUID(=="+
+            s_location_marker_GUID+")\nis not a GUID."+
+            "\nCurrent exception location GUID=='e163bb41-a3b1-420d-a5d7-e25240014dd7'\n\n");
+         end # if
+      end # if
    end #initialize
 
    public
@@ -135,6 +143,9 @@ class Kibuvits_msgc
          s_language=@s_default_language if !@ht_msgs.has_key? s_language
       end # if
       s=@ht_msgs[s_language]
+      if 0<@s_location_marker_GUID.length
+         s=s+("\nGUID='"+@s_location_marker_GUID+"'\n")
+      end # if
       return $kibuvits_lc_emptystring+s # The "" is to avoid s.downcase!
    end # to_s
 
@@ -293,10 +304,10 @@ class Kibuvits_msgc
 
    def Kibuvits_msgc.test_clone
       msgc=Kibuvits_msgc.new "Hi","UFO_42"
-      msgc['Estonian']="Tere"
+      msgc[$kibuvits_lc_Estonian]="Tere"
       msgc_clone=msgc.clone
       kibuvits_throw "test 3" if msgc_clone.to_s!="Hi"
-      kibuvits_throw "test 4" if msgc_clone['Estonian']!="Tere"
+      kibuvits_throw "test 4" if msgc_clone[$kibuvits_lc_Estonian]!="Tere"
    end # Kibuvits_msgc.test_clone
 
    def Kibuvits_msgc.test_1
@@ -332,7 +343,7 @@ class Kibuvits_msgc
          kibuvits_throw "test 18"
       end # if
       kibuvits_throw "test 19" if msgc["MoonLang"]!="Welcome to the moon!"
-      msgc["English"]="Good morning!"
+      msgc[$kibuvits_lc_English]="Good morning!"
       kibuvits_throw "test 20" if msgc.to_s!="Welcome to the moon!"
    end # Kibuvits_msgc.test_1
 
@@ -455,9 +466,10 @@ class Kibuvits_msgc_stack
    # the Kibuvits_msgc constructor arguments.
    def cre(s_default_msg=$kibuvits_lc_emptystring,
       s_message_id="message code not set",
-      b_failure=true,s_default_language="English")
+      b_failure=true,s_default_language="English",
+      s_location_marker_GUID=$kibuvits_lc_emptystring)
       msgc=Kibuvits_msgc.new(s_default_msg,s_message_id,b_failure,
-      s_default_language)
+      s_default_language,s_location_marker_GUID)
       self<<msgc
    end # cre
 

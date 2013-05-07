@@ -14,15 +14,14 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 	s_datasource_widget_phone_number, s_datasource_widget_receiver_command){
 	try{
 		if(raudrohi_settings_debug_JavaScript===true){
-			raudrohi.base.assert_isString(
-				s_html_id,'s_html_id',
-				'a2bc5a8b-11ac-459f-82b0-4360a0219bd7');
+            raudrohi.base.assert_is_HTML_ID(s_html_id, 's_html_id',
+                '2a1fbcd5-c1d5-4449-9d30-231350705dd7');
 			raudrohi.base.assert_isString(
 				s_datasource_widget_phone_number,'s_datasource_widget_phone_number',
-				'8189dfa5-1629-461a-a310-4360a0219bd7');
+				'e6258c95-396c-4463-98d0-231350705dd7');
 			raudrohi.base.assert_isString(
 				s_datasource_widget_receiver_command,'s_datasource_widget_receiver_command',
-				'044b5fc6-272b-4dde-9510-4360a0219bd7');
+				'a59d8aa7-932f-48ca-a11f-231350705dd7');
 		} // if
 		var self_public_=this;
 		var pileofmethods_t1_=new raudrohi.widgets.g1.pileofmethods_t1(
@@ -106,7 +105,7 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				} // for
 				ht_indices_.clear();
 			} catch (err){
-				raudrohi.tmg('5d0e0eb1-0836-400f-8330-4360a0219bd7',err);
+				raudrohi.tmg('3dbd3621-452c-48ac-8e2f-231350705dd7',err);
 			} // catch
 		} // clear
 
@@ -118,9 +117,9 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isString(
 						s_index_name,'s_index_name',
-						'21e60621-91fa-4c8a-ae30-4360a0219bd7');
+						'1080ecc5-fe62-4001-b95f-231350705dd7');
 					if (ht_indices_.containsKey(s_index_name)===true){
-						raudrohi.tmg('bd34ad18-47a2-4f2f-bef0-4360a0219bd7',
+						raudrohi.tmg('552563bd-4e07-483d-9a3f-231350705dd7',
 							'Index with a name of "'+s_index_name+
 							'" has already been declared.');
 					} // if
@@ -131,18 +130,18 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				ht_indices_complement_sets_.put(s_index_name,
 					ht_new_index_complement_set);
 			} catch (err){
-				raudrohi.tmg('71152102-2f47-4dcf-8ae0-4360a0219bd7',err);
+				raudrohi.tmg('34c59d35-17d2-4c1f-934f-231350705dd7',err);
 			} // catch
 		} // declare_index
 
 		// Subject to overriding.
 		this.insert_data_2_indices=function(ht_indices,x_data){
 			try{
-				raudrohi.tmg('b4ba2630-1fd3-4835-8350-4360a0219bd7',
+				raudrohi.tmg('5932d144-c791-461e-843f-231350705dd7',
 					'This method is meant to be overridden, because the insertion '+
 					'of data to the set of indices is application specific. ');
 			} catch (err){
-				raudrohi.tmg('1d3924de-3d22-4236-86ef-4360a0219bd7',err);
+				raudrohi.tmg('93b72df0-a9c4-443d-a4af-231350705dd7',err);
 			} // catch
 		} // insert_data_2_indices
 
@@ -163,7 +162,7 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				var x_out=s_data;
 				return x_out;
 			} catch (err){
-				raudrohi.tmg('4c9f16d5-9889-4a4b-914f-4360a0219bd7',err);
+				raudrohi.tmg('c30912d1-944a-40c8-ab5f-231350705dd7',err);
 			} // catch
 		} // convert_datasource_sent_datastring_to_cachable_form
 
@@ -174,7 +173,7 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(
 						ht_wrapper_with_query,'ht_wrapper_with_query',
-						'53389c75-ef0d-4de6-9b1f-4360a0219bd7');
+						'3949cd6b-170e-476f-9c5f-231350705dd7');
 				// It's OK for the x_data to be null,
 				// if b_data_found==true, because may be the null is the
 				// answer. One just does not know the usages well enough
@@ -185,7 +184,7 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				ht_query.put('data',x_data);
 				prc_.threadjump_send_reply(ht_wrapper_with_query);
 			} catch (err){
-				raudrohi.tmg('7344729d-06f4-4355-8d3f-4360a0219bd7',err);
+				raudrohi.tmg('084edbae-4a30-41e7-8d3f-231350705dd7',err);
 			} // catch
 		} // send_response_to_query_initiator
 
@@ -219,7 +218,7 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				} // for
 				raudrohi.base.pool_of_hashtables.return_used_hashtable(ht_wrapper);
 			} catch (err){
-				raudrohi.tmg('593c5615-819c-4193-ba4f-4360a0219bd7',err);
+				raudrohi.tmg('3f7bc8e4-49f5-4d64-9d2f-231350705dd7',err);
 			} // catch
 		} // thrjr_.receive_from_datasource
 
@@ -236,12 +235,12 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 				if(raudrohi_settings_debug_JavaScript===true){
 					raudrohi.base.assert_isObject(
 						ht_query,'ht_query',
-						'25894671-bec1-4247-8e3f-4360a0219bd7');
+						'422b5364-9696-4a93-8c3e-231350705dd7');
 				} // if
 				var s_index_name=ht_query.get('s_index_name');
 				if(raudrohi_settings_debug_JavaScript===true){
 					if (ht_indices_.containsKey(s_index_name)===false){
-						raudrohi.tmg('15c03e61-9168-41df-821f-4360a0219bd7',
+						raudrohi.tmg('51d53335-188e-4422-841e-231350705dd7',
 							'Index with a name of "'+s_index_name+
 							'" has not been declared.');
 					} // if
@@ -277,11 +276,11 @@ raudrohi.widgets.g1.multiindex_cache_t1=function(s_html_id,
 					s_datasource_widget_receiver_command_,
 					ht_data_2_datasource, 'receive_from_datasource');
 			} catch (err){
-				raudrohi.tmg('5d42d051-074c-4240-b71f-4360a0219bd7',err);
+				raudrohi.tmg('81743d1f-e5bf-408e-932e-231350705dd7',err);
 			} // catch
 		} // thrjr_.get
 
 	} catch (err){
-		raudrohi.tmg('39f9d235-35bd-4838-a23f-4360a0219bd7',err);
+		raudrohi.tmg('2b976342-5376-4ccf-8b3e-231350705dd7',err);
 	} // catch
 } // raudrohi.widgets.g1.multiindex_cache_t1

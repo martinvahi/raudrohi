@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #=========================================================================
 =begin
 
@@ -36,23 +36,20 @@
 
 =end
 #=========================================================================
+
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
-require "pathname"
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_msgc.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_str.rb"
-   require  KIBUVITS_HOME+"/src/include/bonnet/kibuvits_os_codelets.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_io.rb"
-else
-   require  "kibuvits_msgc.rb"
-   require  "kibuvits_str.rb"
-   require  "kibuvits_os_codelets.rb"
-   require  "kibuvits_io.rb"
-end # if
+require  KIBUVITS_HOME+"/src/include/kibuvits_str.rb"
+require  KIBUVITS_HOME+"/src/include/bonnet/kibuvits_os_codelets.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_io.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_ProgFTE.rb"
 
 # The "fileutils" gem/library MUST NOT BE USED, because
 # it does not come precompiled with the Ruby distribution
@@ -63,15 +60,12 @@ end # if
 # and for using the KRL text processing routines for custom
 # Java applications.
 
-require "singleton"
 #==========================================================================
 
 # The class Kibuvits_fs is a namespace for functions that
 # deal with filesystem related activities, EXCEPT the IO, which
 # is considered to be more general and depends on the filesystem.
 class Kibuvits_fs
-   @@lc_s_emptystring=""
-   @@lc_s_slash="/"
    @@cache=Hash.new
    def initialize
    end #initialize
@@ -509,7 +503,7 @@ class Kibuvits_fs
    #-----------------------------------------------------------------------
 
    def exit_if_any_of_the_filesystem_tests_failed(ht_filesystemtest_failures,
-      s_output_message_language="English",b_throw=false)
+      s_output_message_language="English",b_throw=false,s_optional_error_message_suffix=nil)
       if KIBUVITS_b_DEBUG
          bn=binding()
          kibuvits_typecheck bn, Hash, ht_filesystemtest_failures
@@ -518,19 +512,24 @@ class Kibuvits_fs
       return if ht_filesystemtest_failures.length==0
       s_msg=Kibuvits_fs.access_verification_results_to_string(
       ht_filesystemtest_failures, s_output_message_language)
+      s_msg=s_msg+$kibuvits_lc_linebreak
+      if s_optional_error_message_suffix!=nil
+         s_msg=s_msg+s_optional_error_message_suffix+$kibuvits_lc_linebreak
+      end # if
       if b_throw
-         kibuvits_throw(s_msg+$kibuvits_lc_linebreak)
+         kibuvits_throw(s_msg)
       else
-         puts s_msg+$kibuvits_lc_linebreak
+         puts s_msg
          exit
       end # if
    end # exit_if_any_of_the_filesystem_tests_failed
 
    def Kibuvits_fs.exit_if_any_of_the_filesystem_tests_failed(
       ht_filesystemtest_failures,s_output_message_language="English",
-      b_throw=false)
+      b_throw=false,s_optional_error_message_suffix=nil)
       Kibuvits_fs.instance.exit_if_any_of_the_filesystem_tests_failed(
-      ht_filesystemtest_failures, s_output_message_language,b_throw)
+      ht_filesystemtest_failures, s_output_message_language,b_throw,
+      s_optional_error_message_suffix)
    end # Kibuvits_fs.exit_if_any_of_the_filesystem_tests_failed
 
    #-----------------------------------------------------------------------
@@ -697,7 +696,7 @@ class Kibuvits_fs
          kibuvits_throw "Folder name, '"+s_folder_name0+
          "', contained a space or a tab."
       end # if
-      s_folder_name1=s_folder_name0.gsub(rgx_slash,@@lc_s_emptystring)
+      s_folder_name1=s_folder_name0.gsub(rgx_slash,$kibuvits_lc_emptystring)
       if s_folder_name0.length!=s_folder_name1.length
          kibuvits_throw "Folder name, '"+s_folder_name0+
          "', contained a slash. For the sake of unambiguity "+
@@ -730,12 +729,12 @@ class Kibuvits_fs
       i_len=ar_folder_names.length
       s_folder_name0=nil
       s_folder_name1=nil
-      s_left=s_base_unix.reverse.gsub(/^[\/]/,@@lc_s_emptystring).reverse
+      s_left=s_base_unix.reverse.gsub(/^[\/]/,$kibuvits_lc_emptystring).reverse
       rgx_slash=/\//
       i_len.times do |i|
          s_folder_name0=ar_folder_names[i]
          array2folders_verify_folder_name_candidate_t1 s_folder_name0, rgx_slash
-         s_left=s_left+@@lc_s_slash+s_folder_name0
+         s_left=s_left+$kibuvits_lc_slash+s_folder_name0
          s_folder_name1=s_left
          Dir.mkdir(s_folder_name1) if !File.exists? s_folder_name1
          ht_filesystemtest_failures=Kibuvits_fs.verify_access(
@@ -1368,6 +1367,91 @@ class Kibuvits_fs
       ar_or_s_fp_directory,ar_or_s_glob_string,b_return_long_paths)
       return ar_out
    end # Kibuvits_fs.ar_glob_recursively_t1
+
+   #----------------------------------------------------------------------
+
+   public
+
+   # Returns true, if any of the files that do exist have been
+   # modified after the last call to this method.
+   # In the context of this method file deletion is NOT considered
+   # as file modification operation.
+   #
+   # Returns true, if the chache is emtied.
+   # The cache is emptied if the cache max. size is reached.
+   def b_files_that_exist_changed_after_last_check_t1(
+      ar_or_s_fp_file_or_folder, i_cache_max_size)
+      if KIBUVITS_b_DEBUG
+         bn=binding()
+         kibuvits_typecheck bn, [Array,String],ar_or_s_fp_file_or_folder
+         kibuvits_typecheck bn, [Fixnum,Bignum],i_cache_max_size
+         if ar_or_s_fp_file_or_folder.class==Array
+            ar_or_s_fp_file_or_folder.each do |s_fp_candidate|
+               bn_1=binding()
+               kibuvits_assert_string_min_length(bn_1,s_fp_candidate,2)
+            end # loop
+         end # if
+      end # if
+      b_out=false
+      if !defined? @s_b_files_that_exist_changed_after_last_check_t1_cache_fp
+         @s_b_files_that_exist_changed_after_last_check_t1_cache_fp=KIBUVITS_HOME+
+         "/src/include/bonnet/tmp"+
+         "/KRL_sys_Kibuvits_fs_b_files_that_exist_changed_after_last_check_t1_cache.txt"
+      end # if
+      ht_cache=nil
+      if File.exists? @s_b_files_that_exist_changed_after_last_check_t1_cache_fp
+         s_progfte=file2str(@s_b_files_that_exist_changed_after_last_check_t1_cache_fp)
+         ht_cache=Kibuvits_ProgFTE.to_ht(s_progfte)
+         if i_cache_max_size<ht_cache.keys.size
+            ht_cache.clear
+            b_out=true
+         end # if
+      else
+         ht_cache=Hash.new
+         b_out=true
+      end # if
+      ar_fp=Kibuvits_ix.normalize2array(ar_or_s_fp_file_or_folder)
+      ar_fp_files=Array.new
+      ar_fp_files_and_folders=nil
+      b_return_long_paths=true
+      s_globstring="./*"
+      ar_fp.each do |s_fp|
+         next if !File.exists? s_fp
+         if File.directory? s_fp
+            ar_fp_files_and_folders=ar_glob_recursively_t1(s_fp,
+            s_globstring,b_return_long_paths)
+            ar_fp_files_and_folders.each do |s_fp_1|
+               if File.file? s_fp_1
+                  # The Pathname.new(blabla) is for path normalization.
+                  ar_fp_files<<Pathname.new(s_fp_1).realpath.to_s
+               end # if
+            end # loop
+         else
+            # The Pathname.new(blabla) is for path normalization.
+            ar_fp_files<<Pathname.new(s_fp).realpath.to_s
+         end # if
+      end # loop
+      ar_fp_files.uniq!
+      ar_fp_files.each do |s_fp|
+         s_mtime=File.mtime(s_fp).to_f.to_s # to_f for greater precision
+         if ht_cache.has_key? s_fp
+            b_out=true if ht_cache[s_fp]!=s_mtime
+         else
+            b_out=true
+         end # if
+         ht_cache[s_fp]=s_mtime
+      end # loop
+      s_progfte=Kibuvits_ProgFTE.from_ht(ht_cache)
+      str2file(s_progfte,@s_b_files_that_exist_changed_after_last_check_t1_cache_fp)
+      return b_out
+   end # b_files_that_exist_changed_after_last_check_t1
+
+   def Kibuvits_fs.b_files_that_exist_changed_after_last_check_t1(
+      ar_or_s_fp_file_or_directory,i_cache_max_size)
+      b_out=Kibuvits_fs.instance.b_files_that_exist_changed_after_last_check_t1(
+      ar_or_s_fp_file_or_directory,i_cache_max_size)
+      return b_out
+   end # Kibuvits_fs.b_files_that_exist_changed_after_last_check_t1
 
    #----------------------------------------------------------------------
 

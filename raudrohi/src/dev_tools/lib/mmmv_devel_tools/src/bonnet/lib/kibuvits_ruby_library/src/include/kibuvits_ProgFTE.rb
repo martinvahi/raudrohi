@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
 
@@ -35,38 +35,25 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ------------------------------------------------------------------------
-This file adds ProgFTE support to Ruby. It is selfcontained. 
 
-The class ProgFTE_v0 is is too verbose, bloated and kind
-of a mess, but the mess there is self-contained, the ProgFTE_v0 
-exists for backwards compatibility only and,
-one doesn't want to fix, what's isn't broken. :-> 
+http://longterm.softf1.com/specifications/progfte/
 
-The public API here is as simple as it can get and resides at
-class Kibuvits_ProFTE. Some common code for other ProgFTE 
-implementations resides in the class Kibuvits_ProgFTE_v1.
+The public API here resides at class Kibuvits_ProFTE. 
 
 =end
 #==========================================================================
+
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
-if defined? KIBUVITS_HOME
-   # As the Kibuvits_ProgFTE is used for serialization, the
-   # Kibuvits_ProgFTE  may not depend on anything else than
-   # the booting code.
-   require  KIBUVITS_HOME+"/src/include/kibuvits_boot.rb"
-else
-   # To allow the Kibuvits Ruby Library (KRL) ProgFTE implantation
-   # to be used without using any part of the rest of the KRL,
-   # this file should not include any of the KRL files, if it is
-   # used outside of the KRL.
-   require("kibuvits_boot.rb") if false
-end # if
 KIBUVITS_RUBY_LIBRARY_IS_AVAILABLE=false if !defined? KIBUVITS_RUBY_LIBRARY_IS_AVAILABLE
-require "singleton"
+
 #==========================================================================
 
 # Implements the very first and fundamentally flawed ProgFTE specification,
@@ -483,7 +470,7 @@ class Kibuvits_ProgFTE_v1
    end # i_number_of_characters
 
    # That's the <stringrecord> part in the ProgFTE_v1 spec,
-   # http://martin.softf1.com/g/n//a2/doc/progfte/index.html
+   # http://longterm.softf1.com/specifications/progfte/
    def append_stringrecord(ar_s,s_in)
       ar_s<<s_in.length.to_s
       ar_s<<@lc_s_pillar
@@ -575,7 +562,7 @@ class Kibuvits_ProgFTE_v1
    def ht_parse_header(s_progfte_v1_candidate,ht_opmem)
       rgx_int_pillar=ht_opmem["rgx_int_pillar"]
       s_in=s_progfte_v1_candidate
-      # http://martin.softf1.com/g/n//a2/doc/progfte/index.html
+      # http://longterm.softf1.com/specifications/progfte/
       # v<ProgFTE_format_version>[|]<ProgFTE_format_mode>[|]<number_of_key-value_pairs>[|](<key-value_pair>)+
       md=s_in.match(/^v[\d]+[|][\d]+[|][\d]+[|]/)
       if md==nil
@@ -654,7 +641,7 @@ end #class Kibuvits_ProgFTE_v1
 # ProgFTE stands for Programmer Friendly text Exchange.
 #
 # Specifications reside at:
-# http://martin.softf1.com/g/n//a2/doc/progfte/index.html
+# http://longterm.softf1.com/specifications/progfte/
 #
 # This implementation has a full support for ProgFTE_v0 and ProgFTE_v1
 class Kibuvits_ProgFTE

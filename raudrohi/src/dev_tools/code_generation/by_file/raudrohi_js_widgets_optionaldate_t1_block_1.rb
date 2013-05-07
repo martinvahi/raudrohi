@@ -55,9 +55,17 @@ ob_wg.config_insert_subwidget(ob_ptm)
 
 #--------------
 puts Raudrohi_cg_debug_verification.new(
+['HTML_ID','s_html_id'],
+['g1_widget','parent_instance'],
 ['String','s_mode'],
 ['String','s_display_format'],
 ['String','s_language']).to_s
-puts ob_wg.my_intestine_all_common(
-"raudrohi.widgets.g1.",false);
+
+b_s_phone_number_prefix_constitutes_the_whole_phone_number=false
+b_parent_instance_is_part_of_the_constructor_parameters=true
+puts(ob_wg.my_intestine_all_common(
+"raudrohi.widgets.g1.",
+b_s_phone_number_prefix_constitutes_the_whole_phone_number,
+b_parent_instance_is_part_of_the_constructor_parameters))
+
 #==========================================================================

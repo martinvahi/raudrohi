@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
 
@@ -17,23 +17,23 @@ which frees one from the manual list-assembling.
 =end
 #==========================================================================
 
-require 'pathname'
-
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   if (x!=nil and x!="")
-      KIBUVITS_HOME=x.to_s.freeze
-   else
-      KIBUVITS_HOME=Pathname.new(__FILE__).realpath.parent.parent.parent.to_s
-   end # if
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
+else
+   # KIBUVITS_HOME is defined in application "main.rb",
+   # where it is received from the environment variable.
+   require(KIBUVITS_HOME+"/src/include/kibuvits_boot.rb")
 end # if
 
-require  KIBUVITS_HOME+"/src/include/kibuvits_boot.rb"
-
 def apply_to_genlist(s_mypath, a_file_path,s_list_for_gem)
-   s1=a_file_path[(s_mypath.length-15)..-1]
    if a_file_path!=s_mypath
-      s_list_for_gem=s_list_for_gem+"    require KIBUVITS_HOME+\"/src/include/"+s1+"\"\n"
+      s1=a_file_path[(KIBUVITS_HOME.length)..-1]
+      s_list_for_gem=s_list_for_gem+"    require KIBUVITS_HOME+\""+s1+"\"\n"
       require a_file_path
    end # if
    return s_list_for_gem
@@ -63,6 +63,9 @@ if b_selfwriting
       pthn=nil
       s_prefix=kibuvits_home+"/src/include/"
       Dir.glob(s_prefix+"*.rb").each do |a_file_path|
+         s_list_for_gem=apply_to_genlist(s_mypath, a_file_path.to_s,s_list_for_gem)
+      end # loop
+      Dir.glob(kibuvits_home+"/src/include/wrappers/*.rb").each do |a_file_path|
          s_list_for_gem=apply_to_genlist(s_mypath, a_file_path,s_list_for_gem)
       end # loop
       Dir.glob(kibuvits_home+"/src/include/incomplete/*.rb").each do |a_file_path|
@@ -102,6 +105,7 @@ if b_selfwriting
    end # rescue
 else
    # SELFWRIGING_REGION_START
+    require KIBUVITS_HOME+"/src/include/kibuvits_all.rb"
     require KIBUVITS_HOME+"/src/include/kibuvits_arraycursor_t1.rb"
     require KIBUVITS_HOME+"/src/include/kibuvits_io.rb"
     require KIBUVITS_HOME+"/src/include/kibuvits_graph.rb"
@@ -130,6 +134,7 @@ else
     require KIBUVITS_HOME+"/src/include/kibuvits_shell.rb"
     require KIBUVITS_HOME+"/src/include/kibuvits_finite_sets.rb"
     require KIBUVITS_HOME+"/src/include/kibuvits_eval.rb"
+    require KIBUVITS_HOME+"/src/include/wrappers/kibuvits_ImageMagick.rb"
     require KIBUVITS_HOME+"/src/include/incomplete/kibuvits_whiteboard.rb"
     require KIBUVITS_HOME+"/src/include/incomplete/kibuvits_MUD.rb"
     require KIBUVITS_HOME+"/src/include/incomplete/kibuvits_szr.rb"

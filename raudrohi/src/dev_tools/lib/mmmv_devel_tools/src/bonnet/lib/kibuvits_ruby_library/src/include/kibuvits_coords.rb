@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
 
@@ -36,17 +36,17 @@
 
 =end
 #==========================================================================
+
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
-require "monitor"
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_ix.rb"
-else
-   require  "kibuvits_ix.rb"
-end # if
+require  KIBUVITS_HOME+"/src/include/kibuvits_ix.rb"
 
 #==========================================================================
 
@@ -129,6 +129,79 @@ class Kibuvits_coords
    end # Kibuvits_coords.x_latitude_and_longitude_2_world_map_x_y_t1
 
    #----------------------------------------------------------------------
+
+   def i_i_scale_rectangle(i_initial_width,i_initial_height,
+      i_new_edge_length,b_scale_by_width)
+      bn=binding()
+      if KIBUVITS_b_DEBUG
+         kibuvits_typecheck bn, [Fixnum,Bignum], i_initial_width
+         kibuvits_typecheck bn, [Fixnum,Bignum], i_initial_height
+         kibuvits_typecheck bn, [Fixnum,Bignum], i_new_edge_length
+         kibuvits_typecheck bn, [TrueClass,FalseClass], b_scale_by_width
+      end # if
+      kibuvits_assert_is_smaller_than_or_equal_to(bn,
+      1,[i_initial_width,i_initial_height,i_new_edge_length],
+      "\nGUID=='61dcfb11-317b-4d15-bb3e-c1b241014dd7'\n")
+
+      i_width_out=i_initial_width
+      i_height_out=i_initial_height
+      if b_scale_by_width
+         if i_initial_width==i_new_edge_length
+            return i_width_out,i_height_out
+         end # if
+      else
+         if i_initial_height==i_new_edge_length
+            return i_width_out,i_height_out
+         end # if
+      end # if
+
+      # To keep the calculations that take place after the
+      # call to this function more effective, the output of
+      # this function is partly enforced to be in Fixnum format.
+      fd_width_0=nil
+      fd_height_0=nil
+      fd_width_1=nil
+      fd_height_1=nil
+      fd_len_new=nil
+      fd_ref=640000.0
+      b_use_Float=false
+      if (i_initial_width<fd_ref)&&(i_initial_height<fd_ref)&&(i_new_edge_length<fd_ref)
+         fd_width_0=i_initial_width.to_f
+         fd_height_0=i_initial_height.to_f
+         fd_len_new=i_new_edge_length.to_f
+         b_use_Float=true
+      else
+         fd_width_0=i_initial_width.to_r
+         fd_height_0=i_initial_height.to_r
+         fd_len_new=i_new_edge_length.to_r
+      end # if
+
+      if b_scale_by_width
+         fd_new_dev_old=fd_len_new/fd_width_0
+         fd_width_1=fd_len_new
+         fd_height_1=fd_height_0*fd_new_dev_old
+      else
+         fd_new_dev_old=fd_len_new/fd_height_0
+         fd_width_1=fd_width_0*fd_new_dev_old
+         fd_height_1=fd_len_new
+      end # if
+      i_width_out=fd_width_1.round.to_i
+      i_height_out=fd_height_1.round.to_i
+
+      i_width_out=1 if i_width_out==0
+      i_height_out=1 if i_height_out==0
+      return i_width_out,i_height_out
+   end # i_i_scale_rectangle
+
+   def Kibuvits_coords.i_i_scale_rectangle(i_initial_width,i_initial_height,
+      i_new_edge_length,b_scale_by_width)
+      i_width_out,i_height_out=Kibuvits_coords.instance.i_i_scale_rectangle(
+      i_initial_width,i_initial_height,i_new_edge_length,b_scale_by_width)
+      return i_width_out,i_height_out
+   end # Kibuvits_coords.i_i_scale_rectangle
+
+   #----------------------------------------------------------------------
+
    public
    include Singleton
 

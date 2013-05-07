@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #=========================================================================
 =begin
 
@@ -36,22 +36,20 @@
 
 =end
 #=========================================================================
+
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_msgc.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_ix.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_str_concat_array_of_strings.rb"
-else
-   require  "kibuvits_msgc.rb"
-   require  "kibuvits_ix.rb"
-   require  "kibuvits_str_concat_array_of_strings.rb"
-end # if
+require  KIBUVITS_HOME+"/src/include/kibuvits_msgc.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_ix.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_str_concat_array_of_strings.rb"
 
-require "singleton"
 require "time"
 #==========================================================================
 
@@ -904,6 +902,56 @@ class Kibuvits_str
       s_characters_that_are_excluded_from_the_list_of_escapables)
       return b
    end # Kibuvits_str.character_is_escapable
+
+   #-----------------------------------------------------------------------
+
+   def s_escape_spaces_t1(s_in)
+      if KIBUVITS_b_DEBUG
+         bn=binding()
+         kibuvits_typecheck bn, String, s_in
+      end # if
+      rgx_0=/ / # must not be /[\s]/, because the /[\s]/ escapes the "\n".
+      s_out=s_in.gsub(rgx_0,$kibuvits_lc_escapedspace)
+      return s_out
+   end # s_escape_spaces_t1
+
+   def Kibuvits_str.s_escape_spaces_t1(s_in)
+      s_out=Kibuvits_str.instance.s_escape_spaces_t1(s_in)
+      return s_out
+   end # Kibuvits_str.s_escape_spaces_t1
+
+   def s_escape_for_bash_t1(s_in)
+      if KIBUVITS_b_DEBUG
+         bn=binding()
+         kibuvits_typecheck bn, String, s_in
+      end # if
+      s_0=s_in
+      s_1=s_0.gsub(/[\\]/,$kibuvits_lc_4backslashes) # "\" -> "\\"
+      # must not be /[\s]/, because the /[\s]/ escapes the "\n".
+      s_0=s_1.gsub(/ /,$kibuvits_lc_escapedspace)
+      s_1=s_0.gsub(/[\[]/,"\\[")
+      s_0=s_1.gsub(/[{]/,"\\{")
+      s_1=s_0.gsub(/[(]/,"\\(")
+      s_0=s_1.gsub(/[)]/,"\\)")
+      s_1=s_0.gsub(/[\t]/,"\\\t")
+      s_0=s_1.gsub(/[\$]/,"\\$")
+      s_1=s_0.gsub(/[|]/,"\\|")
+      s_0=s_1.gsub(/[>]/,"\\>")
+      s_1=s_0.gsub(/[<]/,"\\<")
+      s_0=s_1.gsub(/["]/,"\\\"")
+      s_1=s_0.gsub(/[']/,"\\\\'")
+      s_0=s_1.gsub(/[`]/,"\\\\`")
+      s_1=s_0.gsub(/[&]/,"\\\\&")
+      s_0=s_1.gsub(/[;]/,"\\\\;")
+      s_1=s_0.gsub(/[.]/,"\\.")
+      s_out=s_1
+      return s_out
+   end # s_escape_for_bash_t1
+
+   def Kibuvits_str.s_escape_for_bash_t1(s_in)
+      s_out=Kibuvits_str.instance.s_escape_for_bash_t1(s_in)
+      return s_out
+   end # Kibuvits_str.s_escape_for_bash_t1
 
    #-----------------------------------------------------------------------
    public

@@ -28,6 +28,8 @@ end # if
 class Raudrohi_cg_debug_verification
    #attr_reader
    @@lc_s_String='String'
+   @@lc_s_HTML_ID='HTML_ID'
+   @@lc_s_g1_widget='g1_widget'
    @@lc_s_Array='Array'
    @@lc_s_Number='Number'
    @@lc_s_Boolean='Boolean'
@@ -62,6 +64,10 @@ class Raudrohi_cg_debug_verification
       "                '[CODEGENERATION_BLANK_GUID_0]');\n"
       @@ht_tpl_typechecks[@@lc_s_String]="raudrohi.base.assert_isString("+
       s_assertion_call_template_end
+      @@ht_tpl_typechecks[@@lc_s_HTML_ID]="raudrohi.base.assert_is_HTML_ID("+
+      s_assertion_call_template_end
+      @@ht_tpl_typechecks[@@lc_s_g1_widget]="raudrohi.base.assert_is_g1_widget("+
+      s_assertion_call_template_end
       @@ht_tpl_typechecks[@@lc_s_Array]="raudrohi.base.assert_isArray("+
       s_assertion_call_template_end
       @@ht_tpl_typechecks[@@lc_s_Number]="raudrohi.base.assert_isNumber("+
@@ -86,6 +92,8 @@ class Raudrohi_cg_debug_verification
 
       @@ht_type_candidates=Hash.new
       @@ht_type_candidates[@@lc_s_String]=@@lc_s_String
+      @@ht_type_candidates[@@lc_s_HTML_ID]=@@lc_s_HTML_ID
+      @@ht_type_candidates[@@lc_s_g1_widget]=@@lc_s_g1_widget
       @@ht_type_candidates[@@lc_s_Array]=@@lc_s_Array
       @@ht_type_candidates[@@lc_s_Number]=@@lc_s_Number
       @@ht_type_candidates[@@lc_s_Boolean]=@@lc_s_Boolean

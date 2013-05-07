@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="79531046-7b63-4585-8671-997abb3bbb48" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/devel/raudrohi_lang.js" afterPath="$PROJECT_DIR$/src/devel/raudrohi_lang.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_calendar_t1.js" afterPath="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_calendar_t1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/devel/raudrohi_widgets_calendar_t2.js" afterPath="$PROJECT_DIR$/src/devel/raudrohi_widgets_calendar_t2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/devel/raudrohi_widgets_optionaldate_t1.js" afterPath="$PROJECT_DIR$/src/devel/raudrohi_widgets_optionaldate_t1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_partialmenu_t1.js" afterPath="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_partialmenu_t1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/devel/raudrohi_widgets_password_editor_t1.js" afterPath="$PROJECT_DIR$/src/devel/raudrohi_widgets_password_editor_t1.js" />
+    </list>
+    <ignored path="raudrohi.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/pmip.rb" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367648158393" ignored="false" />
+    <file path="/init.rb" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367690303066" ignored="false" />
+    <file path="/Dummy.txt" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367707265052" ignored="false" />
+    <file path="/raudrohi_adapter.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367707008400" ignored="false" />
+    <file path="/raudrohi_widgets_password_editor_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367709696092" ignored="false" />
+    <file path="/raudrohi_widgets_checkerboard_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367759856085" ignored="false" />
+    <file path="/main.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367745793965" ignored="false" />
+    <file path="/raudrohi_widgets_containergrid_1x1_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367742513272" ignored="false" />
+    <file path="/raudrohi_base.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367907805896" ignored="false" />
+    <file path="/raudrohi_widgets_pileofmethods.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367753698511" ignored="false" />
+    <file path="/raudrohi_core.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367741183037" ignored="false" />
+    <file path="/template_index.html" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367745718352" ignored="false" />
+    <file path="/raudrohi_widgets_common.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367754511094" ignored="false" />
+    <file path="/a.dummy" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367757377973" ignored="false" />
+    <file path="/raudrohi_widgets_canvas_2d_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367895647655" ignored="false" />
+    <file path="/test_raudrohi_base.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367912175337" ignored="false" />
+    <file path="/raudrohi_widgets_partialmenu_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367893480399" ignored="false" />
+    <file path="/raudrohi_widgets_calendar_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367894438103" ignored="false" />
+    <file path="/raudrohi_widgets_router2hostserver.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367894585711" ignored="false" />
+    <file path="/raudrohi_widgets_html_t2.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367895053004" ignored="false" />
+    <file path="/test_raudrohi_widgets_g1_set_1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952296927" ignored="false" />
+    <file path="/raudrohi_selftests_main.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367909278647" ignored="false" />
+    <file path="/raudrohi_core_hashtable_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367907248420" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_canvas_2d.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952257359" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/bonnet/raudrohi_widgets_common.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_apparch_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_widgets_matrix_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_core_hashtable_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_ajax.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_cache_t2.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_menu_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_widgets_pileofmethods.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_html_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_widgets_apparch1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_widgets_phonebooth_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/release/raudrohi_all_in_one_v24.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_widgets_router2hostserver.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_base.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653866" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_widgets_multiindexcache_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653867" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_core.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653867" ignored="false" />
+    <file path="$PROJECT_DIR$/src/devel/raudrohi_widgets_textarea_t1.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653867" ignored="false" />
+    <file path="$PROJECT_DIR$/src/dev_tools/selftests/tests/console/test_raudrohi_base.js" changelist="79531046-7b63-4585-8671-997abb3bbb48" time="1367952653867" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="raudrohi" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_checkerboard_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_canvas_2d.js" />
+        <option value="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_menu_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_html_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_calendar_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_textarea_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_router2hostserver.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_phonebooth_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_password_editor_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_optionaldate_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_multiindexcache_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_matrix_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_html_t2.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_containergrid_1x1_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_widgets_canvas_2d_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_core_hashtable_t1.js" />
+        <option value="$PROJECT_DIR$/src/devel/raudrohi_base.js" />
+        <option value="$PROJECT_DIR$/src/dev_tools/selftests/bonnet/raudrohi_selftests_main.js" />
+        <option value="$PROJECT_DIR$/src/dev_tools/selftests/tests/console/test_raudrohi_base.js" />
+        <option value="$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_partialmenu_t1.js" />
+        <option value="$PROJECT_DIR$/src/dev_tools/selftests/tests/console/test_raudrohi_widgets_g1_set_1.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="24" />
+    <option name="width" value="1024" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="release" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="release" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="devel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="devel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deprecated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="devel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bonnet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev_tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev_tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="selftests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev_tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="selftests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev_tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="selftests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev_tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="selftests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bonnet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raudrohi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../progremise_t66vahendid/mmmv_devel_tools/juur_liivakast/mmmv_devel_tools/src/mmmv_devel_tools/GUID_trace/src/JumpGUID/src/IDE_drivers/www_openkomodo_com/v_8_0_0/KomodoEdit_v_8_0_0_macro_template.js" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SqlCodeAssistantSettings">
+    <option name="dbBrowserSelectedConnection" value="raudrohi" />
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79531046-7b63-4585-8671-997abb3bbb48" name="Default" comment="" />
+      <created>1367474927743</created>
+      <updated>1367474927743</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="24" width="1024" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44426495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Unicode Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="SvgViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="PMIP" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49691993" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="DatabaseBrowser" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295688" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39117044" sideWeight="0.5912762" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="3000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_widgets_multiindexcache_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="20" selection-start="728" selection-end="728" vertical-scroll-proportion="0.42553192">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_widgets_matrix_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="12" selection-start="664" selection-end="664" vertical-scroll-proportion="0.3565365">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_widgets_html_t2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="45" selection-start="491" selection-end="491" vertical-scroll-proportion="0.22920203">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_widgets_containergrid_1x1_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="23" selection-start="170" selection-end="170" vertical-scroll-proportion="0.081560284">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_widgets_canvas_2d_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="0" selection-start="4096" selection-end="4096" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/E4X.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="237" column="14" selection-start="4193" selection-end="4193" vertical-scroll-proportion="0.3320965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_core_hashtable_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="4" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.37937742">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dev_tools/selftests/bonnet/raudrohi_selftests_prefix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="615" column="4" selection-start="26684" selection-end="26684" vertical-scroll-proportion="0.57092196">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dev_tools/selftests/bonnet/raudrohi_selftests_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="8" selection-start="2649" selection-end="2649" vertical-scroll-proportion="0.5053192">
+          <folding>
+            <marker date="1367916198685" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367916198685" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dev_tools/selftests/tests/console/test_raudrohi_base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1089" column="8" selection-start="44852" selection-end="44852" vertical-scroll-proportion="0.6648936">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_widgets_calendar_t2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="0" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.32667875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_partialmenu_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="12" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.5212766">
+          <folding>
+            <marker date="1367952639601" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_menu_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="348" column="17" selection-start="17297" selection-end="17297" vertical-scroll-proportion="0.40834847">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_cache_t2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="38" selection-start="673" selection-end="673" vertical-scroll-proportion="0.09437387">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/release/raudrohi_all_in_one_v24.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="4" selection-start="5951" selection-end="5951" vertical-scroll-proportion="0.513308">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/raudrohi_widgets_pileofmethods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="62" selection-start="8174" selection-end="8174" vertical-scroll-proportion="0.5444646">
+          <folding>
+            <marker date="1367952638585" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_calendar_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="2403" selection-end="2403" vertical-scroll-proportion="0.4074703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/devel/deprecated/raudrohi_widgets_html_t1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="348" selection-end="348" vertical-scroll-proportion="0.17826825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dev_tools/selftests/tests/console/test_raudrohi_widgets_g1_set_1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="12" selection-start="6913" selection-end="6913" vertical-scroll-proportion="0.17826825">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

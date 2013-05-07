@@ -3,6 +3,15 @@
 ===========================================================================
 
 ---------------------------------------------------------------------------
+                           Flaws/Bugs
+---------------------------------------------------------------------------
+x) For some reason there are places, where Hashtable pools can not be
+   used because the Hashtable is referenced after it has been 
+   released/returned to the pool. That's the reason, why 
+   current implementation does not use Hashtable pools.
+
+
+---------------------------------------------------------------------------
                     Things that must be Added
 ---------------------------------------------------------------------------
 Support for HTML5 WebSockets with the fallback to HTTP AJAX.

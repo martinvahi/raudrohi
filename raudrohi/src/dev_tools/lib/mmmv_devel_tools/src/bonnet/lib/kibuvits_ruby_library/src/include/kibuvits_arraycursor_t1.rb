@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
 
@@ -36,16 +36,14 @@
 
 =end
 #==========================================================================
-if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
-end # if
 
-require "monitor"
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_boot.rb"
-else
-   require  "kibuvits_boot.rb"
+if !defined? KIBUVITS_HOME
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
 #==========================================================================
@@ -74,7 +72,8 @@ class Kibuvits_arraycursor_t1
          @mx.synchronize do
             @ar_core=ar_core
             @i_ar_core_expected_lenght=@ar_core.size
-            # The indexing scheme: http://urls.softf1.com/a1/krl/frag4_array_indexing_by_separators/
+            # The indexing scheme:
+            # http://longterm.softf1.com/specifications/array_indexing_by_separators/
             @ixs_low=0
             @ixs_high=0
             @ixs_high=1 if 0<@i_ar_core_expected_lenght
@@ -83,7 +82,8 @@ class Kibuvits_arraycursor_t1
       else
          @ar_core=ar_core
          @i_ar_core_expected_lenght=@ar_core.size
-         # The indexing scheme: http://urls.softf1.com/a1/krl/frag4_array_indexing_by_separators/
+         # The indexing scheme:
+         # http://longterm.softf1.com/specifications/array_indexing_by_separators/
          @ixs_low=0
          @ixs_high=0
          @ixs_high=1 if 0<@i_ar_core_expected_lenght

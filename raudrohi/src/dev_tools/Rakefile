@@ -1,3 +1,4 @@
+#!/usr/bin/env rake
 # The correct way to call this: `which ruby` -Ku `which rake` -f ./Rakefile
 #==========================================================================
 =begin
@@ -24,7 +25,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
- SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 
 =end
 #==========================================================================
@@ -47,10 +48,12 @@ if !defined? RAUDROHI_HOME
    else
       kibuvits_throw("\nThere's a flaw. s_fn=="+s_fn.to_s+
       "\nob_pth.to_s=="+ob_pth.to_s+
-      "\nGUID='23a456c5-d184-4c64-9a17-b3d1d0a04dd7'")
+      "\nGUID='337a4e41-a1e5-4337-ad2a-f212b0205dd7'")
    end # case s_mode
    RAUDROHI_HOME=s_0
+   RAUDROHI_RAKEFILE_DEFINES_THE_RAUDROHI_HOME=true
 end # if
+ENV["RAUDROHI_HOME"]=RAUDROHI_HOME
 
 if !defined? MMMV_DEVEL_TOOLS_HOME
    MMMV_DEVEL_TOOLS_HOME=RAUDROHI_HOME+"/src/dev_tools/lib/mmmv_devel_tools"
@@ -59,6 +62,25 @@ end # if
 BREAKDANCEMAKE_HOME=MMMV_DEVEL_TOOLS_HOME+"/src/mmmv_devel_tools/breakdancemake"
 require BREAKDANCEMAKE_HOME+"/src/bonnet/breakdancemake_cl.rb"
 
+s_mmmv_devel_tools_expected_version="2.0.0"
+if MMMV_DEVEL_TOOLS_VERSION!=s_mmmv_devel_tools_expected_version
+   msg="\n\nThe Ruby constant, MMMV_DEVEL_TOOLS_VERSION=="+
+   MMMV_DEVEL_TOOLS_VERSION+
+   "\n but it is expected to be "+s_mmmv_devel_tools_expected_version+
+   "\n\nExiting.\n\n"
+   puts msg
+   exit
+end # if
+
+s_kibuvits_expected_version="1.4.0"
+if KIBUVITS_s_NUMERICAL_VERSION!=s_kibuvits_expected_version
+   msg="\n\nThe Ruby constant, KIBUVITS_s_NUMERICAL_VERSION=="+
+   KIBUVITS_s_NUMERICAL_VERSION+
+   "\n but it is expected to be "+s_kibuvits_expected_version+
+   "\n\nExiting.\n\n"
+   puts msg
+   exit
+end # if
 
 if !defined? RAUDROHI_CODE_GENERATION
    RAUDROHI_CODE_GENERATION=RAUDROHI_HOME+
@@ -76,11 +98,15 @@ if Breakdancemake.s_version!=s_required_breakdancemake_version
    kibuvits_throw("\nThe required Breakdancemake version is "+
    s_required_breakdancemake_version+", but \n"+
    "Breakdancemake.s_version=="+Breakdancemake.s_version.to_s+
-   "\nGUID='37f3e993-893c-4495-8a17-b3d1d0a04dd7'\n\n")
+   "\nGUID='035dafd1-ad62-4466-915a-f212b0205dd7'\n\n")
 end # if
 
-#RAUDROHI_PORT_NAME="YUI_3_0" if !defined? RAUDROHI_PORT_NAME
-RAUDROHI_PORT_NAME="YUI_3_9_0" if !defined? RAUDROHI_PORT_NAME
+# The YUI 3.9.0 seems to have some flaws with CSS, which is
+# why the "stable" version to use is the YUI 3.0.
+RAUDROHI_PORT_NAME="YUI_3_0" if !defined? RAUDROHI_PORT_NAME
+#RAUDROHI_PORT_NAME="YUI_3_9_0" if !defined? RAUDROHI_PORT_NAME
+
+RAUDROHI_DEBUG_JAVASCRIPT=true
 
 #--------------------------------------------------------------------------
 class Raudrohi_JavaScript_Library_build_settings_cl
@@ -102,7 +128,7 @@ class Raudrohi_JavaScript_Library_build_settings_cl
       @s_project_fp_prefix_dev_tools=RAUDROHI_HOME+"/src/dev_tools"
 
       @b_include_WebGL=true
-      @i_project_JavaScript_and_CSS_version=23
+      @i_project_JavaScript_and_CSS_version=24
    end # initialize
 
    #--------------------------------------------------------------------------
@@ -159,28 +185,32 @@ class Raudrohi_JavaScript_Library_build_settings_cl
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_critical_section_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_units.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_vfx.js');
-         # ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_canvas_2d.js');
+         #ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_canvas_2d.js'); # not ready
          ar_x<<(@s_project_fp_prefix_devel+'/bonnet/raudrohi_widgets_common.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_pileofmethods.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_phonebooth_t1.js');
+         ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_containergrid_1x1_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_cache_t2.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_multiindexcache_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_router2hostserver.js');
          ar_x<<(@s_project_fp_prefix_devel+'/deprecated/usable_after_heavy_refactoring/raudrohi_widgets_uploadenforcer.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_html_t2.js');
          ar_x<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_html_t1.js');
+         #ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_checkerboard_t1.js'); # not ready, a mess
+         #ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_canvas_2d.js'); # not ready
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_button_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_textarea_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_password_editor_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_menu_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_partialmenu_t1.js');
-         ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_calendar_t1.js');
+         ar_x<<(@s_project_fp_prefix_devel+'/deprecated/raudrohi_widgets_calendar_t1.js');
+         ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_calendar_t2.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_optionaldate_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_matrix_t1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_apparch1.js');
          ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_wg_processing_t1.js');
-         #ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_slider_1D_t1.js');
-         #ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_slideshow_t1.js');
+         #ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_slider_1D_t1.js'); # not ready
+         #ar_x<<(@s_project_fp_prefix_devel+'/raudrohi_widgets_slideshow_t1.js'); # not ready
          ar_x<<(@s_project_fp_prefix_devel+'/bonnet/raudrohi_libinit.js');
          @ar_raudrohi_js_fp_cache=ar_x
          @b_ar_fp_js_inited=true
@@ -203,12 +233,13 @@ class Raudrohi_JavaScript_Library_build_settings_cl
       # "/selftests/tests/console/*.js")
       s_0=@s_project_fp_prefix_dev_tools+"/selftests/tests/console"
       ar_out=Array.new
-      ar_out << (s_0+"/raudrohi_adapter_selftests.js")
+      ar_out << (s_0+"/test_raudrohi_adapter.js")
       ar_out << (s_0+"/test_raudrohi_core.js")
       ar_out << (s_0+"/test_raudrohi_base.js")
       ar_out << (s_0+"/test_raudrohi_lang.js")
       ar_out << (s_0+"/test_raudrohi_templateforcreatingnewfiles.js")
       ar_out << (s_0+"/test_raudrohi_vfx.js")
+      ar_out << (s_0+"/test_raudrohi_widgets_g1_set_1.js")
 
       ar_check=Dir.glob(@s_project_fp_prefix_dev_tools+
       "/selftests/tests/console/*.js")
@@ -251,7 +282,7 @@ class Raudrohi_JavaScript_Library_build_settings_cl
          "/raudrohi_selftests_collection.js"
       else
          kibuvits_throw("Mode not supported. s_mode=="+s_mode.to_s,bn+
-         "\nGUID='556cbc05-be4c-4e33-a757-b3d1d0a04dd7'")
+         "\nGUID='36e0c0e3-61d1-4aea-9e3a-f212b0205dd7'")
       end # case s_mode
       return s_out
    end # get_s_fp_jspile
@@ -287,23 +318,37 @@ def add_license_text_to_the_prefix_of_a_JS_file(s_fp_jspile)
 end # add_license_text_to_the_prefix_of_a_JS_file
 
 #--------------------------------------------------------------------------
+public
 
-def build_selftests_index_html
-   s_index_html_template=file2str(RAUDROHI_HOME+
-   "/src/dev_tools/selftests/bonnet"+
-   "/index_dot_html_templates/index_dot_html_template.html")
+def build_html_t1(s_fp_generated_file,s_fp_template,s_URL_raudrohi_home)
+   if KIBUVITS_b_DEBUG
+      bn=binding()
+      kibuvits_typecheck bn, String, s_fp_generated_file
+      kibuvits_typecheck bn, String, s_fp_template
+      kibuvits_typecheck bn, String, s_URL_raudrohi_home
+      kibuvits_assert_string_min_length(bn,s_fp_generated_file,2)
+      kibuvits_assert_string_min_length(bn,s_fp_template,2)
+      kibuvits_assert_string_min_length(bn,s_URL_raudrohi_home,2)
+   end # if
+   s_index_html_template=file2str(s_fp_template)
    ht_needles=Hash.new
    #-----
-   s_prefix=RAUDROHI_HOME+"/src/dev_tools/selftests/bonnet"+
-   "/index_dot_html_templates/js_and_css_template_"
+   s_prefix=RAUDROHI_HOME+"/src/dev_tools/code_generation/templates"+
+   "/js_and_css_template_"
    s_fp_css_and_js_src=s_prefix+(RAUDROHI_PORT_NAME+".txt")
    if !File.exists? s_fp_css_and_js_src
       kibuvits_throw("A file with a path of\n"+s_fp_css_and_js_src+
       ",\ndoes not exist.\n"+
-      "GUID='3968a1d4-0869-43cd-9237-b3d1d0a04dd7'")
+      "GUID='65165d18-8225-4914-ae4a-f212b0205dd7'")
    end # if
-   s_css_and_js_block=file2str(s_fp_css_and_js_src)
-   ht_needles["RAUDROHI_SELFTESTS_BLANK_PORTSPECIFIC_CSS_AND_JS"]=s_css_and_js_block
+   s_css_and_js_block=nil
+   if !defined? @build_html_t1_s_s_fp_css_and_js_src_cache
+      @build_html_t1_s_s_fp_css_and_js_src_cache=file2str(s_fp_css_and_js_src).freeze
+   end # if
+   s_css_and_js_block=$kibuvits_lc_emptystring+
+   @build_html_t1_s_s_fp_css_and_js_src_cache
+
+   ht_needles["RAUDROHI_CG_BLANK_PORTSPECIFIC_CSS_AND_JS"]=s_css_and_js_block
    b_needle_is_key=true
    s_index_html=Kibuvits_str.s_batchreplace(
    ht_needles,s_index_html_template,b_needle_is_key)
@@ -312,13 +357,13 @@ def build_selftests_index_html
    s_0=RAUDROHI_PORT_NAME
    case s_0
    when "YUI_3_0"
-      ht_needles["RAUDROHI_SELFTESTS_BLANK_DOCBODY_CLASS"]="yui-skin-sam"
+      ht_needles["RAUDROHI_CG_BLANK_DOCBODY_CLASS"]="yui-skin-sam"
    when "YUI_3_9_0"
-      ht_needles["RAUDROHI_SELFTESTS_BLANK_DOCBODY_CLASS"]="yui3-skin-sam"
+      ht_needles["RAUDROHI_CG_BLANK_DOCBODY_CLASS"]="yui3-skin-sam"
    else
       kibuvits_throw("s_0==\n"+s_0+
       ", which is not yet supported by this code block.\n"+
-      "GUID='e894ee93-4332-4203-b237-b3d1d0a04dd7'")
+      "GUID='2f28a4b3-7b66-4716-ae5a-f212b0205dd7'")
    end # case s_0
    b_needle_is_key=true
    s_index_html=Kibuvits_str.s_batchreplace(
@@ -326,21 +371,149 @@ def build_selftests_index_html
    ht_needles.clear
    #-----
    si_version=RAUDROHI_BUILD_SETTINGS.i_project_JavaScript_and_CSS_version.to_s
-   ht_needles["RAUDROHI_SELFTESTS_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE"]="./../../release"
-   ht_needles["RAUDROHI_SELFTESTS_BLANK_RAUDROHI_ALL_IN_ONE_JS"]="raudrohi_all_in_one_v"+
+   ht_needles["RAUDROHI_CG_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE"]=s_URL_raudrohi_home
+   ht_needles["RAUDROHI_CG_BLANK_RAUDROHI_ALL_IN_ONE_JS"]="raudrohi_all_in_one_v"+
    si_version+".js"
-   ht_needles["RAUDROHI_SELFTESTS_BLANK_RAUDROHI_CSS"]="raudrohi_v"+si_version+".css"
+   ht_needles["RAUDROHI_CG_BLANK_RAUDROHI_CSS"]="raudrohi_v"+si_version+".css"
    s_index_html=Kibuvits_str.s_batchreplace(
    ht_needles,s_index_html,b_needle_is_key)
-   s_fp_index_html=RAUDROHI_HOME+"/src/dev_tools/selftests/index.html"
-   str2file(s_index_html,s_fp_index_html)
+   str2file(s_index_html,s_fp_generated_file)
+end # build_html_t1
+
+# The Hello World Rakefile demonstrates the use of this method.
+def build_html_t2(s_fp_Rakefile_FILE_value,s_URL_raudrohi_home,b_strict=true)
+   if KIBUVITS_b_DEBUG
+      bn=binding()
+      kibuvits_typecheck bn, String, s_fp_Rakefile_FILE_value
+      kibuvits_typecheck bn, String, s_URL_raudrohi_home
+      kibuvits_assert_string_min_length(bn,s_fp_Rakefile_FILE_value,2)
+      kibuvits_assert_string_min_length(bn,s_URL_raudrohi_home,2)
+   end # if
+   ob_pth=Pathname.new(s_fp_Rakefile_FILE_value).realpath.parent
+   s_fp_1=ob_pth.to_s
+   s_fp_bonnet=s_fp_1+"/bonnet"
+   if !File.exists? s_fp_bonnet
+      if b_strict
+         kibuvits_throw("\nA folder with the path of "+
+         "\n"+s_fp_bonnet+" \ndoes not exist."+
+         "\nGUID='6bb50441-8798-4909-8534-f212b0205dd7'")
+      else
+         return
+      end # if
+   end # if
+   ar_template_candidates=Dir.glob(s_fp_bonnet+"/template_*")
+   ht_orig2dest=Hash.new
+   s_fp_dest=nil
+   s_fn=nil
+   s_0=nil
+   ix_0=nil
+   ar_template_candidates.each do |s_fp|
+      next if File.directory? s_fp
+      s_0=s_fp.reverse
+      ix_0=s_0.index($kibuvits_lc_slash)
+      s_fn=s_0[0..(ix_0-1)].reverse.sub(/^template_/,$kibuvits_lc_emptystring)
+      s_fp_dest=s_fp_1+$kibuvits_lc_slash+s_fn
+      ht_orig2dest[s_fp]=s_fp_dest
+   end # loop
+   ht_orig2dest.each_pair do |s_key,s_value|
+      s_fp_template=s_key
+      s_fp_index_html=s_value
+      build_html_t1(s_fp_index_html,s_fp_template,s_URL_raudrohi_home)
+   end # loop
+end # build_html_t2
+
+def build_bach_of_client_projects_t1(s_fp_root_folder,s_URL_raudrohi_home)
+   if KIBUVITS_b_DEBUG
+      bn=binding()
+      kibuvits_typecheck bn, String, s_fp_root_folder
+      kibuvits_typecheck bn, String, s_URL_raudrohi_home
+      kibuvits_assert_string_min_length(bn,s_fp_root_folder,2)
+      kibuvits_assert_string_min_length(bn,s_URL_raudrohi_home,2)
+   end # if
+   ht_failures=Kibuvits_fs.verify_access(s_fp_root_folder,"is_directory,readable")
+
+   s_output_message_language="English"
+   b_throw=false,
+   s_msg_suffix="\nGUID='ed54b8e9-134c-4658-8a33-f212b0205dd7'"
+   Kibuvits_fs.exit_if_any_of_the_filesystem_tests_failed(ht_failures,
+   s_output_message_language,b_throw,s_msg_suffix)
+   ar_client_project_candidates_0=Array.new
+   ar_fp=Dir.glob(s_fp_root_folder+"/*")
+   ar_fp.each do |s_fp|
+      next if !File.directory? s_fp
+      ar_client_project_candidates_0<<s_fp
+   end # loop
+   s_lc_bonnet="/bonnet"
+   ar_fp.clear
+   ar_client_project_candidates_1=Array.new
+   s_fp_bonnet=nil
+   ar_client_project_candidates_0.each do |s_fp|
+      s_fp_bonnet=s_fp+s_lc_bonnet
+      next if !File.exist? s_fp_bonnet
+      next if !File.directory? s_fp_bonnet
+      ar_client_project_candidates_1<<s_fp
+   end # loop
+   s_0="/bonnet"
+   s_1=nil
+   b_strict=false
+   s_msg_suffix="\nGUID='13bb5443-af94-4dac-ad53-f212b0205dd7'"
+   ar_client_project_candidates_1.each do |s_fp|
+      ht_failures=Kibuvits_fs.verify_access(s_fp,"is_directory,readable")
+      Kibuvits_fs.exit_if_any_of_the_filesystem_tests_failed(ht_failures,
+      s_output_message_language,b_throw,s_msg_suffix)
+      s_1=s_fp+s_0
+      build_html_t2(s_1,s_URL_raudrohi_home,b_strict)
+   end # loop
+end # build_bach_of_client_projects_t1
+
+#--------------------------------------------------------------------------
+private
+
+def build_selftests_index_html
+   s_fp_template=RAUDROHI_HOME+"/src/dev_tools/selftests/bonnet"+
+   "/index_dot_html_templates/index_dot_html_template.html"
+   s_fp_generated_file=RAUDROHI_HOME+"/src/dev_tools/selftests/index.html"
+   s_URL_raudrohi_home="./../../release"
+   build_html_t1(s_fp_generated_file,s_fp_template,s_URL_raudrohi_home)
 end # build_selftests_index_html
+
+def build_doc_examples
+   s_URL_raudrohi_home="./../../../src/release"
+   s_fp_root_folder=RAUDROHI_HOME+"/doc/examples"
+   build_bach_of_client_projects_t1(s_fp_root_folder,s_URL_raudrohi_home)
+
+   s_URL_raudrohi_home="./../../../../src/release"
+   s_fp_root_folder=RAUDROHI_HOME+"/doc/examples/lesson_02_builtin_widgets"
+   build_bach_of_client_projects_t1(s_fp_root_folder,s_URL_raudrohi_home)
+
+   s_URL_raudrohi_home="./../../../../src/release"
+   s_fp_root_folder=RAUDROHI_HOME+"/doc/examples/lesson_03_showcase"
+   build_bach_of_client_projects_t1(s_fp_root_folder,s_URL_raudrohi_home)
+end # build_doc_examples
 
 #--------------------------------------------------------------------------
 
-def update_version(s_fp_jsfile)
-   msgcs=Breakdancemake.instance.msgcs
+def build_selftests_manual_tests_index_html
+   s_URL_raudrohi_home="./../../../../../release"
+   s_fp_root_folder=RAUDROHI_HOME+"/src/dev_tools/selftests/tests/manual"
+   build_bach_of_client_projects_t1(s_fp_root_folder,s_URL_raudrohi_home)
+end # build_selftests_manual_tests_index_html
 
+#--------------------------------------------------------------------------
+
+def update_version_and_copy_CSS_to_release()
+   s_fp_jsfile=RAUDROHI_BUILD_SETTINGS.get_s_fp_jspile("raudrohi_all_in_one")
+
+   s_fp_CSS_orig=RAUDROHI_HOME+"/src/devel/css/raudrohi_v000.css"
+   s_fp_CSS_dest_0=RAUDROHI_BUILD_SETTINGS.s_project_fp_prefix_release+"/css"
+   s_fp_CSS_dest_1=s_fp_CSS_dest_0+"/raudrohi_v000.css"
+   if !File.exists? s_fp_CSS_dest_0
+      Dir.mkdir(s_fp_CSS_dest_0)
+   end # if
+   s_css=file2str(s_fp_CSS_orig)
+   str2file(s_css,s_fp_CSS_dest_1)
+
+   msgcs=Breakdancemake.instance.msgcs
    ar_1=RAUDROHI_BUILD_SETTINGS.ar_CSS_files_array()
    ar_1<<s_fp_jsfile
    ar_or_s_renamable_file_paths=ar_1
@@ -353,72 +526,102 @@ def update_version(s_fp_jsfile)
       puts msgcs.to_s
       exit
    end # if
-end # update_version
+end # update_version_and_copy_CSS_to_release
 
 #--------------------------------------------------------------------------
-task :run_renessaator do
-   ar_fp_0=RAUDROHI_BUILD_SETTINGS.ar_raudrohi_release_dependencies()
-   ar_fp_0.concat(RAUDROHI_BUILD_SETTINGS.ar_raudrohi_selftests_dependencies)
-   puts "Running the Renessaator on "+ar_fp_0.size.to_s+" files ..."
-   C_mmmv_devel_tools_global_singleton.run_renessaator_t1(ar_fp_0)
-   #RAUDROHI_BUILD_SETTINGS.run_renessaator(ar_fp_0)
-   puts "Renessaator jobs complete."
-end # run_renessaator
 
-task :b_selftests => [:run_renessaator] do
-   puts "Building of RJSL selftests index.html in progress..."
-   s_fp_jsfile=RAUDROHI_BUILD_SETTINGS.get_s_fp_jspile(
-   "raudrohi_selftests_collection")
+if defined? RAUDROHI_RAKEFILE_DEFINES_THE_RAUDROHI_HOME
+   # This Rakefile is included to RJSL client code Rakefiles.
+   # If this if-statemend did not exist, the RJSL
+   # Rakefile tasks would be included to the list
+   # of tasks of the RJSL client code Rakefile.
 
-   s_0=RAUDROHI_HOME+"/src/dev_tools/selftests/bonnet"
-   s_fp_prefix=s_0+"/raudrohi_selftests_prefix.js"
-   s_fp_suffix=s_0+"/raudrohi_selftests_main.js"
-   ar_js_files=[s_fp_prefix].concat(
-   RAUDROHI_BUILD_SETTINGS.ar_raudrohi_selftests_dependencies().concat(
-   [s_fp_suffix]))
+   task :run_renessaator do
+      #-------------------------------------
+      # The "+" is used instead of the Array.new.concat
+      # due to some Ruby bug that changed the value of
+      # the resultant array elements. Looks like some memory
+      # corruption bug. "ruby --version" output:
+      #
+      #     "ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-linux]"
+      #
+      ar_fp_0=RAUDROHI_BUILD_SETTINGS.ar_raudrohi_release_dependencies()
+      ar_fp_1=RAUDROHI_BUILD_SETTINGS.ar_raudrohi_selftests_dependencies
+      ar_fp_2=ar_fp_0+ar_fp_1
+      #
+      # The bug revealing version:
+      #
+      #ar_fp_0=RAUDROHI_BUILD_SETTINGS.ar_raudrohi_release_dependencies()
+      #ar_fp_0.concat(RAUDROHI_BUILD_SETTINGS.ar_raudrohi_selftests_dependencies)
+      #ar_fp_2=ar_fp_0
+      #-------------------------------------
+      puts "Running the Renessaator on "+ar_fp_2.size.to_s+" files ..."
+      i_cache_max_size=300
+      s_fp_cg=RAUDROHI_CODE_GENERATION
+      ar_fp=[s_fp_cg,(RAUDROHI_CODE_GENERATION+"/../Rakefile")]
+      C_mmmv_devel_tools_global_singleton.run_renessaator_t1(
+      ar_fp_2,ar_fp,i_cache_max_size)
+      puts "Renessaator jobs complete."
+   end # run_renessaator
 
-   C_mmmv_devel_tools_global_singleton.run_breakdancemake_concat_t1(
-   s_fp_jsfile,ar_js_files,"plain")
-   build_selftests_index_html()
-   puts "RJSL selftests index.html building thread complete."
-end # b_selftests
+   task :b_selftests => [:run_renessaator] do
+      puts "Building of RJSL selftests index.html in progress..."
+      s_fp_jsfile=RAUDROHI_BUILD_SETTINGS.get_s_fp_jspile(
+      "raudrohi_selftests_collection")
 
-task :build => [:b_selftests]  do
-   puts "Building of RJSL in progress..."
-   s_fp_jsfile=RAUDROHI_BUILD_SETTINGS.get_s_fp_jspile("raudrohi_all_in_one")
-   ar_js_files=RAUDROHI_BUILD_SETTINGS.ar_raudrohi_release_dependencies
-   C_mmmv_devel_tools_global_singleton.run_breakdancemake_concat_t1(
-   s_fp_jsfile,ar_js_files,"yui_compressor_t1")
-   add_license_text_to_the_prefix_of_a_JS_file(s_fp_jsfile)
-   update_version(s_fp_jsfile)
-   puts "RJSL building thread complete."
-end # build
+      s_0=RAUDROHI_HOME+"/src/dev_tools/selftests/bonnet"
+      s_fp_prefix=s_0+"/raudrohi_selftests_prefix.js"
+      s_fp_suffix=s_0+"/raudrohi_selftests_main.js"
+      ar_js_files=[s_fp_prefix].concat(
+      RAUDROHI_BUILD_SETTINGS.ar_raudrohi_selftests_dependencies().concat(
+      [s_fp_suffix]))
 
-task :b => [:b_selftests] do
-   puts "Lightweight building of RJSL in progress..."
-   s_fp_jsfile=RAUDROHI_BUILD_SETTINGS.get_s_fp_jspile("raudrohi_all_in_one")
-   ar_js_files=RAUDROHI_BUILD_SETTINGS.ar_raudrohi_release_dependencies
-   C_mmmv_devel_tools_global_singleton.run_breakdancemake_concat_t1(
-   s_fp_jsfile,ar_js_files,"plain")
-   add_license_text_to_the_prefix_of_a_JS_file(s_fp_jsfile)
-   update_version(s_fp_jsfile)
-   puts "RJSL lightweight building thread complete."
-end # b
+      C_mmmv_devel_tools_global_singleton.run_breakdancemake_concat_t1(
+      s_fp_jsfile,ar_js_files,"plain")
+      build_selftests_index_html()
+      build_selftests_manual_tests_index_html()
+      build_doc_examples()
+      puts "RJSL selftests index.html building thread complete."
+   end # b_selftests
 
-task :continuous_integration => [:b] do
-end # continuous_integration
+   task :build => [:b_selftests]  do
+      puts "Building of RJSL in progress..."
+      s_fp_jsfile=RAUDROHI_BUILD_SETTINGS.get_s_fp_jspile("raudrohi_all_in_one")
+      ar_js_files=RAUDROHI_BUILD_SETTINGS.ar_raudrohi_release_dependencies
+      C_mmmv_devel_tools_global_singleton.run_breakdancemake_concat_t1(
+      s_fp_jsfile,ar_js_files,"yui_compressor_t1")
+      add_license_text_to_the_prefix_of_a_JS_file(s_fp_jsfile)
+      update_version_and_copy_CSS_to_release()
+      puts "RJSL building thread complete."
+   end # build
 
-task :default do
-   ar_task_names=Array.new
-   Rake.application.tasks.each {|x_task| ar_task_names<<x_task.to_s}
-   ar_task_names.sort!
-   puts "\n\nAvailable Rake functions:\n\n"
-   s_1="                "
-   ar_task_names.each do |s_task_name|
-      puts s_1+s_task_name.to_s
-   end # loop
-   puts "\n\n"
-end # default
+   task :b => [:b_selftests] do
+      puts "Lightweight building of RJSL in progress..."
+      s_fp_jsfile=RAUDROHI_BUILD_SETTINGS.get_s_fp_jspile("raudrohi_all_in_one")
+      ar_js_files=RAUDROHI_BUILD_SETTINGS.ar_raudrohi_release_dependencies
+      C_mmmv_devel_tools_global_singleton.run_breakdancemake_concat_t1(
+      s_fp_jsfile,ar_js_files,"plain")
+      add_license_text_to_the_prefix_of_a_JS_file(s_fp_jsfile)
+      update_version_and_copy_CSS_to_release()
+      puts "RJSL lightweight building thread complete."
+   end # b
+
+   task :continuous_integration => [:b] do
+   end # continuous_integration
+
+   task :default do
+      ar_task_names=Array.new
+      Rake.application.tasks.each {|x_task| ar_task_names<<x_task.to_s}
+      ar_task_names.sort!
+      puts "\n\nAvailable Rake functions:\n\n"
+      s_1="                "
+      ar_task_names.each do |s_task_name|
+         puts s_1+s_task_name.to_s
+      end # loop
+      puts "\n\n"
+   end # default
+
+end # if
 
 #==========================================================================
 

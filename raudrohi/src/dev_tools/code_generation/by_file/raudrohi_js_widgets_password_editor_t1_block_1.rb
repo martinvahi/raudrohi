@@ -81,6 +81,10 @@ s_name,b_visible_at_creation,msgcs)
 ob_wg.config_insert_subwidget(ob_wg_html_disqualification_message)
 
 #--------------
-puts ob_wg.my_intestine_all_common(
-"raudrohi.widgets.g1.",false);
+b_s_phone_number_prefix_constitutes_the_whole_phone_number=false
+b_parent_instance_is_part_of_the_constructor_parameters=true
+puts(ob_wg.my_intestine_all_common(
+"raudrohi.widgets.g1.",
+b_s_phone_number_prefix_constitutes_the_whole_phone_number,
+b_parent_instance_is_part_of_the_constructor_parameters));
 #==========================================================================

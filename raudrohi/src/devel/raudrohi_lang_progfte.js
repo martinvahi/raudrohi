@@ -1,6 +1,6 @@
 //=========================================================================
 //
-// http://martin.softf1.com/g/n//a2/doc/progfte/index.html
+// http://longterm.softf1.com/specifications/progfte/
 //
 //=========================================================================
 
@@ -12,12 +12,7 @@ raudrohi.lang.ProgFTE_v0 = function () {
         self_public_.private_code_ = {};
         var prc_ = self_public_.private_code_;
 
-// ProgFTE(Programmer Friendly Text Exchange) is a format, where
-// a hashtable that contains only strings as its keys and values,
-// is serialized to
-// <nuber of key-value pairs>|||<triplepillar substitution>|||<keyX>|||<valueX|||<keyY>|||<valueY>||| etc.
-// Some more background info resides at
-// http://mv-veebilog.blogspot.com/2009/10/programmer-friendly-text-exchange.html
+        // http://longterm.softf1.com/specifications/progfte/
         prc_.ht2ProgFTE_v0_impl = function (a_hashtable,
             string_to_substitute_the_triplepillars_within_the_ht_keys_and_values) {
             try {
@@ -38,7 +33,7 @@ raudrohi.lang.ProgFTE_v0 = function () {
                 // collisions. That's why there's this "newer" version
                 // that creates a separate RegExp instace for every call.
 
-                var rgx = new RegExp("[|]", "g"); // TODO: pool the rgx instances
+                var rgx = new RegExp("[|]", "g"); 
                 for (var i = 0; i < len; i++) {
                     s_key = keys[i];
                     // The ''+ on the next line is for converting numbers to strings.
@@ -128,7 +123,7 @@ raudrohi.lang.ProgFTE_v0 = new raudrohi.lang.ProgFTE_v0()
 
 //-------------------------------------------------------------------------
 
-// http://martin.softf1.com/g/n//a2/doc/progfte/index.html
+// http://longterm.softf1.com/specifications/progfte/
 raudrohi.lang.ProgFTE_v1 = function () {
     var self_public_ = this;
     try {
@@ -367,7 +362,7 @@ raudrohi.lang.ht2ProgFTE = function (ht_in) {
 
 raudrohi.lang.ProgFTE2ht = function (s_progfte) {
     try {
-        // http://martin.softf1.com/g/n//a2/doc/progfte/index.html
+        // http://longterm.softf1.com/specifications/progfte/
         var ht_out = null;
         var ar = s_progfte.match(/^[\d]+[|]{3}/); //
         if (ar !== null) { // ar[0]=== like  12345|||

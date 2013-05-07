@@ -1,0 +1,26 @@
+
+
+<style type="text/css">
+			/*According to the Yahoo YUI framework creators,
+	          the margin and padding on body element
+	          can introduce errors in determining
+	          element position and are not recommended;
+	          one turns them off as a foundation for YUI
+	          CSS treatments. */
+		body {
+			margin:0;
+			padding:0;
+		}
+	</style>
+
+<link rel="stylesheet" type="text/css" href="RAUDROHI_CG_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE/third_party/yahoo/yui_3_9_0/build/cssreset/cssreset-min.css"/>
+<link rel="stylesheet" type="text/css" href="RAUDROHI_CG_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE/third_party/yahoo/yui_3_9_0/build/cssbase/cssbase-min.css"/>
+<link rel="stylesheet" type="text/css" href="RAUDROHI_CG_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE/third_party/yahoo/yui_3_9_0/build/cssgrids/grids-min.css"/>
+<link rel="stylesheet" type="text/css" href="RAUDROHI_CG_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE/third_party/yahoo/yui_3_9_0/build/cssfonts/cssfonts-min.css"/>
+
+<link rel="stylesheet" href="RAUDROHI_CG_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE/css/RAUDROHI_CG_BLANK_RAUDROHI_CSS" type="text/css" />
+
+<script type="text/javascript" src="RAUDROHI_CG_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE/third_party/yahoo/yui_3_9_0/build/yui/yui-min.js"></script>
+
+<script type="text/javascript" src="RAUDROHI_CG_BLANK_RAUDROHI_FP_RAUDROHI_RELEASE/RAUDROHI_CG_BLANK_RAUDROHI_ALL_IN_ONE_JS"></script>
+

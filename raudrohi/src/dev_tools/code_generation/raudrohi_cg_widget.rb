@@ -555,13 +555,19 @@ class Raudrohi_cg_widget
    end # my_intestine_states_and_stateclusters_and_their_edges
 
    def my_intestine_all_common(s_phonenumber_prefix,
-      b_s_phone_number_prefix_constitutes_the_whole_phone_number=false)
+      b_s_phone_number_prefix_constitutes_the_whole_phone_number,
+      b_parent_instance_is_part_of_the_constructor_parameters)
       bn=binding()
       kibuvits_typecheck bn, String, s_phonenumber_prefix
       kibuvits_typecheck bn, [FalseClass,TrueClass], b_s_phone_number_prefix_constitutes_the_whole_phone_number
       s_out=""
-      s_out=s_out+@@lc_linebreak+Raudrohi_cg_debug_verification.new(
-      ['String','s_html_id'],['Object','parent_instance']).to_s
+      if b_parent_instance_is_part_of_the_constructor_parameters
+         s_out=s_out+@@lc_linebreak+Raudrohi_cg_debug_verification.new(
+         ['HTML_ID','s_html_id'],['g1_widget','parent_instance']).to_s
+      else
+         s_out=s_out+@@lc_linebreak+Raudrohi_cg_debug_verification.new(
+         ['HTML_ID','s_html_id']).to_s
+      end # if
       s_out=s_out+@@lc_linebreak+my_intestine_boilerplate_t1(
       s_phonenumber_prefix+@s_name,
       b_s_phone_number_prefix_constitutes_the_whole_phone_number)+@@lc_linebreak
@@ -572,6 +578,25 @@ class Raudrohi_cg_widget
       s_out=s_out+@@lc_linebreak+my_intestine_states_and_stateclusters_and_their_edges
       return s_out
    end # my_intestine_all_common
+
+   # A version without the parent_instance stuff.
+   def my_intestine_all_common_t2(s_phonenumber_prefix,
+      b_s_phone_number_prefix_constitutes_the_whole_phone_number=false)
+      bn=binding()
+      kibuvits_typecheck bn, String, s_phonenumber_prefix
+      kibuvits_typecheck bn, [FalseClass,TrueClass], b_s_phone_number_prefix_constitutes_the_whole_phone_number
+      s_out=""
+      s_out=s_out+@@lc_linebreak+Raudrohi_cg_debug_verification.new(
+      ['String','s_html_id']).to_s
+      s_out=s_out+@@lc_linebreak+my_intestine_boilerplate_t1(
+      s_phonenumber_prefix+@s_name,
+      b_s_phone_number_prefix_constitutes_the_whole_phone_number)+ @@lc_linebreak
+      s_out=s_out+@@lc_linebreak+my_intestine_var_declarations()
+      s_out=s_out+@@lc_linebreak+my_intestine_evhs
+      s_out=s_out+@@lc_linebreak+my_intestine_create_widgets_autogen
+      s_out=s_out+@@lc_linebreak+my_intestine_states_and_stateclusters_and_their_edges
+      return s_out
+   end # my_intestine_all_common_t2
 
 end # class Raudrohi_cg_widget
 

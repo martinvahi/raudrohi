@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
 
@@ -36,23 +36,20 @@
 
 =end
 #==========================================================================
+
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
-require "monitor"
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_htoper.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_graph.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_IDstamp_registry_t1.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_arraycursor_t1.rb"
-else
-   require  "kibuvits_htoper.rb"
-   require  "kibuvits_graph.rb"
-   require  "kibuvits_IDstamp_registry_t1.rb"
-   require  "kibuvits_arraycursor_t1.rb"
-end # if
+require  KIBUVITS_HOME+"/src/include/kibuvits_htoper.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_graph.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_IDstamp_registry_t1.rb"
+require  KIBUVITS_HOME+"/src/include/kibuvits_arraycursor_t1.rb"
 
 #==========================================================================
 # A base class for graph navigation agents.

@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 #=========================================================================
 =begin
 
@@ -36,26 +36,24 @@
 
 =end
 #=========================================================================
+
 if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
+   require 'pathname'
+   ob_pth_0=Pathname.new(__FILE__).realpath
+   ob_pth_1=ob_pth_0.parent.parent.parent
+   s_KIBUVITS_HOME_b_fs=ob_pth_1.to_s
+   require(s_KIBUVITS_HOME_b_fs+"/src/include/kibuvits_boot.rb")
+   ob_pth_0=nil; ob_pth_1=nil; s_KIBUVITS_HOME_b_fs=nil
 end # if
 
-require "monitor"
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_str.rb"
-else
-   require  "kibuvits_str.rb"
-end # if
-require "singleton"
+require  KIBUVITS_HOME+"/src/include/kibuvits_str.rb"
+
 #==========================================================================
 
 # The class Kibuvits_refl is a namespace for reflection related functions
 class Kibuvits_refl
    @@lc_empty_array=[]
-   @@lc_comma=","
    @@lc_s_public="public"
-   @@lc_s_emptystring=""
    @@lc_s_any="any"
    @@lc_rbrace_linebreak=")\n"
    @@lc_rgx_spacetablinebreak=/[\s\t\n\r]/
@@ -243,10 +241,10 @@ class Kibuvits_refl
          return ht_out
       end # if
       s_script_prefix="Kibuvits_refl.get_local_variables_from_binding_helper_func2("+
-      ht_out.object_id.to_s+@@lc_comma
+      ht_out.object_id.to_s+$kibuvits_lc_comma
       ar_varnames.each do |s_varname|
          s_script=s_script_prefix+s_varname.object_id.to_s+
-         @@lc_comma+s_varname+@@lc_rbrace_linebreak
+         $kibuvits_lc_comma+s_varname+@@lc_rbrace_linebreak
          eval(s_script,bn_in)
       end # loop
       return ht_out
@@ -354,10 +352,10 @@ class Kibuvits_refl
       s1=nil
       if @@lc_mx_rgx_spacetablinebreak.locked?
          rgx=/[\s\t\n\r]/
-         s1=s.gsub(rgx,@@lc_s_emptystring)
+         s1=s.gsub(rgx,$kibuvits_lc_emptystring)
       else
          @@lc_mx_rgx_spacetablinebreak.synchronize{
-            s1=s.gsub(@@lc_rgx_spacetablinebreak,@@lc_s_emptystring)
+            s1=s.gsub(@@lc_rgx_spacetablinebreak,$kibuvits_lc_emptystring)
          }
       end # if
       kibuvits_throw "'"+s+"' contains spaces or tabs or linebreaks."  if s.length!=s1.length
@@ -549,12 +547,12 @@ class Kibuvits_refl
       ar_instance_methods=get_methods_by_name(rgx,cl,@@lc_s_any,msgcs)
       ht_instance_methods=Hash.new
       ar_instance_methods.each do |s_method_name|
-         ht_instance_methods[s_method_name]=@@lc_s_emptystring
+         ht_instance_methods[s_method_name]=$kibuvits_lc_emptystring
       end # loop
       ht_static_metohds_2_copy=Hash.new
       ar_static_methods.each do |s_method_name|
          if !ht_instance_methods.has_key? s_method_name
-            ht_static_metohds_2_copy[s_method_name]=@@lc_s_emptystring
+            ht_static_metohds_2_copy[s_method_name]=$kibuvits_lc_emptystring
          end # if
       end # loop
 
@@ -587,4 +585,4 @@ end # class Kibuvits_refl
 #s_method_type="public"
 #msgcs=Kibuvits_msgc_stack.new
 #ht=Kibuvits_refl.get_methods_by_name(rgx,ob,s_method_type,msgcs)
-   #puts Kibuvits_refl.selftest.to_s
+#puts Kibuvits_refl.selftest.to_s

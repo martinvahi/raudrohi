@@ -348,10 +348,16 @@ ob_partialmenu=create_partialmenu_t1(
 #--------------
 
 puts Raudrohi_cg_debug_verification.new(
+['g1_widget','parent_instance'],
 ['String','s_display_format'],
 ['String','s_language']).to_s
-puts ob_wg.my_intestine_all_common(
-"raudrohi.widgets.g1.",false);
+
+b_s_phone_number_prefix_constitutes_the_whole_phone_number=false
+b_parent_instance_is_part_of_the_constructor_parameters=true
+puts(ob_wg.my_intestine_all_common(
+"raudrohi.widgets.g1.",
+b_s_phone_number_prefix_constitutes_the_whole_phone_number,
+b_parent_instance_is_part_of_the_constructor_parameters));
 
 #puts Raudrohi_cg1.inst.generate_decr_var_ar_of_x_s_label1_s_label2(
 #"ar_partialmenu_content_1_to_28_",ar_partialmenu_content_1_to_28,true)+
