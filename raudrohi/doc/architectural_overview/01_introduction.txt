@@ -33,7 +33,7 @@ web browsers evolve. The constellations at the ground level
 are called "ports" and they can be swapped by optional configuration
 parameters. The ports are located in the 
 src/devel/bonnet/raudrohi_adapter.js . The entry point for 
-studying the ports code is: raudrohi.initiate_adapter
+studying the ports code is: window.window.raudrohi.initiate_adapter
 
 
 ===========================================================================

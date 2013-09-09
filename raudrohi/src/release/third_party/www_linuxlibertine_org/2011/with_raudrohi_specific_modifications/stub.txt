@@ -1,1 +1,0 @@
-This is a stub file for maintaining the this folder in the Mercurial repository.

@@ -6,13 +6,13 @@
 
 function s_rainbow_char(s_text,s_html_color){
 	if(raudrohi_settings_debug_JavaScript===true){
-		raudrohi.base.assert_isString(s_text,'s_text',
+		window.raudrohi.base.assert_isString(s_text,'s_text',
 			'ce54a53c-1092-4858-8bd3-e2224090abd7');
 
 		// It verifies that the s_html_color is of type String
 		// and that the string is in the format of '#xxxxxx',
 		// where the x is inSet {0..f}.
-		raudrohi.lang.assert_is_an_HTML_color(s_html_color,
+		window.raudrohi.lang.assert_is_an_HTML_color(s_html_color,
 			's_html_color','2b743e12-aed0-4c17-8b53-e2224090abd7');
 	} // if
 	var s_out='<b style="color:'+s_html_color+';">'+s_text+'</b>';
@@ -21,7 +21,7 @@ function s_rainbow_char(s_text,s_html_color){
 
 function s_rainbow_block(s_html_color_start,s_html_color_end,s_text){
 	var i_max_number_of_colors_in_the_rainbow=200;
-	var ar_colors=raudrohi.vfx.ar_interpolate_html_colors(
+	var ar_colors=window.raudrohi.vfx.ar_interpolate_html_colors(
 		s_html_color_start, s_html_color_end,
 		i_max_number_of_colors_in_the_rainbow);
 	var s_out='';
@@ -76,13 +76,13 @@ window.the_main_function_of_this_demo= function() {
 	s_html=s_html+s_rainbow_block(
 		s_html_color_start,s_html_color_end,s_text)+s_brbr;
 	//------
-	raudrohi.base.set_innerHTML('eldorado_div',s_html);
+	window.raudrohi.base.set_innerHTML('eldorado_div',s_html);
 } // window.the_main_function_of_this_demo
 
 
 window.onload = function() {
 	var b_make_no_assumptions_about_setup_availability = true;
-	raudrohi.run(b_make_no_assumptions_about_setup_availability,
+	window.raudrohi.run(b_make_no_assumptions_about_setup_availability,
 		window.the_main_function_of_this_demo);
 } // window.onload
 window.onbeforeunload=function(){}

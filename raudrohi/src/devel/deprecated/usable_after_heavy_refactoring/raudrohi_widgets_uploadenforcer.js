@@ -5,7 +5,7 @@
 // background in a separate thread and the uploads are enforced
 // to complete before logout.
 //
-// The raudrohi.widgets.g1.uploadenforcer_t1 is a singleton and
+// The window.raudrohi.widgets.g1.uploadenforcer_t1 is a singleton and
 // has to be "activated" right after log-on, because
 // one does not have access to the server
 // without authenticating the session first.
@@ -13,12 +13,12 @@
 // It has to be manually deactivated at log-off and it will
 // notify by a threadjump, if its deactivation process is complete.
 // The session manager widget has to maintain the session till the
-// raudrohi.widgets.g1.uploadenforcer_t1 has completed its deactivation and
+// window.raudrohi.widgets.g1.uploadenforcer_t1 has completed its deactivation and
 // notified the session manager widget of the completion.
 //
-// The raudrohi.widgets.g1.uploadenforcer_t1 is expected to be used
+// The window.raudrohi.widgets.g1.uploadenforcer_t1 is expected to be used
 // by feeding it threadjump calls and it then redirects them to the
-// server by using the raudrohi.widgets.g1.router2hostserver.
+// server by using the window.raudrohi.widgets.g1.router2hostserver.
 //
 // -----------------------------------
 // Actually, this widget is Deprecated and it is
@@ -26,23 +26,23 @@
 // unless one uses Worker threads.
 // One might want to refactor it and then this widget
 // might get out of the deprecated status.
-raudrohi.widgets.g1.uploadenforcer_t1=function(){
+window.raudrohi.widgets.g1.uploadenforcer_t1=function(){
 	var self_public_=this;
 	try{
 
-		var s_html_id_='raudrohi.widgets.g1.uploadenforcer_t1_is_a_singleton';
-		var pileofmethods_t1_=new raudrohi.widgets.g1.pileofmethods_t1(
+		var s_html_id_='window.raudrohi.widgets.g1.uploadenforcer_t1_is_a_singleton';
+		var pileofmethods_t1_=new window.raudrohi.widgets.g1.pileofmethods_t1(
 			self_public_,'',s_html_id_);
 		var prc_=self_public_.private_code_;
-		this.phone=new raudrohi.lang.comm.phone('uploadenforcer');
+		this.phone=new window.raudrohi.lang.comm.phone('uploadenforcer');
 
-		var htqueue_ht_wrappers_2_send=new raudrohi.lang.htQueue();
+		var htqueue_ht_wrappers_2_send=new window.raudrohi.lang.htQueue();
 
 		function clear_cache(){
 			try{
 				htqueue_ht_wrappers_2_send.clear();
 			} catch (err){
-				raudrohi.tmg('4c76305e-97f1-4860-b2fe-0060a0219bd7',err);
+				window.raudrohi.tmg('4c76305e-97f1-4860-b2fe-0060a0219bd7',err);
 			} // catch
 		} // clear_cache
 
@@ -51,7 +51,7 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 		var deactivator_phone_number_=null;
 		this.deactivate=function(deactivator_phone_number){
 			try{
-				raudrohi.base.assert_isString(deactivator_phone_number,
+				window.raudrohi.base.assert_isString(deactivator_phone_number,
 					'deactivator_phone_number',
 					'a194f735-3ed1-4804-82fe-0060a0219bd7');
 				if(activated_===false){
@@ -72,10 +72,10 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 				prc_.microsession_dismiss_all();
 				clear_cache();
 				deactivator_phone_number_=deactivator_phone_number;
-				setTimeout('raudrohi.widgets.g1.uploadenforcer_t1.'+
+				setTimeout('window.raudrohi.widgets.g1.uploadenforcer_t1.'+
 					'private_code_.job_exec()',5);
 			} catch (err){
-				raudrohi.tmg('37eb77a3-64f2-421a-a1fe-0060a0219bd7',err);
+				window.raudrohi.tmg('37eb77a3-64f2-421a-a1fe-0060a0219bd7',err);
 			} // catch
 		} // deactivate
 
@@ -91,13 +91,13 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 				notification_in_progress_=true;
 				self_public_.state_switcher_.change_state_2('zero');
 				
-				var ht_data=raudrohi.base.pool_of_hashtables.get_empty_hashtable();
+				var ht_data=window.raudrohi.base.pool_of_hashtables.get_empty_hashtable();
 				prc_.threadjump_send(deactivator_phone_number_,
 					'evh_widget_uploadenforcer_deactivated', ht_data, '/dev/null');
 				deactivation_in_progress_=false;
 				notification_in_progress_=false;
 			} catch (err){
-				raudrohi.tmg('e12949f6-9737-41b6-b2fe-0060a0219bd7',err);
+				window.raudrohi.tmg('e12949f6-9737-41b6-b2fe-0060a0219bd7',err);
 			} // catch
 		} // notify_deactivator_of_deactivation_completion
 
@@ -109,7 +109,7 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 				} // if
 				self_public_.state_switcher_.change_state_2('activated');
 			} catch (err){
-				raudrohi.tmg('1dd39fc4-b73c-4276-a4fe-0060a0219bd7',err);
+				window.raudrohi.tmg('1dd39fc4-b73c-4276-a4fe-0060a0219bd7',err);
 			} // catch
 		} // activate
 
@@ -134,7 +134,7 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 					prc_.threadjump_redirect_outwards('router2hostserver',
 						destination_command, ht_wrapper,
 						'process_server_responses');
-					raudrohi.base.pool_of_hashtables.return_used_hashtable(
+					window.raudrohi.base.pool_of_hashtables.return_used_hashtable(
 						ht_wrapper);
 				} // while
 				number_of_jobs_--;
@@ -146,28 +146,28 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 						// handle a case where the number_of_jobs_!==0 is
 						// due to some unfortunate timing gliches.
 						// Better safe than sorry. :)
-						var n_milliseconds=raudrohi.base.rand(50, 200);
-						setTimeout('raudrohi.widgets.g1.uploadenforcer_t1.'+
+						var n_milliseconds=window.raudrohi.base.i_rand_t1(50, 200);
+						setTimeout('window.raudrohi.widgets.g1.uploadenforcer_t1.'+
 							'private_code_.job_exec()',n_milliseconds);
 					} // if
 				} // if
 			} catch (err){
-				raudrohi.tmg('1d0629c3-6cc9-40f9-91ee-0060a0219bd7',err);
+				window.raudrohi.tmg('1d0629c3-6cc9-40f9-91ee-0060a0219bd7',err);
 			} // catch
 		} // private_code_.job_exec
 
 		// It is assumed that the ht_wrapper has been taken from the
-		// raudrohi.base.pool_of_hashtables.
+		// window.raudrohi.base.pool_of_hashtables.
 		this.thrjr_.default_command=function(ht_wrapper){
 			try{
 				if(activated_===false){
 					return;
 				} // if
 				htqueue_ht_wrappers_2_send.push(ht_wrapper);
-				setTimeout('raudrohi.widgets.g1.uploadenforcer_t1.'+
+				setTimeout('window.raudrohi.widgets.g1.uploadenforcer_t1.'+
 					'private_code_.job_exec()',5);
 			} catch (err){
-				raudrohi.tmg('5c34edb0-0c32-4f2f-b3ee-0060a0219bd7',err);
+				window.raudrohi.tmg('5c34edb0-0c32-4f2f-b3ee-0060a0219bd7',err);
 			} // catch
 		} // submit_upload_job
 		
@@ -179,7 +179,7 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 				} // if
 				prc_.threadjump_redirect_inwards(ht_wrapper);
 			} catch (err){
-				raudrohi.tmg('26774659-d4a6-4c11-95ee-0060a0219bd7',err);
+				window.raudrohi.tmg('26774659-d4a6-4c11-95ee-0060a0219bd7',err);
 			} // catch
 		} // thrjr_.process_server_responses
 
@@ -189,14 +189,14 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 				if(!deactivation_in_progress_){
 					// If it already resides in state "zero",
 					// the exit func is not called.
-					raudrohi.tmg('8b60a11a-14d0-450b-a4ee-0060a0219bd7',
+					window.raudrohi.tmg('8b60a11a-14d0-450b-a4ee-0060a0219bd7',
 						'The deactivation must be initiated from '+
 						'method \'deactivate(...)\'.');
 				}
 				clear_cache();
 				activated_=false;
 			} catch (err){
-				raudrohi.tmg('4cfdda2d-840a-45be-93ee-0060a0219bd7',err);
+				window.raudrohi.tmg('4cfdda2d-840a-45be-93ee-0060a0219bd7',err);
 			} // catch
 		} // stsw_exit_activated
 		self_public_.state_switcher_.declare_state_default_exit_func(
@@ -206,7 +206,7 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 			try{
 				activated_=true;
 			} catch (err){
-				raudrohi.tmg('3d567bdc-11bd-4d38-94ee-0060a0219bd7',err);
+				window.raudrohi.tmg('3d567bdc-11bd-4d38-94ee-0060a0219bd7',err);
 			} // catch
 		} // stsw_enter_activated
 		self_public_.state_switcher_.declare_state_default_entry_func(
@@ -218,7 +218,7 @@ raudrohi.widgets.g1.uploadenforcer_t1=function(){
 
 
 	} catch (err){
-		raudrohi.tmg('3253a265-9c3c-4682-91ee-0060a0219bd7',err);
+		window.raudrohi.tmg('3253a265-9c3c-4682-91ee-0060a0219bd7',err);
 	} // catch
-} // raudrohi.widgets.g1.uploadenforcer_t1
+} // window.raudrohi.widgets.g1.uploadenforcer_t1
 

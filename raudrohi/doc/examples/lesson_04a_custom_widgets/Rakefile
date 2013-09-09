@@ -1,0 +1,47 @@
+#!/usr/bin/env rake
+#==========================================================================
+require 'rake'
+
+if !defined? RAUDROHI_HOME
+   require 'pathname'
+   s_0=nil
+   ob_pth=Pathname.new(__FILE__).realpath
+   # The next line must be customized:
+   RAUDROHI_HOME=ob_pth.parent.parent.parent.parent.to_s
+end # if
+
+def project_building_alternative_1
+   # <pwd in project folder> === RAUDROHI_HOME+"/doc/examples/lesson_04a_custom_widgets"
+   s_URL_raudrohi_home_in_generated_html_files="./"+("../"*3)
+   require RAUDROHI_HOME+"/src/dev_tools/raudrohi_dev_tools_api.rb"
+   s_fp_pwd=Pathname.new(__FILE__).realpath.parent.to_s.freeze
+   s_fp_generated_file=s_fp_pwd+"/index.html"
+   s_fp_template=s_fp_pwd+"/bonnet/template_index.html"
+   Raudrohi_dev_tools_api.build_html_t1(s_fp_generated_file,s_fp_template,
+   s_URL_raudrohi_home_in_generated_html_files)
+end # project_building_alternative_1
+
+
+def project_building_alternative_2
+   # <pwd in project folder> === RAUDROHI_HOME+"/doc/examples/lesson_04a_custom_widgets"
+   s_URL_raudrohi_home_in_generated_html_files="./"+("../"*3)
+
+   require RAUDROHI_HOME+"/src/dev_tools/raudrohi_dev_tools_api.rb"
+   # The build_html_t2(...) looks for ./bonnet/template_*
+   # and applies search-replace to some
+   # constants. The search-replace inserts some
+   # CSS and JavaScript file names to the generated file.
+   Raudrohi_dev_tools_api.build_html_t2(__FILE__,
+   s_URL_raudrohi_home_in_generated_html_files)
+end # project_building_alternative_2
+
+
+task :default do
+   # Uncomment the version that You like more.
+   #project_building_alternative_1()
+   project_building_alternative_2() # the reccommended way
+end # default
+
+
+#==========================================================================
+

@@ -71,30 +71,30 @@ TODO: Write an utility that applies sitespecific modifications
 */
 
 /* http://www.gnu.org/s/freefont/
-  
+
    License: the GPL license with an exception that 
    inclusion does not impose the GPL on the work that 
    includes the fonts. */
 @font-face {
     font-family: raudrohi_fontfamily_gnu_mono;
-    src: url(../third_party/gnu_org/freefont/2011/with_raudrhoi_specific_modifications/raudrohi_thirdpartyspecificversion_1_FreeMono.ttf) format("truetype");
+    src: url(../third_party/fonts/gnu_org/freefont/2011/with_raudrhoi_specific_modifications/raudrohi_thirdpartyspecificversion_1_FreeMono.ttf) format("truetype");
 }
 
 @font-face {
     font-family: raudrohi_fontfamily_gnu_mono;
-    src: url(../third_party/gnu_org/freefont/2011/with_raudrhoi_specific_modifications/raudrohi_thirdpartyspecificversion_1_FreeMonoBold.ttf) format("truetype");
+    src: url(../third_party/fonts/gnu_org/freefont/2011/with_raudrhoi_specific_modifications/raudrohi_thirdpartyspecificversion_1_FreeMonoBold.ttf) format("truetype");
     font-weight: bold;
 }
 
 @font-face {
     font-family: raudrohi_fontfamily_gnu_mono;
-    src: url(../third_party/gnu_org/freefont/2011/with_raudrhoi_specific_modifications/raudrohi_thirdpartyspecificversion_1_FreeMonoOblique.ttf) format("truetype");
+    src: url(../third_party/fonts/gnu_org/freefont/2011/with_raudrhoi_specific_modifications/raudrohi_thirdpartyspecificversion_1_FreeMonoOblique.ttf) format("truetype");
     font-style: italic;
 }
 
 @font-face {
     font-family: raudrohi_fontfamily_gnu_mono;
-    src: url(../third_party/gnu_org/freefont/2011/with_raudrhoi_specific_modifications/raudrohi_thirdpartyspecificversion_1_FreeMonoBoldOblique.ttf) format("truetype");
+    src: url(../third_party/fonts/gnu_org/freefont/2011/with_raudrhoi_specific_modifications/raudrohi_thirdpartyspecificversion_1_FreeMonoBoldOblique.ttf) format("truetype");
     font-weight: bold;
     font-style: italic;
 }
@@ -102,12 +102,12 @@ TODO: Write an utility that applies sitespecific modifications
 /* http://eurofurence.net/monofur.html */
 @font-face {
     font-family: raudrohi_fontfamily_monofur;
-    src: url(../third_party/www_eurofurence_net/monofur/with_raudrohi_specific_modifications/raudrohi_thirdpartyspecificversion_1_mono_regular.ttf) format("truetype");
+    src: url(../third_party/fonts/www_eurofurence_net/monofur/with_raudrohi_specific_modifications/raudrohi_thirdpartyspecificversion_1_mono_regular.ttf) format("truetype");
 }
 
 @font-face {
     font-family: raudrohi_fontfamily_monofur;
-    src: url(../third_party/www_eurofurence_net/monofur/with_raudrohi_specific_modifications/raudrohi_thirdpartyspecificversion_1_mono_italic.ttf) format("truetype");
+    src: url(../third_party/fonts/www_eurofurence_net/monofur/with_raudrohi_specific_modifications/raudrohi_thirdpartyspecificversion_1_mono_italic.ttf) format("truetype");
     font-style: italic;
 }
 
@@ -118,3 +118,43 @@ TODO: Write an utility that applies sitespecific modifications
     font-family: raudrohi_fontfamily_gnu_mono, monospace;
 }
 
+/*Credits go to http://stackoverflow.com/questions/6028128/how-do-i-rotate-text-in-css .*/
+
+.raudrohi_rotate_minus90 {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    width: 100px;
+}
+
+.raudrohi_horizontal_line_t1_3px {
+    width: 100%;
+    height: 3px;
+    background: #000000;
+    overflow: hidden;
+}
+
+.raudrohi_horizontal_line_t1_7px {
+    width: 100%;
+    height: 7px;
+    background: #000000;
+    overflow: hidden;
+}
+
+
+.raudrohi_horizontal_line_t1_3px_e0e0e0 {
+    width: 100%;
+    height: 3px;
+    background: #E0E0E0;
+    overflow: hidden;
+}
+
+/* ========== copy-paste from http://www.simile-widgets.org/ START========
+ These css rules are used to modify the display of events with classname attribute
+ In a production system, the rules should be in an external css file to enable
+ shared use and caching                                                            */
+.special_event {
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+/* ========== copy-paste from http://www.simile-widgets.org/ END ========== */

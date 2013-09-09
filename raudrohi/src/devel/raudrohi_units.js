@@ -1,7 +1,7 @@
 //=========================================================================
 
 //-------------------------------------------------------------------------
-raudrohi.units_default_conversion_functions_instantiator=function(){
+window.raudrohi.units_default_conversion_functions_instantiator=function(){
 	try{
 		var self_public_=this;
 
@@ -165,7 +165,7 @@ raudrohi.units_default_conversion_functions_instantiator=function(){
 				ar_function_declarations.push(ob_declaration);
 
 			} catch (err){
-				raudrohi.tmg('3116ac34-ca1d-41aa-95b3-b3a241405dd7',err);
+				window.raudrohi.tmg('3116ac34-ca1d-41aa-95b3-b3a241405dd7',err);
 			} // catch
 		} // declr_funcs_density
 
@@ -185,16 +185,16 @@ raudrohi.units_default_conversion_functions_instantiator=function(){
 				declr_funcs_density(ar_function_declarations);
 				return ar_function_declarations;
 			} catch (err){
-				raudrohi.tmg('937fa78a-2ec7-4117-9bf1-b3a241405dd7',err);
+				window.raudrohi.tmg('937fa78a-2ec7-4117-9bf1-b3a241405dd7',err);
 			} // catch
 
 		} // ar_get_all_default_function_declarations
 
 	//---------------------------------------------------------------------
 	} catch (err){
-		raudrohi.tmg('d18ac56a-b4a9-424c-88d2-b3a241405dd7',err);
+		window.raudrohi.tmg('d18ac56a-b4a9-424c-88d2-b3a241405dd7',err);
 	} // catch
-} // raudrohi.units_default_conversion_functions_instantiator
+} // window.raudrohi.units_default_conversion_functions_instantiator
 
 
 //-------------------------------------------------------------------------
@@ -207,7 +207,7 @@ raudrohi.units_default_conversion_functions_instantiator=function(){
 // of conversion constants.
 //
 //
-raudrohi.units=function(){
+window.raudrohi.units=function(){
 	try{
 		var self_public_=this;
 		var s_separ_='_|_sepArator_|_';
@@ -248,14 +248,14 @@ raudrohi.units=function(){
 					} // if
 				} // else
 			} catch (err){
-				raudrohi.tmg('a62f5359-11fc-4438-9c95-b3a241405dd7',err);
+				window.raudrohi.tmg('a62f5359-11fc-4438-9c95-b3a241405dd7',err);
 			} // catch
 
 		} // declare_conversion_function
 
 		function declare_default_conversion_functions(){
 			try{
-				var ob=new raudrohi.units_default_conversion_functions_instantiator();
+				var ob=new window.raudrohi.units_default_conversion_functions_instantiator();
 				var ar_function_declarations=ob.ar_get_all_default_function_declarations();
 				var i_len=ar_function_declarations.length;
 				var i=0;
@@ -265,7 +265,7 @@ raudrohi.units=function(){
 					self_public_.declare_conversion_function(ob_declaration);
 				} // for
 			} catch (err){
-				raudrohi.tmg('a725f965-92e4-494f-96fe-b3a241405dd7',err);
+				window.raudrohi.tmg('a725f965-92e4-494f-96fe-b3a241405dd7',err);
 			} // catch
 		} // declare_default_conversion_functions
 		declare_default_conversion_functions();
@@ -275,7 +275,7 @@ raudrohi.units=function(){
 		this.s_unit_2_Si=function(s_unit_name){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isString(s_unit_name, 's_unit_name',
+					window.raudrohi.base.assert_isString(s_unit_name, 's_unit_name',
 						'c685e6e1-dd30-4301-b571-b3a241405dd7');
 				} // if
 				var s_si_unit_name=null;
@@ -284,7 +284,7 @@ raudrohi.units=function(){
 				} // if
 				return s_si_unit_name;
 			} catch (err){
-				raudrohi.tmg('d31aa959-66ef-45bd-97e4-b3a241405dd7',err);
+				window.raudrohi.tmg('d31aa959-66ef-45bd-97e4-b3a241405dd7',err);
 			} // catch
 		} // s_unit_2_Si
 
@@ -293,13 +293,13 @@ raudrohi.units=function(){
 		this.fd_convert=function(s_destination_unit,i_or_s_or_fd,s_origin_unit){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isString(s_destination_unit,
+					window.raudrohi.base.assert_isString(s_destination_unit,
 						's_destination_unit',
 						'1c5c8ae9-5ecf-4d53-ac3f-b3a241405dd7');
-					raudrohi.base.assert_isString(s_origin_unit, 's_origin_unit',
+					window.raudrohi.base.assert_isString(s_origin_unit, 's_origin_unit',
 						'b34c50ce-1a24-43a9-b211-b3a241405dd7');
 				} // if
-				var fd_in=raudrohi.base.to_fd(i_or_s_or_fd);
+				var fd_in=window.raudrohi.base.to_fd(i_or_s_or_fd);
 				var fd_out=fd_in;
 				if(s_origin_unit===s_destination_unit){
 					return fd_out;
@@ -315,7 +315,7 @@ raudrohi.units=function(){
 					// Try 2 hops through Si unit like that:
 					// s_origin_unit --> <a Si unit> --> s_destination_unit
 					if((!ht_unit_2_Si_.containsKey(s_origin_unit))===true){
-						raudrohi.tmg('7a1575c9-4176-4530-a3b7-b3a241405dd7',
+						window.raudrohi.tmg('7a1575c9-4176-4530-a3b7-b3a241405dd7',
 							'Direct conversion from '+
 							s_origin_unit+' to '+s_destination_unit+
 							' has not been declared and '+
@@ -325,7 +325,7 @@ raudrohi.units=function(){
 					var s_Si_unit=ht_unit_2_Si_.get(s_origin_unit);
 					s_hop_func_key=s_origin_unit+s_separ_+s_Si_unit;
 					if((!ht_conversion_funcs_.containsKey(s_hop_func_key))===true){
-						raudrohi.tmg('c4091dcc-088e-452e-98d4-b3a241405dd7',
+						window.raudrohi.tmg('c4091dcc-088e-452e-98d4-b3a241405dd7',
 							'Direct conversion from '+
 							s_origin_unit+' to '+s_destination_unit+
 							' has not been declared and a conversion '+
@@ -336,7 +336,7 @@ raudrohi.units=function(){
 					var fd_Si=func(fd_in);
 					s_hop_func_key=s_Si_unit+s_separ_+s_destination_unit;
 					if((!ht_conversion_funcs_.containsKey(s_hop_func_key))===true){
-						raudrohi.tmg('f41ec727-c9bc-44dc-a7f1-b3a241405dd7',
+						window.raudrohi.tmg('f41ec727-c9bc-44dc-a7f1-b3a241405dd7',
 							'Direct conversion from '+
 							s_origin_unit+' to '+s_destination_unit+
 							' has not been declared and a conversion from '+
@@ -348,7 +348,7 @@ raudrohi.units=function(){
 				} // else
 				return fd_out;
 			} catch (err){
-				raudrohi.tmg('b5d187f6-c2c0-4848-9af9-b3a241405dd7',err);
+				window.raudrohi.tmg('b5d187f6-c2c0-4848-9af9-b3a241405dd7',err);
 			} // catch
 		} // fd_convert
 
@@ -358,11 +358,11 @@ raudrohi.units=function(){
 		this.fd_2_Si=function(i_or_s_or_fd,s_unit_name){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isString(s_unit_name, 's_unit_name',
+					window.raudrohi.base.assert_isString(s_unit_name, 's_unit_name',
 						'9e2a26e0-5e15-4f40-9735-b3a241405dd7');
 				} // if
 				if((!ht_unit_2_Si_.containsKey(s_unit_name))===true){
-					raudrohi.tmg('041d4ce7-4c31-4c15-8e87-b3a241405dd7',
+					window.raudrohi.tmg('041d4ce7-4c31-4c15-8e87-b3a241405dd7',
 						'There is no Si unit declared for unit '+s_unit_name);
 				} // if
 				var s_Si_unit=ht_unit_2_Si_.get(s_unit_name);
@@ -370,15 +370,15 @@ raudrohi.units=function(){
 					i_or_s_or_fd,s_unit_name);
 				return fd_out;
 			} catch (err){
-				raudrohi.tmg('25e5a048-fc62-41c1-bad2-b3a241405dd7',err);
+				window.raudrohi.tmg('25e5a048-fc62-41c1-bad2-b3a241405dd7',err);
 			} // catch
 		} // fd_2_Si
 
 	//---------------------------------------------------------------------
 	} catch (err){
-		raudrohi.tmg('0317835b-2e55-425c-9956-b3a241405dd7',err);
+		window.raudrohi.tmg('0317835b-2e55-425c-9956-b3a241405dd7',err);
 	} // catch
-} // raudrohi.units
-raudrohi.units=new raudrohi.units();
+} // window.raudrohi.units
+window.raudrohi.units=new window.raudrohi.units();
 
 	//-------------------------------------------------------------------------

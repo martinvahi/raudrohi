@@ -1,18 +1,27 @@
 //=========================================================================
 
+if (typeof(window) === "undefined") {
+    throw(new Exception("\n Global variable \"window\" is not defined. " +
+        "\n In case of browsers, it is created automatically " +
+        "\n by the browser prior to the start of user JavaScript." +
+        "\n In the case of the Node.js it might be necessary to " +
+        "\n instantiate it manually." +
+        "\n GUID=='a691692a-12fe-4a98-a557-9340a0b16dd7'"));
+} // if
 if (window.raudrohi_exists !== true) {
     window.raudrohi = {};
+    window.raudrohi.globals = {};
     window.raudrohi_exists = true;
 } // if
 
-if (window.raudrohi_core_exists !== true) {
+if (window.raudrohi.globals.raudrohi_core_exists !== true) {
     window.raudrohi.core = {};
-    window.raudrohi_core_exists = true;
+    window.raudrohi.globals.raudrohi_core_exists = true;
 } // if
 
-if (window.raudrohi_core_private_code_exists !== true) {
+if (window.raudrohi.globals.raudrohi_core_private_code_exists !== true) {
     window.raudrohi.core.private_code = {};
-    window.raudrohi_core_private_code_exists = true;
+    window.raudrohi.globals.raudrohi_core_private_code_exists = true;
 } // if
 
 window.raudrohi.core.sring_1_for_instance_reuse = "_tron_";
@@ -67,7 +76,7 @@ var Hashtable = function () {
         var x_out = ht_[s_k];
         if (x_out === undefined) {
             throw "There's no key named \"" + s_key + "\"." +
-                  'GUID="191de143-80ea-43b8-959c-d04190705dd7"'
+                'GUID="e3a5dd54-a769-4684-b557-9340a0b16dd7"'
         } // if
         return x_out;
     } // get
@@ -102,7 +111,7 @@ var Hashtable = function () {
     } // clear
 
     this.keys = function () {
-        return ar_keys_
+        return ar_keys_;
     } // keys
 
     this.remove = function (s_key) {

@@ -1,8 +1,8 @@
 //=========================================================================
 
-//if(window.raudrohi_cache_exists!==true){
+//if(window.raudrohi.globals.raudrohi_cache_exists!==true){
 //	window.raudrohi.widgets.g1.cache={};
-//	window.raudrohi_cache_exists=true;
+//	window.raudrohi.globals.raudrohi_cache_exists=true;
 //} // if
 //-------------------------------------------------------------------------
 
@@ -14,20 +14,20 @@
 // To avoid query-instance type detection related issues
 // there should be at most one query-instance type per cache
 // instance.
-raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
+window.raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 	var self_public_=this;
 	var instance_public_=self_public_;
 	try{
 		if(raudrohi_settings_debug_JavaScript===true){
-			raudrohi.base.assert_isString(
+			window.raudrohi.base.assert_isString(
 				s_parent_phone_number, 's_parent_phone_number',
 				'a1956b27-d906-4578-9416-b050a0219bd7');
 		} // if
 
-		var s_html_id_='The_raudrohi.widgets.g1.cache_t2_is_a_nongraphical_widget'+
-		raudrohi.base.generate_id();
-		var pileofmethods_t1_=new raudrohi.widgets.g1.pileofmethods_t1(
-			self_public_,'raudrohi.widgets.g1.cache_t2_',s_html_id_);
+		var s_html_id_='The_window.raudrohi.widgets.g1.cache_t2_is_a_nongraphical_widget'+
+		window.raudrohi.base.generate_id();
+		var pileofmethods_t1_=new window.raudrohi.widgets.g1.pileofmethods_t1(
+			self_public_,'window.raudrohi.widgets.g1.cache_t2_',s_html_id_);
 		var prc_=self_public_.private_code_;
 		prc_.parent_phone_number_=s_parent_phone_number;
 		//this.display_message=pileofmethods_t1_.display_message_t3;
@@ -39,13 +39,13 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 		// value --- server response
 		var ht_cache_=new Hashtable();
 
-		// key    --- qyery signature in the format of raudrohi.dbcomm.dbq1.get_query_params_signature
+		// key    --- qyery signature in the format of window.raudrohi.dbcomm.dbq1.get_query_params_signature
 		// value  --- array of requester phone numbers.
 		var ht_pending_queries_=new Hashtable();
 
 		// The wrapper_hashtable is in the format that is created
-		// within the raudrohi.widgets.g1.pileofmethods_t1.instance_public_.only_for_raudrohi_core_developers.microsession_assemble_data_wrapper_hashtable
-		// The signature is in the format of raudrohi.dbcomm.dbq1.get_query_params_signature
+		// within the window.raudrohi.widgets.g1.pileofmethods_t1.instance_public_.only_for_raudrohi_core_developers.microsession_assemble_data_wrapper_hashtable
+		// The signature is in the format of window.raudrohi.dbcomm.dbq1.get_query_params_signature
 		function submit_cache_query_2_server(signature, wrapper_hashtable){
 			try{
 				var ht_requester_phonenumbers;
@@ -56,44 +56,44 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 					ht_requester_phonenumbers.put(s_key, wrapper_hashtable);
 					return;
 				} // if
-				ht_requester_phonenumbers=new raudrohi.base.HashtableUtilizer(
+				ht_requester_phonenumbers=new window.raudrohi.base.HashtableUtilizer(
 					'requester_phns_'+signature,ht_utiliz_);
 				ht_requester_phonenumbers.put(s_key, wrapper_hashtable);
 				ht_pending_queries_.put(signature,ht_requester_phonenumbers);
 
-				var ht_out=raudrohi.base.pool_of_hashtables.get_empty_hashtable();
+				var ht_out=window.raudrohi.base.pool_of_hashtables.get_empty_hashtable();
 				ht_out.put('signature',signature);
 				var ht_q=wrapper_hashtable.get('data');
 				ht_out.put('serialized_query_hashtable',
-					raudrohi.dbcomm.dbq1.serialize_query_ht(ht_q));
+					window.raudrohi.dbcomm.dbq1.serialize_query_ht(ht_q));
 				var destination_command=ht_q.get('formscript_processor_name');
 				prc_.threadjump_send('router2hostserver', destination_command,
 					ht_out, 'process_server_response');
-				raudrohi.base.pool_of_hashtables.return_used_hashtable(ht_out);
+				window.raudrohi.base.pool_of_hashtables.return_used_hashtable(ht_out);
 			} catch (err){
-				raudrohi.tmg('68a49933-edbb-4beb-b516-b050a0219bd7',err);
+				window.raudrohi.tmg('68a49933-edbb-4beb-b516-b050a0219bd7',err);
 			} // catch
 		} // submit_cache_query_2_server
 
 
 		// The wrapper_hashtable is in the format that is created
-		// within the raudrohi.widgets.g1.pileofmethods_t1.instance_public_.only_for_raudrohi_core_developers.microsession_assemble_data_wrapper_hashtable
+		// within the window.raudrohi.widgets.g1.pileofmethods_t1.instance_public_.only_for_raudrohi_core_developers.microsession_assemble_data_wrapper_hashtable
 		// The wrapper_hashtable's data "field" is expected to contain
 		// an hashtable that conforms to the format of
-		// raudrohi.dbcomm.dbq1.create_empty_ht().
+		// window.raudrohi.dbcomm.dbq1.create_empty_ht().
 		self_public_.thrjr_.get_from_cache=function(wrapper_hashtable){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isObject(wrapper_hashtable,
+					window.raudrohi.base.assert_isObject(wrapper_hashtable,
 						'wrapper_hashtable',
 						'845e9266-321a-4745-bc16-b050a0219bd7');
-					raudrohi.base.assert_isString(
+					window.raudrohi.base.assert_isString(
 						wrapper_hashtable.get('return_phonenumber'),
 						'wrapper_hashtable.get(\'return_phonenumber\')',
 						'44e07fb9-95c8-4051-9316-b050a0219bd7');
 				} // if
 				var ht_q=wrapper_hashtable.get('data');
-				var signature=raudrohi.dbcomm.dbq1.get_query_params_signature(
+				var signature=window.raudrohi.dbcomm.dbq1.get_query_params_signature(
 					ht_q);
 				if(ht_cache_.containsKey(signature)){
 					wrapper_hashtable.put('data',ht_cache_.get(signature));
@@ -103,7 +103,7 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 				submit_cache_query_2_server(signature,
 					wrapper_hashtable);
 			} catch (err){
-				raudrohi.tmg('24b6b925-b728-4d05-b106-b050a0219bd7',err);
+				window.raudrohi.tmg('24b6b925-b728-4d05-b106-b050a0219bd7',err);
 			} // catch
 		} // get_from_cache
 
@@ -111,12 +111,12 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 			signature,ht_rows){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isString( signature,'signature',
+					window.raudrohi.base.assert_isString( signature,'signature',
 						'38e056d2-cb82-494f-9506-b050a0219bd7');
-					raudrohi.base.assert_isObject(ht_rows,'ht_rows',
+					window.raudrohi.base.assert_isObject(ht_rows,'ht_rows',
 						'135e2d2b-c001-48dc-9306-b050a0219bd7');
 					if(!ht_pending_queries_.containsKey(signature)){
-						raudrohi.adapter.log(
+						window.raudrohi.adapter.log(
 							'GUID==06910038-9a41-45d1-988b-7f2535a0eefe'+
 							' Something happened. There is no key '+
 							'for signature "'+signature+'".');
@@ -135,10 +135,10 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 					prc_.threadjump_send_reply(ht_wrapper);
 				} // for
 				ht_pending_queries_.remove(signature);
-				raudrohi.base.pool_of_hashtables.return_used_hashtable(
+				window.raudrohi.base.pool_of_hashtables.return_used_hashtable(
 					ht_requester_phns);
 			} catch (err){
-				raudrohi.tmg('45446834-c24f-45f8-a206-b050a0219bd7',err);
+				window.raudrohi.tmg('45446834-c24f-45f8-a206-b050a0219bd7',err);
 			} // catch
 		} // pass_the_result_on_to_widgets_that_were_waiting_for_it
 
@@ -148,20 +148,20 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 				var s_rows=ht_data.get('data');
 				if(ht_data.get('operation_success')=='f'){
 					if(raudrohi_settings_debug_JavaScript===true){
-						raudrohi.tmg('18e7f827-10b2-40be-9406-b050a0219bd7',
+						window.raudrohi.tmg('18e7f827-10b2-40be-9406-b050a0219bd7',
 							'In cache: server query operation '+
 							'failed. '+ht_data.get('message'));
 					} // if
 					return;
 				} // if
 				var signature=ht_data.get('signature');
-				var ht_rows=raudrohi.lang.deserialize_htOfht_from_ProgFTE(s_rows);
+				var ht_rows=window.raudrohi.lang.deserialize_htOfht_from_ProgFTE(s_rows);
 				ht_cache_.put(signature,ht_rows)
 
 				pass_the_result_on_to_widgets_that_were_waiting_for_it(
 					signature,ht_rows);
 			} catch (err){
-				raudrohi.tmg('ac86d62a-cc4c-443e-b106-b050a0219bd7',err);
+				window.raudrohi.tmg('ac86d62a-cc4c-443e-b106-b050a0219bd7',err);
 			} // catch
 		} // process_server_response
 
@@ -172,7 +172,7 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 				ht_pending_queries_.clear();
 				ht_utiliz_.clear();
 			} catch (err){
-				raudrohi.tmg('d24785de-2d3c-4678-a906-b050a0219bd7',err);
+				window.raudrohi.tmg('d24785de-2d3c-4678-a906-b050a0219bd7',err);
 			} // catch
 		} // this.reset
 
@@ -180,7 +180,7 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 			try{
 				self_public_.reset();
 			} catch (err){
-				raudrohi.tmg('6b59b13a-a72d-4466-b406-b050a0219bd7',err);
+				window.raudrohi.tmg('6b59b13a-a72d-4466-b406-b050a0219bd7',err);
 			} // catch
 		} // stsw_exit_run
 		self_public_.state_switcher_.declare_state_default_exit_func(
@@ -189,7 +189,7 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 		prc_.stsw_enter_run=function(){
 			try{
 			} catch (err){
-				raudrohi.tmg('5dcda443-5417-4440-a306-b050a0219bd7',err);
+				window.raudrohi.tmg('5dcda443-5417-4440-a306-b050a0219bd7',err);
 			} // catch
 		} // stsw_enter_run
 		self_public_.state_switcher_.declare_state_default_entry_func(
@@ -201,6 +201,6 @@ raudrohi.widgets.g1.cache_t2=function(s_parent_phone_number){
 		self_public_.startup_sequence_init();
 
 	} catch (err){
-		raudrohi.tmg('175b464e-8e42-4047-a106-b050a0219bd7',err);
+		window.raudrohi.tmg('175b464e-8e42-4047-a106-b050a0219bd7',err);
 	} // catch
-} // raudrohi.widgets.g1.cache_t2
+} // window.raudrohi.widgets.g1.cache_t2

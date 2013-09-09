@@ -4,7 +4,19 @@
 //
 //=========================================================================
 
-raudrohi.base.s_concat_array_of_strings_watershed = function(ar_in) {
+if (window.raudrohi.globals.raudrohi_base_exists !== true) {
+    window.raudrohi.base = {};
+    window.raudrohi.globals.raudrohi_base_exists = true;
+} // if
+
+if (window.raudrohi.globals.raudrohi_base_private_code_exists !== true) {
+    window.raudrohi.base.private_code = {};
+    window.raudrohi.globals.raudrohi_base_private_code_exists = true;
+} // if
+
+//-------------------------------------------------------------------------
+
+window.raudrohi.base.s_concat_array_of_strings_watershed = function(ar_in) {
 	var s_lc_emptystring = "";
 	var s_out = s_lc_emptystring; // needs to be inited to the ""
 	var i_n = ar_in.length;
@@ -138,26 +150,26 @@ raudrohi.base.s_concat_array_of_strings_watershed = function(ar_in) {
 	} // if
 	// The s_out has been inited to "".
 	return s_out;
-} // raudrohi.base.s_concat_array_of_strings_watershed 
+} // window.raudrohi.base.s_concat_array_of_strings_watershed
 
 
 // Implements watershed concatenation.
-raudrohi.base.s_concat_array_of_strings = function(ar_in) {
+window.raudrohi.base.s_concat_array_of_strings = function(ar_in) {
 	try {
 		if (raudrohi_settings_debug_JavaScript === true) {
-			raudrohi.base.assert_isArray(ar_in, 'ar_in',
+			window.raudrohi.base.assert_isArray(ar_in, 'ar_in',
 				'92c11359-43a6-44e2-b163-617100104dd7');
 		} // if
 		// The implementation is in a separate function to 
 		// allow the s_concat_array_of_strings_watershed to be
 		// copy/pasted to projects that do not use the RJSL.
-		var s_out = raudrohi.base.s_concat_array_of_strings_watershed(
+		var s_out = window.raudrohi.base.s_concat_array_of_strings_watershed(
 			ar_in);
 		return s_out;
 	} catch (err) {
 		throw(new Exception("This function is flawed.\n" + err +
 			"\nGUID='e41003cf-c72e-4425-b882-617100104dd7'"));
 	} // catch
-} // raudrohi.base.s_concat_array_of_strings
+} // window.raudrohi.base.s_concat_array_of_strings
 
 //=========================================================================

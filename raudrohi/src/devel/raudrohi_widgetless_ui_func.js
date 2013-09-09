@@ -48,14 +48,14 @@
 // Practically this code in this file provides components that can be
 // used for assembling the most basic and simplistic widgets.
 //========================================================================
-if(window.raudrohi_widgetless_ui_exists!==true){
+if(window.raudrohi.globals.raudrohi_widgetless_ui_exists!==true){
 	window.raudrohi.widgetless_ui={}; // The "ui" stands for User Interface.
-	window.raudrohi_widgetless_ui_exists=true;
+	window.raudrohi.globals.raudrohi_widgetless_ui_exists=true;
 } // if
 
-if(window.raudrohi_ui_exists!==true){
+if(window.raudrohi.globals.raudrohi_ui_exists!==true){
 	window.raudrohi.widgetless_ui.func={}; // The "ui" stands for User Interface.
-	window.raudrohi_ui_exists=true;
+	window.raudrohi.globals.raudrohi_ui_exists=true;
 } // if
 
 if(window.liilia_exists!==true){
@@ -85,7 +85,7 @@ if(window.liilia_widgetless_ui_func_exists!==true){
 // public domain
 // ----Citation--End----------
 //
-// They are placed to the raudrohi.lang for convenience.
+// They are placed to the window.raudrohi.lang for convenience.
 // return the value of the radio button that is checked
 // return an empty string if none are checked, or
 // there are no radio buttons
@@ -127,28 +127,28 @@ liilia.widgetless_ui.func.setCheckedValue=function(radioObj, newValue) {
 } // liilia.widgetless_ui.func.setCheckedValue
 
 //------------------------------------------------------------------------
-raudrohi.widgetless_ui.func.set_background_color=function(element_id, colourstring) {
-	raudrohi.adapter.setAttribute(element_id,'style',
+window.raudrohi.widgetless_ui.func.set_background_color=function(element_id, colourstring) {
+	window.raudrohi.adapter.setAttribute(element_id,'style',
 		'background:'+colourstring+';');
-} // raudrohi.widgetless_ui.func.set_background_color
+} // window.raudrohi.widgetless_ui.func.set_background_color
 
 
 //------------------------------------------------------------------------
 // It always returns an string, i.e. it never returns null.
-raudrohi.widgetless_ui.func.get_formfield_value=function(element_id){
+window.raudrohi.widgetless_ui.func.get_formfield_value=function(element_id){
 	try{
 		if(!raudrohi_adapter_isString(element_id)){
-			raudrohi.tmg('5c004b33-5e3f-488b-9213-0280a0219bd7',
+			window.raudrohi.tmg('5c004b33-5e3f-488b-9213-0280a0219bd7',
 				'element_id(=='+element_id+') was not a string.');
-			if(raudrohi.base.node_exists(element_id)!==true){
-				raudrohi.tmg('648d0f29-8f6e-447e-b313-0280a0219bd7',
+			if(window.raudrohi.base.node_exists(element_id)!==true){
+				window.raudrohi.tmg('648d0f29-8f6e-447e-b313-0280a0219bd7',
 					'There\'s no node with id=="'+element_id+
 					'" in the DOM tree.');
 			} // if
 		} // if
 		var field_elem=document.getElementById(element_id);
 		if(field_elem==null){
-			raudrohi.tmg('459a0d27-c20e-4581-9513-0280a0219bd7',
+			window.raudrohi.tmg('459a0d27-c20e-4581-9513-0280a0219bd7',
 				'Could not find an element with an id of '+element_id+'.');
 		} // if
 		var field_value=field_elem.value;
@@ -157,81 +157,81 @@ raudrohi.widgetless_ui.func.get_formfield_value=function(element_id){
 		} // if
 		return field_value;
 	} catch (err){
-		raudrohi.tmg('d83d2a56-d155-41fa-9313-0280a0219bd7',err);
+		window.raudrohi.tmg('d83d2a56-d155-41fa-9313-0280a0219bd7',err);
 	} // catch
-} // raudrohi.widgetless_ui.func.get_formfield_value
+} // window.raudrohi.widgetless_ui.func.get_formfield_value
 
-raudrohi.widgetless_ui.func.set_formfield_value=function(element_id,new_text){
+window.raudrohi.widgetless_ui.func.set_formfield_value=function(element_id,new_text){
 	try{
 		if(raudrohi_settings_debug_JavaScript===true){
 			if(!raudrohi_adapter_isString(element_id)){
-				raudrohi.tmg('8fce1d2c-91fc-4368-8513-0280a0219bd7',
+				window.raudrohi.tmg('8fce1d2c-91fc-4368-8513-0280a0219bd7',
 					'element_id(=='+element_id+') was not a string.');
 			} // if
 			if(!raudrohi_adapter_isString(new_text)){
-				raudrohi.tmg('ffb5494c-163c-45ae-b313-0280a0219bd7',
+				window.raudrohi.tmg('ffb5494c-163c-45ae-b313-0280a0219bd7',
 					'new_text(=='+new_text+') was not a string.');
 			} // if
-			if(raudrohi.base.node_exists(element_id)!==true){
-				raudrohi.tmg('b23ff627-e5db-45df-8213-0280a0219bd7',
+			if(window.raudrohi.base.node_exists(element_id)!==true){
+				window.raudrohi.tmg('b23ff627-e5db-45df-8213-0280a0219bd7',
 					'There\'s no node with id=="'+element_id+
 					'" in the DOM tree.');
 			} // if
 		} // if
 		var field_elem=document.getElementById(element_id);
 		if(field_elem===null){
-			raudrohi.tmg('63ba4e5c-a36d-4489-bc13-0280a0219bd7',
+			window.raudrohi.tmg('63ba4e5c-a36d-4489-bc13-0280a0219bd7',
 				'Could not find an element with an id of '+element_id+'.');
 		} // if
 		field_elem.value=new_text;
 	} catch (err){
-		raudrohi.tmg('e386c422-b686-4f3e-b113-0280a0219bd7',err);
+		window.raudrohi.tmg('e386c422-b686-4f3e-b113-0280a0219bd7',err);
 	} // catch
-} // raudrohi.widgetless_ui.func.set_formfield_value
+} // window.raudrohi.widgetless_ui.func.set_formfield_value
 
 
 //------------------------------------------------------------------------
-raudrohi.widgetless_ui.func.set_focus_2_formfield=function(element_id){
+window.raudrohi.widgetless_ui.func.set_focus_2_formfield=function(element_id){
 	try{
 		if(!raudrohi_adapter_isString(element_id)){
-			raudrohi.tmg('b9788226-5929-48f5-8313-0280a0219bd7',
+			window.raudrohi.tmg('b9788226-5929-48f5-8313-0280a0219bd7',
 				'element_id(=='+element_id+') was not a string.');
-			if(raudrohi.base.node_exists(element_id)!==true){
-				raudrohi.tmg('29931ac2-662c-4e0c-9513-0280a0219bd7',
+			if(window.raudrohi.base.node_exists(element_id)!==true){
+				window.raudrohi.tmg('29931ac2-662c-4e0c-9513-0280a0219bd7',
 					'There\'s no node with id=="'+element_id+
 					'" in the DOM tree.');
 			} // if
 		} // if
 		var field_elem=document.getElementById(element_id);
 		if(field_elem===null){
-			raudrohi.tmg('0c436d11-59e2-473b-8113-0280a0219bd7',
+			window.raudrohi.tmg('0c436d11-59e2-473b-8113-0280a0219bd7',
 				'Could not find an element with an id of '+element_id+'.');
 		} // if
 		field_elem.focus();
 	} catch (err){
-		raudrohi.tmg('f0fc3e01-22da-4d39-b303-0280a0219bd7',
+		window.raudrohi.tmg('f0fc3e01-22da-4d39-b303-0280a0219bd7',
 			err+' element_id=='+element_id);
 	} // catch
-} // raudrohi.widgetless_ui.func.set_focus_2_formfield
+} // window.raudrohi.widgetless_ui.func.set_focus_2_formfield
 
 //------------------------------------------------------------------------
 // Returns a string. The reason, why this function exists at all
 // is that one can use it for creating buttons in a deeply nested
 // tables, where the innerHTML or widget based approach won't work.
-raudrohi.widgetless_ui.func.create_button_v1_html=function(button_html_id, button_text,
+window.raudrohi.widgetless_ui.func.create_button_v1_html=function(button_html_id, button_text,
 	optional_attrstrings){
 	try{
 		if(raudrohi_settings_debug_JavaScript===true){
 			if(!raudrohi_adapter_isString(button_html_id)){
-				raudrohi.tmg('85ce162e-7be3-4145-b503-0280a0219bd7',
+				window.raudrohi.tmg('85ce162e-7be3-4145-b503-0280a0219bd7',
 					'button_html_id(=='+button_html_id+') was not a string.');
 			} // if
 			if(!raudrohi_adapter_isString(button_text)){
-				raudrohi.tmg('1e54074b-fc74-446a-b503-0280a0219bd7',
+				window.raudrohi.tmg('1e54074b-fc74-446a-b503-0280a0219bd7',
 					'button_text(=='+button_text+') was not a string.');
 			} // if
 			if (optional_attrstrings!==undefined) {
-				raudrohi.base.assert_isString(optional_attrstrings,
+				window.raudrohi.base.assert_isString(optional_attrstrings,
 					'optional_attrstrings',
 					'a4de9a47-5202-4603-b203-0280a0219bd7');
 			} // if
@@ -245,56 +245,56 @@ raudrohi.widgetless_ui.func.create_button_v1_html=function(button_html_id, butto
 		button_new_html=button_new_html+' >'+button_text+'</button>';
 		return button_new_html;
 	} catch (err){
-		raudrohi.tmg('8cb8f528-35cb-4515-8203-0280a0219bd7',err);
+		window.raudrohi.tmg('8cb8f528-35cb-4515-8203-0280a0219bd7',err);
 	} // catch
-} // raudrohi.widgetless_ui.func.create_button_v1_html
+} // window.raudrohi.widgetless_ui.func.create_button_v1_html
 
 
 // The button is placed into <button_id>_div.
-raudrohi.widgetless_ui.func.create_button_v1=function(button_html_id, button_text,
+window.raudrohi.widgetless_ui.func.create_button_v1=function(button_html_id, button_text,
 	eventhandler_function, class_attribute_value_as_a_string){
 	if(raudrohi_settings_debug_JavaScript===true){
 		if(!raudrohi_adapter_isString(button_html_id)){
-			raudrohi.tmg('4c09a9d7-d3fa-4b2e-8403-0280a0219bd7',
+			window.raudrohi.tmg('4c09a9d7-d3fa-4b2e-8403-0280a0219bd7',
 				'button_html_id(=='+button_html_id+') was not a string.');
 		} // if
 		if(!raudrohi_adapter_isString(class_attribute_value_as_a_string)){
-			raudrohi.tmg('72032168-dc88-41a6-a303-0280a0219bd7',
+			window.raudrohi.tmg('72032168-dc88-41a6-a303-0280a0219bd7',
 				'class_attribute_value_as_a_string(=='+
 				class_attribute_value_as_a_string+
 				') was not a string.');
 		} // if
 		if(!raudrohi_adapter_isString(button_text)){
-			raudrohi.tmg('1ef4a3f2-c25a-4a1c-a303-0280a0219bd7',
+			window.raudrohi.tmg('1ef4a3f2-c25a-4a1c-a303-0280a0219bd7',
 				'button_text(=='+button_text+') was not a string.');
 		} // if
-		raudrohi.base.assert_isFunction(eventhandler_function,
+		window.raudrohi.base.assert_isFunction(eventhandler_function,
 			'eventhandler_function', '21254c72-9678-41c6-b103-0280a0219bd7');
 	} // if
 	try{
-		var button_new_html=raudrohi.widgetless_ui.func.create_button_v1_html(
+		var button_new_html=window.raudrohi.widgetless_ui.func.create_button_v1_html(
 			button_html_id, button_text,
 			' class="'+class_attribute_value_as_a_string+'" ');
-		raudrohi.base.set_innerHTML(button_html_id+'_div',button_new_html);
-		raudrohi.adapter.addEventListner(button_html_id,"click",
+		window.raudrohi.base.set_innerHTML(button_html_id+'_div',button_new_html);
+		window.raudrohi.adapter.addEventListner(button_html_id,"click",
 			eventhandler_function)
 	} catch (err){
-		raudrohi.tmg('cbd0fd11-f639-4515-9203-0280a0219bd7',err);
+		window.raudrohi.tmg('cbd0fd11-f639-4515-9203-0280a0219bd7',err);
 	} // catch
-} // raudrohi.widgetless_ui.func.create_button_v1
+} // window.raudrohi.widgetless_ui.func.create_button_v1
 
 //------------------------------------------------------------------------
-raudrohi.widgetless_ui.func.toHTML_array2selector=function(id_name, an_array_of_menuitem_names,
+window.raudrohi.widgetless_ui.func.toHTML_array2selector=function(id_name, an_array_of_menuitem_names,
 	selected_menuitem_name, max_number_of_visible_options){
 	if(raudrohi_settings_debug_JavaScript===true){
-		raudrohi.base.assert_isString(id_name, 'id_name',
+		window.raudrohi.base.assert_isString(id_name, 'id_name',
 			'22df22c1-6458-49d3-a303-0280a0219bd7');
-		raudrohi.base.assert_isArray(an_array_of_menuitem_names,
+		window.raudrohi.base.assert_isArray(an_array_of_menuitem_names,
 			'an_array_of_menuitem_names',
 			'0defa618-805a-4f6c-b503-0280a0219bd7');
-		raudrohi.base.assert_isString(selected_menuitem_name,
+		window.raudrohi.base.assert_isString(selected_menuitem_name,
 			'selected_menuitem_name','5dde14e4-6904-461a-9103-0280a0219bd7');
-		raudrohi.base.assert_isNumber(max_number_of_visible_options,
+		window.raudrohi.base.assert_isNumber(max_number_of_visible_options,
 			'max_number_of_visible_options',
 			'60fc7158-55e8-4027-93f2-0280a0219bd7');
 	} // if
@@ -315,19 +315,19 @@ raudrohi.widgetless_ui.func.toHTML_array2selector=function(id_name, an_array_of_
 		s_html=s_html+"\n</select>";
 		return s_html;
 	} catch (err){
-		raudrohi.tmg('54e1fb4c-e0ce-4f2e-92f2-0280a0219bd7',err);
+		window.raudrohi.tmg('54e1fb4c-e0ce-4f2e-92f2-0280a0219bd7',err);
 	} // catch
-} // raudrohi.widgetless_ui.func.toHTML_array2selector
+} // window.raudrohi.widgetless_ui.func.toHTML_array2selector
 
 
 // alignment values={north,south,east,west,northeast,northwest,
 // southeast,southwest, center}
 // Returns a hashtable, where ht.get('vertical-align')=PickOne({top,middle,bottom})
 // ht.get('text-align')=PickOne({left,center,right})
-raudrohi.widgetless_ui.func.get_alignment_style_values=function(alignment_as_a_cardinal_point){
+window.raudrohi.widgetless_ui.func.get_alignment_style_values=function(alignment_as_a_cardinal_point){
 	try{
 		if(raudrohi_settings_debug_JavaScript===true){
-			raudrohi.base.assert_isString(alignment_as_a_cardinal_point,
+			window.raudrohi.base.assert_isString(alignment_as_a_cardinal_point,
 				'alignment_as_a_cardinal_point',
 				'277800b3-16b2-440e-92f2-0280a0219bd7');
 		} // if
@@ -372,7 +372,7 @@ raudrohi.widgetless_ui.func.get_alignment_style_values=function(alignment_as_a_c
 				break;
 			default:
 				if(raudrohi_settings_debug_JavaScript===true){
-					throw raudrohi.tmg(
+					throw window.raudrohi.tmg(
 						'467b6419-2ff1-42e1-b3f2-0280a0219bd7',
 						'There\'s no branching for alignment(=='+
 						alignment_as_a_cardinal_point+
@@ -381,43 +381,43 @@ raudrohi.widgetless_ui.func.get_alignment_style_values=function(alignment_as_a_c
 						'northeast, southeast, southwest, northwest.');
 				} // if
 		} // switch
-		var ht=raudrohi.base.pool_of_hashtables.get_empty_hashtable();
+		var ht=window.raudrohi.base.pool_of_hashtables.get_empty_hashtable();
 		ht.put('vertical-align',vertical_style_value);
 		ht.put('text-align',horizontal_style_value);
 		return ht;
 	} catch (err){
-		raudrohi.tmg('3d1d7593-2ae1-4892-b9f2-0280a0219bd7',err);
+		window.raudrohi.tmg('3d1d7593-2ae1-4892-b9f2-0280a0219bd7',err);
 	} // catch
 } // get_alignment_style_values
 
 // alignment values={north,south,east,west,northeast,northwest,
 // southeast,southwest, center}
-raudrohi.widgetless_ui.func.set_alignment=function(alignment_as_a_cardinal_point,
+window.raudrohi.widgetless_ui.func.set_alignment=function(alignment_as_a_cardinal_point,
 	DOM_element_HTML_id){
 	try{
 		if(raudrohi_settings_debug_JavaScript===true){
-			raudrohi.base.assert_isString(alignment_as_a_cardinal_point,
+			window.raudrohi.base.assert_isString(alignment_as_a_cardinal_point,
 				'alignment_as_a_cardinal_point',
 				'bfed5b55-2c35-43cb-a2f2-0280a0219bd7');
-			raudrohi.base.assert_isString(DOM_element_HTML_id,
+			window.raudrohi.base.assert_isString(DOM_element_HTML_id,
 				'DOM_element_HTML_id',
 				'0c3b0b40-6091-494f-b2f2-0280a0219bd7');
 		} // if
-		var ht=raudrohi.widgetless_ui.func.get_alignment_style_values(alignment_as_a_cardinal_point);
-		raudrohi.adapter.editStyle(DOM_element_HTML_id, 'vertical-align',
+		var ht=window.raudrohi.widgetless_ui.func.get_alignment_style_values(alignment_as_a_cardinal_point);
+		window.raudrohi.adapter.editStyle(DOM_element_HTML_id, 'vertical-align',
 			ht.get('vertical-align'));
-		raudrohi.adapter.editStyle(DOM_element_HTML_id, 'text-align',
+		window.raudrohi.adapter.editStyle(DOM_element_HTML_id, 'text-align',
 			ht.get('text-align'));
-		raudrohi.base.pool_of_hashtables.return_used_hashtable(ht);
+		window.raudrohi.base.pool_of_hashtables.return_used_hashtable(ht);
 	} catch (err){
-		raudrohi.tmg('10057c41-90bb-4d58-84f2-0280a0219bd7',err);
+		window.raudrohi.tmg('10057c41-90bb-4d58-84f2-0280a0219bd7',err);
 	} // catch
 } // set_alignment
 
 
-raudrohi.widgetless_ui.func.assert_alignment_value=function(alignment_as_a_cardinal_point){
+window.raudrohi.widgetless_ui.func.assert_alignment_value=function(alignment_as_a_cardinal_point){
 	try{
-		raudrohi.base.assert_isString(alignment_as_a_cardinal_point,
+		window.raudrohi.base.assert_isString(alignment_as_a_cardinal_point,
 			'alignment_as_a_cardinal_point',
 			'82172f2a-2f79-4df3-85f2-0280a0219bd7');
 		switch(alignment_as_a_cardinal_point){
@@ -441,7 +441,7 @@ raudrohi.widgetless_ui.func.assert_alignment_value=function(alignment_as_a_cardi
 				break;
 			default:
 				if(raudrohi_settings_debug_JavaScript===true){
-					throw raudrohi.tmg(
+					throw window.raudrohi.tmg(
 						'1a6857c1-e73a-4aa8-93f2-0280a0219bd7',
 						'There\'s no branching for alignment(=='+
 						alignment_as_a_cardinal_point+
@@ -451,7 +451,7 @@ raudrohi.widgetless_ui.func.assert_alignment_value=function(alignment_as_a_cardi
 				} // if
 		} // switch
 	} catch (err){
-		raudrohi.tmg('5994071e-e484-4df2-85f2-0280a0219bd7',err);
+		window.raudrohi.tmg('5994071e-e484-4df2-85f2-0280a0219bd7',err);
 	} // catch
 } // assert_alignment_value
 

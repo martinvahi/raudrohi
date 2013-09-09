@@ -214,7 +214,7 @@ Another workaround on the wild-wild-web (as of 2010) was the following:
         // The variable hasn't been defined
         } // if
 
-Experimentation with the raudrohi.core.selftest.a_woraround_to_is_defined
+Experimentation with the window.window.raudrohi.core.selftest.a_woraround_to_is_defined
 revealed that the following solution works for both, global and
 local, variables:
 

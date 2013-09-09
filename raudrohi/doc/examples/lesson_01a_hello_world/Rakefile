@@ -1,33 +1,42 @@
 #!/usr/bin/env rake
-
+#==========================================================================
 require 'rake'
 
 if !defined? RAUDROHI_HOME
    require 'pathname'
    s_0=nil
    ob_pth=Pathname.new(__FILE__).realpath
-
    # The next line must be customized:
    RAUDROHI_HOME=ob_pth.parent.parent.parent.parent.to_s
 end # if
+require RAUDROHI_HOME+"/src/dev_tools/raudrohi_dev_tools_api.rb"
 
-require RAUDROHI_HOME+"/src/dev_tools/code_generation"+
-"/raudrohi_client_aid_t1.rb"
+
+def project_building_alternative_1
+   s_URL_raudrohi_home_in_generated_html_files="./bonnet/lib/raudrohi"
+   s_fp_pwd=Pathname.new(__FILE__).realpath.parent.to_s.freeze
+   s_fp_generated_file=s_fp_pwd+"/index.html"
+   s_fp_template=s_fp_pwd+"/bonnet/template_index.html"
+   Raudrohi_dev_tools_api.build_html_t1(s_fp_generated_file,s_fp_template,
+   s_URL_raudrohi_home_in_generated_html_files)
+end # project_building_alternative_1
+
+
+def project_building_alternative_2
+   s_URL_raudrohi_home_in_generated_html_files="./bonnet/lib/raudrohi"
+   # The build_html_t2(...) looks for ./bonnet/template_*
+   # and applies search-replace to some
+   # constants. The search-replace inserts raudrohi and its 
+   # dependencies CSS and JavaScript file names to the generated 
+   # HTML file.
+   Raudrohi_dev_tools_api.build_html_t2(__FILE__,
+   s_URL_raudrohi_home_in_generated_html_files)
+end # project_building_alternative_2
+
 
 task :default do
-   # a relative path to the folder that
-   # contains the raudrohi_all_in_one_v<version>.js
-   s_URL_raudrohi_home="./../../../src/release"
-
-   # The build_html_t1(...) looks for 
-   # ./bonnet/template_* 
-   # and applies search-replace to some
-   # constants. The search-replace adds 
-   # Raudrohi JavaScript Library CSS and JavaScript
-   # file names along with their dependencies
-   # to the generated file.
-   Raudrohi_client_aid_t1.build_html_t2(
-   __FILE__,s_URL_raudrohi_home)
+   #project_building_alternative_1()
+   project_building_alternative_2() # the reccommended way
 end # default
 
 

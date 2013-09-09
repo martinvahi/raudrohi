@@ -2,12 +2,60 @@
 =========================  RJSL TODO list    ==============================
 ===========================================================================
 
+
+---------------------------------------------------------------------------
+                      Current Development plan
+---------------------------------------------------------------------------
+
+1) Clean up the state clusters core code, e.g. enfoce a rule
+   that every state can be at most in one statecluster, except
+   the state "zero", which is always in all state clusters.
+
+2a) Create a unified, HTML-based, documentation that
+    replaces the TXT-files and has links to live code examples.
+2b) Document the statecluster part.
+2c) Document the creation of custom widgets.
+
+3) Study various routing protocols, as described in the
+   documentation of
+       $RAUDROHI_HOME/src/devel/java_gate_t1
+
+   Design idea:
+       It is likely that actual message path 
+       can change during communication session.
+       Consequently message paths can not be 
+       hardcoded, but they have to be created dynamically.
+       To place all instances on the internet to a single
+       graph, each instance must have a unique ID (a GUID will do) 
+       in the context of the whole internet. That allows
+       automated graph search algorithms to create path candidates
+       in the background.
+
+       Things to study: basic, low level, internet routing protocols,
+       the ones that routers use. Name server related protocols, e.g.
+       how subdomain info propagates.
+
+4) Implement the new routing protocol at JavaScript side.
+
+5) Fix/refactor the calendar widget.
+
+6a) Fix/refactor the calendar widget.
+6b) Create a canvas 2D widget.
+6c) Briefly study the DOJO framework.
+
+5) Develop the java_gate_t1
+
+7) Study various WebGL game engines. Implement Ada and
+   JavaScript code that allows the game initialization
+   and logic to be written in Ada, using the java_gate_t1.
+
 ---------------------------------------------------------------------------
                            Flaws/Bugs
 ---------------------------------------------------------------------------
+
 x) For some reason there are places, where Hashtable pools can not be
-   used because the Hashtable is referenced after it has been 
-   released/returned to the pool. That's the reason, why 
+   used because the Hashtable is referenced after it has been
+   released/returned to the pool. That's the reason, why
    current implementation does not use Hashtable pools.
 
 

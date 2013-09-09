@@ -1,0 +1,44 @@
+#!/usr/bin/env rake
+#==========================================================================
+require 'rake'
+
+if !defined? RAUDROHI_HOME
+   require 'pathname'
+   s_0=nil
+   ob_pth=Pathname.new(__FILE__).realpath
+   # The next line must be customized:
+   RAUDROHI_HOME=ob_pth.parent.parent.parent.parent.to_s
+end # if
+require RAUDROHI_HOME+"/src/dev_tools/raudrohi_dev_tools_api.rb"
+
+class Awesome_project_namespace
+   attr_reader :s_URL_raudrohi_home_in_generated_html_files
+
+   def initialize
+      #@s_URL_raudrohi_home_in_generated_html_files="./"+("../"*3)
+      @s_URL_raudrohi_home_in_generated_html_files="./bonnet/lib/raudrohi"
+   end # initialize
+
+end # class Awesome_project_namespace
+
+AWESOME_PROJECT_NS=Awesome_project_namespace.new
+
+
+task :lightweight_build do
+   Raudrohi_dev_tools_api.build_html_t2(__FILE__,
+   AWESOME_PROJECT_NS.s_URL_raudrohi_home_in_generated_html_files)
+end # lightweight_build
+
+task :build do
+   Raudrohi_dev_tools_api.build_html_t2(__FILE__,
+   AWESOME_PROJECT_NS.s_URL_raudrohi_home_in_generated_html_files)
+end # release_build_with_all_optimizations_turned_on
+
+
+task :default do
+   puts Kibuvits_rake.s_list_tasks()
+end # default
+
+
+#==========================================================================
+

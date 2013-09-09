@@ -23,7 +23,7 @@ have a subwidget id specific HTML id property.
 3. Raudrohi JavaScript Widgets: Visibility
 4. Raudrohi JavaScript Widgets: Writability
 5. Raudrohi JavaScript Widgets: State Machine
-6. A few Words About the raudrohi.adapter Namespace
+6. A few Words About the window.window.raudrohi.adapter Namespace
 7. Raudrohi JavaScript Widgets: Event Handling
 
 --------------------------------------------------------------------------
@@ -66,7 +66,7 @@ In the context of the widgets' code,
 the visibility is stored in pf_.self_is_hidden_,
 the writability is stored to the pf_.is_readonly_
 and the run bit is separately handled by an instance
-of type raudrohi.lang.startup_shutdown_handler
+of type window.raudrohi.lang.startup_shutdown_handler
 
 One of the reasons, why the widgets are in a separate
 JavaScript files in stead of a single file is that
@@ -78,9 +78,9 @@ between methods.
 --------------------------------------------------------------------------
 
 Each of the widget is considered to be an "engine" from
-raudrohi.lang.startup_shutdown_handler point of view. The "engine"
+window.raudrohi.lang.startup_shutdown_handler point of view. The "engine"
 concept has been explained within the documentation of
-the raudrohi.lang.startup_shutdown_handler.
+the window.raudrohi.lang.startup_shutdown_handler.
 
 For short, it means that each of the widgets can have a start-up sequence
 and a shut-down sequence and that both of the sequences are allowed to be
@@ -158,23 +158,23 @@ The widget's writability is independent of its visibility.
 
 In addition to the running/stopped, visibility and writability states,
 each of the widgets, with a few exceptions, has widget specific states,
-which are handled by using the class raudrohi.base.state_switcher_t1.
+which are handled by using the class window.raudrohi.base.state_switcher_t1.
 
 
-The class raudrohi.base.state_switcher_t1 should actually be refactored
+The class window.raudrohi.base.state_switcher_t1 should actually be refactored
 to allow all non-zero states to be included by at most one cluster.
 
 --------------------------------------------------------------------------
-           6. A few Words About the raudrohi.adapter Namespace
+           6. A few Words About the window.raudrohi.adapter Namespace
 --------------------------------------------------------------------------
 
 All of the 3. party libraries, with a few very reliable exceptions,
-are interfaced by using the namespace raudrohi.adapter.
+are interfaced by using the namespace window.raudrohi.adapter.
 
 The idea is that the browser specific JavaScript implementation
 inconsistencies are left to 3. parties to sort out.
 
-By using the 3. party code only through the raudrohi.adapter interface,
+By using the 3. party code only through the window.raudrohi.adapter interface,
 the 3. party implementations can be switched without needing to modify
 the Raudrohi library. One of the occasions that imposes a need to
 update/change a 3. party dependency is when a new and backwards
@@ -188,7 +188,7 @@ by many of the Raudrohi code regions.
             7. Raudrohi JavaScript Widgets: Event Handling
 --------------------------------------------------------------------------
 
-The event handling relies on the raudrohi.adapter namespace.
+The event handling relies on the window.raudrohi.adapter namespace.
 
 As the hiding and unhiding of a widget is implemented by erasing
 and creating DOM elements, the event handlers have to be reattached
@@ -200,7 +200,7 @@ to aside, within widgets the events like "on click", "get focus",
 keys on a keyboard.
 
 The implementation of the event handling resides in the
-raudrohi.widgets.g1.keylisteners_unit
+window.raudrohi.widgets.g1.keylisteners_unit
 
 --------------------------------------------------------------------------
 

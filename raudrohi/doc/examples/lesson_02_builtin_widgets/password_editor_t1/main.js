@@ -18,7 +18,7 @@ window.password_acceptance_function_Elephant=function(s_line1,s_line2){
 		ar_out.push(b_password_rejected, s_rejection_message);
 		return ar_out;
 	} catch (err){
-		raudrohi.tmg('438cc02a-f959-42de-9178-4190e0305dd7',err);
+		window.raudrohi.tmg('438cc02a-f959-42de-9178-4190e0305dd7',err);
 	} // catch
 } // window.password_acceptance_function_Elephant
 
@@ -35,7 +35,7 @@ window.password_acceptance_function_Giraffe=function(s_line1,s_line2){
 		ar_out.push(b_password_rejected, s_rejection_message);
 		return ar_out;
 	} catch (err){
-		raudrohi.tmg('9ded334c-a598-4d55-8178-4190e0305dd7',err);
+		window.raudrohi.tmg('9ded334c-a598-4d55-8178-4190e0305dd7',err);
 	} // catch
 } // window.password_acceptance_function_Giraffe
 
@@ -43,29 +43,29 @@ window.hook_for_key_13_of_the_password_line_2=function(e){
 	try{
 		var x_content=window.ob_widget_password_editor_t1.get_content();
 		if(x_content.b_password_not_available===false){
-			raudrohi.base.set_innerHTML('demo_messageboard',
+			window.raudrohi.base.set_innerHTML('demo_messageboard',
 				'The password is: '+x_content.s_password);
 		} else {
-			raudrohi.base.set_innerHTML('demo_messageboard',
+			window.raudrohi.base.set_innerHTML('demo_messageboard',
 				'The password is not available.');
 		} //if
 	} catch (err){
-		raudrohi.tmg('6bb81a59-9528-46f3-8368-4190e0305dd7',err);
+		window.raudrohi.tmg('6bb81a59-9528-46f3-8368-4190e0305dd7',err);
 	} // catch
 } // hook_for_key_13_of_the_password_line_2
 
 window.the_main_function_of_this_demo= function() {
 	var s_widget_html_id='something_nice';
 	var s_parent_stub_widget_html_id='for_the_parent_stub';
-	raudrohi.base.set_innerHTML('eldorado_div',
+	window.raudrohi.base.set_innerHTML('eldorado_div',
 		'<div id="'+s_widget_html_id+'_div"></div>'+
 		'<div id="'+s_parent_stub_widget_html_id+'_div"></div>'+
 		'<div id="demo_messageboard"></div>'+
 		'');
 
-	var ob_parent_widget_stub= new raudrohi.widgets.g1.button_t1(
+	var ob_parent_widget_stub= new window.raudrohi.widgets.g1.button_t1(
 		s_parent_stub_widget_html_id,'this_widget_is_a_stub_parent');
-	window.ob_widget_password_editor_t1= new raudrohi.widgets.g1.password_editor_t1(
+	window.ob_widget_password_editor_t1= new window.raudrohi.widgets.g1.password_editor_t1(
 		s_widget_html_id,ob_parent_widget_stub);
 
 	var ob_widget_password_editor_t1=window.ob_widget_password_editor_t1;
@@ -90,7 +90,7 @@ window.the_main_function_of_this_demo= function() {
 
 window.onload = function() {
 	var b_make_no_assumptions_about_setup_availability = true;
-	raudrohi.run(b_make_no_assumptions_about_setup_availability,
+	window.raudrohi.run(b_make_no_assumptions_about_setup_availability,
 		window.the_main_function_of_this_demo);
 } // window.onload
 window.onbeforeunload=function(){}

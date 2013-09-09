@@ -129,9 +129,9 @@ function sha256hash(msg) {
         M[i] = new Array(16);
         for (var j = 0; j < 16; j++) {  // encode 4 chars per integer, big-endian encoding
             M[i][j] = (msg.charCodeAt(i * 64 + j * 4) << 24) |
-                      (msg.charCodeAt(i * 64 + j * 4 + 1) << 16) |
-                      (msg.charCodeAt(i * 64 + j * 4 + 2) << 8) |
-                      (msg.charCodeAt(i * 64 + j * 4 + 3));
+                (msg.charCodeAt(i * 64 + j * 4 + 1) << 16) |
+                (msg.charCodeAt(i * 64 + j * 4 + 2) << 8) |
+                (msg.charCodeAt(i * 64 + j * 4 + 3));
         } // note running off the end of msg is ok 'cos bitwise ops on NaN return 0
     }
     // add length (in bits) into final pair of 32-bit integers (big-endian) [§5.1.1]
@@ -154,7 +154,7 @@ function sha256hash(msg) {
         }
         for (var tt = 16; tt < 64; tt++) {
             W[tt] = (sigma1(W[tt - 2]) + W[tt - 7] +
-                     sigma0(W[tt - 15]) + W[tt - 16]) & 0xffffffff;
+                sigma0(W[tt - 15]) + W[tt - 16]) & 0xffffffff;
         } // for
 
         // 2 - initialise five working variables a, b, c, d, e with previous hash value
@@ -191,8 +191,8 @@ function sha256hash(msg) {
         H[7] = (H[7] + h) & 0xffffffff;
     }
     return H[0].toHexStr() + H[1].toHexStr() + H[2].toHexStr() +
-           H[3].toHexStr() + H[4].toHexStr() + H[5].toHexStr() +
-           H[6].toHexStr() + H[7].toHexStr();
+        H[3].toHexStr() + H[4].toHexStr() + H[5].toHexStr() +
+        H[6].toHexStr() + H[7].toHexStr();
 } // sha256hash(...)
 
 
@@ -212,29 +212,41 @@ Number.prototype.toHexStr = function () {
 
 //------------------------------------------------------------------------
 
-if (window.raudrohi_selftests_exists !== true) {
+if (window.raudrohi.globals.raudrohi_selftests_exists !== true) {
     window.raudrohi.selftests = {};
-    window.raudrohi_selftests_exists = true;
+    window.raudrohi.globals.raudrohi_selftests_exists = true;
 } // if
-if (window.raudrohi_selftests_ar_tests_1_exists !== true) {
+if (window.raudrohi.globals.raudrohi_selftests_ar_tests_1_exists !== true) {
     window.raudrohi.selftests.ar_tests_1 = [];
-    window.raudrohi_selftests_ar_tests_1_exists = true;
+    window.raudrohi.globals.raudrohi_selftests_ar_tests_1_exists = true;
 } // if
 
-if (window.raudrohi_core_constans_as_reusable_instances_exists !== true) {
+if (window.raudrohi.globals.raudrohi_core_constans_as_reusable_instances_exists !== true) {
     window.raudrohi.core.constans_as_reusable_instances = {};
-    window.raudrohi_core_constans_as_reusable_instances_exists = true;
+    window.raudrohi.globals.raudrohi_core_constans_as_reusable_instances_exists = true;
 } // if
-if (window.raudrohi_settings_exists !== true) {
+if (window.raudrohi.globals.raudrohi_settings_exists !== true) {
     window.raudrohi.settings = {};
-    window.raudrohi_settings_exists = true;
+    window.raudrohi.globals.raudrohi_settings_exists = true;
 } // if
-if (window.raudrohi_settings_runtime_exists !== true) {
+if (window.raudrohi.globals.raudrohi_settings_runtime_exists !== true) {
     window.raudrohi.settings.runtime = {};
-    window.raudrohi_settings_runtime_exists = true;
+    window.raudrohi.globals.raudrohi_settings_runtime_exists = true;
 } // if
 
-//---------
+//-----------------------------------
+
+if (window.raudrohi.globals.raudrohi_wrappers_exists !== true) {
+    window.raudrohi.wrappers = {};
+    window.raudrohi.globals.raudrohi_wrappers_exists = true;
+} // if
+if (window.raudrohi.globals.raudrohi_wrappers_private_code_exists !== true) {
+    window.raudrohi.wrappers.private_code = {};
+    window.raudrohi.globals.raudrohi_wrappers_private_code_exists = true;
+} // if
+
+//-----------------------------------
+
 // The subject_to_replacement_ns is a namespace that is
 // used in a selftests file template. To keep the
 // selftests file template up to date, flawless, it is included
@@ -245,9 +257,9 @@ if (window.raudrohi_settings_runtime_exists !== true) {
 // outside of the template while the template itself is
 // switched into the selftests system, the
 // subject_to_replacement_ns is instantiated here, at the next 3 lines:
-if (window.raudrohi_subject_to_replacement_ns_exists !== true) {
-    raudrohi.subject_to_replacement_ns = {};
-    window.raudrohi_subject_to_replacement_ns_exists = true;
+if (window.raudrohi.globals.raudrohi_subject_to_replacement_ns_exists !== true) {
+    window.raudrohi.subject_to_replacement_ns = {};
+    window.raudrohi.globals.raudrohi_subject_to_replacement_ns_exists = true;
 } // if
 
 //---------
@@ -287,17 +299,19 @@ if (window.angervaks_ui_widgets_globals_exists !== true) {
 // RENESSAATOR_SOURCE_START
 // RAUDROHI_HOME=ENV['RAUDROHI_HOME']
 // require(RAUDROHI_HOME+"/src/dev_tools/code_generation/raudrohi_cg0.rb")
-// puts "raudrohi_settings_debug_JavaScript = "+RAUDROHI_DEBUG_JAVASCRIPT.to_s+";\n"
+// kibuvits_writeln "raudrohi_settings_debug_JavaScript = "+RAUDROHI_DEBUG_JAVASCRIPT.to_s+";\n"
+// kibuvits_writeln "window.raudrohi.settings.s_raudrohi_version= \""+RAUDROHI_s_VERSION.to_s+"\";\n"
 // RENESSAATOR_SOURCE_END
 //
 // RENESSAATOR_AUTOGENERATED_TEXT_START
-raudrohi_settings_debug_JavaScript = true;
+raudrohi_settings_debug_JavaScript = false;
+window.raudrohi.settings.s_raudrohi_version= "2013.06";
 
 // RENESSAATOR_AUTOGENERATED_TEXT_END
 // RENESSAATOR_BLOCK_END
 
-raudrohi.settings.debug_SERVERSIDE = false;
-raudrohi.settings.ajax_request_timeout = 3600  // seconds
+window.raudrohi.settings.debug_SERVERSIDE = false;
+window.raudrohi.settings.ajax_request_timeout = 3600  // seconds
 
 window.raudrohi.settings.runtime.write_exception_stack_2_log = false;
 
@@ -305,29 +319,40 @@ window.raudrohi.settings.runtime.write_exception_stack_2_log = false;
 // After all, we're deeling with a crappy webstuff
 // here and one never knows, what a hell the JavaScript
 // core developperes have done again.
-raudrohi.core.safe_positive_int = 1073741823; //==2^30-1, 0 is a positive number.
+window.raudrohi.core.safe_positive_int = 1073741823; //==2^30-1, 0 is a positive number.
 
 
-raudrohi.core.pair = function () {
+window.raudrohi.core.pair = function () {
     this.a = null;
     this.b = null;
-}; // raudrohi.core.pair
+}; // window.raudrohi.core.pair
 
-raudrohi.core.triple = function () {
+window.raudrohi.core.triple = function () {
     this.a = null;
     this.b = null;
     this.c = null;
-}; // raudrohi.core.triple
+}; // window.raudrohi.core.triple
 
 //------------------------------------------------------------------------
 
-raudrohi.tmg = function (GUID, err) {
-    // The raudrohi.tmg will be overridden in the raudrohi_adapter_v1.js
+window.raudrohi.tmg = function (GUID, err) {
+    // The window.raudrohi.tmg will be overridden in the raudrohi_adapter_v1.js
     var msg = "1196f3e2-434b-4b7d-a10e-408131704dd7" +
-              GUID + "\"\n" + err;
+        GUID + "\"\n" + err;
     throw msg;
     return msg;
-}; // raudrohi.tmg
+}; // window.raudrohi.tmg
+
+//------------------------------------------------------------------------
+
+// raudrohi_selftests_prefix.js has the same declaration and the
+// 2 declarations must be equal.
+if (window.raudrohi.globals.ht_window_dot_onresize_event_handlers_exists !== true) {
+    // Object keys are strings. Values are functions 
+    // that will be executed in random order at the onResize event.
+    window.raudrohi.ht_window_dot_onresize_event_handlers = new Hashtable();
+    window.raudrohi.globals.ht_window_dot_onresize_event_handlers_exists = true;
+} // if
 
 //------------------------------------------------------------------------
 
@@ -360,11 +385,11 @@ var raudrohi_typename_null = "raudrohi_typename_null";
 
 // 't'->true
 // 'f'->false
-raudrohi.core.str2bool = function (a_string) {
+window.raudrohi.core.str2bool = function (a_string) {
     try {
         var answer;
         if (!raudrohi_adapter_isString(a_string)) {
-            raudrohi.tmg('4ea1a45c-5e87-4f20-a30e-408131704dd7',
+            window.raudrohi.tmg('4ea1a45c-5e87-4f20-a30e-408131704dd7',
                 'a_string is not a string.');
         } // if
         if (a_string == 't') {
@@ -375,22 +400,22 @@ raudrohi.core.str2bool = function (a_string) {
                 answer = false
             }
             else {
-                raudrohi.tmg('09f96214-6931-4ee7-850e-408131704dd7',
+                window.raudrohi.tmg('09f96214-6931-4ee7-850e-408131704dd7',
                     'a_string==' + a_string + 'TheEndOf_the_a_string');
             } // else
         } // else
         return answer;
     } catch (err) {
-        raudrohi.tmg('22ecf672-55c7-4e3d-9b0e-408131704dd7', err);
+        window.raudrohi.tmg('22ecf672-55c7-4e3d-9b0e-408131704dd7', err);
     } // catch
-} // raudrohi.core.str2bool
+} // window.raudrohi.core.str2bool
 
-raudrohi.core.bool2str = function (a_boolean) {
+window.raudrohi.core.bool2str = function (a_boolean) {
     try {
         if (!raudrohi_adapter_isBoolean(a_boolean)) {
-            raudrohi.tmg('f02b791e-db2d-4cf4-a30e-408131704dd7',
+            window.raudrohi.tmg('f02b791e-db2d-4cf4-a30e-408131704dd7',
                 'The a_boolean is not a boolean and it ' +
-                'has a value of ' + a_boolean);
+                    'has a value of ' + a_boolean);
         } // if
         var answer;
         switch (a_boolean) {
@@ -402,46 +427,46 @@ raudrohi.core.bool2str = function (a_boolean) {
                 break;
             default:
                 if (raudrohi_settings_debug_JavaScript === true) {
-                    raudrohi.tmg('GUID=="154ef4ba-b4c0-4c0c-830e-408131704dd7"',
+                    window.raudrohi.tmg('GUID=="154ef4ba-b4c0-4c0c-830e-408131704dd7"',
                         'There\'s no branching for a_boolean(==' + a_boolean +
-                        ').');
+                            ').');
                 } // if
         } // switch
         return answer;
     } catch (err) {
-        raudrohi.tmg('21daed2e-ffad-44ff-82fd-408131704dd7', err);
+        window.raudrohi.tmg('21daed2e-ffad-44ff-82fd-408131704dd7', err);
     } // catch
-} // raudrohi.core.bool2str
+} // window.raudrohi.core.bool2str
 
 //------------------------------------------------------------------------
 
-window.raudrohi_core_burnCPUcycles_helpervar = 0;
+window.raudrohi.globals.raudrohi_core_burnCPUcycles_helpervar = 0;
 // This is the classic dirty, code monkey way of implementing the delay()
 // function. Hooray to the JavaScript language design!!!
-raudrohi.core.burnCPUcycles = function (number_of_batches) {
+window.raudrohi.core.burnCPUcycles = function (number_of_batches) {
     try {
         if (number_of_batches < 0) {
-            raudrohi.tmg('33fb55b9-05f1-478b-82fd-408131704dd7',
+            window.raudrohi.tmg('33fb55b9-05f1-478b-82fd-408131704dd7',
                 'number_of_batches(==' + number_of_batches + ') < 0');
         } // if
         var i = 0;
         while ((i++) <= number_of_batches) {
-            window.raudrohi_core_burnCPUcycles_helpervar = number_of_batches +
-                                                           window.raudrohi_core_burnCPUcycles_helpervar;
+            window.raudrohi.globals.raudrohi_core_burnCPUcycles_helpervar = number_of_batches +
+                window.raudrohi.globals.raudrohi_core_burnCPUcycles_helpervar;
             if ((i % 3) == 0) {
                 // The if-clause is to make it harder for the interpreter
                 // to optimize this loop.
-                window.raudrohi_core_burnCPUcycles_helpervar++;
+                window.raudrohi.globals.raudrohi_core_burnCPUcycles_helpervar++;
             } // if
         } // while
     } catch (err) {
-        raudrohi.tmg('2d90ea3a-adc6-4183-a2fd-408131704dd7', err);
+        window.raudrohi.tmg('2d90ea3a-adc6-4183-a2fd-408131704dd7', err);
     } // catch
-} // raudrohi.core.burnCPUcycles
+} // window.raudrohi.core.burnCPUcycles
 
 //------------------------------------------------------------------------
 
-raudrohi.core.isWithinClosedInterval = function (infimum, candidate, supremum) {
+window.raudrohi.core.isWithinClosedInterval = function (infimum, candidate, supremum) {
     try {
         if (candidate < infimum) {
             return false;
@@ -451,18 +476,18 @@ raudrohi.core.isWithinClosedInterval = function (infimum, candidate, supremum) {
         } // if
         return true;
     } catch (err) {
-        raudrohi.tmg('28b9d363-d3ee-42cb-9cfd-408131704dd7', err);
+        window.raudrohi.tmg('28b9d363-d3ee-42cb-9cfd-408131704dd7', err);
     } // catch
-} // raudrohi.core.isWithinClosedInterval
+} // window.raudrohi.core.isWithinClosedInterval
 
 //------------------------------------------------------------------------
 
-raudrohi.core.isWithinKeyeventKeyCodes_bounds = [8, 9, 13, 13, 16, 20, 27, 27,
+window.raudrohi.core.isWithinKeyeventKeyCodes_bounds = [8, 9, 13, 13, 16, 20, 27, 27,
     33, 40, 45, 57, 65, 93, 96, 107, 109, 123, 144, 145, 186, 192, 219, 222];
-raudrohi.core.isWithinKeyeventKeyCodes = function (key_code_candidate) {
+window.raudrohi.core.isWithinKeyeventKeyCodes = function (key_code_candidate) {
     try {
         var halve_len = Math.floor(
-            raudrohi.core.isWithinKeyeventKeyCodes_bounds.length / 2 + 0.01);
+            window.raudrohi.core.isWithinKeyeventKeyCodes_bounds.length / 2 + 0.01);
         var i = 0;
         var ii = 0;
         var b;
@@ -470,9 +495,9 @@ raudrohi.core.isWithinKeyeventKeyCodes = function (key_code_candidate) {
         var upper_bound;
         for (i = 0; i < halve_len; i++) {
             ii = i * 2;
-            lower_bound = raudrohi.core.isWithinKeyeventKeyCodes_bounds[ii];
-            upper_bound = raudrohi.core.isWithinKeyeventKeyCodes_bounds[ii + 1];
-            b = raudrohi.core.isWithinClosedInterval(lower_bound,
+            lower_bound = window.raudrohi.core.isWithinKeyeventKeyCodes_bounds[ii];
+            upper_bound = window.raudrohi.core.isWithinKeyeventKeyCodes_bounds[ii + 1];
+            b = window.raudrohi.core.isWithinClosedInterval(lower_bound,
                 key_code_candidate, upper_bound);
             if (b) {
                 return true;
@@ -480,10 +505,10 @@ raudrohi.core.isWithinKeyeventKeyCodes = function (key_code_candidate) {
         } // for
         return false;
     } catch (err) {
-        raudrohi.tmg('7f5ef421-b743-42ea-85fd-408131704dd7', err);
+        window.raudrohi.tmg('7f5ef421-b743-42ea-85fd-408131704dd7', err);
     } // catch
 
-} // raudrohi.core.isWithinKeyeventKeyCodes
+} // window.raudrohi.core.isWithinKeyeventKeyCodes
 
 //------------------------------------------------------------------------
 

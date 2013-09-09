@@ -9,7 +9,7 @@
 The Raudrohi JavaScript Library (hereafter: RJSL) is a
 collection of 3. party libraries and code written by me,
 martin.vahi@softf1.com. The RJSL includes a widgets based
-framework, where some of the widgets are non-graphical.
+framework, where some of the widgets are non-graphical. 
 
 ---------------------------------------------------------------------------
                            W A R N I N G

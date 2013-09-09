@@ -3,7 +3,7 @@
 
 // Instances that want to use the functionality of a critical section
 // should instantiate this class and have the instance of the
-// raudrohi.critical_section_t1 as one of its private fields.
+// window.raudrohi.critical_section_t1 as one of its private fields.
 //
 // In stead of using only on type of critical section,
 // where only one thread can reside at a time regardless of what it
@@ -30,7 +30,7 @@
 //
 // TODO: One should study, if the Banker's algorithm
 // might be beneficial, increase the reliability, of the implementation.
-raudrohi.critical_section_t1=function(){
+window.raudrohi.critical_section_t1=function(){
 	try{
 		var self_public_=this;
 		var mutexes_rw_={};
@@ -54,13 +54,13 @@ raudrohi.critical_section_t1=function(){
 			func_the_critical_section){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isString(s_mutexname,
+					window.raudrohi.base.assert_isString(s_mutexname,
 						's_mutexname',
 						'4caa14c2-f8e4-45ec-b154-8090a0219bd7');
-					raudrohi.base.assert_isFunction(func_useful_precritical_initstuff,
+					window.raudrohi.base.assert_isFunction(func_useful_precritical_initstuff,
 						'func_useful_precritical_initstuff',
 						'4eef7121-2f25-4cec-8c14-8090a0219bd7');
-					raudrohi.base.assert_isFunction(func_the_critical_section,
+					window.raudrohi.base.assert_isFunction(func_the_critical_section,
 						'func_the_critical_section',
 						'1ed77532-c3e5-452b-8b34-8090a0219bd7');
 				} // if
@@ -72,7 +72,7 @@ raudrohi.critical_section_t1=function(){
 					mutexes_rw_[s_mutexname]=false;
 				} // if
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isBoolean(
+					window.raudrohi.base.assert_isBoolean(
 						mutexes_rw_[s_mutexname],
 						'mutexes_['+s_mutexname+']',
 						'4262d271-9acf-448b-b544-8090a0219bd7');
@@ -82,10 +82,10 @@ raudrohi.critical_section_t1=function(){
 						try{
 							func_useful_precritical_initstuff();
 						} catch (err){
-							raudrohi.tmg('6449d649-8852-447b-8164-8090a0219bd7',err);
+							window.raudrohi.tmg('6449d649-8852-447b-8164-8090a0219bd7',err);
 						} // catch
 					} else {
-						raudrohi.core.burnCPUcycles(10);
+						window.raudrohi.core.burnCPUcycles(10);
 					} // else
 					i_in_tHe_criticAl_section99343++;
 				} // while
@@ -94,18 +94,18 @@ raudrohi.critical_section_t1=function(){
 					try{
 						func_useful_precritical_initstuff();
 					} catch (err){
-						raudrohi.tmg('17c6ba11-37f0-4c20-b514-8090a0219bd7',err);
+						window.raudrohi.tmg('17c6ba11-37f0-4c20-b514-8090a0219bd7',err);
 					} // catch
 				} // if
 				try{
 					func_the_critical_section();
 				} catch (err){
-					raudrohi.tmg('84fce861-f40f-4dde-8e53-8090a0219bd7',err);
+					window.raudrohi.tmg('84fce861-f40f-4dde-8e53-8090a0219bd7',err);
 				} // catch
 				mutexes_rw_[s_mutexname]=false;
 				return i_in_tHe_criticAl_section99343;
 			} catch (err){
-				raudrohi.tmg('8a410ecf-1ebb-4d5d-b913-8090a0219bd7',
+				window.raudrohi.tmg('8a410ecf-1ebb-4d5d-b913-8090a0219bd7',
 					"s_mutexname=="+s_mutexname+"  "+err);
 			} // catch
 		} // critical_section_rw
@@ -119,9 +119,9 @@ raudrohi.critical_section_t1=function(){
 		this.critical_section_r=self_public_.critical_section_rw
 
 	} catch (err){
-		raudrohi.tmg('296ad135-d481-4fee-9843-8090a0219bd7',err);
+		window.raudrohi.tmg('296ad135-d481-4fee-9843-8090a0219bd7',err);
 	} // catch
-} // raudrohi.critical_section_t1
+} // window.raudrohi.critical_section_t1
 
 
 //------------------------------------------------------------------------

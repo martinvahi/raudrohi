@@ -7,14 +7,14 @@
 // The "ui" stands for User Interface.
 // 
 //========================================================================
-if(window.raudrohi_widgetless_ui_classes_exists!==true){
-	window.raudrohi.widgetless_ui_classes={}; 
-	window.raudrohi_widgetless_ui_classes_exists=true;
+if(window.raudrohi.globals.raudrohi_widgetless_ui_classes_exists!==true){
+	window.raudrohi.widgetless_ui_classes={};
+	window.raudrohi.globals.raudrohi_widgetless_ui_classes_exists=true;
 } // if
 
-if(window.raudrohi_widgetless_ui_classes_private_code_exists!==true){
-	window.raudrohi.widgetless_ui_classes.private_code={}; 
-	window.raudrohi_widgetless_ui_classes_private_code_exists=true;
+if(window.raudrohi.globals.raudrohi_widgetless_ui_classes_private_code_exists!==true){
+	window.raudrohi.widgetless_ui_classes.private_code={};
+	window.raudrohi.globals.raudrohi_widgetless_ui_classes_private_code_exists=true;
 } // if
 
 //------------------------------------------------------------------------
@@ -119,11 +119,11 @@ window.raudrohi.widgetless_ui_classes.img_with_links=function(s_image_url,
 				//i_height_orig*fd_fx);
 				return s_out;
 			} catch (err){
-				raudrohi.tmg('27a21f10-df70-4791-942c-61c111202dd7',err);
+				window.raudrohi.tmg('27a21f10-df70-4791-942c-61c111202dd7',err);
 			} // catch
 		} // to_s_by_new_width
 	} catch (err){
-		raudrohi.tmg('098fe23e-3fcd-4244-b12c-61c111202dd7',err);
+		window.raudrohi.tmg('098fe23e-3fcd-4244-b12c-61c111202dd7',err);
 	} // catch
 } // class img_with_links
 

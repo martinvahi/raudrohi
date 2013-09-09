@@ -1,20 +1,21 @@
 //=========================================================================
 
-raudrohi.date_and_time_instancecount=0;
+window.raudrohi.date_and_time_instancecount=0;
 
 // It's a singleton.
 //
 // One has to give credit to the http://www.timeanddate.com
 // for time and date related documentation.
-raudrohi.date_and_time=function(){
+window.raudrohi.date_and_time=function(){
 	try{
-		raudrohi.date_and_time_instancecount=1+
-		raudrohi.date_and_time_instancecount;
-		if(1<raudrohi.date_and_time_instancecount){
-			raudrohi.tmg('b44b6312-22b4-4843-8c53-0090a0219bd7',
+		window.raudrohi.date_and_time_instancecount=1+
+		window.raudrohi.date_and_time_instancecount;
+		if(1<window.raudrohi.date_and_time_instancecount){
+			window.raudrohi.tmg('b44b6312-22b4-4843-8c53-0090a0219bd7',
 				"Something is wrong, because the "+
-				"raudrohi.date_and_time is supposed to be "+
-				"a singleton, which gets instantiated automatically. ");
+				"window.raudrohi.date_and_time is supposed to be "+
+				"a singleton, which gets instantiated "+
+				"automatically. ");
 		} // if
 		var self_public_=this;
 		self_public_.selftests={};
@@ -30,7 +31,7 @@ raudrohi.date_and_time=function(){
 				} // if
 				return true;
 			} catch (err){
-				raudrohi.tmg('5414ae15-bf15-4877-aa23-0090a0219bd7',err);
+				window.raudrohi.tmg('5414ae15-bf15-4877-aa23-0090a0219bd7',err);
 			} // catch
 		} // is_a_leap_year_prerequisite_1
 
@@ -41,7 +42,7 @@ raudrohi.date_and_time=function(){
 		this.is_a_leap_year=function(i_year){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isNumber(i_year,'i_year',
+					window.raudrohi.base.assert_isNumber(i_year,'i_year',
 						'8217393a-5ac1-4448-8783-0090a0219bd7');
 				} // if
 				if(is_a_leap_year_prerequisite_1(i_year)===false){
@@ -58,7 +59,7 @@ raudrohi.date_and_time=function(){
 				} // if
 				return b_out;
 			} catch (err){
-				raudrohi.tmg('96a4c5a1-073a-4bfa-8553-0090a0219bd7',err);
+				window.raudrohi.tmg('96a4c5a1-073a-4bfa-8553-0090a0219bd7',err);
 			} // catch
 		} // is_a_leap_year
 
@@ -80,7 +81,7 @@ raudrohi.date_and_time=function(){
 				var len=ar_NOT_leap_years.length;
 				for(i=0;i<len;i++){
 					i_year=ar_NOT_leap_years[i];
-					if(raudrohi.date_and_time.is_a_leap_year(i_year)===true){
+					if(window.raudrohi.date_and_time.is_a_leap_year(i_year)===true){
 						ar_failed_tests.push('test NON-leapyears, '+
 							'i_year=='+i_year+'');
 					} // if
@@ -91,7 +92,7 @@ raudrohi.date_and_time=function(){
 				len=ar_leap_years.length;
 				for(i=0;i<len;i++){
 					i_year=ar_leap_years[i];
-					if(raudrohi.date_and_time.is_a_leap_year(i_year)===false){
+					if(window.raudrohi.date_and_time.is_a_leap_year(i_year)===false){
 						ar_failed_tests.push('test leapyears, '+
 							'i_year=='+i_year+'');
 					} // if
@@ -102,12 +103,12 @@ raudrohi.date_and_time=function(){
 				if(0<x_FireFox_bug_workaround){
 					ht.put('test_passed','f');
 					ht.put('code_region_name',
-						'raudrohi.date_and_time.selftests.is_a_leap_year');
+						'window.raudrohi.date_and_time.selftests.is_a_leap_year');
 					ht.put('ar_failed_tests',ar_failed_tests);
 				} // if
 				return ht;
 			} catch (err){
-				raudrohi.tmg('483153a4-bce0-4443-b442-0090a0219bd7',err);
+				window.raudrohi.tmg('483153a4-bce0-4443-b442-0090a0219bd7',err);
 			} // catch
 		} // selftests.is_a_leap_year
 
@@ -115,7 +116,7 @@ raudrohi.date_and_time=function(){
 		this.number_of_days_in_year=function(i_year){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isNumber(i_year,'i_year',
+					window.raudrohi.base.assert_isNumber(i_year,'i_year',
 						'129da972-ec99-46b3-9b32-0090a0219bd7');
 				} // if
 				var i_out=365;
@@ -124,7 +125,7 @@ raudrohi.date_and_time=function(){
 				} // if
 				return i_out;
 			} catch (err){
-				raudrohi.tmg('d1eef323-f5e1-410a-bc42-0090a0219bd7',err);
+				window.raudrohi.tmg('d1eef323-f5e1-410a-bc42-0090a0219bd7',err);
 			} // catch
 		} // number_of_days_in_year
 
@@ -197,7 +198,7 @@ raudrohi.date_and_time=function(){
 				ht.put('12',31);
 				ht_number_of_days_in_a_months_cache_.put('2010',ht);
 			} catch (err){
-				raudrohi.tmg('ed3784c4-a87a-4b58-a852-0090a0219bd7',err);
+				window.raudrohi.tmg('ed3784c4-a87a-4b58-a852-0090a0219bd7',err);
 			} // catch
 		} // number_of_days_in_a_month_init_cache
 		number_of_days_in_a_month_init_cache();
@@ -205,14 +206,14 @@ raudrohi.date_and_time=function(){
 		function number_of_days_in_months_by_calculation(i_year){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isNumber(i_year,'i_year',
+					window.raudrohi.base.assert_isNumber(i_year,'i_year',
 						'f921bcea-52e9-48c5-a422-0090a0219bd7');
 					if (i_year<1){
-						raudrohi.tmg('7174e400-c4c8-4157-8f32-0090a0219bd7',
+						window.raudrohi.tmg('7174e400-c4c8-4157-8f32-0090a0219bd7',
 							"i_year=="+i_year);
 					} // if
 				} // if
-				var ht=raudrohi.base.pool_of_hashtables.get_empty_hashtable();
+				var ht=window.raudrohi.base.pool_of_hashtables.get_empty_hashtable();
 				ht.put('1',31);
 				ht.put('2',28);
 				if(self_public_.is_a_leap_year(i_year)===true){
@@ -230,7 +231,7 @@ raudrohi.date_and_time=function(){
 				ht.put('12',31);
 				return ht;
 			} catch (err){
-				raudrohi.tmg('2748eb62-26e3-4810-9e32-0090a0219bd7',err);
+				window.raudrohi.tmg('2748eb62-26e3-4810-9e32-0090a0219bd7',err);
 			} // catch
 		} // number_of_days_in_months_by_calculation
 
@@ -239,10 +240,10 @@ raudrohi.date_and_time=function(){
 		function number_of_days_in_months_ht_cloningfree(i_year){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isNumber(i_year,'i_year',
+					window.raudrohi.base.assert_isNumber(i_year,'i_year',
 						'335e2e72-58a7-4c5f-a632-0090a0219bd7');
 					if (i_year<1){
-						raudrohi.tmg('fa963a02-4947-42c6-8f12-0090a0219bd7',
+						window.raudrohi.tmg('fa963a02-4947-42c6-8f12-0090a0219bd7',
 							"i_year=="+i_year);
 					} // if
 				} // if
@@ -258,25 +259,25 @@ raudrohi.date_and_time=function(){
 				} // if
 				return ht_out;
 			} catch (err){
-				raudrohi.tmg('70f65103-4030-48ea-a752-0090a0219bd7',err);
+				window.raudrohi.tmg('70f65103-4030-48ea-a752-0090a0219bd7',err);
 			} // catch
 		} // number_of_days_in_months_ht_cloningfree
 
 		this.number_of_days_in_months=function(i_year){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isNumber(i_year,'i_year',
+					window.raudrohi.base.assert_isNumber(i_year,'i_year',
 						'69f4d854-4091-4021-be22-0090a0219bd7');
 					if (i_year<1){
-						raudrohi.tmg('642aeba5-dfc4-43fb-97f2-0090a0219bd7',
+						window.raudrohi.tmg('642aeba5-dfc4-43fb-97f2-0090a0219bd7',
 							"i_year=="+i_year);
 					} // if
 				} // if
 				var ht_orig=number_of_days_in_months_ht_cloningfree(i_year);
-				var ht_out=raudrohi.base.clone_hashtable(ht_orig);
+				var ht_out=window.raudrohi.base.clone_hashtable(ht_orig);
 				return ht_out;
 			} catch (err){
-				raudrohi.tmg('2951697f-3278-4da0-b612-0090a0219bd7',err);
+				window.raudrohi.tmg('2951697f-3278-4da0-b612-0090a0219bd7',err);
 			} // catch
 		} // number_of_days_in_months
 
@@ -285,16 +286,16 @@ raudrohi.date_and_time=function(){
 		this.number_of_days_in_a_month=function(i_month,i_year){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isNumber(i_month,'i_month',
+					window.raudrohi.base.assert_isNumber(i_month,'i_month',
 						'349d8a83-9c79-4425-8e41-0090a0219bd7');
-					raudrohi.base.assert_isNumber(i_year,'i_year',
+					window.raudrohi.base.assert_isNumber(i_year,'i_year',
 						'7498f223-f9b3-460e-b431-0090a0219bd7');
 					if((i_month<1)||(12<i_month)){
-						raudrohi.tmg('a3394361-1b16-49a2-b6e1-0090a0219bd7',
+						window.raudrohi.tmg('a3394361-1b16-49a2-b6e1-0090a0219bd7',
 							"i_month=="+i_month);
 					} // if
 					if (i_year<1){
-						raudrohi.tmg('37e222d3-61a6-4ef3-8251-0090a0219bd7',
+						window.raudrohi.tmg('37e222d3-61a6-4ef3-8251-0090a0219bd7',
 							"i_year=="+i_year);
 					} // if
 				} // if
@@ -313,7 +314,7 @@ raudrohi.date_and_time=function(){
 				} // if
 				return i_out;
 			} catch (err){
-				raudrohi.tmg('3bab25a4-08dd-48ff-9f41-0090a0219bd7',err);
+				window.raudrohi.tmg('3bab25a4-08dd-48ff-9f41-0090a0219bd7',err);
 			} // catch
 		} // number_of_days_in_a_month
 
@@ -324,13 +325,13 @@ raudrohi.date_and_time=function(){
 			try{
 				b_throw_if_contradiction_found = typeof(b_throw_if_contradiction_found) !== 'undefined' ? b_throw_if_contradiction_found : false;
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isNumber(i_day,'i_day',
+					window.raudrohi.base.assert_isNumber(i_day,'i_day',
 						'1919a675-a4c8-4ce0-b321-0090a0219bd7');
-					raudrohi.base.assert_isNumber(i_month,'i_month',
+					window.raudrohi.base.assert_isNumber(i_month,'i_month',
 						'2ad08024-755d-4f6b-bf41-0090a0219bd7');
-					raudrohi.base.assert_isNumber(i_year,'i_year',
+					window.raudrohi.base.assert_isNumber(i_year,'i_year',
 						'468d5142-b800-4a40-a231-0090a0219bd7');
-					raudrohi.base.assert_isBoolean(
+					window.raudrohi.base.assert_isBoolean(
 						b_throw_if_contradiction_found,
 						'b_throw_if_contradiction_found',
 						'5ebfde81-74e3-445e-b241-0090a0219bd7');
@@ -359,13 +360,13 @@ raudrohi.date_and_time=function(){
 				} // if
 				if (b_throw_if_contradiction_found===true){
 					if (b_out===true){
-						raudrohi.tmg('4c5114a1-74cf-4d31-a321-0090a0219bd7',
+						window.raudrohi.tmg('4c5114a1-74cf-4d31-a321-0090a0219bd7',
 							""+s_msg);
 					} // if
 				} // if
 				return b_out;
 			} catch (err){
-				raudrohi.tmg('4299cba1-85b2-4ed9-9e51-0090a0219bd7',err);
+				window.raudrohi.tmg('4299cba1-85b2-4ed9-9e51-0090a0219bd7',err);
 			} // catch
 		} // date_is_contradictory
 
@@ -375,13 +376,13 @@ raudrohi.date_and_time=function(){
 			try{
 				b_throw_if_contradiction_found = typeof(b_throw_if_contradiction_found) !== 'undefined' ? b_throw_if_contradiction_found : false;
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isNumber(i_hour,'i_hour',
+					window.raudrohi.base.assert_isNumber(i_hour,'i_hour',
 						'765d39b2-1437-428f-8d40-0090a0219bd7');
-					raudrohi.base.assert_isNumber(i_minute,'i_minute',
+					window.raudrohi.base.assert_isNumber(i_minute,'i_minute',
 						'3ac24a73-1e9a-4191-a520-0090a0219bd7');
-					raudrohi.base.assert_isNumber(i_second,'i_second',
+					window.raudrohi.base.assert_isNumber(i_second,'i_second',
 						'3822663f-1b6d-44a4-a050-0090a0219bd7');
-					raudrohi.base.assert_isBoolean(
+					window.raudrohi.base.assert_isBoolean(
 						b_throw_if_contradiction_found,
 						'b_throw_if_contradiction_found',
 						'4819f561-ef5a-4fb6-b950-0090a0219bd7');
@@ -406,13 +407,13 @@ raudrohi.date_and_time=function(){
 				} // if
 				if (b_throw_if_contradiction_found===true){
 					if (b_out===true){
-						raudrohi.tmg('4711e922-42a6-4f6e-ab40-0090a0219bd7',
+						window.raudrohi.tmg('4711e922-42a6-4f6e-ab40-0090a0219bd7',
 							""+s_msg);
 					} // if
 				} // if
 				return b_out;
 			} catch (err){
-				raudrohi.tmg('c24cedec-b3ff-498a-a350-0090a0219bd7',err);
+				window.raudrohi.tmg('c24cedec-b3ff-498a-a350-0090a0219bd7',err);
 			} // catch
 		} // hour_minute_second_is_contradictory
 
@@ -442,14 +443,14 @@ raudrohi.date_and_time=function(){
 			try{
 				b_throw_if_contradiction_found = typeof(b_throw_if_contradiction_found) !== 'undefined' ? b_throw_if_contradiction_found : false;
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
+					window.raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
 						'10034c52-20ac-45cf-9310-0090a0219bd7');
-					raudrohi.base.assert_isBoolean(
+					window.raudrohi.base.assert_isBoolean(
 						b_throw_if_contradiction_found,
 						'b_throw_if_contradiction_found',
 						'41ee50f4-ff1b-4865-8c40-0090a0219bd7');
 					var ar_keys=["day","month","year","hour","minute","second"];
-					raudrohi.base.assert_keysExist(ht_timestamp,'ht_timestamp',
+					window.raudrohi.base.assert_keysExist(ht_timestamp,'ht_timestamp',
 						ar_keys, '10fa8a03-de0e-4c35-b030-0090a0219bd7');
 				} // if
 				var b_out=false;
@@ -482,13 +483,13 @@ raudrohi.date_and_time=function(){
 				if (b_throw_if_contradiction_found===true){
 					// This branch is for the unix_time version only.
 					if (b_out===true){
-						raudrohi.tmg('51357285-2567-4279-a010-0090a0219bd7',
+						window.raudrohi.tmg('51357285-2567-4279-a010-0090a0219bd7',
 							""+s_msg);
 					} // if
 				} // if
 				return b_out;
 			} catch (err){
-				raudrohi.tmg('e338d4a6-cfc0-4b49-8d50-0090a0219bd7',err);
+				window.raudrohi.tmg('e338d4a6-cfc0-4b49-8d50-0090a0219bd7',err);
 			} // catch
 		} // timestamp_is_contradictory
 
@@ -497,18 +498,18 @@ raudrohi.date_and_time=function(){
 		this.unix_time_2_human_perceivable=function(ht_timestamp){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
+					window.raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
 						'b2950085-7112-4b25-965f-0090a0219bd7');
 					self_public_.timestamp_is_contradictory(ht_timestamp,true);
 				} // if
 				var s_emptystring="";
 				var s_format=ht_timestamp.get("s_format");
-				var ht_out=raudrohi.base.clone_hashtable(ht_timestamp);
+				var ht_out=window.raudrohi.base.clone_hashtable(ht_timestamp);
 				if(s_format==="human_perceivable"){
 					return ht_out;
 				} // if
 				if(s_format!="unix_time"){
-					raudrohi.tmg('53480f18-2dfb-41ae-b94f-0090a0219bd7',
+					window.raudrohi.tmg('53480f18-2dfb-41ae-b94f-0090a0219bd7',
 						"Something is wrong here. s_format==\""+s_format+"\".");
 				} // if
 				var i_unix_time=parseInt(s_emptystring+ht_timestamp.get("unix_time"),10);
@@ -527,7 +528,7 @@ raudrohi.date_and_time=function(){
 				ht_out.put('s_format',"human_perceivable");
 				return ht_out;
 			} catch (err){
-				raudrohi.tmg('35391ca1-794f-47ed-875f-0090a0219bd7',err);
+				window.raudrohi.tmg('35391ca1-794f-47ed-875f-0090a0219bd7',err);
 			} // catch
 		} // unix_time_2_human_perceivable
 
@@ -537,18 +538,18 @@ raudrohi.date_and_time=function(){
 		this.human_perceivable_2_unix_time=function(ht_timestamp){
 			try{
 				if(raudrohi_settings_debug_JavaScript===true){
-					raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
+					window.raudrohi.base.assert_isObject(ht_timestamp,'ht_timestamp',
 						'd5420eba-d2ba-4cd5-9a2f-0090a0219bd7');
 					self_public_.timestamp_is_contradictory(ht_timestamp,true);
 				} // if
 				var s_emptystring="";
 				var s_format=ht_timestamp.get("s_format");
-				var ht_out=raudrohi.base.clone_hashtable(ht_timestamp);
+				var ht_out=window.raudrohi.base.clone_hashtable(ht_timestamp);
 				if(s_format==="unix_time"){
 					return ht_out;
 				} // if
 				if(s_format!="human_perceivable"){
-					raudrohi.tmg('3b752d15-34cc-436f-891f-0090a0219bd7',
+					window.raudrohi.tmg('3b752d15-34cc-436f-891f-0090a0219bd7',
 						"Something is wrong here. s_format==\""+s_format+"\".");
 				} // if
 				var i_year=parseInt(s_emptystring+ht_timestamp.get('year'));
@@ -570,16 +571,16 @@ raudrohi.date_and_time=function(){
 				ht_out.put('s_format',"unix_time");
 				return ht_out;
 			} catch (err){
-				raudrohi.tmg('501e9b22-7e93-40fd-9a3f-0090a0219bd7',err);
+				window.raudrohi.tmg('501e9b22-7e93-40fd-9a3f-0090a0219bd7',err);
 			} // catch
 		} // human_perceivable_2_unix_time
 
 
 	} catch (err){
-		raudrohi.tmg('418f6e15-1ff7-401f-9f3f-0090a0219bd7',err);
+		window.raudrohi.tmg('418f6e15-1ff7-401f-9f3f-0090a0219bd7',err);
 	} // catch
-} // raudrohi.date_and_time
-raudrohi.date_and_time=new raudrohi.date_and_time();
+} // window.raudrohi.date_and_time
+window.raudrohi.date_and_time=new window.raudrohi.date_and_time();
 
 //------------------------------------------------------------------------
 

@@ -1,2 +1,0 @@
-
-This file exists to store its parent folder to a repository.
