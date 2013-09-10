@@ -32,10 +32,12 @@ or from the http://npmjs.org by executing
 
 This version exists mainly for 3 reasons:
 
-x) fulfill dependencies of other projects;
-x) to allow other, a bit bold, people to experiment with the RJSL;
-x) To demonstrate to possible employers/clients that
-   I have done something in JavaScript.
+*   fulfill dependencies of other projects;
+
+*   to allow other, a bit bold, people to experiment with the RJSL;
+
+*   to demonstrate to possible employers/clients that
+    I have done something in JavaScript.
 
 The documentation of it is in a pretty shoddy state. The shoddiest
 parts of the documentation are not even published.
