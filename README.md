@@ -20,7 +20,8 @@ A complete development package (size: ~1GiB) can be downloaded from:
 
 http://technology.softf1.com/raudrohi/
 
-or from the http://npmjs.org by executing
+Almost complete development version can be 
+downloaded from the http://npmjs.org by executing
 
     npm install raudrohi
 
